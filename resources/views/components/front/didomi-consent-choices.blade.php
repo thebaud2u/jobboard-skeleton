@@ -1,0 +1,1 @@
+<a href="javascript:Didomi.preferences.show()">{{ __('Consent choices') }}</a>

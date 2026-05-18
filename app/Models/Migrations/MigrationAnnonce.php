@@ -1,0 +1,92 @@
+<?php
+
+namespace App\Models\Migrations;
+
+use Illuminate\Database\Eloquent\Model;
+
+class MigrationAnnonce extends Model
+{
+	/**
+	 * The attributes that are mass assignable.
+	 *
+	 * @var array<int, string>
+	 */
+	protected $fillable = [
+		'id',
+		'id_annonce',
+		'id_membre',
+		'rubrique_libelle',
+		'type_libelle',
+		'sous_type_libelle',
+		'date_annonce',
+		'duree_diffusion',
+		'date_debut_diffusion',
+		'date_fin_diffusion',
+		'encadrement',
+		'a_la_une',
+		'civilite',
+		'nom',
+		'prenom',
+		'adresse_1',
+		'adresse_2',
+		'email',
+		'statut',
+		'siret',
+		'affixe',
+		'telephone',
+		'code_postal',
+		'ville',
+		'pays',
+		'site_web',
+		'mode_contact',
+		'id_race',
+		'id_race_autre_variete',
+		'lof',
+		'portee_id',
+		'identification_mere',
+		'identification_mere_type',
+		'portee_date_naissance',
+		'portee_date_disponibilite',
+		'portee_male',
+		'portee_femelle',
+		'portee_male_disponible',
+		'portee_femelle_disponible',
+		'portee_lieu_naissance_elevage',
+		'portee_precision_lieu_naissance',
+		'prix_vente_min',
+		'prix_vente_max',
+		'portee_reproductrices_n1',
+		'portee_n1',
+		'mise_reservation_race',
+		'mise_reservation_autre_variete',
+		'mise_reservation_lof',
+		'mise_reservation_identification_mere',
+		'mise_reservation_identification_mere_type',
+		'mise_reservation_periode_prevue_naissance',
+		'cession_race',
+		'cession_lof',
+		'cession_sexe',
+		'cession_identification',
+		'cession_identification_type',
+		'cession_nom',
+		'cession_date_naissance',
+		'cession_tarif',
+		'saillie_race',
+		'saillie_lof',
+		'saillie_sexe',
+		'saillie_identification',
+		'saillie_type_identification',
+		'saillie_nom',
+		'saillie_robe',
+		'saillie_date_naissance',
+		'recherche_race',
+		'recherche_lof',
+		'recherche_sexe',
+		'recherche_budget',
+		'titre',
+		'description',
+		'photos',
+		'autre_categorie',
+		'liste_articles'
+	];
+}
