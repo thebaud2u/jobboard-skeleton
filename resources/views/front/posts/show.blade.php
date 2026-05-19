@@ -13,7 +13,7 @@
 		@endif
 		<meta property="og:url" content="{{ Request::url() }}">
 		<meta property="og:type" content="website">
-		<meta property="og:site_name" content="Eleveurs Online">
+		<meta property="og:site_name" content="{{ env('APP_NAME') }}">
 		<meta property="og:locale" content="fr_FR">
 	@endpush
 
@@ -75,7 +75,7 @@
 			<div>
 				<x-front.primary-button class="">
 					{{ __('Create an alert') }}
-					
+
 					<svg width="10" height="13" viewBox="0 0 10 13" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M1.85938 1.46777L7.31392 6.46777L1.85938 11.4678" stroke="#F7F6EF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 					</svg>

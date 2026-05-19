@@ -24,8 +24,6 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
-use App\Enums\ProtrusionTypes;
-
 use App\Traits\{HasValuesCollection, ModerationTools, PublicationTools, SubscriptionTools};
 
 class Post extends Model implements Viewable, HasMedia
@@ -96,11 +94,6 @@ class Post extends Model implements Viewable, HasMedia
 	}
 
 	// Relations
-	public function appointments(): MorphMany
-	{
-		return $this->morphMany(MailLog::class, 'model');
-	}
-
 	public function mediable(): HasMany
 	{
 		return $this->hasMany(Mediable::class);
@@ -147,20 +140,5 @@ class Post extends Model implements Viewable, HasMedia
 			->where('element_type', '=', $elementType)
 			->where('element_id', '=', $elementId)
 			->count();
-	}
-
-	public function getProtrusionTypesInHuman(): string
-	{
-		$sentence = '';
-
-		if($this->values->has('protrusion_types')) {
-			foreach($this->values->get('protrusion_types') as $index => $protrusionType) {
-				$sentence .= __(ProtrusionTypes::class::from($protrusionType)->inHuman());
-
-				if($index+1 < count($this->values->get('protrusion_types'))) $sentence .= ', ';
-			}
-		}
-
-		return $sentence;
 	}
 }

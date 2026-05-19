@@ -14,8 +14,6 @@ use App\Models\Company;
 
 class RecentlyPublished extends Component
 {
-	public $forSpecies = 'dog';
-	public $forBreeds = null;
 	public $mode = 5;
 	public $doubleColumnDisplay = false;
 
@@ -55,37 +53,18 @@ class RecentlyPublished extends Component
 					PublicationStates::PublishedUpdatedWaitingModeration,
 					PublicationStates::PublishedUpgradedWaitingModeration
 				]);
-			})
-			->when($this->forSpecies, function($when) {
-				$when->whereHas('species', function($whereHas) {
-					$whereHas->where('slug->en', $this->forSpecies);
-				});
-			})
-			->when($this->forBreeds, function($when) {
-				$when->whereHas('breeds', function($whereHas) {
-					$whereHas->whereIn('slug', $this->forBreeds);
-				});
 			});
 	}
 
 	public function mount()
 	{
-		$this->forSpecies = is_array($this->forSpecies) 
-			? (reset($this->forSpecies) ?: 'dog')
-			: ($this->forSpecies ?: 'dog');
-		
-		if (!empty($this->forBreeds)) {
-			$this->forBreeds = Arr::flatten((array) $this->forBreeds);
-			$this->forBreeds = array_filter($this->forBreeds) ?: null;
-		}
+
 	}
 
 	public function render()
 	{
 		$key = 'recently_published_company_' . md5(json_encode([
-			'forSpecies' => $this->forSpecies,
-			'mode' => $this->mode,
-			'forBreeds' => $this->forBreeds,
+			'mode' => $this->mode
 		]));
 
 		$companies = Cache::remember($key, now()->addDay(), function () {
@@ -95,10 +74,7 @@ class RecentlyPublished extends Component
 				->get();
 		});
 
-		$key = 'count_all_companies_' . md5(json_encode([
-			'forSpecies' => $this->forSpecies,
-			'forBreeds' => $this->forBreeds,
-		]));
+		$key = 'count_all_companies_' . md5(json_encode([]));
 
 		$countCompanies = Cache::remember($key, now()->addDay(), function () {
 			return $this->baseCountAllCompanyQuery()

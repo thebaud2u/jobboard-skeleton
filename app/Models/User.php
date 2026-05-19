@@ -33,7 +33,7 @@ use Spatie\Sluggable\SlugOptions;
 
 use Overtrue\LaravelFavorite\Traits\Favoriter;
 
-use App\Enums\{BenefitConditions, PublicationStates, ResponseStates, ResponseTypes};
+use App\Enums\{PublicationStates, ResponseStates, ResponseTypes};
 
 use App\Notifications\CustomResetPassword;
 use App\Notifications\CustomVerifyEmail;
@@ -42,7 +42,7 @@ use App\Traits\{AutomaticEmails, DisplayAddress, HasValuesCollection, Moderation
 
 class User extends Authenticatable implements HasMedia, MustVerifyEmail
 {
-	use AutomaticEmails, DisplayAddress, Favoriter, HasRoles, HasSlug, HasValuesCollection, InteractsWithMedia, LogsActivity, Messagable, ModerationTools, Notifiable, SoftDeletes, SubscriptionTools;
+	use AutomaticEmails, DisplayAddress, Favoriter, HasRoles, HasSlug, HasValuesCollection, InteractsWithMedia, Messagable, ModerationTools, Notifiable, SoftDeletes, SubscriptionTools;
 
 	/**
 	 * The attributes that are mass assignable.
@@ -165,11 +165,6 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
 		return $this->hasMany(Alert::class);
 	}
 
-	public function animals(): HasMany
-	{
-		return $this->hasMany(Animal::class);
-	}
-
 	// All responses where the current user is the recipient
 	public function applicants(): HasMany
 	{
@@ -179,16 +174,6 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
 	public function applications(): HasMany
 	{
 		return $this->hasMany(Response::class, 'from_user_id');
-	}
-
-	public function appointments(): HasMany
-	{
-		return $this->hasMany(Appointment::class, 'from_user_id');
-	}
-
-	public function appointed(): HasMany
-	{
-		return $this->hasMany(Appointment::class, 'to_user_id');
 	}
 
 	public function company(): HasOne
@@ -201,11 +186,6 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
 		return $this->hasOne(Subscription::class)
 			->latestOfMany()
 			->withTrashed();
-	}
-
-	public function life(): MorphMany
-	{
-		return $this->morphMany(AnimalLife::class, 'model');
 	}
 
 	public function mailLogs(): HasMany
@@ -226,23 +206,6 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
 	public function posts(): HasMany
 	{
 		return $this->hasMany(Post::class);
-	}
-
-	public function professionnalActivities(): HasMany
-	{
-		return $this->HasMany(ProfessionnalActivity::class);
-	}
-
-	public function publishedProfessionnalActivities(): HasMany
-	{
-		return $this->HasMany(ProfessionnalActivity::class)
-			->whereHas('lastPublication', function($whereHas) {
-				$whereHas->whereIn('state', [
-					PublicationStates::Published,
-					PublicationStates::PublishedUpdatedWaitingModeration,
-					PublicationStates::PublishedUpgradedWaitingModeration
-				]);
-			});
 	}
 
 	public function readNotifications(): HasMany
@@ -267,41 +230,8 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
 		$values->put('optins', [
 			'optin_newsletter' => 0,
 			'optin_receive_info' => 0,
-			'optin_receive_deals' => 0,
-			'optin_figo' => 0
+			'optin_receive_deals' => 0
 		]);
-
-		if($this->hasRole('adopter')) {
-			$values->put('place_configuration', null)
-				->put('home_animals', [])
-				->put('animal_experience', null)
-				->put('household_composition', [])
-				->put('adoption_project', null)
-				->put('time_dedication', null);
-		}
-		elseif($this->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder', 'professionnal'])) {
-			$values->put('identity_card', null)
-				->put('siret', null)
-				->put('company_name', null)
-				->put('siren_document', null);
-
-			if($this->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder'])) {
-				$values->put('interested_in', null)
-					->put('acaced_certificates', [
-						'cats' => null,
-						'dogs' => null
-					])
-					->put('end_dates_acaced', [
-						'cats' => null,
-						'dogs' => null
-					])
-					->put('agreement_EOL', [
-						'cats' => false,
-						'dogs' => false
-					])
-					->put('home_document', null);
-			}
-		}
 
 		$this->values = $values;
 		$this->save();
@@ -312,40 +242,7 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
 		if(is_null($this->values)) $this->initValues();
 
 		$count = 0;
-		if($this->hasRole(['adopter', 'breeder', 'professionnal_breeder', 'individual_breeder']) && !is_null($this->values->get('interested_in'))) $count++;
-
-		if($this->hasRole('adopter')) {
-			$total = 8;
-
-			if(!is_null($this->values->get('place_configuration'))) $count++;
-			if(!empty($this->values->get('home_animals'))) $count++;
-			if(!is_null($this->values->get('animal_experience'))) $count++;
-			if(!empty($this->values->get('household_composition'))) $count++;
-			if(!is_null($this->values->get('adoption_project'))) $count++;
-		}
-		elseif($this->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder'])) {
-			if($this->hasRole(['breeder', 'professionnal_breeder'])) $total = 7;
-			elseif($this->hasRole('individual_breeder')) $total = 5;
-
-			if($this->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder'])) {
-				if(!is_null($this->values->get('interested_in'))) {
-					if($this->values->get('interested_in') != 'both') {
-						$total = $total-1;
-
-						if(data_get($this->values, 'agreement_EOL.dogs') == true || data_get($this->values, 'agreement_EOL.cats') == true) $count++;
-					}
-					else {
-						if(data_get($this->values, 'agreement_EOL.dogs') == true) $count++;
-						if(data_get($this->values, 'agreement_EOL.cats') == true) $count++;
-					}
-				}
-			}
-
-			if($this->hasRole(['professionnal_breeder'])) {
-				if(!is_null($this->values->get('company_name'))) $count++;
-				if(!is_null($this->values->get('siret'))) $count++;
-			}
-		}
+		$total = 2;
 
 		if(!is_null($this->phone)) $count++;
 		if($this->address()->count() > 0) $count++;
@@ -410,132 +307,6 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
 			->get();
 	}
 
-	public function checkBenefitConditions(BenefitConditions $condition): bool
-	{
-		if($condition->value == BenefitConditions::Adoption->value) return $this->animals->isNotEmpty() ? true : false;
-		elseif($condition->value == BenefitConditions::None->value) return true;
-	}
-
-	public function canCreateLitters(): bool
-	{
-		if($this->hasRole('individual_breeder')) {
-			$hasPostedLitterWithinYear = $this->posts()
-				->withTrashed()
-				->where(function($where) {
-					$where->where(function($subWhere) {
-						$subWhere->whereNotNull('deleted_at')
-							->whereNotNull('published_at');
-					})
-					->orWhere(function($subWhere) {
-						$subWhere->whereNull('deleted_at')
-							->whereNull('published_at');
-					})
-					->orWhere(function($subWhere) {
-						$subWhere->whereNull('deleted_at')
-							->whereNotNull('published_at');
-					});
-				})
-				->whereHas('type', function($whereHas) {
-					$whereHas->where('slug->en', 'litter');
-				})
-				->whereYear('created_at', Carbon::now()->year)
-				->get();
-
-			$hasPostedLitterYetToComeWithinYear = $this->posts()
-				->withTrashed()
-				->where(function($where) {
-					$where->where(function($subWhere) {
-						$subWhere->whereNotNull('deleted_at')
-							->whereNotNull('published_at');
-					})
-					->orWhere(function($subWhere) {
-						$subWhere->whereNull('deleted_at')
-							->whereNull('published_at');
-					})
-					->orWhere(function($subWhere) {
-						$subWhere->whereNull('deleted_at')
-							->whereNotNull('published_at');
-					});
-				})
-				->whereHas('type', function($whereHas) {
-					$whereHas->where('slug->en', 'litter-yet-to-come');
-				})
-				->whereYear('created_at', Carbon::now()->year)
-				->get();
-
-			if($hasPostedLitterYetToComeWithinYear->count() == 0 || $hasPostedLitterWithinYear->count() == 0) return true;
-			else return false;
-		}
-		elseif($this->hasRole('professionnal_breeder')) return true;
-	}
-
-	public function canCreateLitter(): bool
-	{
-		if($this->hasRole('individual_breeder')) {
-			$hasPostedLitterWithinYear = $this->posts()
-				->withTrashed()
-				->where(function($where) {
-					$where->where(function($subWhere) {
-						$subWhere->whereNotNull('deleted_at')
-							->whereNotNull('published_at');
-					})
-					->orWhere(function($subWhere) {
-						$subWhere->whereNull('deleted_at')
-							->whereNull('published_at');
-					})
-					->orWhere(function($subWhere) {
-						$subWhere->whereNull('deleted_at')
-							->whereNotNull('published_at');
-					});
-				})
-				->whereHas('type', function($whereHas) {
-					$whereHas->where('slug->en', 'litter');
-				})
-				->whereYear('created_at', Carbon::now()->year)
-				->get();
-
-			if($hasPostedLitterWithinYear->count() == 0) return true;
-			else return false;
-		}
-		elseif($this->hasRole('professionnal_breeder')) return true;
-	}
-
-	public function canCreateLitterYetToCome(): bool
-	{
-		if($this->hasRole('individual_breeder')) {
-			$hasPostedLitterYetToComeWithinYear = $this->posts()
-				->withTrashed()
-				->where(function($where) {
-					$where->where(function($subWhere) {
-						$subWhere->whereNotNull('deleted_at')
-							->whereNotNull('published_at');
-					})
-					->orWhere(function($subWhere) {
-						$subWhere->whereNull('deleted_at')
-							->whereNull('published_at');
-					})
-					->orWhere(function($subWhere) {
-						$subWhere->whereNull('deleted_at')
-							->whereNotNull('published_at');
-					});
-				})
-				->whereHas('type', function($whereHas) {
-					$whereHas->where('slug->en', 'litter-yet-to-come');
-				})
-				->whereYear('created_at', Carbon::now()->year)
-				->get();
-
-			if($hasPostedLitterYetToComeWithinYear->count() == 0) return true;
-			else return false;
-		}
-		elseif($this->hasRole('professionnal_breeder')) return true;
-	}
-
-	public function getFavoriteSpeciesFromInterest(): Species
-	{
-		return $this->values->get('interested_in') == 'cats' ? Species::where('slug->en', 'cat')->first() : Species::where('slug->en', 'dog')->first();
-	}
-
 	public function getPostStats(): array
 	{
 		$activePosts = $this->posts()->whereHas('lastPublication', function($whereHas) {
@@ -576,7 +347,7 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
 				->orWhere('type', '<>', ResponseTypes::Application);
 			})
 			->count();
-			
+
 		$applications = $this->applications()
 			->where('state', ResponseStates::Received)
 			->where(function($where) {
@@ -614,35 +385,6 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
 			'receivedResponses' => $receivedResponses,
 			'appointmentsToCome' => $appointmentsToCome
 		];
-	}
-
-	public function getProfessionnalActivitiesStats(): array
-	{
-		$views = 0;
-		$favorites = 0;
-		$responses = 0;
-
-		if($professionnalActivities = $this->professionnalActivities) {
-			foreach($professionnalActivities as $professionnalActivity) {
-				$views += views($professionnalActivity)->unique()->count();
-				$favorites += $professionnalActivity->favoriters()->count();
-				$responses += $professionnalActivity->responses->count();
-			}
-		}
-
-		return $stats = [
-			'views' => $views,
-			'favorites' => $favorites,
-			'responses' => $responses
-		];
-	}
-
-	public function countAnimalSpecies($speciesSlug): int
-	{
-		return $this->animals()->whereHas('species', function($whereHas) use($speciesSlug) {
-				$whereHas->where('slug->en', $speciesSlug);
-			})
-			->count();
 	}
 
 	public function countUnreadMessages()
@@ -694,19 +436,6 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
 	public function countPostsWaitingPublicationWithGivenOffer($slug): int
 	{
 		return $this->posts()->whereHas('lastPublication', function($whereHas) use($slug) {
-				$whereHas->where('state', PublicationStates::DraftWaitingModerationForPublication)
-					->whereHas('subscription', function($whereHasSubscription) use($slug) {
-						$whereHasSubscription->whereHas('offer', function($whereHasOffer) use($slug) {
-							$whereHasOffer->where('slug', $slug);
-					});
-				});
-			})
-			->count();
-	}
-
-	public function countProfessionnalActivitiessWaitingPublicationWithGivenOffer($slug): int
-	{
-		return $this->professionnalActivities()->whereHas('lastPublication', function($whereHas) use($slug) {
 				$whereHas->where('state', PublicationStates::DraftWaitingModerationForPublication)
 					->whereHas('subscription', function($whereHasSubscription) use($slug) {
 						$whereHasSubscription->whereHas('offer', function($whereHasOffer) use($slug) {

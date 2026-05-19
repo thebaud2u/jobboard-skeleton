@@ -142,7 +142,7 @@
 											{{ $comment->likes->count() }}
 										</span>
 
-										
+
 										@if($source != 'company' && Auth::guard('web')->check())
 											@php
 												$currentUser = Auth::guard('web')->user();

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Enums\ResponseTypes;
 
-use App\Models\{Animal, Company, Response, Post, ProfessionnalActivity};
+use App\Models\{Company, Response, Post};
 
 class MyMessages extends Component
 {
@@ -61,10 +61,9 @@ class MyMessages extends Component
 		$this->applicants = Auth::guard('web')->user()
 			->applicants()
 			->when($this->filters['type'], function($when) {
-				if($this->filters['type'] == 'posts' || $this->filters['type'] == 'company' || $this->filters['type'] == 'professionnal-activities') {
-					if($this->filters['type'] == 'posts') $class = [Animal::class, Post::class];
+				if($this->filters['type'] == 'posts' || $this->filters['type'] == 'company') {
+					if($this->filters['type'] == 'posts') $class = [Post::class];
 					elseif($this->filters['type'] == 'company') $class = [Company::class];
-					elseif($this->filters['type'] == 'professionnal-activities') $class = [ProfessionnalActivity::class];
 
 					$when->whereHasMorph('model', $class)
 						->where(function($where) {
@@ -86,7 +85,7 @@ class MyMessages extends Component
 						$subWhere->where('responses.values->archive->answerer', false)
 							->where('responses.type', ResponseTypes::Messaging);
 					})
-					->orWhereIn('responses.type', [ResponseTypes::EleveursOnline, ResponseTypes::Figo]);
+					->orWhere('responses.type', ResponseTypes::Self);
 				});
 			})
 			->when($this->filters['not-read-only'], function($when) {
@@ -104,7 +103,7 @@ class MyMessages extends Component
 		$this->applications = Auth::guard('web')->user()
 			->applications()
 			->when($this->filters['type'], function($when) {
-				if($this->filters['type'] == 'posts' || $this->filters['type'] == 'company' || $this->filters['type'] == 'professionnal-activities') {
+				if($this->filters['type'] == 'posts' || $this->filters['type'] == 'company') {
 					if($this->filters['type'] == 'posts') $class = [Animal::class, Post::class];
 					elseif($this->filters['type'] == 'company') $class = [Company::class];
 					elseif($this->filters['type'] == 'professionnal-activities') $class = [ProfessionnalActivity::class];
@@ -129,7 +128,7 @@ class MyMessages extends Component
 						$subWhere->where('responses.values->archive->asking', false)
 							->where('responses.type', ResponseTypes::Messaging);
 					})
-					->orWhereIn('responses.type', [ResponseTypes::EleveursOnline, ResponseTypes::Figo]);
+					->orWhere('responses.type', ResponseTypes::Self);
 				});
 			})
 			->when($this->filters['not-read-only'], function($when) {

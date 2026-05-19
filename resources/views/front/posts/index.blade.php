@@ -73,7 +73,7 @@
 		<meta property="og:image" content="{{ asset('/storage/eleveurs_online.jpg') }}">
 		<meta property="og:url" content="{{ env('APP_URL') }}/{{ $canonical }}">
 		<meta property="og:type" content="website">
-		<meta property="og:site_name" content="Eleveurs Online">
+		<meta property="og:site_name" content="{{ env('APP_NAME') }}">
 		<meta property="og:locale" content="fr_FR">
 	@endpush
 

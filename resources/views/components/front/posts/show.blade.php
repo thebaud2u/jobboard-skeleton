@@ -3,45 +3,6 @@
 		<x-front.ad-slot slotName="banniere_haute" variant="all" :targeting="['Targetingslug' => Request::url(), 'role' => 'adoptant', 'espece' => $species->getTranslation('slug', 'fr')]" />
 	</div>
 
-	<nav class="w-full max-w-[1200px] px-4 md:px-8 lg:px-0 text-sm text-breeder-deepblue mb-4 mt-8">
-		{{-- Breadcrumb --}}
-		@php
-			$sex = '';
-			$prefix = '';
-
-			if($animalValues->get('sex') == 'male') $sex = __('Male');
-			else $sex = __('Female');
-
-			if($postType->getTranslation('slug', 'en') == 'litter' || $postType->getTranslation('slug', 'en') == 'litter-yet-to-come') {
-				if($displayType == 'animal') {
-					$prefix = $species->getTranslation('slug', 'en') == 'cat' ? __('Kitten') : __('Puppy');
-				}
-				elseif($postType->getTranslation('slug', 'en') == 'litter') {
-					$prefix = __('Litter');
-					$sex = '';
-				}
-				elseif($postType->getTranslation('slug', 'en') == 'litter-yet-to-come') {
-					$prefix = __('Litter yet to come');
-					$sex = '';
-				}
-			}
-			elseif($postType->getTranslation('slug', 'en') === 'retired-breeder') {
-				$prefix = __('Adult');
-			}
-			elseif($postType->getTranslation('slug', 'en') === 'stud') {
-				$prefix = __('Stud');
-			}
-
-			$currentPage = $prefix.' '.$sex;
-		@endphp
-		@if(!empty($breadcrumb))
-			@include('components.front.breadcrumb', [
-				'breadcrumb' => $breadcrumb,
-				'currentPage' => $currentPage,
-			])
-		@endif
-	</nav>
-
 	<div x-data="{}" class="flex flex-row xlsm:justify-between max-xlsm:flex-col max-xlsm:items-center mt-2 max-w-[1200px] w-full text-breeder-deepblue lg:gap-x-4">
 		{{-- Content --}}
 		<div class="text-sm lg:text-base max-w-[870px] md:w-[870px] w-full">
@@ -154,9 +115,9 @@
 									<g filter="url(#filter0_d_2400_38252)">
 										<path d="M30 50C18.9543 50 10 41.0457 10 30C10 18.9543 18.9543 10 30 10C41.0457 10 50 18.9543 50 30C50 41.0457 41.0457 50 30 50Z" fill="white"/>
 									</g>
-									
+
 									<path d="M33.6367 20.9092L24.5458 30.0001L33.6367 39.091" stroke="#0E1954" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-									
+
 									<defs>
 										<filter id="filter0_d_2400_38252" x="0" y="0" width="60" height="60" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 											<feFlood flood-opacity="0" result="BackgroundImageFix"/>
@@ -262,7 +223,7 @@
 								else $source = $animal;
 							@endphp
 
-							<livewire:front.space.favorites.toggle-favorite 
+							<livewire:front.space.favorites.toggle-favorite
 								:target="$source"
 								:key="'toggle-favorite-component'" />
 						</div>
@@ -810,14 +771,14 @@
 						($postType->getTranslation('slug', 'en') == 'stud')
 					)) ||
 					($displayType == 'animal' && ($animal->lastLife->isAvailable() || $animal->lastLife->isReserved()))
-				)	
+				)
 					<div class="px-6 flex flex-col w-full gap-4">
 						@include('components.front.responses.application', [
 							'post' => $post,
 							'hasApplyied' => $hasApplyied,
 							'response' => $response
 						])
-					
+
 						@if($company->user->phone)
 							@include('components.front.responses.call', [
 								'post' => $post

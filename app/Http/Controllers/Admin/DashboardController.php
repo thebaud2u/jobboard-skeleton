@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Enums\{PublicationStates, ModerationStates};
 
-use App\Models\{Animal, Company, Moderation, Post, ProfessionnalActivity, Subscription, User};
+use App\Models\{Company, Moderation, Post, Subscription, User};
 
 class DashboardController extends Controller
 {
@@ -37,15 +37,6 @@ class DashboardController extends Controller
 			})
 			->count();
 
-		$countProfessionnalActivities = ProfessionnalActivity::whereHas('lastPublication', function($whereHas) {
-				$whereHas->whereIn('state', [
-					PublicationStates::Published,
-					PublicationStates::PublishedUpdatedWaitingModeration,
-					PublicationStates::PublishedUpgradedWaitingModeration
-				]);
-			})
-			->count();
-
 		$latestModerationIds = Moderation::select(DB::raw('MAX(id) as id'))
 			->groupBy('model_type', 'model_id')
 			->pluck('id')
@@ -59,13 +50,11 @@ class DashboardController extends Controller
 			->count();
 
 		return view('admin.dashboard', [
-			'countAnimals' => Animal::all()->count(),
 			'countCompanies' => $countCompanies,
 			'countModerations' => $countModeration,
 			'countPosts' => $countPosts,
 			'countSubscriptions' => Subscription::all()->count(),
 			'countUsers' => User::all()->count(),
-			'countProfessionnalActivities' => $countProfessionnalActivities,
 		]);
 	}
 }

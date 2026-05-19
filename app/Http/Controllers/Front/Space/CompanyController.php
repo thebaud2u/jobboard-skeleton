@@ -12,7 +12,7 @@ use Illuminate\Support\Carbon;
 
 use App\Enums\PublicationStates;
 
-use App\Models\{Animal, Company, Offer};
+use App\Models\{Company, Offer};
 
 use App\Services\StripeService;
 
@@ -42,15 +42,6 @@ class CompanyController extends Controller
 					$isPublished = $company->isPublished();
 					$offer = $company->offer();
 
-					$source = isset($forModeration['breeds']) ? $company->constructBreedsFromModeration() : $company->breeds;
-
-					if($source->isNotEmpty()) {
-						foreach($source as $breed) {
-							$breeds[$breed->slug] = $breed->name;
-						}
-					}
-					else $breeds = [];
-
 					// Current offer end date
 					if($isPublished && !$offer->free) {
 						$companyOfferEndsAtDate = $lastPublication->end_date->startOfDay();
@@ -70,8 +61,7 @@ class CompanyController extends Controller
 						'photos' => $company->getMedia('photos'),
 						'logo' => $company->getMedia('logo'),
 						'name' => isset($forModeration['name']) ? $forModeration['name'] : $company->name,
-						'dateDiffForArchiving' => $dateDiffForArchiving,
-						'breeds' => $breeds
+						'dateDiffForArchiving' => $dateDiffForArchiving
 					];
 				}
 				elseif($user->countCompanyCreditAvailable() > 0) {

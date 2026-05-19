@@ -9,15 +9,13 @@ use Livewire\Attributes\On;
 use App\Enums\PostTypesAvailable;
 use App\Enums\PublicationStates;
 
-use App\Models\{Breed, Company, City, Search, Species};
+use App\Models\{Company, City, Search};
 
 class Index extends Component
 {
 	use WithPagination;
 
 	public $filters;
-	public Breed $breed;
-	public Species $species;
 
 	#[On('companies-filters')]
 	public function search(array $filters)
@@ -51,13 +49,9 @@ class Index extends Component
 		$this->filters['company_cities_lat'] = null;
 		$this->filters['company_cities_lng'] = null;
 		$this->filters['company_distance'] = 0;
-		$this->filters['company_breed'] = null;
-
-		// Advanced filters
-		$this->filters['company_post_type_available'] = [];
-		$this->filters['company_order_by'] = 'revelancy';
 
 		// Advanced search filters
+		$this->filters['company_post_type_available'] = [];
 		$this->filters['company_order_by'] = 'revelancy';
 
 		if(session()->has('filters')) {
@@ -70,20 +64,9 @@ class Index extends Component
 			if(!empty($filters['company_city_id'])) $this->filters['company_city_id'] = $filters['company_city_id'];
 			if(!empty($filters['company_cities'])) $this->filters['company_cities'] = $filters['company_cities'];
 			if(!empty($filters['company_distance'])) $this->filters['company_distance'] = $filters['company_distance'];
-			if(!empty($filters['company_breed'])) $this->filters['company_breed'] = $filters['company_breed'];
 
 			if(!empty($filters['company_post_type_available'])) $this->filters['company_post_type_available'] = $filters['company_post_type_available'];
 			if(!empty($filters['company_order_by'])) $this->filters['company_order_by'] = $filters['company_order_by'];
-		}
-
-		$this->breedsList = $this->species->breeds;
-
-		if($this->breed->exists && $this->breed->species->getTranslation('slug', 'en') == $this->species->getTranslation('slug', 'en')) {
-			$this->filters['company_breed'] = $this->breed->slug;
-		}
-		else {
-			$this->filters['company_breed'] = null;
-			$this->breed = new Breed;
 		}
 	}
 
@@ -141,14 +124,6 @@ class Index extends Component
 					PublicationStates::PublishedUpgradedWaitingModeration
 				]);
 			})
-			->whereHas('species', function($whereHas) {
-				$whereHas->where('slug->en', $this->species->getTranslation('slug', 'en'));
-			})
-			->when($this->filters['company_breed'], function($when) {
-				$when->whereHas('breeds', function($whereHas) {
-					$whereHas->where('slug', $this->filters['company_breed']);
-				});
-			})
 			->when($this->filters['company_post_type_available'], function($when) {
 				$when->whereHas('user', function($whereHasUser) {
 					$whereHasUser->whereHas('posts', function($whereHasPosts) {
@@ -156,18 +131,6 @@ class Index extends Component
 							$whereHasType->where(function($where) {
 								if(in_array(PostTypesAvailable::LittersAvailable->value, $this->filters['company_post_type_available'])) {
 									$where->orWhere('slug->en', 'litter');
-								}
-
-								if(in_array(PostTypesAvailable::LittersSoonAvailable->value, $this->filters['company_post_type_available'])) {
-									$where->orWhere('slug->en', 'litter-yet-to-come');
-								}
-
-								if(in_array(PostTypesAvailable::RetiredAdultsAvailable->value, $this->filters['company_post_type_available'])) {
-									$where->orWhere('slug->en', 'retired-breeder');
-								}
-
-								if(in_array(PostTypesAvailable::StudsAvailable->value, $this->filters['company_post_type_available'])) {
-									$where->orWhere('slug->en', 'stud');
 								}
 							});
 
@@ -187,9 +150,6 @@ class Index extends Component
 					$where->where('name', 'LIKE', '%'.$this->filters['company_keyword'].'%')
 						->orWhere('slug', 'LIKE', '%'.$this->filters['company_keyword'].'%')
 						->orWhere('description', 'LIKE', '%'.$this->filters['company_keyword'].'%')
-						->orWhereHas('species', function($whereHasSpecies) {
-							$whereHasSpecies->where('name', 'LIKE', '%'.$this->filters['company_keyword'].'%');
-						})
 						->orWhereHas('address', function($whereHasAddress) {
 							$whereHasAddress->where('street', 'LIKE', '%'.$this->filters['company_keyword'].'%')
 								->orWhere('custom_city', 'LIKE', '%'.$this->filters['company_keyword'].'%')

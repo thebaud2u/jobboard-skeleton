@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Enums\{ResponseStates, ResponseTypes};
 
-use App\Models\{Animal, Company, ProfessionnalActivity, Response, Post};
+use App\Models\{Company, ProfessionnalActivity, Response, Post};
 
 class Filters extends Component
 {
@@ -28,7 +28,6 @@ class Filters extends Component
 		$this->filters['not-read-only'] = false;
 
 		$postResponsesApplicant = Auth::guard('web')->user()->applicants()
-			->whereHasMorph('model', [Animal::class, Post::class])
 			->where(function($where) {
 				$where->where(function($subWhere) {
 					$subWhere->where('values->archive->answerer', false)
@@ -39,7 +38,6 @@ class Filters extends Component
 			->get();
 
 		$postResponsesApplications = Auth::guard('web')->user()->applications()
-			->whereHasMorph('model', [Animal::class, Post::class])
 			->where(function($where) {
 				$where->where(function($subWhere) {
 					$subWhere->where('values->archive->asking', false)
@@ -78,32 +76,6 @@ class Filters extends Component
 		$hasCompanyResponses = $companyResponsesApplicant->merge($companyResponsesApplications);
 
 		if($hasCompanyResponses->isNotEmpty()) $this->types[] = ['value' => 'company', 'label' => __('Company messages')];
-
-		$professionnalActivityResponsesApplicant = Auth::guard('web')->user()->applicants()
-			->whereHasMorph('model', [ProfessionnalActivity::class])
-			->where(function($where) {
-				$where->where(function($subWhere) {
-					$subWhere->where('values->archive->answerer', false)
-						->where('type', ResponseTypes::Application);
-				})
-				->orWhere('type', '<>', ResponseTypes::Application);
-			})
-			->get();
-
-		$professionnalActivityResponsesApplications = Auth::guard('web')->user()->applications()
-			->whereHasMorph('model', [ProfessionnalActivity::class])
-			->where(function($where) {
-				$where->where(function($subWhere) {
-					$subWhere->where('values->archive->asking', false)
-						->where('type', ResponseTypes::Application);
-				})
-				->orWhere('type', '<>', ResponseTypes::Application);
-			})
-			->get();
-
-		$hasProfessionnalActivityResponses = $professionnalActivityResponsesApplicant->merge($professionnalActivityResponsesApplications);
-
-		if($hasProfessionnalActivityResponses->isNotEmpty()) $this->types[] = ['value' => 'professionnal-activities', 'label' => __('Professionnal activities messages')];
 
 		$applicantsArchived = Auth::guard('web')->user()
 			->applicants()

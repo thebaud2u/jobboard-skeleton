@@ -34,37 +34,45 @@
 			</div>
 
 			<div {{-- wire:poll.5s.visible="refreshConversation" --}} class="flex flex-col p-6 md:max-h-[760px]">
-				@if($response->type->value != 'figo' && $response->type->value != 'eleveurs-online')
-					@if($appointment && !$appointmentPassed)
-						<div class="flex flex-row justify-between items-center w-full bg-breeder-blue text-breeder-deepblue rounded-xl px-4 py-2">
-							<div class="flex flex-row items-center gap-x-1">
-								<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M11.5833 0.75V3.75M4.91667 0.75V3.75M0.75 6.75H15.75M2.41667 2.25H14.0833C15.0038 2.25 15.75 2.92157 15.75 3.75V14.25C15.75 15.0784 15.0038 15.75 14.0833 15.75H2.41667C1.49619 15.75 0.75 15.0784 0.75 14.25V3.75C0.75 2.92157 1.49619 2.25 2.41667 2.25Z" stroke="#0E1954" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-								</svg>
-
-								{!! __(':typeAppointment appointment the <strong>:date</strong> at <strong>:hour</strong>', ['typeAppointment' => strtolower(__($appointment->type->inHuman())), 'date' => $appointment->date->translatedFormat('l d F'), 'hour' => $appointment->values->get('start_hour')]) !!}
+				@if($response->type->value == 'self')
+					<div class="flex flex-row gap-x-3 items-end">
+						<div class="shrink-0">
+							<div class="w-[46px] h-[46px] bg-white rounded-full flex justify-center items-center">
+								<img src="{{ asset('storage/eleveurs_online.jpg') }}" alt="{{ $toUser->name }}" class="object-cover w-[46px] h-[46px] rounded-full" />
 							</div>
-
-							@if($situation == 'answerer')
-								<div class="flex flex-row gap-x-2">
-									<a href="{{ route('space.appointments.my-appointments', ['appointment' => $appointment->id]) }}" title="{{ __('Update the appointment') }}">
-										<svg width="18" height="18" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<path d="M7.7093 2.5814H2.49096C2.09553 2.5814 1.7163 2.73848 1.43669 3.01809C1.15708 3.2977 1 3.67693 1 4.07235V14.509C1 14.9045 1.15708 15.2837 1.43669 15.5633C1.7163 15.8429 2.09553 16 2.49096 16H12.9276C13.3231 16 13.7023 15.8429 13.9819 15.5633C14.2615 15.2837 14.4186 14.9045 14.4186 14.509V9.2907M13.3004 1.46318C13.597 1.16661 13.9992 1 14.4186 1C14.838 1 15.2402 1.16661 15.5368 1.46318C15.8334 1.75975 16 2.16198 16 2.5814C16 3.00081 15.8334 3.40304 15.5368 3.69961L8.45478 10.7817L5.47287 11.5271L6.21835 8.54522L13.3004 1.46318Z" stroke="#0E1954" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-										</svg>
-									</a>
-
-									<div x-on:click.prevent="$dispatch('open-modal', 'cancel-appointment-modal');" title="{{ __('Cancel the appointment') }}" class="cursor-pointer">
-										<svg width="18" height="18" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<path d="M1 4H2.66667M2.66667 4H16M2.66667 4V14.5C2.66667 14.8978 2.84226 15.2794 3.15482 15.5607C3.46738 15.842 3.89131 16 4.33333 16H12.6667C13.1087 16 13.5326 15.842 13.8452 15.5607C14.1577 15.2794 14.3333 14.8978 14.3333 14.5V4M5.16667 4V2.5C5.16667 2.10218 5.34226 1.72064 5.65482 1.43934C5.96738 1.15804 6.39131 1 6.83333 1H10.1667C10.6087 1 11.0326 1.15804 11.3452 1.43934C11.6577 1.72064 11.8333 2.10218 11.8333 2.5V4M6.83333 7.75V12.25M10.1667 7.75V12.25" stroke="#0E1954" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-										</svg>
-									</div>
-
-									@include('components.front.space.responses.cancel-appointment-modal')
-								</div>
-							@endif
 						</div>
-					@endif
 
+						<div class="flex flex-col max-w-sm gap-y-2 lg:w-full lg:max-w-[470px]">
+							<div class="flex flex-col space-y-4 mt-4 max-h-[700px] overflow-y-scroll" x-data>
+								@if($messages->isNotEmpty())
+									@foreach($messages as $message)
+										<div class="flex flex-row-reverse gap-x-3 items-center">
+											<div class="flex flex-col max-w-sm gap-y-2 lg:w-full lg:max-w-[470px] items-end">
+												<span class="text-sm text-breeder-deepblue font-medium">
+													{{ $message->created_at->format('d/m/Y - H:i:s') }}
+												</span>
+
+												<div class="rounded-lg bg-breeder-deepblue p-4 text-sm xl:text-base text-breeder-cream">
+													{!! $message->body !!}
+												</div>
+
+												<div class="flex flex-row text-xs text-gray-500">
+													@if($message->is_read)
+														{{ __('Read the :date', ['date' => $message->updated_at->format('d/m/Y H:i:s')]) }}
+													@else
+														{{ __('Not read message') }}
+													@endif
+												</div>
+											</div>
+										</div>
+									@endforeach
+
+									<div x-init="$el.scrollIntoView({ behavior: 'smooth', block: 'end' })"></div>
+								@endif
+							</div>
+						</div>
+					</div>
+				@else
 					@if($messages->isNotEmpty())
 						<div class="flex flex-col space-y-4 mt-4 h-[60%] overflow-y-scroll" x-data>
 							@foreach($messages as $message)
@@ -278,25 +286,13 @@
 								@endif
 
 								@if($response->state->value != 'closed')
-									<x-front.primary-button wire:click="send" @click="document.body.style.overflow = 'auto';
-										if ({{ $messages->isEmpty() ? 'true' : 'false' }}) {
-												pushContactEvent('non_renseignee');
-											}">
+									<x-front.primary-button wire:click="send">
 										{{ __('Send') }}
 									</x-front.primary-button>
 								@endif
 							</div>
 						</div>
 					</div>
-
-					@if($situation == 'answerer')
-						@if($showAutomaticMessageTemplatesModal)
-							<livewire:front.space.responses.mail-templates
-								:response="$response"
-								:model="$model"
-								:key="'mail-templates'" />
-						@endif
-					@endif
 
 					@if($situation == 'asking')
 						@if($showCommentModal)
@@ -314,73 +310,6 @@
 							</div>
 						@endif
 					@endif
-				@else
-					<div class="flex flex-row gap-x-3 items-end">
-						<div class="shrink-0">
-							<div class="w-[46px] h-[46px] bg-white rounded-full flex justify-center items-center">
-								<img src="{{ $response->type->value == 'figo' ? asset('storage/assuropoil-logo.png') : asset('storage/eleveurs_online.jpg') }}" alt="{{ $toUser->name }}" class="object-cover w-[46px] h-[46px] rounded-full" />
-							</div>
-						</div>
-
-						<div class="flex flex-col max-w-sm gap-y-2 lg:w-full lg:max-w-[470px]">
-							<div class="flex flex-col space-y-4 mt-4 max-h-[700px] overflow-y-scroll" x-data>
-								@if($messages->isNotEmpty())
-									@foreach($messages as $message)
-										<div class="flex flex-row-reverse gap-x-3 items-center">
-											<div class="flex flex-col max-w-sm gap-y-2 lg:w-full lg:max-w-[470px] items-end">
-												<span class="text-sm text-breeder-deepblue font-medium">
-													{{ $message->created_at->format('d/m/Y - H:i:s') }}
-												</span>
-
-												<div class="rounded-lg bg-breeder-deepblue p-4 text-sm xl:text-base text-breeder-cream">
-													{!! $message->body !!}
-												</div>
-
-												<div class="flex flex-row text-xs text-gray-500">
-													@if($message->is_read)
-														{{ __('Read the :date', ['date' => $message->updated_at->format('d/m/Y H:i:s')]) }}
-													@else
-														{{ __('Not read message') }}
-													@endif
-												</div>
-											</div>
-										</div>
-									@endforeach
-
-									<div x-init="$el.scrollIntoView({ behavior: 'smooth', block: 'end' })"></div>
-								@elseif($response->type->value == 'figo')
-									<div class="rounded-lg bg-breeder-cream px-6 py-4 text-sm xl:text-base text-breeder-deepblue">
-										<div class="flex flex-col gap-y-2">
-											<span class="font-bold">
-												{{ __('Congratulations for your reservation !') }}
-											</span>
-
-											<span>
-												{{ __('Your new companion is waiting for you... What if you were already thinking about his health ?') }}
-											</span>
-
-											<span>
-												{{ __('Assur O\'Poil, the health insurance recommended by Éleveurs Online, accompanies you from the start with advice, tips and exclusive offers.') }}
-											</span>
-
-											<form id="figo" action="{{ route('api-assuropoil') }}" method="POST" class="my-4" target="_blank">
-												@csrf
-
-												<input type="hidden" name="user_id" value="{{ Auth::guard('web')->user()->id }}" />
-												<input type="hidden" name="from" value="eol-conversation-message" />
-
-												<x-front.primary-button>
-													{{ __('I want to protect my pet') }}
-												</x-front.primary-button>
-											</form>
-										</div>
-									</div>
-
-									<div x-init="$el.scrollIntoView({ behavior: 'smooth', block: 'end' })"></div>
-								@endif
-							</div>
-						</div>
-					</div>
 				@endif
 			</div>
 		</div>

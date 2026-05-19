@@ -15,7 +15,7 @@
 		<div class="flex flex-col lg:items-start lg:flex-row max-lg:space-y-4 lg:space-x-4 max-md:px-6 h-full my-8 max-xlsm:px-4">
 			<div class="lg:flex-1 w-full lg:flex-none lg:w-full lg:max-w-[347px] bg-white max-md:py-3 md:h-full md:max-h-[938px] overflow-hidden">
 				<livewire:front.space.responses.filters :key="'my-reponses-filters'" />
-				
+
 				<livewire:front.space.responses.my-messages
 					:activeResponse="$response"
 					:key="'my-messages'" />

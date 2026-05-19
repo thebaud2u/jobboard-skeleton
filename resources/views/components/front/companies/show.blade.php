@@ -2,16 +2,6 @@
 	<x-front.ad-slot slotName="banniere_haute" variant="all" :targeting="['Targetingslug' => Request::url(), 'role' => 'adoptant', 'espece' => $company->species?->first()->name == 'dog' ? 'chien' : 'chat']" />
 </div>
 
-<nav class="w-full max-w-[1200px] px-4 md:px-8 lg:px-0 text-sm text-breeder-deepblue mb-2">
-	{{-- Breadcrumb --}}
-	@if(!empty($breadcrumb))
-		@include('components.front.breadcrumb', [
-			'breadcrumb' => $breadcrumb,
-			'currentPage' => $company->name,
-		])
-	@endif
-</nav>
-
 <div class="flex flex-row xlsm:justify-between max-xlsm:flex-col max-xlsm:items-center mt-2 max-w-[1200px] w-full text-breeder-deepblue">
 	{{-- Content --}}
 	<div class="text-sm lg:text-base max-w-[870px] w-full">

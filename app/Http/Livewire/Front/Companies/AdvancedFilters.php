@@ -7,11 +7,10 @@ use Livewire\Attributes\On;
 
 use App\Enums\PostTypesAvailable;
 
-use App\Models\{Breed, PostType};
+use App\Models\PostType;
 
 class AdvancedFilters extends Component
 {
-	public Breed $breed;
 
 	public $filters;
 	public $responsive = false;
@@ -19,6 +18,7 @@ class AdvancedFilters extends Component
 	// Filters fields
 	public $postsTypesAvailable;
 
+	/*
 	#[On('breed-selected-in-filters')]
 	public function setBreed($breed)
 	{
@@ -27,7 +27,7 @@ class AdvancedFilters extends Component
 			$this->filters['company_breed'] = $breed;
 			$this->search();
 		}
-	}
+	}*/
 
 	public function search()
 	{
@@ -46,7 +46,6 @@ class AdvancedFilters extends Component
 	public function mount()
 	{
 		$this->filters['company_post_type_available'] = [];
-		$this->filters['company_breed'] = $this->breed->slug;
 		$this->filters['company_order_by'] = 'revelancy';
 
 		$this->postsTypesAvailable = PostTypesAvailable::asHumanArray();

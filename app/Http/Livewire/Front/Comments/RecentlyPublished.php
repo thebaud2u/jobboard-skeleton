@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Enums\{ModerationStates, CommentStates};
 
-use App\Models\{Breed, Company, Moderation, Comment, CommentLike, Species, User};
+use App\Models\{Company, Moderation, Comment, CommentLike, User};
 
 class RecentlyPublished extends Component
 {
@@ -151,7 +151,7 @@ class RecentlyPublished extends Component
 	public function mount()
 	{
 		if($this->source == 'company') $this->class = Company::class;
-		elseif($this->source == 'user' || $this->source == 'reply') $this->class = User::class;
+		elseif($this->source == 'reply') $this->class = User::class;
 
 		$this->refreshComments();
 	}

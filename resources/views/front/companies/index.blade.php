@@ -1,18 +1,12 @@
 <x-app-layout>
 	@push('seo')
-		@if($breed->id)
 			@php
-				$metaTitle = 'Trouvez un éleveur de '.__($species->getTranslation('slug', 'fr')).'s de race ou d\'apparence '.$breed->name.'.';
-				$metaDescription = 'Trouvez un éleveur de '.__($species->getTranslation('slug', 'fr')).'s '.$breed->name.'à partir de son affixe dans toute la France.';
-				$canonical = __($species->getTranslation('slug', 'fr')).'/elevages/'.strtolower($breed->slug);
-			@endphp
-		@else
-			@php
-				$metaTitle = 'Trouvez un éleveur de '.__($species->getTranslation('slug', 'fr')).'s de race en France';
-				$metaDescription = 'Trouvez un éleveur de '.__($species->getTranslation('slug', 'fr')).'s à partir de son affixe dans toute la France.';
-				$canonical = __($species->getTranslation('slug', 'fr')).'/elevages';
+				$metaTitle = 'Trouvez une entreprise en France';
+				$metaDescription = 'Trouvez une entreprise France.';
+				$canonical = '/entreprises';
 			@endphp
 		@endif
+
 		<title>{{ $metaTitle }}</title>
 		<meta name="description" content="{{ $metaDescription }}">
 		<meta name="keywords" content="">
@@ -23,7 +17,7 @@
 		<meta property="og:image" content="{{ asset('/storage/eleveurs_online.jpg') }}">
 		<meta property="og:url" content="{{ env('APP_URL') }}/{{ $canonical }}">
 		<meta property="og:type" content="website">
-		<meta property="og:site_name" content="Eleveurs Online">
+		<meta property="og:site_name" content="{{ env('APP_NAME') }}">
 		<meta property="og:locale" content="fr_FR">
 	@endpush
 
@@ -32,93 +26,46 @@
 		<div x-data="{searchVisible: false, advancedSearchDisplay: false}">
 			<div class="bg-cover bg-center bg-breeder-cream flex flex-col items-center lg:justify-end py-10 min-h-[328px] h-full md:h-[450px] lg:h-[400px]">
 				<div class="relative w-full block md:hidden lg:block">
-					@if($species->getTranslation('slug', 'en') == 'dog')
-						<div class="absolute w-full lg:h-full right-0 top-[82px] lg:top-[115px]">
-							<div
-								class="absolute w-[800px] max-lg:w-[250px] h-[300px] top-0 lg:-top-[240px] max-lg:left-[50%] max-lg:transform max-lg:translate-x-[-50%] right-[176px]">
-								<div class="z-10 absolute block lg:hidden xlsm:block w-[440px] max-lg:w-[175px] lg:h-[220px] max-lg:left-[50%] max-lg:transform max-lg:translate-x-[-100%] bottom-[95px] lg:-bottom-[82px] xlmd:right-[345px]">
-									<img src="{{ asset('/storage/home_coral_e.png') }}" alt="puppy" class="object-cover xl:w-full">
-								</div>
+					<div class="absolute w-full lg:h-full right-0 max-md:top-[83px] top-[23px]">
+						<div class="absolute w-[800px] max-lg:w-[250px] h-[300px] top-0 md:-top-[85px] xlsm:-top-[148px] max-lg:left-[50%] max-lg:transform max-lg:translate-x-[-50%] right-[176px]">
+							<div class="z-10 absolute block lg:hidden xlsm:block w-[440px] max-lg:w-[175px] lg:h-[220px] max-lg:left-[50%] max-lg:transform max-lg:translate-x-[-100%] bottom-[95px] lg:-bottom-[156px] xlmd:right-[345px]">
+								<img src="{{ asset('/storage/home_cat_green_e.png') }}" alt="puppy" class="object-cover xl:w-full">
+							</div>
 
-								<div class="absolute top-[79px] lg:top-0 right-[110px] lg:right-[250px] z-[12]">
-									<img src="{{ asset('/storage/company_old_dog.png') }}" alt="stalion"
-										class="object-cover w-[96px] lg:w-[290px]">
-								</div>
+							<div class="absolute top-[62px] lg:top-[9px] right-[110px] lg:right-[322px] z-[12]">
+								<img src="{{ asset('/storage/home_cat_left.png') }}" alt="stalion" class="object-cover w-[96px] lg:w-[250px]">
+							</div>
 
-								<div class="absolute top-[99px] lg:top-[64px] right-[61px] lg:right-[100px] z-[13]">
-									<img src="{{ asset('/storage/company_young_dog.png') }}" alt="puppy"
-										class="object-cover w-[81px] lg:w-[242px]">
-								</div>
+							<div class="absolute top-[89px] lg:top-[59px] right-[29px] lg:right-[100px] z-[13]">
+								<img src="{{ asset('/storage/home_cat_right.png') }}" alt="puppy" class="object-cover w-[100px] lg:w-[280px]">
+							</div>
 
-								<div class="relative block lg:hidden top-[119px] left-[148px] w-[116px] z-[11]">
-									<div class="absolute">
-										<img src="{{ asset('/storage/company_orange_e.png') }}" alt="puppy"
-											class="w-full">
-									</div>
+							<div class="relative block lg:hidden top-[119px] left-[148px] w-[116px] z-[11]">
+								<div class="absolute">
+									<img src="{{ asset('/storage/company_orange_e.png') }}" alt="puppy" class="w-full">
 								</div>
+							</div>
 
-								<div
-									class="relative hidden xlsm:block top-[50px] lg:top-[19px] lg:right-0 z-[11] h-[205px] w-full max-w-[100%]">
-									<div class="absolute max-w-[100%] -right-[129px]">
-										<img src="{{ asset('/storage/company_orange_e.png') }}" alt="puppy"
-											class="w-[350px] h-[124px]">
-									</div>
+							<div class="relative hidden xlsm:block top-[50px] lg:top-[19px] lg:right-0 z-[11] h-[205px] w-full max-w-[100%]">
+								<div class="absolute max-w-[100%] -right-[129px]">
+									<img src="{{ asset('/storage/company_orange_e.png') }}" alt="puppy" class="w-[350px] h-[124px]">
 								</div>
 							</div>
 						</div>
-					@else
-						<div class="absolute w-full lg:h-full right-0 max-md:top-[83px] top-[23px]">
-							<div class="absolute w-[800px] max-lg:w-[250px] h-[300px] top-0 md:-top-[85px] xlsm:-top-[148px] max-lg:left-[50%] max-lg:transform max-lg:translate-x-[-50%] right-[176px]">
-								<div class="z-10 absolute block lg:hidden xlsm:block w-[440px] max-lg:w-[175px] lg:h-[220px] max-lg:left-[50%] max-lg:transform max-lg:translate-x-[-100%] bottom-[95px] lg:-bottom-[156px] xlmd:right-[345px]">
-									<img src="{{ asset('/storage/home_cat_green_e.png') }}" alt="puppy" class="object-cover xl:w-full">
-								</div>
-
-								<div class="absolute top-[62px] lg:top-[9px] right-[110px] lg:right-[322px] z-[12]">
-									<img src="{{ asset('/storage/home_cat_left.png') }}" alt="stalion" class="object-cover w-[96px] lg:w-[250px]">
-								</div>
-
-								<div class="absolute top-[89px] lg:top-[59px] right-[29px] lg:right-[100px] z-[13]">
-									<img src="{{ asset('/storage/home_cat_right.png') }}" alt="puppy" class="object-cover w-[100px] lg:w-[280px]">
-								</div>
-
-								<div class="relative block lg:hidden top-[119px] left-[148px] w-[116px] z-[11]">
-									<div class="absolute">
-										<img src="{{ asset('/storage/company_orange_e.png') }}" alt="puppy" class="w-full">
-									</div>
-								</div>
-
-								<div class="relative hidden xlsm:block top-[50px] lg:top-[19px] lg:right-0 z-[11] h-[205px] w-full max-w-[100%]">
-									<div class="absolute max-w-[100%] -right-[129px]">
-										<img src="{{ asset('/storage/company_orange_e.png') }}" alt="puppy" class="w-[350px] h-[124px]">
-									</div>
-								</div>
-							</div>
-						</div>
-					@endif
+					</div>
 				</div>
 
 				<div class="flex flex-row items-center justify-around md:justify-center gap-x-6 w-full z-20">
 					<div class="flex flex-col max-md:gap-y-4 md:flex-row md:justify-center items-center w-full">
 						<div class="flex flex-col items-center gap-6 text-[25px] md:text-[40px] text-breeder-deepblue w-full">
-							@if($breed->id)
-								<div class="flex flex-col max-lg:items-center w-full max-w-[1200px] px-4 xlsm:px-0 font-normal">
-							@else
-								<h1 class="flex flex-col max-lg:items-center w-full max-w-[1200px] px-4 xlsm:px-0 font-normal">
-							@endif
-									<strong>
-										{{ __('Trouvez un entreprise')}}<br>
-									</strong>
-									{{ __('de :specie facilement !',['specie' => __($species->getTranslation('slug', 'en'))])}}
-							@if($breed->id)
-								</div>
-							@else
-								</h1>
-							@endif
+							<h1 class="flex flex-col max-lg:items-center w-full max-w-[1200px] px-4 xlsm:px-0 font-normal">
+								<strong>
+									{{ __('Trouvez un entreprise')}}<br>
+								</strong>
+							</h1>
 
 							<div class="hidden md:block w-full px-4 xlsm:px-0">
 								<livewire:front.companies.filters
-									:species="$species"
-									:breed="$breed"
 									:displayCompany="'w-full'"
 									:withRedirect="true"
 									:key="'company-filters'" />
@@ -143,14 +90,13 @@
 						<div class="mb-5 h-full">
 							<div class="flex justify-between items-center">
 								<div class="text-lg font-bold">Ma recherche</div>
-								
+
 								<svg class="cursor-pointer" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" @click="searchVisible = false">
 									<path d="M3 22L21 4M3 4L21 22" stroke="#0E1954" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 								</svg>
 							</div>
+
 							<livewire:front.companies.filters
-								:species="$species"
-								:breed="$breed"
 								:displayCompany="'mx-3'"
 								:withRedirect="true"
 								:responsive="true"
@@ -162,8 +108,6 @@
 
 			<div x-show="advancedSearchDisplay">
 				<livewire:front.companies.advanced-filters
-					:species="$species"
-					:breed="$breed"
 					:responsive="true"
 					:key="'company-advanced-filters-responsive'" />
 			</div>
@@ -178,11 +122,11 @@
 
 		<div class="flex flex-col lg:flex-row gap-x-8 max-w-[1200px] mx-auto">
 			<div x-data="{
-						openSidemenu: false,
-						updateWidth() {
-							this.openSidemenu = window.innerWidth > 1024;
-						}
-					}" x-init="updateWidth()" @resize.window="updateWidth()">
+					openSidemenu: false,
+					updateWidth() {
+						this.openSidemenu = window.innerWidth > 1024;
+					}
+				}" x-init="updateWidth()" @resize.window="updateWidth()">
 				<div class="flex justify-center lg:hidden mb-10">
 					<x-front.primary-button x-on:click="openSidemenu = !openSidemenu">
 						<svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -192,36 +136,24 @@
 						{{ __('Filters') }}
 					</x-front.primary-button>
 				</div>
+
 				{{-- Left col --}}
 				<div class="max-md:fixed max-md:inset-0 max-md:bg-black max-md:bg-opacity-70 max-md:z-50 max-md:overflow-y-auto" x-show="openSidemenu">
 					<div class="bg-white w-full h-full flex">
 						<div class="w-full h-full text-sm lg:text-base lg:w-[300px] max-lg:px-6 max-md:pt-6 flex flex-col items-center">
-							<livewire:front.companies.advanced-filters
-								:species="$species"
-								:breed="$breed"
-								:key="'company-advanced-filters'" />
+							<livewire:front.companies.advanced-filters :key="'company-advanced-filters'" />
 
-							@if(Request::is('chat/*'))
-								<x-front.ad-slot
-									slotName="coeur_de_page"
-									variant="all"
-									:targeting="[
-										'Targetingslug' => ['/chat/elevages'],
-										'role' => 'adoptant',
-										'espece' => ['chat']
-									]"
-								/>
-							@elseif(Request::is('chien/*'))
-								<x-front.ad-slot
-									slotName="coeur_de_page"
-									variant="all"
-									:targeting="[
-										'Targetingslug' => ['/chien/elevages'],
-										'role' => 'adoptant',
-										'espece' => ['chien']
-									]"
-								/>
-							@endif
+							{{--
+							x-front.ad-slot
+								slotName="coeur_de_page"
+								variant="all"
+								:targeting="[
+									'Targetingslug' => ['/chat/elevages'],
+									'role' => 'adoptant',
+									'espece' => ['chat']
+								]"
+							/>
+							--}}
 						</div>
 					</div>
 				</div>
@@ -230,16 +162,10 @@
 			{{-- Content --}}
 			<section class="p-0">
 				<div class="flex mb-4">
-					<livewire:front.companies.company-count 
-						:key="'company-count'"
-						:breed="$breed"
-						:species="$species" />
+					<livewire:front.companies.company-count :key="'company-count'" />
 				</div>
 
-				<livewire:front.companies.index
-					:species="$species"
-					:breed="$breed"
-					:key="'company-index'" />
+				<livewire:front.companies.index :key="'company-index'" />
 			</section>
 		</div>
 	</div>

@@ -49,7 +49,7 @@
 						@foreach($postsTypesAvailable as $key => $label)
 							<x-front.input-label for="postTypesAvailable-{{ $key }}">
 								<input type="checkbox" name="postTypesAvailable-{{ $key }}" id="postTypesAvailable-{{ $key }}" value="{{ $key }}" wire:model="filters.company_post_type_available" wire:change="search" class="cursor-pointer rounded border-breeder-deepblue text-breeder-deepblue focus:ring-breeder-deepblue mr-2">
-								
+
 								{{ __($label) }}
 							</x-front.input-label>
 						@endforeach
@@ -70,9 +70,6 @@
 	</div>
 
 	@if(Auth::guard('web')->check())
-		@php
-			$searchName = ((empty($breed->name)) ? '' : ' - '.$breed->name);
-		@endphp
 		<div class="my-6 text-center" x-data="{}">
 			{{-- <a href="#" class="mx-auto" x-on:click.prevent="$dispatch('open-modal','save-search')">
 				<x-front.primary-button :class="' flex justify-center gap-2 lg:w-full px-4 py-1 bg-breeder-deepblue text-white hover:bg-breeder-deepblue hover:text-white xl:text-sm'">
@@ -90,7 +87,7 @@
 
 			<x-front.modal name="save-search" width="w-full max-w-2xl" wire:key="save-search" focusable>
 				<section class="p-10">
-					{{--  
+					{{--
 					<form method="post" action="{{ route('space.searches.save', ['search' => $savedSearch]) }}">
 						@csrf
 
@@ -110,12 +107,12 @@
 
 							<p class="text-base text-center italic my-4">
 
-								{{-- <x-front.text-input name="search_name" :value="$searchName" readonly :class="'mt-1 block bg-white w-full'" /> 
+								{{-- <x-front.text-input name="search_name" :value="$searchName" readonly :class="'mt-1 block bg-white w-full'" />
 								{{ $searchName }}
 								<input type="hidden" name="search_name" value="{{ $searchName }}">
 
 								<input type="hidden" name="search_uuid" value="{{ $savedSearch?->uuid ?? '' }}">
-								
+
 								<input type="hidden" name="post_type_id" value="{{ $postType?->id ?? 0 }}">
 								<input type="hidden" name="category_id" value="{{ $category?->id ?? 0 }}">
 								<input type="hidden" name="filters" value="{{ (empty($filters)) ? '{}' : json_encode($filters) }}">

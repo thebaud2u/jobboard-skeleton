@@ -106,11 +106,6 @@ class ProfileController extends Controller
 		return view('front.space.profile.my-orders', compact('orders'));
 	}
 
-	public function breederGpt()
-	{
-		return view('front.space.profile.breeder-gpt');
-	}
-
 	/**
 	 * Display the settings page
 	 *
@@ -119,6 +114,7 @@ class ProfileController extends Controller
 	public function settings()
 	{
 		$user = Auth::guard('web')->user();
+
 		return view('front.space.profile.settings', compact('user'));
 	}
 

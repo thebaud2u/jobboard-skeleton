@@ -67,7 +67,7 @@
 				case 'OPTIN_PARTENAIRE_PROSPECT':
 						$optinTrad = "Les offres des partenaires d'Eleveurs Online";
 					break;
-				
+
 				default:
 					$optinTrad = $optin;
 					break;

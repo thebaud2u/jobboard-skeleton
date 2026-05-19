@@ -9,26 +9,13 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Enums\ResponseTypes;
 
-use App\Models\{Breed, Company, Response, Species, UsersViews};
+use App\Models\{Company, Response, UsersViews};
 
 class CompanyController extends Controller
 {
-	public function indexDog(?Breed $breed)
+	public function index()
 	{
-		$species = Species::findBySlug('dog', 'en');
-
-		if(!$breed->exists) $breed = new Breed;
-
-		return view('front.companies.index', compact('species', 'breed'));
-	}
-
-	public function indexCat(?Breed $breed)
-	{
-		$species = Species::findBySlug('cat', 'en');
-
-		if(!$breed->exists) $breed = new Breed;
-
-		return view('front.companies.index', compact('species', 'breed'));
+		return view('front.companies.index');
 	}
 
 	/**
@@ -54,7 +41,6 @@ class CompanyController extends Controller
 
 				$name = $company->name;
 				$userId = $company->user->id;
-				$breeds = $company->breeds;
 				$description = $company->description;
 				$medias = [];
 				$hasContacted = false;
@@ -105,17 +91,10 @@ class CompanyController extends Controller
 					}
 				}
 
-				$companiesUrl = $company->species->first()->getTranslation('slug', 'en') === 'dog' ? 'company-search.dog-companies' : 'company-search.cat-companies';
-				$breadcrumb = [
-					['title' =>  'Élevages', 'url' => $companiesUrl],
-				];
-
 				return view('front.companies.show', [
 					'addressMain' => $addressMain,
 					'addressPart' => $addressPart,
-					'breadcrumb' => $breadcrumb,
 					'company' => $company,
-					'breeds' => $breeds,
 					'description' => $description,
 					'hasContacted' => $hasContacted,
 					'logo' => $company->getFirstMedia('logo'),

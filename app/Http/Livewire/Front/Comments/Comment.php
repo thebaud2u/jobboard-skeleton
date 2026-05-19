@@ -9,10 +9,7 @@ use Illuminate\Support\Carbon;
 
 use App\Enums\CommentStates;
 
-use App\Models\Breed;
-use App\Models\Company;
-use App\Models\Comment as ModelComment;
-use App\Models\User;
+use App\Models\{Company, Comment as ModelComment, User};
 
 class Comment extends Component
 {

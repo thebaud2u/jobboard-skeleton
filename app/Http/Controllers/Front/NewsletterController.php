@@ -89,7 +89,7 @@ class NewsletterController extends Controller
 					}
 				}
 			}
-			
+
 			return redirect()->to($request->input('redirect_to', url()->previous()))
 				->with('success', __('Vous êtes inscrits.') . ' ' . $apiMessage)
 				->with('gtm', [

@@ -94,7 +94,7 @@
 			<meta property="og:image" content="{{ asset('/storage/eleveurs_online.jpg') }}">
 		@endif
 		<meta property="og:description" content="{{ Str::limit(str_replace(array("\r", "\n"), '', strip_tags($article->body)), 250) }}">
-		<meta property="og:site_name" content="Eleveurs Online">
+		<meta property="og:site_name" content="{{ env('APP_NAME') }}">
 		<meta property="og:locale" content="fr_FR">
 		<!-- Balises spécifiques à article -->
 		@if($article->start_publication_date)

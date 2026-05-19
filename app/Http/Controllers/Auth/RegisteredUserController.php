@@ -15,10 +15,9 @@ use Illuminate\Validation\Rules\Password;
 use Illuminate\View\View;
 
 use App\Services\BrevoService;
-use App\Services\FigoService;
 use App\Services\StripeService;
 
-use App\Models\{AnimalLife, Country, Professionnal, Role, User};
+use App\Models\{Country, Professionnal, Role, User};
 
 class RegisteredUserController extends Controller
 {
@@ -81,7 +80,6 @@ class RegisteredUserController extends Controller
 
 		if($request->role == 'adoptant') $roleName = 'adopter';
 		elseif($request->role == 'eleveur') $roleName = 'breeder';
-		elseif($request->role == 'professionnel') $roleName = 'professionnal';
 
 		$role = Role::where('name', $roleName)
 			->first();
@@ -102,20 +100,6 @@ class RegisteredUserController extends Controller
 				$stripe = new StripeService;
 
 				$customer_id = $stripe->createCustomer($user);
-			}
-			elseif($user->hasRole('adopter')) {
-				$animalLifes = AnimalLife::where('adopter_email', $user->email)
-					->get();
-
-				if($animalLifes->isNotEmpty()) {
-					foreach($animalLifes as $animalLife) {
-						$animalLife->model()->associate($user);
-						$animalLife->save();
-
-						$animalLife->animal->user_id = $user->id;
-						$animalLife->animal->save();
-					}
-				}
 			}
 
 			$user->initValues();
@@ -170,8 +154,6 @@ class RegisteredUserController extends Controller
 			} catch (Exception $e) {
 				Log::error('erreur création optin');
 			}
-
-			if($user->values->get('optins')['optin_figo'] === 1) $figoService->createFunnelSession($user, 'eol-signup-form');
 
 			event(new Registered($user));
 

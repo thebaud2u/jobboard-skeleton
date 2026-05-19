@@ -17,7 +17,7 @@ use Cmgmyr\Messenger\Models\{Thread, Participant};
 
 use App\Enums\{PublicationStates, ResponseStates, ResponseTypes};
 
-use App\Models\{Animal, Breed, Company, DataChoise, Message, Post, PostType, Response, Search, Species, User, UsersViews};
+use App\Models\{Company, Message, Post, PostType, Response, Search, User, UsersViews};
 use App\Notifications\CustomChoiseBreedEmail;
 use App\Notifications\CustomCompareBreedEmail;
 use App\Notifications\Notifiable\TempNotifiable;
@@ -62,62 +62,29 @@ class PostController extends Controller
 			else {
 				views($post)->record();
 
-				if(!session()->has('show_warning_sensitive_animal_modal')) {
-					if(Auth::guard('web')->check() && Auth::guard('web')->user()->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder'])) $showWarningSensitiveAnimalModal = false;
-					else $showWarningSensitiveAnimalModal = true;
-				}
-				else $showWarningSensitiveAnimalModal = false;
-
 				$postType = $post->type;
 				$medias = [];
 				$src = null;
-				if($postType->getTranslation('slug', 'en') == 'litter' || $postType->getTranslation('slug', 'en') == 'litter-yet-to-come') {
-					$animal = $post->model->mother;
-					$photo = $post->getFirstMedia('photos'.$post->id);
 
-					foreach($post->getMedia('photos'.$post->id) as $photo) {
-						array_push($medias, ['type' => 'image', 'url' => $photo->getAvailableUrl(['optimized'])]);
-					}
+				$photo = $post->getFirstMedia('photos'.$post->id);
 
-					if($post->model->description) $description = $post->model->description;
-					else $description = $post->values->get('description');
-				}
-				elseif($postType->getTranslation('slug', 'en') == 'retired-breeder' || $post->type->getTranslation('slug', 'en') == 'stud') {
-					$animal = $post->model;
-					$photo = $post->getFirstMedia('photos'.$post->id);
-
-					foreach($post->getMedia('photos'.$post->id) as $photo) {
-						array_push($medias, ['type' => 'image', 'url' => $photo->getAvailableUrl(['optimized'])]);
-					}
-
-					if(!$photo) $photo = $animal->getFirstMedia('photos'.$animal->id);
-
-					if(empty($medias)) {
-						foreach($animal->getMedia('photos'.$animal->id) as $photo) {
-							array_push($medias, ['type' => 'image', 'url' => $photo->getAvailableUrl(['optimized'])]);
-						}
-					}
-
-					$description = $post->values->get('description');
+				foreach($post->getMedia('photos'.$post->id) as $photo) {
+					array_push($medias, ['type' => 'image', 'url' => $photo->getAvailableUrl(['optimized'])]);
 				}
 
-				if(!$animal) $animal = $post->model;
+				$description = $post->values->get('description');
 
-				$species = $post->model->species;
-				$breed = $post->model->breed;
 				$company = $post->model->company;
 
 				// If there is no photo of the litter
 				if(is_null($photo)) {
 					$photo = true;
-
-					if($species->getTranslation('slug', 'en') == 'dog') $src = asset('storage/litter-yet-to-come-for-dogs.png');
-					elseif($species->getTranslation('slug', 'en') == 'cat') $src = asset('storage/litter-yet-to-come-for-cats.png');
+					$src = asset('storage/litter-yet-to-come-for-dogs.png');
 				}
 
 				if(is_null($src)) $src = $photo->getAvailableUrl(['optimized']);
 
-				if($animal->company->address->country->code == 'FRA') $addressInFrance = true;
+				if($company->address->country->code == 'FRA') $addressInFrance = true;
 				else $addressInFrance = false;
 
 				$hasApplyied = false;
@@ -149,22 +116,9 @@ class PostController extends Controller
 					]);
 				}
 
-				$companiesUrl = $company->species->first()->getTranslation('slug', 'en') === 'dog' ? 'company-search.dog-companies' : 'company-search.cat-companies';
-				$breadcrumb = [
-					['title' =>  'Élevages', 'url' => $companiesUrl],
-					['title' =>  $post->model->company->name, 'url' => 'company-search.company.show', 'params' => $post->model->company->slug],
-				];
-
-				$postSearchUrl = $post->model->species->name === 'dog' ? 'post-search.dog-posts-with-post-type' : 'post-search.cat-posts-with-post-type';
-				array_push($breadcrumb, ['title' => ucfirst(__($postType->name)), 'url' => $postSearchUrl, 'params' => $postType->getTranslation('slug', 'fr')]);
-				array_push($breadcrumb, ['title' =>  $post->model->breed->name, 'url' => 'breed-search.'.$company->species->first()->getTranslation('slug', 'en').'-breeds.show', 'params' => $post->model->breed->slug]);
-
 				return view('front.posts.show', [
 					'addressInFrance' => $addressInFrance,
-					'animal' => $animal,
-					'animalValues' => $animal->values,
 					'breadcrumb' => $breadcrumb,
-					'breed' => $breed,
 					'company' => $company,
 					'description' => $description,
 					'displayType' => 'post',
@@ -175,8 +129,6 @@ class PostController extends Controller
 					'postValues' => $post->values,
 					'postType' => $postType,
 					'response' => $response,
-					'showWarningSensitiveAnimalModal' => $showWarningSensitiveAnimalModal,
-					'species' => $species,
 					'src' => $src,
 				]);
 			}

@@ -41,7 +41,7 @@ class Address extends Model
 	public function department(): BelongsTo
 	{
 		return $this->belongsTo(Department::class);
-	}	
+	}
 
 	public function model(): MorphTo
 	{

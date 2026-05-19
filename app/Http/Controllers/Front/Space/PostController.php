@@ -50,30 +50,16 @@ class PostController extends Controller
 	{
 		if(Auth::guard('web')->user()->hasRole(['professionnal_breeder', 'individual_breeder'])) {
 			if($post->user->id == Auth::guard('web')->user()->id) {
-				if($post->type->getTranslation('slug', 'en') == 'litter' || $post->type->getTranslation('slug', 'en') == 'litter-yet-to-come') $animal = $post->model->mother;
-				elseif($post->type->getTranslation('slug', 'en') == 'retired-breeder' || $post->type->getTranslation('slug', 'en') == 'stud') $animal = $post->model;
-
-				if(!$animal) $animal = $post->model;
-
 				$type = $post->type;
-				$species = $post->model->species;
-				$breed = $post->model->breed;
 				$postValues = $post->values;
-				$animalValues = $animal->values;
-				$isPureBreed = $animalValues->get('pure_breed');
 				$address = $post->model->company->address;
 				$lastPublication = $post->lastPublication;
 				$isPublished = $post->isPublished();
 
 				return view('front.space.posts.my-post', [
 					'post' => $post,
-					'animal' => $animal,
 					'type' => $type,
-					'species' => $species,
-					'breed' => $breed,
-					'animalValues' => $animalValues,
 					'postValues' => $postValues,
-					'isPureBreed' => $isPureBreed,
 					'address' => $address,
 					'lastPublication' => $lastPublication,
 					'isPublished' => $isPublished

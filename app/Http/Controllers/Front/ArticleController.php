@@ -24,14 +24,13 @@ class ArticleController extends Controller
  * An article is viewable if it is published or if it is in preview mode.
  * If the article is not published, it is viewable only if the date of embargo is not reached.
  * If the article is published, it is viewable only if the date of publication is reached
- * 
+ *
  * @param bool $isPreviewing Is the request in preview mode?
  * @param Article $article The article to check
  * @return bool True if the article is viewable, false otherwise
  */
 	public function isViewable($isPreviewing, Article $article)
 	{
-		
 		if(!$isPreviewing && $article->state != ArticleStates::Published) {
 			return 'forbidden';
 		}
@@ -52,13 +51,13 @@ class ArticleController extends Controller
 	public function show(Article $article)
 	{
 		$isPreviewing = Request::has('previsu');
-		
+
 		$viewable = $this->isViewable($isPreviewing, $article);
-		
+
 		if($viewable === 'forbidden') {
 			abort(410);
 		}
-		
+
 		if($viewable === 'not_yet') {
 			abort(404);
 		}
