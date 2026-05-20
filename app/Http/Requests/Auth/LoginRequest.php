@@ -4,13 +4,13 @@ namespace App\Http\Requests\Auth;
 
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Support\Facades\{Auth, Hash, RateLimiter};
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 
-use App\Models\User;
+use App\Enums\ContactTypes;
+
+use App\Models\{Contact, User};
 
 class LoginRequest extends FormRequest
 {
@@ -64,6 +64,27 @@ class LoginRequest extends FormRequest
 			RateLimiter::clear($this->throttleKey());
 
 			$user->forceFill(['last_logon' => now()])->save();
+
+			$unloggedApplications = Contact::where('email', $user->email)
+				->where('type', ContactTypes::Application)
+				->get();
+
+			if($unloggedApplications->isNotEmpty()) {
+				foreach($unloggedApplications as $unloggedApplication) {
+					$values = new Collection();
+					$values->put('message', $unloggedApplication->message)
+						->put('archive', collect(['asking' => false, 'answerer' => false]));
+
+					$newResponse = new Response;
+					$newResponse->model()->associate($unloggedApplication->model);
+					$newResponse->from()->associate($user);
+					$newResponse->to()->associate($unloggedApplication->model->user);
+					$newResponse->values = $values;
+					$newResponse->save();
+
+					$unloggedApplication->delete();
+				}
+			}
 		}
 		else {
 			throw ValidationException::withMessages([
@@ -79,7 +100,7 @@ class LoginRequest extends FormRequest
 	 */
 	public function ensureIsNotRateLimited(): void
 	{
-		if(! RateLimiter::tooManyAttempts($this->throttleKey(), 5)) {
+		if(!RateLimiter::tooManyAttempts($this->throttleKey(), 5)) {
 			return;
 		}
 

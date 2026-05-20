@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-use App\Enums\{ResponseStates, ResponseTypes};
+use App\Enums\ResponseStates;
 
 return new class extends Migration
 {
@@ -22,7 +22,6 @@ return new class extends Migration
 			$table->unsignedBigInteger('from_user_id')->nullable();
 			$table->unsignedBigInteger('to_user_id')->nullable();
 			$table->string('state')->default(ResponseStates::Received->value);
-			$table->string('type')->default(ResponseTypes::Application->value);
 			$table->json('values')->nullable();
 			$table->timestamps();
 			$table->softDeletes();

@@ -18,13 +18,13 @@ return new class extends Migration
 		Schema::create('contacts', function (Blueprint $table) {
 			$table->id();
 			$table->string('object')->nullable();
-			$table->string('firstname');
-			$table->string('lastname');
+			$table->string('firstname')->nullable();
+			$table->string('lastname')->nullable();
 			$table->string('phone');
 			$table->string('email');
-			$table->text('body');
+			$table->text('message')->nullable();
 			$table->string('file')->nullable();
-			$table->string('element')->nullable();
+			$table->nullableMorphs('model');
 			$table->string('state')->default(ContactTypes::Contact->value);
 			$table->timestamps();
 		});

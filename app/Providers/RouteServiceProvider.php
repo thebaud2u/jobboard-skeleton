@@ -9,22 +9,12 @@ use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
 
 use App\Models\{
-	Activity,
-	ActivityCategory,
-	Animal,
-	Appointment,
-	Article,
-	Benefit,
-	Breed,
-	BreedClub,
-	BreedStandardGroup,
+	Activity, ActivityCategory, Article,
 	Company,
 	Offer,
 	Post,
 	PostType,
-	ProfessionnalActivity,
 	Response,
-	Species,
 	User
 };
 
@@ -65,36 +55,8 @@ class RouteServiceProvider extends ServiceProvider
 			return ActivityCategory::findBySlug($value, 'fr');
 		});
 
-		Route::bind('animal', function ($value) {
-			$animal = Animal::findBySlug($value);
-
-			if(!$animal) $animal = Animal::find($value);
-
-			return $animal;
-		});
-
-		Route::bind('appointment', function($value) {
-			return Appointment::find($value);
-		});
-
 		Route::bind('article', function($value) {
 			return Article::findBySlug($value);
-		});
-
-		Route::bind('benefit', function ($value) {
-			return Benefit::findBySlug($value);
-		});
-
-		Route::bind('breed', function ($value) {
-			return Breed::findBySlug($value);
-		});
-
-		Route::bind('breedClub', function ($value) {
-			return BreedClub::findBySlug($value);
-		});
-
-		Route::bind('breedStandardGroup', function ($value) {
-			return BreedStandardGroup::findBySlug($value);
 		});
 
 		Route::bind('company', function ($value) {
@@ -113,16 +75,8 @@ class RouteServiceProvider extends ServiceProvider
 			return PostType::findBySlug($value);
 		});
 
-		Route::bind('professionnalActivity', function($value) {
-			return ProfessionnalActivity::findBySlug($value);
-		});
-
 		Route::bind('response', function($value) {
 			return Response::find($value);
-		});
-
-		Route::bind('species', function($value) {
-			return Species::findBySlug($value, 'fr');
 		});
 
 		Route::bind('user', function ($value) {

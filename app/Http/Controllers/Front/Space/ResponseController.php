@@ -12,9 +12,7 @@ use Illuminate\Support\Facades\Auth;
 
 use Cmgmyr\Messenger\Models\{Participant, Thread};
 
-use App\Enums\ResponseTypes;
-
-use App\Models\{Animal, Company, Post, ProfessionnalActivity, Response};
+use App\Models\{Company, Post, Response};
 
 class ResponseController extends Controller
 {
@@ -65,15 +63,13 @@ class ResponseController extends Controller
 
 	public function createConversation(Request $request)
 	{
-		if($request->type == 'company') $target = Company::find($request->target);
-		elseif($request->type == 'professionnal-activity') $target = ProfessionnalActivity::find($request->target);
+		$target = Company::find($request->target);
 
 		if($target) {
 			$response = new Response;
 			$response->model()->associate($target);
 			$response->from()->associate(Auth::guard('web')->user());
 			$response->to()->associate($target->user);
-			$response->type = ResponseTypes::Messaging;
 			$response->values = new Collection();
 			$response->save();
 

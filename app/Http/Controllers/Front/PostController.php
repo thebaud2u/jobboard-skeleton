@@ -15,7 +15,7 @@ use Illuminate\Support\Carbon;
 
 use Cmgmyr\Messenger\Models\{Thread, Participant};
 
-use App\Enums\{PublicationStates, ResponseStates, ResponseTypes};
+use App\Enums\{PublicationStates, ResponseStates};
 
 use App\Models\{Company, Message, Post, PostType, Response, Search, User, UsersViews};
 use App\Notifications\CustomChoiseBreedEmail;
@@ -104,7 +104,6 @@ class PostController extends Controller
 								->whereHas('to', function($whereHas) use($post) {
 									$whereHas->where('id', $post->user->id);
 								})
-								->where('type', ResponseTypes::Application)
 								->first();
 						}
 					}

@@ -7,8 +7,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-use App\Enums\ResponseTypes;
-
 use App\Models\{Company, Response, UsersViews};
 
 class CompanyController extends Controller
@@ -69,7 +67,6 @@ class CompanyController extends Controller
 								->whereHas('to', function($whereHas) use($company) {
 									$whereHas->where('id', $company->user->id);
 								})
-								->where('type', ResponseTypes::Messaging)
 								->first();
 						}
 

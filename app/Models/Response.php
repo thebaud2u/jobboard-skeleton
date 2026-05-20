@@ -18,7 +18,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
-use App\Enums\{ResponseStates, ResponseTypes};
+use App\Enums\ResponseStates;
 
 use App\Notifications\{ResponseCreated, ResponseUpdated};
 
@@ -45,8 +45,7 @@ class Response extends Model implements HasMedia
 	{
 		return [
 			'values' => AsCollection::class,
-			'state' => ResponseStates::class,
-			'type' => ResponseTypes::class
+			'state' => ResponseStates::class
 		];
 	}
 
@@ -54,111 +53,40 @@ class Response extends Model implements HasMedia
 	{
 		parent::boot();
 		static::created(function($response) {
-			if($response->type == ResponseTypes::Application || $response->type == ResponseTypes::Messaging) {
-				$thread = Thread::create([
-					'subject' => $response->model->name
-				]);
+			$thread = Thread::create([
+				'subject' => $response->model->name
+			]);
 
-				$response->thread_id = $thread->id;
-				$response->saveQuietly();
+			$response->thread_id = $thread->id;
+			$response->saveQuietly();
 
-				Participant::create([
-					'thread_id' => $thread->id,
-					'user_id' => $response->from->id,
-					'last_read' => new Carbon()
-				]);
+			Participant::create([
+				'thread_id' => $thread->id,
+				'user_id' => $response->from->id,
+				'last_read' => new Carbon()
+			]);
 
-				Participant::create([
-					'thread_id' => $thread->id,
-					'user_id' => $response->to->id,
-					'last_read' => new Carbon()
-				]);
+			Participant::create([
+				'thread_id' => $thread->id,
+				'user_id' => $response->to->id,
+				'last_read' => new Carbon()
+			]);
 
-				if($response->values->has('message')) {
-					$newMessage = new Message;
-					$newMessage->thread_id = $response->thread->id;
-					$newMessage->user_id = $response->from->id;
-					$newMessage->body = $response->values->get('message');
-					$newMessage->saveQuietly();
-				}
-
-				$response->to->notify(new ResponseCreated($response, Auth::guard('web')->user()));
-			}
-			elseif($response->type == ResponseTypes::Figo) {
-				$thread = Thread::create([
-					'subject' => 'Assur O\'Poil'
-				]);
-
-				$response->thread_id = $thread->id;
-				$response->saveQuietly();
-
-				Participant::create([
-					'thread_id' => $thread->id,
-					'user_id' => $response->from->id,
-					'last_read' => new Carbon()
-				]);
-
-				Participant::create([
-					'thread_id' => $thread->id,
-					'user_id' => $response->to->id,
-					'last_read' => new Carbon()
-				]);
-
+			if($response->values->has('message')) {
 				$newMessage = new Message;
 				$newMessage->thread_id = $response->thread->id;
 				$newMessage->user_id = $response->from->id;
-				$newMessage->body = '<div class="flex flex-col gap-y-2">
-					<span class="font-bold">
-						'.__('Congratulations for your reservation !').'
-					</span>
-
-					<span>
-						'.__('Your new companion is waiting for you... What if you were already thinking about his health ?').'
-					</span>
-
-					<span>
-						'.__('Assur O\'Poil, the health insurance recommended by Éleveurs Online, accompanies you from the start with advice, tips and exclusive offers.').'
-					</span>
-
-					<form id="figo" action="'.route('api-assuropoil').'" method="POST" class="my-4" target="_blank">
-						'.csrf_field().'
-
-						<input type="hidden" name="user_id" value="'.$response->to->id.'" />
-						<input type="hidden" name="from" value="eol-conversation-message" />
-
-						<button type="submit" class="inline-flex items-center px-5 py-3 whitespace-nowrap gap-x-2 font-bold bg-white hover:bg-breeder-deepblue border border-breeder-deepblue hover:border-breeder-deepblue rounded-full text-sm text-breeder-deepblue hover:text-white focus:outline-none focus:ring-0 transition ease-in-out duration-150  w-full justify-center">
-							'.__('I want to protect my pet').'
-						</button>
-					</form>
-				</div>';
-				$newMessage->save();
+				$newMessage->body = $response->values->get('message');
+				$newMessage->saveQuietly();
 			}
-			elseif($response->type == ResponseTypes::EleveursOnline) {
-				$thread = Thread::create([
-					'subject' => __('Companies phone number')
-				]);
 
-				$response->thread_id = $thread->id;
-				$response->saveQuietly();
-
-				Participant::create([
-					'thread_id' => $thread->id,
-					'user_id' => $response->from->id,
-					'last_read' => new Carbon()
-				]);
-
-				Participant::create([
-					'thread_id' => $thread->id,
-					'user_id' => $response->to->id,
-					'last_read' => new Carbon()
-				]);
-			}
+			$response->to->notify(new ResponseCreated($response, Auth::guard('web')->user()));
 		});
 
 		static::updated(function($response) {
-			if($response->type == ResponseTypes::Application && $response->state == ResponseStates::Received) {
+			if($response->state == ResponseStates::Received) {
 				$user = null;
-				
+
 				if(Auth::guard('web')->user()->id == $response->from_user_id) $user = $response->to;
 				elseif(Auth::guard('web')->user()->id == $response->to_user_id) $user = $response->from;
 

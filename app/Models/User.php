@@ -33,7 +33,7 @@ use Spatie\Sluggable\SlugOptions;
 
 use Overtrue\LaravelFavorite\Traits\Favoriter;
 
-use App\Enums\{PublicationStates, ResponseStates, ResponseTypes};
+use App\Enums\{PublicationStates, ResponseStates};
 
 use App\Notifications\CustomResetPassword;
 use App\Notifications\CustomVerifyEmail;
@@ -255,16 +255,6 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
 		return $element->responses()->whereHas('from', function($whereHas) {
 				$whereHas->where('id', '=', $this->id);
 			})
-			->where('type', ResponseTypes::Application)
-			->exists();
-	}
-
-	public function hasContacted($element): bool
-	{
-		return $element->responses()->whereHas('from', function($whereHas) {
-				$whereHas->where('id', '=', $this->id);
-			})
-			->where('type', ResponseTypes::Messaging)
 			->exists();
 	}
 
@@ -339,24 +329,10 @@ class User extends Authenticatable implements HasMedia, MustVerifyEmail
 	{
 		$applicants = $this->applicants()
 			->where('state', ResponseStates::Received)
-			->where(function($where) {
-				$where->where(function($subWhere) {
-					$subWhere->where('values->archive->answerer', false)
-						->where('type', ResponseTypes::Application);
-				})
-				->orWhere('type', '<>', ResponseTypes::Application);
-			})
 			->count();
 
 		$applications = $this->applications()
 			->where('state', ResponseStates::Received)
-			->where(function($where) {
-				$where->where(function($subWhere) {
-					$subWhere->where('values->archive->asking', false)
-						->where('type', ResponseTypes::Application);
-				})
-				->orWhere('type', '<>', ResponseTypes::Application);
-			})
 			->count();
 
 		$receivedResponses = $applications + $applicants;

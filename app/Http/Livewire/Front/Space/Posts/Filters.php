@@ -6,14 +6,13 @@ use Livewire\Component;
 
 use Illuminate\Support\Facades\Auth;
 
-use App\Models\{Offer, Post, PostType, Species};
+use App\Models\{Offer, Post, PostType};
 
 class Filters extends Component
 {
 	// Search filters
 	public $offer = null;
 	public $postType = null;
-	public $species = null;
 	public $state = null;
 	public $filters = [];
 
@@ -22,7 +21,6 @@ class Filters extends Component
 		$this->filters = [
 			'offer' => $this->offer,
 			'postType' => $this->postType,
-			'species' => $this->species,
 			'state' => $this->state
 		];
 
@@ -31,7 +29,6 @@ class Filters extends Component
 		$this->dispatch('posts-search-slot', [
 			'offer' => $this->offer,
 			'postType' => $this->postType,
-			'species' => $this->species,
 			'state' => $this->state
 		]);
 	}
@@ -40,7 +37,6 @@ class Filters extends Component
 	{
 		$this->offer = null;
 		$this->postType = null;
-		$this->species = null;
 		$this->state = null;
 
 		$this->search();
@@ -53,7 +49,6 @@ class Filters extends Component
 
 			if(!empty($filters['offer'])) $this->offer = $filters['offer'];
 			if(!empty($filters['postType'])) $this->postType = $filters['postType'];
-			if(!empty($filters['species'])) $this->species = $filters['species'];
 			if(!empty($filters['state'])) $this->state = $filters['state'];
 		}
 	}
@@ -97,7 +92,6 @@ class Filters extends Component
 		return view('livewire.front.space.posts.filters', [
 			'filterOffers' => $filterOffers,
 			'filterPostTypes' => $filterPostTypes,
-			'filterSpecies' => Species::all(),
 			'filterStates' => $filterStates
 		]);
 	}

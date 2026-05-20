@@ -7,13 +7,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Auth\Events\Verified;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 
-
-use App\Enums\ContactTypes;
-
-use App\Models\{TempApplication, User};
+use App\Models\User;
 
 class VerifyEmailController extends Controller
 {
@@ -30,20 +26,6 @@ class VerifyEmailController extends Controller
 
 		if($user->markEmailAsVerified()) event(new Verified($user));
 
-		$hasTempApplication = TempApplication::where('email', $user->email)
-			->latest()
-			->first();
-
-		if($hasTempApplication) {
-			Auth::guard('web')->login($user);
-			$user->last_logon = Carbon::now();
-			$user->save();
-
-			if($hasTempApplication->type === ContactTypes::Contact) session()->put('application-modals.email-verified-just-now-for-contact', true);
-			elseif($hasTempApplication->type === ContactTypes::Call) session()->put('application-modals.email-verified-just-now-for-call', true);
-
-			return redirect()->to($hasTempApplication->url);
-		}
-		else return redirect()->route('login')->withSuccess(__('You have successfully verified your email address, please log in'));
+		return redirect()->route('login')->withSuccess(__('You have successfully verified your email address, please log in'));
 	}
 }

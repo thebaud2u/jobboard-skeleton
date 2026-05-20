@@ -24,9 +24,9 @@ class ContactController extends Controller
 			'object' => ['required'],
 			'firstname' => ['required'],
 			'lastname' => ['required'],
-			'phone' => ['required'],
+			'phone' => ['required', 'phone:BE,FR'],
 			'email' => ['required', 'email'],
-			'body' => ['required'],
+			'message' => ['required'],
 			'file' => ['nullable', 'file', 'mimes:pdf,doc,docx,jpg,jpeg,png', 'max:12288'],
 			'consent' => ['required'],
 			'captcha' => ['required', 'captcha']
@@ -37,9 +37,10 @@ class ContactController extends Controller
 			'firstname.required' => __(':element is mandatory', ['element' => __('Your firstname')]),
 			'lastname.required' => __(':element is mandatory', ['element' => __('Your firstname')]),
 			'phone.required' => __(':element is mandatory', ['element' => __('Your phone number')]),
+			'phone.phone' => __('Your phone number format is invalid'),
 			'email.required' => __(':element is mandatory', ['element' => __('Your email')]),
 			'email.email' => __(':element is expected', ['element' => __('An email')]),
-			'body.required' => __(':element is mandatory', ['element' => __('The details of your request')]),
+			'message.required' => __(':element is mandatory', ['element' => __('The details of your request')]),
 			'file.file' => __(':element is expected', ['element' => __('A file')]),
 			'file.mimes' => __(':element of the following format is expected : :format', ['element' => __('A file'), 'format' => 'pdf, doc, docx, jpg, jpeg, png']),
 			'file.max' => __(':size maximum', ['size' => '12mo']),
@@ -55,7 +56,7 @@ class ContactController extends Controller
 		$newContact->lastname = $request->lastname;
 		$newContact->email = $request->email;
 		$newContact->phone = $request->phone;
-		$newContact->body = $request->body;
+		$newContact->message = $request->message;
 
 		if($request->file) $newContact->file = $request->file->store('contact', 'public');
 

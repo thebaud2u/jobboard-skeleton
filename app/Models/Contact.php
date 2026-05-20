@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
+use App\Enums\ContactTypes;
+
 use App\Notifications\SendContact;
 
 class Contact extends Model
@@ -17,7 +19,7 @@ class Contact extends Model
 		'lastname',
 		'phone',
 		'email',
-		'body',
+		'message',
 		'file',
 		'created_at',
 		'updated_at'
@@ -38,7 +40,7 @@ class Contact extends Model
 	{
 		parent::boot();
 		static::created(function($model) {
-			$model->notify(new SendContact($model));
+			if($model->type == ContactTypes::Contact) $model->notify(new SendContact($model));
 		});
 	}
 }

@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 
 use Cmgmyr\Messenger\Models\{Participant, Thread};
 
-use App\Enums\{PublicationStates, ResponseStates, ResponseTypes};
+use App\Enums\{PublicationStates, ResponseStates};
 
 use App\Models\{Company, Message, Post, Response, User};
 

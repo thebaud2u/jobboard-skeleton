@@ -59,16 +59,13 @@
 									<option value="">{{ __('Select an object') }}</option>
 									<option {{ old('object') == 'information' ? 'selected' : '' }} value="information">{{ __('Information') }}</option>
 									<option {{ old('object') == 'ad' ? 'selected' : '' }} value="ad">{{ __('Problem with an ad') }}</option>
-									<option {{ old('object') == 'beeding-page' ? 'selected' : '' }} value="beeding-page">{{ __('Problem with a company page') }}</option>
+									<option {{ old('object') == 'company-page' ? 'selected' : '' }} value="company-page">{{ __('Problem with a company page') }}</option>
 									<option {{ old('object') == 'product-or-service-activity' ? 'selected' : '' }} value="product-or-service-activity">{{ __('Problem with a product or service activity page') }}</option>
 									<option {{ old('object') == 'application' ? 'selected' : '' }} value="application">{{ __('Problem with an inquire') }}</option>
 									<option {{ old('object') == 'report' ? 'selected' : '' }} value="report">{{ __('Report fraudulent behaviour or advertisement') }}</option>
 									<option {{ old('object') == 'account' ? 'selected' : '' }} value="account">{{ __('Account Certification') }}</option>
 									<option {{ old('object') == 'other' ? 'selected' : '' }} value="other">{{ __('Other request') }}</option>
 									<option {{ old('object') == 'advertiser' ? 'selected' : '' }} value="advertiser">{{ __('I am an advertiser and want more information') }}</option>
-									<option {{ old('object') == 'professionnal-breeder' ? 'selected' : '' }} value="professionnal-breeder">{{ __('I\'m a professionnal breeder and I\'d like to switch to an individual breeder') }}</option>
-									<option {{ old('object') == 'application-rdv-issue' ? 'selected' : '' }} value="application-rdv-issue">{{ __('Report an issue about a inquire or a rendez-vous') }}</option>
-									<option {{ old('object') == 'member-snpcc' ? 'selected' : '' }} value="member-snpcc">{{ __('Request to benefit from 20% as an SNPCC member') }}</option>
 									<option {{ old('object') == 'data-deletion' ? 'selected' : '' }} value="data-deletion">{{ __('I wish to delete my account and the removal of all my personnal data') }}</option>
 								</select>
 
@@ -130,11 +127,11 @@
 							</div>
 
 							<div>
-								<x-front.input-label for="body" :value="__('Commentary')" :required="true" :class="'pl-4'"/>
+								<x-front.input-label for="message" :value="__('Message')" :required="true" :class="'pl-4'"/>
 
-								<textarea name="body" cols="30" rows="6" placeholder="{{ __('Commentary') }}" required class="border-breeder-greige focus:border-breeder-deepblue focus:ring-breeder-deepblue rounded-md shadow-sm mt-1 block w-full text-breeder-deepblue">{{ old('body') }}</textarea>
+								<textarea name="message" cols="30" rows="6" placeholder="{{ __('Message') }}" required class="border-breeder-greige focus:border-breeder-deepblue focus:ring-breeder-deepblue rounded-md shadow-sm mt-1 block w-full text-breeder-deepblue">{{ old('body') }}</textarea>
 
-								@error('body')
+								@error('message')
 									<span class="error text-danger-700">
 										{{ $message }}
 									</span>
@@ -168,7 +165,7 @@
 								</div>
 							</div>
 
-							<div :class="'mt-2'">
+							<div class="mt-2">
 								<x-front.input-label for="captcha" :value="__('Verification')" :required="true" />
 
 								<div class="captcha my-2 flex flex-row items-end">

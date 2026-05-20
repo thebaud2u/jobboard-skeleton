@@ -17,7 +17,6 @@ return new class extends Migration
 			$table->id();
 			$table->foreignId('user_id')->constrained()->onDelete('cascade');
 			$table->foreignId('post_type_id')->constrained()->onDelete('cascade');
-			$table->morphs('model');
 			$table->string('name');
 			$table->string('slug');
 			$table->json('values')->nullable();

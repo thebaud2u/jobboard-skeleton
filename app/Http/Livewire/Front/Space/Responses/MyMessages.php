@@ -7,8 +7,6 @@ use Livewire\Attributes\On;
 
 use Illuminate\Support\Facades\Auth;
 
-use App\Enums\ResponseTypes;
-
 use App\Models\{Company, Response, Post};
 
 class MyMessages extends Component
@@ -61,32 +59,7 @@ class MyMessages extends Component
 		$this->applicants = Auth::guard('web')->user()
 			->applicants()
 			->when($this->filters['type'], function($when) {
-				if($this->filters['type'] == 'posts' || $this->filters['type'] == 'company') {
-					if($this->filters['type'] == 'posts') $class = [Post::class];
-					elseif($this->filters['type'] == 'company') $class = [Company::class];
-
-					$when->whereHasMorph('model', $class)
-						->where(function($where) {
-							$where->where(function($subWhere) {
-								$subWhere->where('responses.values->archive->answerer', false)
-									->where('responses.type', ResponseTypes::Application);
-							})
-							->orWhere('responses.type', '<>', ResponseTypes::Application);
-						});
-				}
-				elseif($this->filters['type'] == 'archived') $when->where('responses.values->archive->answerer', true);
-			}, function($default) {
-				$default->where(function($where) {
-					$where->where(function($subWhere) {
-						$subWhere->where('responses.values->archive->answerer', false)
-							->where('responses.type', ResponseTypes::Application);
-					})
-					->orWhere(function($subWhere) {
-						$subWhere->where('responses.values->archive->answerer', false)
-							->where('responses.type', ResponseTypes::Messaging);
-					})
-					->orWhere('responses.type', ResponseTypes::Self);
-				});
+				if($this->filters['type'] == 'archived') $when->where('responses.values->archive->answerer', true);
 			})
 			->when($this->filters['not-read-only'], function($when) {
 				$when->withCount([
@@ -103,33 +76,7 @@ class MyMessages extends Component
 		$this->applications = Auth::guard('web')->user()
 			->applications()
 			->when($this->filters['type'], function($when) {
-				if($this->filters['type'] == 'posts' || $this->filters['type'] == 'company') {
-					if($this->filters['type'] == 'posts') $class = [Animal::class, Post::class];
-					elseif($this->filters['type'] == 'company') $class = [Company::class];
-					elseif($this->filters['type'] == 'professionnal-activities') $class = [ProfessionnalActivity::class];
-
-					$when->whereHasMorph('model', $class)
-						->where(function($where) {
-							$where->where(function($subWhere) {
-								$subWhere->where('responses.values->archive->asking', false)
-									->where('responses.type', ResponseTypes::Application);
-							})
-							->orWhere('responses.type', '<>', ResponseTypes::Application);
-						});
-				}
-				elseif($this->filters['type'] == 'archived') $when->where('responses.values->archive->asking', true);
-			}, function($default) {
-				$default->where(function($where) {
-					$where->where(function($subWhere) {
-						$subWhere->where('responses.values->archive->asking', false)
-							->where('responses.type', ResponseTypes::Application);
-					})
-					->orWhere(function($subWhere) {
-						$subWhere->where('responses.values->archive->asking', false)
-							->where('responses.type', ResponseTypes::Messaging);
-					})
-					->orWhere('responses.type', ResponseTypes::Self);
-				});
+				if($this->filters['type'] == 'archived') $when->where('responses.values->archive->asking', true);
 			})
 			->when($this->filters['not-read-only'], function($when) {
 				$when->withCount([

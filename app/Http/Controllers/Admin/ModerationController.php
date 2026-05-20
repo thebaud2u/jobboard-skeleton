@@ -13,7 +13,7 @@ use Illuminate\Support\Carbon;
 
 use Spatie\MediaLibrary\Conversions\FileManipulator;
 
-use App\Enums\{ModerationStates, PublicationStates, ResponseTypes, CommentStates};
+use App\Enums\{ModerationStates, PublicationStates, CommentStates};
 
 use App\Models\{Company, Moderation, Post, Response, Comment, User, UsersViews};
 
@@ -92,7 +92,6 @@ class ModerationController extends Controller
 						->whereHas('to', function($whereHas) use($company) {
 							$whereHas->where('id', $company->user->id);
 						})
-						->where('type', ResponseTypes::Messaging)
 						->first();
 				}
 			}
