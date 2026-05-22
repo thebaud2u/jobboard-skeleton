@@ -80,7 +80,7 @@
 	{{-- Page main title (home) --}}
 	<x-slot name="mainTitle">
 		<div x-data="{searchVisible: false, advancedSearchDisplay: false}">
-			<div class="bg-cover bg-center bg-breeder-cream flex flex-col items-center lg:justify-end py-10 min-h-[328px] h-full md:h-[500px] lg:h-[400px]">
+			<div class="bg-cover bg-center bg-jobboard-cream flex flex-col items-center lg:justify-end py-10 min-h-[328px] h-full md:h-[500px] lg:h-[400px]">
 				@if($species->getTranslation('slug', 'en') == 'dog')
 					<div class="relative w-full block md:hidden lg:block">
 						<div class="absolute w-full lg:h-full right-0 max-md:top-[83px] top-[23px]">
@@ -145,10 +145,10 @@
 
 				<div class="flex flex-row items-center justify-center gap-x-6 w-full z-20">
 					<div class="flex flex-col max-md:gap-y-4 md:flex-row md:justify-center items-center w-full max-w-[1200px]">
-						<div class="flex flex-col items-center gap-6 text-[25px] md:text-[40px] text-breeder-deepblue w-full">
+						<div class="flex flex-col items-center gap-6 text-[25px] md:text-[40px] text-jobboard-deepblue w-full">
 							<div class="flex flex-col w-full md:max-w-[680px] lg:max-w-[628px] max-md:px-4 lg:px-4 xlsm:px-0 lg:self-start">
 								@if($postType->id)
-									<div class="mb-1 text-[28px] lg:text-[40px] font-bold text-breeder-deepblue">
+									<div class="mb-1 text-[28px] lg:text-[40px] font-bold text-jobboard-deepblue">
 										@if($postType->getTranslation('slug', 'en') == 'litter')
 											{{ __('Find your :specie by breed or appearance', ['specie' => $species->getTranslation('slug', 'en') == 'dog' ? __('puppy') : __('kitty')]) }}
 										@elseif($postType->getTranslation('slug', 'en') == 'stud')
@@ -158,7 +158,7 @@
 										@endif
 									</div>
 								@else
-									<div class="mb-1 text-[28px] lg:text-[40px] font-bold text-breeder-deepblue">
+									<div class="mb-1 text-[28px] lg:text-[40px] font-bold text-jobboard-deepblue">
 										@if($species->getTranslation('slug', 'en') == 'dog')
 											{{ __('Adopting :specie with confidence', ['specie' => __('dogs')]) }}
 										@else
@@ -179,7 +179,7 @@
 							</div>
 						</div>
 
-						<button class="md:hidden flex justify-center items-center w-[318px] h-[65px] cursor-pointer rounded-full bg-white text-breeder-deepblue font-bold gap-x-2" x-on:click="searchVisible = !searchVisible">
+						<button class="md:hidden flex justify-center items-center w-[318px] h-[65px] cursor-pointer rounded-full bg-white text-jobboard-deepblue font-bold gap-x-2" x-on:click="searchVisible = !searchVisible">
 							<svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path fill-rule="evenodd" clip-rule="evenodd" d="M11.1744 2.74419C6.51853 2.74419 2.74419 6.51853 2.74419 11.1744C2.74419 15.8303 6.51853 19.6047 11.1744 19.6047C15.8303 19.6047 19.6047 15.8303 19.6047 11.1744C19.6047 6.51853 15.8303 2.74419 11.1744 2.74419ZM1 11.1744C1 5.55524 5.55524 1 11.1744 1C16.7936 1 21.3488 5.55524 21.3488 11.1744C21.3488 16.7936 16.7936 21.3488 11.1744 21.3488C5.55524 21.3488 1 16.7936 1 11.1744Z" fill="#0E1954"/>
 								<path fill-rule="evenodd" clip-rule="evenodd" d="M17.5345 17.5345C17.8751 17.1939 18.4273 17.1939 18.7678 17.5345L25.7446 24.5112C26.0851 24.8518 26.0851 25.404 25.7446 25.7446C25.404 26.0851 24.8518 26.0851 24.5112 25.7446L17.5345 18.7678C17.1939 18.4273 17.1939 17.8751 17.5345 17.5345Z" fill="#0E1954"/>
@@ -238,7 +238,7 @@
 		</div>--}}
 	</x-slot>
 	<div class="w-full mb-6 pt-10">
-		<nav class="w-full max-w-[1200px] px-4 md:px-8 lg:px-0 text-sm text-breeder-deepblue mb-2 hidden">
+		<nav class="w-full max-w-[1200px] px-4 md:px-8 lg:px-0 text-sm text-jobboard-deepblue mb-2 hidden">
 			{{-- Breadcrumb --}}
 			@if(!empty($breadcrumb))
 				@include('components.front.breadcrumb', [
@@ -377,7 +377,7 @@
 
 	{{-- Actualité de :species --}}
 	<div class="flex flex-col justify-center items-stretch w-full py-20">
-		<h3 class="font-semibold text-breeder-deepblue text-[25px] sm:text-[40px] text-center mb-4">
+		<h3 class="font-semibold text-jobboard-deepblue text-[25px] sm:text-[40px] text-center mb-4">
 			{{ __('Our latest news') }}
 		</h3>
 
@@ -389,7 +389,7 @@
 	{{-- End Actualité de :species --}}
 
 	{{-- Top races de :species --}}
-	<div class="w-full py-12 bg-breeder-deepblue flex flex-col items-center justify-center gap-y-8">
+	<div class="w-full py-12 bg-jobboard-deepblue flex flex-col items-center justify-center gap-y-8">
 		<h3 class="font-semibold text-white text-[25px] sm:text-[40px] text-center">
 			{{ __('Top :specie breeds', ['specie' => $species->getTranslation('slug', 'en') == 'dog' ? __('dog') : __('cat')]) }}
 		</h3>
@@ -400,7 +400,7 @@
 			@endforeach --}}
 		{{-- FIN AJOUT --}}
 
-		<div class="flex w-full bg-breeder-deepblue my-6">
+		<div class="flex w-full bg-jobboard-deepblue my-6">
 			<div class="mx-auto max-w-[1200px]">
 				<livewire:front.breeds.top-breeds
 					:for="$species->getTranslation('slug', 'en')"
@@ -425,15 +425,15 @@
 			</div>
 		--}}
 
-		<a href="{{ route('breed-search.'.$species->getTranslation('slug', 'en').'-breeds') }}" class="bg-breeder-deepblue hover:bg-breeder-cream border border-breeder-cream rounded-full text-breeder-cream hover:text-breeder-deepblue font-semibold text-sm py-4 px-8">
+		<a href="{{ route('breed-search.'.$species->getTranslation('slug', 'en').'-breeds') }}" class="bg-jobboard-deepblue hover:bg-jobboard-cream border border-jobboard-cream rounded-full text-jobboard-cream hover:text-jobboard-deepblue font-semibold text-sm py-4 px-8">
 			{{ __('See all breeds') }}
 		</a>
 	</div>
 	{{-- End Top races de :specie --}}
 
 	{{-- Certified breeders --}}
-	<div class="flex flex-col items-center px-4 md:px-8 py-8 lg:py-16 w-full bg-breeder-cream gap-y-12">
-		<div class="flex flex-col items-center px-4 md:px-8 py-8 lg:py-16 w-full bg-breeder-cream gap-y-12 max-w-[1200px]">
+	<div class="flex flex-col items-center px-4 md:px-8 py-8 lg:py-16 w-full bg-jobboard-cream gap-y-12">
+		<div class="flex flex-col items-center px-4 md:px-8 py-8 lg:py-16 w-full bg-jobboard-cream gap-y-12 max-w-[1200px]">
 			<livewire:front.companies.recently-published
 				:forSpecies="$species->getTranslation('slug', 'en')"
 				:mode="10"
@@ -458,7 +458,7 @@
 	@if(! auth()->check() || ! auth()->user()->hasRole(['adopter', 'breeder', 'professionnal_breeder', 'individual_breeder', 'professionnal', 'admin']))
 		{{-- CTA Vous êtes professionnel ? --}}
 		<div class="w-full flex justify-center p-4">
-			<div class="mx-auto max-w-[1200px] w-full flex flex-col md:flex-row items-center max-md:gap-y-4 rounded-xl bg-breeder-orange justify-between px-8 lg:px-20 max-lg:py-8 my-20">
+			<div class="mx-auto max-w-[1200px] w-full flex flex-col md:flex-row items-center max-md:gap-y-4 rounded-xl bg-jobboard-orange justify-between px-8 lg:px-20 max-lg:py-8 my-20">
 				<div class="flex items-center">
 					<div class="relative w-[150px] md:h-[122px] max-lg:hidden">
 						<div class="absolute w-[212px] h-[161px] right-[8px] bottom-[4px]">
@@ -466,7 +466,7 @@
 						</div>
 					</div>
 
-					<div class="flex flex-col max-md:items-center text-breeder-deepblue">
+					<div class="flex flex-col max-md:items-center text-jobboard-deepblue">
 						<h6 class="font-semibold text-[20px] sm:text-[28px] max-md:text-center">
 							{{ __('Are you professional?') }}
 						</h6>
@@ -479,7 +479,7 @@
 
 				<div class="flex justify-center min-w-[225px]">
 					<a href="{{ route('space.professionnal-activities.show-offers') }}">
-						<x-front.primary-button :class="'flex justify-center items-center gap-x-1 rounded-full text-breeder-cream text-sm font-semibold bg-breeder-deepblue hover:bg-breeder-deepbluehover py-4 px-6'">
+						<x-front.primary-button :class="'flex justify-center items-center gap-x-1 rounded-full text-jobboard-cream text-sm font-semibold bg-jobboard-deepblue hover:bg-jobboard-deepbluehover py-4 px-6'">
 							{{ __('Create my post') }}
 
 							<svg width="11" height="13" viewBox="0 0 11 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -497,7 +497,7 @@
 		{{-- CTA Create post --}}
 		<div class="w-full flex justify-center px-8 mt-10">
 			<div
-				class="mx-auto max-w-[1200px] w-full flex flex-col md:flex-row items-center max-md:gap-y-4 rounded-md bg-breeder-orange justify-between px-8 lg:px-20 max-lg:py-8 mb-20 mt-12">
+				class="mx-auto max-w-[1200px] w-full flex flex-col md:flex-row items-center max-md:gap-y-4 rounded-md bg-jobboard-orange justify-between px-8 lg:px-20 max-lg:py-8 mb-20 mt-12">
 				<div class="flex items-center">
 					<div class="relative w-[120px] md:h-[122px] max-lg:hidden">
 						<div class="absolute w-[212px] h-[161px] -right-[16px] bottom-[40px]">
@@ -505,14 +505,14 @@
 						</div>
 					</div>
 
-					<div class="flex flex-col max-md:items-center text-breeder-deepblue">
+					<div class="flex flex-col max-md:items-center text-jobboard-deepblue">
 						<h6 class="font-semibold text-[20px] sm:text-[28px] max-md:text-center">Vous avez une activité secondaire ?</h6>
 						<p class="text-[20px] sm:text-base max-md:text-center">Apparaissez dans notre annuaire de produits et services.</p>
 					</div>
 				</div>
 
 				<div class="flex justify-center min-w-[225px]">
-					<a href="{{ route('space.professionnal-activities.show-offers') }}" class="flex justify-center items-center gap-x-1 rounded-full text-breeder-cream text-sm font-semibold bg-breeder-deepblue hover:bg-breeder-deepbluehover py-4 px-6">
+					<a href="{{ route('space.professionnal-activities.show-offers') }}" class="flex justify-center items-center gap-x-1 rounded-full text-jobboard-cream text-sm font-semibold bg-jobboard-deepblue hover:bg-jobboard-deepbluehover py-4 px-6">
 						{{ __('Create my post') }}
 
 						<svg width="11" height="13" viewBox="0 0 11 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -527,9 +527,9 @@
 
 	{{-- NL inscription --}}
 	<div class="w-full flex justify-center p-4 mb-10">
-		<div class="lg:min-h-[338px] w-full max-w-[1200px] rounded-3xl bg-breeder-coral flex flex-row max-lg:justify-center p-4 sm:p-6 md:py-12 md:px-14">
+		<div class="lg:min-h-[338px] w-full max-w-[1200px] rounded-3xl bg-jobboard-coral flex flex-row max-lg:justify-center p-4 sm:p-6 md:py-12 md:px-14">
 			<div class="flex-1 flex max-lg:justify-center">
-				<div class="flex flex-col text-breeder-deepblue max-w-[450px]">
+				<div class="flex flex-col text-jobboard-deepblue max-w-[450px]">
 					<h4 class="s:text-[40px] text-[25px] font-semibold mb-6 s:mb-0 max-s:text-center leading-tight">
 						{{ __('Join our community') }}
 					</h4>
@@ -539,7 +539,7 @@
 					</p>
 
 					<div class="rounded-full bg-white p-2 flex justify-between items-center w-full text-base">
-						<input type="text" type="email" placeholder="Votre adresse email" class="border-0 rounded-full text-breeder-deepblue focus:ring-0 focus:outline-none focus:border-none placeholder:text-breeder-deepblue w-2/3">
+						<input type="text" type="email" placeholder="Votre adresse email" class="border-0 rounded-full text-jobboard-deepblue focus:ring-0 focus:outline-none focus:border-none placeholder:text-jobboard-deepblue w-2/3">
 
 						<button class="font-semibold mr-4 hidden s:block w-[102px]">
 							{{ __('I\'m signing up') }}
@@ -566,8 +566,8 @@
 
 	{{-- CTA Create post --}}
 	<div class="flex flex-col md:flex-row w-full">
-		<div class="flex-1 flex sm:justify-center bg-breeder-violet px-8 py-8 md:py-16 w-full">
-			<div class="flex flex-col items-start w-full sm:max-w-[340px] lg:max-w-[441px] text-breeder-deepblue">
+		<div class="flex-1 flex sm:justify-center bg-jobboard-violet px-8 py-8 md:py-16 w-full">
+			<div class="flex flex-col items-start w-full sm:max-w-[340px] lg:max-w-[441px] text-jobboard-deepblue">
 				<h3 class="font-semibold text-[25px] md:text-[32px] lg:text-[40px]">
 					{{ __('You are breeder') }} ?
 				</h3>
@@ -578,7 +578,7 @@
 
 				<div class="mt-4 w-full">
 					<a href="{{ route('space.posts.show-offers') }}">
-						<button class="bg-breeder-deepblue hover:bg-breeder-deepbluehover border border-breeder-deepblue hover:border-breeder-deepbluehover rounded-full text-breeder-cream hover:text-breeder-cream font-semibold text-sm py-4 px-8 max-s:w-full">
+						<button class="bg-jobboard-deepblue hover:bg-jobboard-deepbluehover border border-jobboard-deepblue hover:border-jobboard-deepbluehover rounded-full text-jobboard-cream hover:text-jobboard-cream font-semibold text-sm py-4 px-8 max-s:w-full">
 							{{ __('Create my post') }}
 						</button>
 					</a>
@@ -586,7 +586,7 @@
 			</div>
 		</div>
 
-		<div class="flex-1 flex sm:justify-center bg-breeder-deepblue px-8 py-8 md:py-16 w-full">
+		<div class="flex-1 flex sm:justify-center bg-jobboard-deepblue px-8 py-8 md:py-16 w-full">
 			<div class="flex flex-col items-start text-white w-full sm:max-w-[340px] lg:max-w-[520px]">
 				<h3 class= "font-semibold text-[25px] md:text-[32px] lg:text-[40px]">
 					{{ __('You are professional') }} ?
@@ -598,7 +598,7 @@
 
 				<div class="mt-4 w-full">
 					<a href="{{ route('space.professionnal-activities.show-offers') }}">
-						<button class="bg-breeder-deepblue hover:bg-breeder-deepbluehover border border-breeder-cream hover:border-breeder-deepbluehover rounded-full text-breeder-cream font-semibold text-sm py-4 px-8 max-s:w-full">
+						<button class="bg-jobboard-deepblue hover:bg-jobboard-deepbluehover border border-jobboard-cream hover:border-jobboard-deepbluehover rounded-full text-jobboard-cream font-semibold text-sm py-4 px-8 max-s:w-full">
 							{{ __('Create my post') }}
 						</button>
 					</a>

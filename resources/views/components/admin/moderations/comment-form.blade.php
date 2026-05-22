@@ -56,7 +56,7 @@
 					<x-front.input-label for="newContent" :value="__('Moderated comment\'s content')" />
 				</div>
 
-				<textarea rows="5" name="newContent" id="newContent" placeholder="{{ __('Moderated comment\'s content') }}" class="border-breeder-greige focus:border-breeder-deepblue focus:ring-breeder-deepblue rounded-md shadow-sm text-breeder-deepblue placeholder:text-gray-400 mt-1 block w-full">{{ $moderation->model->content }}</textarea>
+				<textarea rows="5" name="newContent" id="newContent" placeholder="{{ __('Moderated comment\'s content') }}" class="border-jobboard-greige focus:border-jobboard-deepblue focus:ring-jobboard-deepblue rounded-md shadow-sm text-jobboard-deepblue placeholder:text-gray-400 mt-1 block w-full">{{ $moderation->model->content }}</textarea>
 			</div>
 
 			<div class="flex s:flex-row flex-col items-center max-s:space-y-5 justify-end mt-10">

@@ -156,7 +156,7 @@
 
 				@if($article->targets->isNotEmpty())
 					@foreach($article->targets as $articleTarget)
-						<span class="text-breeder-deepblue bg-breeder-cream p-2 rounded-xl flex flex-row justify-between items-center font-medium text-xs">
+						<span class="text-jobboard-deepblue bg-jobboard-cream p-2 rounded-xl flex flex-row justify-between items-center font-medium text-xs">
 							{{ $articleTarget->name }}
 						</span>
 					@endforeach
@@ -164,7 +164,7 @@
 
 				@if($article->species->isNotEmpty())
 					@foreach($article->species as $articleSpecies)
-						<span class="text-breeder-deepblue bg-breeder-cream p-2 rounded-xl flex flex-row justify-between items-center font-medium text-xs">
+						<span class="text-jobboard-deepblue bg-jobboard-cream p-2 rounded-xl flex flex-row justify-between items-center font-medium text-xs">
 							{{ __($articleSpecies->name) }}
 						</span>
 					@endforeach
@@ -172,7 +172,7 @@
 
 				@if($article->tags->isNotEmpty())
 					@foreach($article->tags as $articleTag)
-						<span class="text-breeder-deepblue bg-breeder-cream p-2 rounded-xl flex flex-row justify-between items-center font-medium text-xs">
+						<span class="text-jobboard-deepblue bg-jobboard-cream p-2 rounded-xl flex flex-row justify-between items-center font-medium text-xs">
 							{{ $articleTag->name }}
 						</span>
 					@endforeach
@@ -193,7 +193,7 @@
 					<div class="flex flex-row gap-x-2 mb-4">
 						@if($article->values->has('infomercial') && $article->values->get('infomercial') == true)
 							<div>
-								<div class="rounded-md py-2 px-3 text-center bg-breeder-orange text-xs grow-0">
+								<div class="rounded-md py-2 px-3 text-center bg-jobboard-orange text-xs grow-0">
 									{{ __('Infomercial') }}
 								</div>
 							</div>
@@ -204,7 +204,7 @@
 						</div>
 					</div>
 
-					<div class="text-sm mb-8 font-medium border-l-8 border-breeder-deepblue w-full bg-breeder-cream flex items-center p-4">
+					<div class="text-sm mb-8 font-medium border-l-8 border-jobboard-deepblue w-full bg-jobboard-cream flex items-center p-4">
 						@php
 							$publicationDate = '';
 							if($article->start_publication_date) $publicationDate = $article->start_publication_date->format('d/m/Y H:i:s');
@@ -252,11 +252,11 @@
 									{!! __('Our last articles  <br><span class=\'font-medium\'>:section<span>', ['section' => strtolower($article->mainSection()->name)]) !!}
 								</h2>
 
-								<div class="border-6 border-breeder-orange w-[56px] h-1 bg-breeder-orange -mt-[13px] mb-4"></div>
+								<div class="border-6 border-jobboard-orange w-[56px] h-1 bg-jobboard-orange -mt-[13px] mb-4"></div>
 
 								@foreach($relatedArticles as $relatedArticle)
 									<a href="{{ route('article.show', ['article' => $relatedArticle->slug]) }}">
-										<div class="text-lg font-bold pb-4 text-breeder-deepblue w-full @if(!$loop->last) border-b border-breeder-greige @endif">
+										<div class="text-lg font-bold pb-4 text-jobboard-deepblue w-full @if(!$loop->last) border-b border-jobboard-greige @endif">
 											@if($loop->first)
 												@if($photo = $relatedArticle->getFirstMedia('photo'))
 													<img src="{{ $photo->getAvailableUrl(['optimized']) }}" alt="{{ $relatedArticle->title }}" class="object-cover md:w-[300px] md:h-[200px] mb-2" />

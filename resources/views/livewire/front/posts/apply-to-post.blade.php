@@ -86,7 +86,7 @@
 					<div class="flex flex-row w-full">
 						<x-front.input-label for="message" :value="__('Your message')" :class="'pl-4'" :required="true" />
 
-						<textarea id="message" rows="5" wire:model="message" placeholder="{{ __('Your message') }}" maxlength="1000" class="border-breeder-greige focus:border-breeder-deepblue focus:ring-breeder-deepblue rounded-md shadow-sm text-breeder-deepblue placeholder:text-gray-400 mt-1 block w-full"></textarea>
+						<textarea id="message" rows="5" wire:model="message" placeholder="{{ __('Your message') }}" maxlength="1000" class="border-jobboard-greige focus:border-jobboard-deepblue focus:ring-jobboard-deepblue rounded-md shadow-sm text-jobboard-deepblue placeholder:text-gray-400 mt-1 block w-full"></textarea>
 
 						@error('message')
 							<span class="error text-danger-700">
@@ -97,7 +97,7 @@
 
 					<div>
 						<div class="flex flex-row" x-data="{checked: false}">
-							<input type="checkbox" name="consent" wire:model="consent" class="w-4 h-4 mt-2 text-breeder-deepblue bg-gray-100 border-breeder-greige rounded focus:ring-0 focus:ring-offset-0 focus:outline-none cursor-pointer" />
+							<input type="checkbox" name="consent" wire:model="consent" class="w-4 h-4 mt-2 text-jobboard-deepblue bg-gray-100 border-jobboard-greige rounded focus:ring-0 focus:ring-offset-0 focus:outline-none cursor-pointer" />
 							<x-front.input-label for="consent" :value="__('By submitting this form, I accept that the information entered is used as part of the contact request')" :required="true" :class="'ml-2 cursor-pointer'"/>
 						</div>
 

@@ -15,12 +15,12 @@
 			{{ __('My benefits') }}
 		</x-front.form-part-title>
 	
-		<hr class="h-px border border-breeder-deepblue w-full my-[30px]">
+		<hr class="h-px border border-jobboard-deepblue w-full my-[30px]">
 	</div>
 
 	<div x-data="{width: (window.innerWidth > 0) ? window.innerWidth : screen.width}" class="w-full bg-white pl-6 max-md:pr-6 py-10 mb-6">
 		@if($user->hasRole('adopter'))
-			{{-- <div class="w-full flex flex-col justify-between bg-breeder-orange text-breeder-deepblue rounded-xl min-h-[480px] md:min-h-[507px] p-6 xlsm:p-12">
+			{{-- <div class="w-full flex flex-col justify-between bg-jobboard-orange text-jobboard-deepblue rounded-xl min-h-[480px] md:min-h-[507px] p-6 xlsm:p-12">
 				<div class="flex gap-x-4">
 					<svg class="flex-none" width="47" height="53" viewBox="0 0 47 53" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<g clip-path="url(#clip0_1707_24927)">

@@ -45,7 +45,7 @@
 	if(is_null($src)) $src = $photo->getAvailableUrl(['optimized']);
 @endphp
 
-<article class="w-[250px] min-h-[250px] h-full rounded-xl pb-3 bg-breeder-cream">
+<article class="w-[250px] min-h-[250px] h-full rounded-xl pb-3 bg-jobboard-cream">
 	<div class="overflow-hidden sm:flex-none flex justify-end items-stretch w-full max-w-[250px] sm:max-w-[287px] h-[220px] rounded-t-xl bg-[#F8F8F8]">
 		@if($photo)
 			<img src="{{ $src }}" alt="{{ $post->name }}" class="object-cover w-full rounded-t-xl" />
@@ -54,7 +54,7 @@
 		<div class="absolute w-fit mt-2 pr-2">
 			<div class="flex flex-row gap-2 items-center">
 				@if($isPureBreed)
-					<span class="px-3 py-1 rounded-md text-xs font-medium @if($species->getTranslation('slug', 'en') == 'cat') bg-breeder-green @elseif($species->getTranslation('slug', 'en') == 'dog') bg-breeder-coral @else bg-breeder-cream @endif text-breeder-deepblue w-fit">
+					<span class="px-3 py-1 rounded-md text-xs font-medium @if($species->getTranslation('slug', 'en') == 'cat') bg-jobboard-green @elseif($species->getTranslation('slug', 'en') == 'dog') bg-jobboard-coral @else bg-jobboard-cream @endif text-jobboard-deepblue w-fit">
 						@if($addressInFrance)
 							@if($species->getTranslation('slug', 'en') == 'cat')
 								LOOF
@@ -70,7 +70,7 @@
 		</div>
 	</div>
 
-	<div class="flex flex-col gap-y-2 p-4 bg-breeder-cream rounded-b-xl">
+	<div class="flex flex-col gap-y-2 p-4 bg-jobboard-cream rounded-b-xl">
 		<div>
 			@if($postType->getTranslation('slug', 'en') == 'litter' || $postType->getTranslation('slug', 'en') == 'litter-yet-to-come')
 				<div class="font-bold">
@@ -83,7 +83,7 @@
 			@endif
 		</div>
 
-		<div class="flex flex-row gap-x-2 text-breeder-deepblue text-sm font-medium">
+		<div class="flex flex-row gap-x-2 text-jobboard-deepblue text-sm font-medium">
 			@if($postType->getTranslation('slug', 'en') == 'litter')
 				@if($post->model->values->has('birth_date'))
 					{{ __('Born on :date', ['date' => Carbon::parse($post->model->values->get('birth_date'))->format('d/m/Y')]) }}
@@ -113,7 +113,7 @@
 		<div class="flex flex-wrap gap-4">
 			@if($postType->getTranslation('slug', 'en') == 'litter')
 				@if($post->model->values->get('female_count') > 0)
-					<span class="flex flex-row items-center gap-x-2 w-fit px-2 py-1 rounded-md font-medium bg-breeder-violet text-breeder-deepblue text-xs">
+					<span class="flex flex-row items-center gap-x-2 w-fit px-2 py-1 rounded-md font-medium bg-jobboard-violet text-jobboard-deepblue text-xs">
 						<svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M5 9.67006C7.20914 9.67006 9 7.80757 9 5.51008C9 3.21258 7.20914 1.3501 5 1.3501C2.79086 1.3501 1 3.21258 1 5.51008C1 7.80757 2.79086 9.67006 5 9.67006Z" stroke="#0E1954" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 							<path d="M5 9.67007L4.99924 14.3501" stroke="#0E1954" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -125,7 +125,7 @@
 				@endif
 
 				@if($post->model->values->get('male_count') > 0)
-					<span class="flex flex-row items-center gap-x-2 w-fit px-2 py-1 rounded-md font-medium bg-breeder-violet text-breeder-deepblue text-xs">
+					<span class="flex flex-row items-center gap-x-2 w-fit px-2 py-1 rounded-md font-medium bg-jobboard-violet text-jobboard-deepblue text-xs">
 						<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M11 1.3501H15V5.45536" stroke="#0E1954" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 							<path d="M15 1.3501L11 5.45536" stroke="#0E1954" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -136,7 +136,7 @@
 					</span>
 				@endif
 			@elseif($postType->getTranslation('slug', 'en') == 'retired-breeder' || $postType->getTranslation('slug', 'en') == 'stud')
-				<span class="w-fit px-1 py-1 rounded-md font-medium bg-breeder-violet text-breeder-deepblue text-xs">
+				<span class="w-fit px-1 py-1 rounded-md font-medium bg-jobboard-violet text-jobboard-deepblue text-xs">
 					<div class="flex flex-row gap-x-2">
 						@if($animalValues->get('sex') == 'male')
 							<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -166,19 +166,19 @@
 
 		<div class="text-sm flex flex-row items-center gap-x-2 font-bold">
 			@if($lastPublication->isArchived())
-				<div class="w-2 h-2 bg-breeder-deepblue rounded-full"></div> {{ __('Archived') }}
+				<div class="w-2 h-2 bg-jobboard-deepblue rounded-full"></div> {{ __('Archived') }}
 			@elseif($lastPublication->isDraft())
-				<div class="w-2 h-2 bg-breeder-violet rounded-full"></div> {{ __('Draft') }}
+				<div class="w-2 h-2 bg-jobboard-violet rounded-full"></div> {{ __('Draft') }}
 			@elseif($lastPublication->isDraftWaitingModerationForPublication())
-				<div class="w-2 h-2 bg-breeder-orange rounded-full"></div> {{ __('Waiting moderation') }}
+				<div class="w-2 h-2 bg-jobboard-orange rounded-full"></div> {{ __('Waiting moderation') }}
 			@elseif($lastPublication->isWaitingToBePublished())
 				@if($post->awaitingModeration())
-					<div class="w-2 h-2 bg-breeder-orange rounded-full"></div> {{ __('Waiting validation') }}
+					<div class="w-2 h-2 bg-jobboard-orange rounded-full"></div> {{ __('Waiting validation') }}
 				@elseif($post->lastModeration->isDenied())
-					<div class="w-2 h-2 bg-breeder-red rounded-full"></div> {{ ucfirst(__('moderation denied, update your post infos and resubmit')) }}
+					<div class="w-2 h-2 bg-jobboard-red rounded-full"></div> {{ ucfirst(__('moderation denied, update your post infos and resubmit')) }}
 				@endif
 			@elseif($lastPublication->isPublished())
-				<div class="w-2 h-2 bg-breeder-green rounded-full"></div> {{ __('Published until :date', ['date' => $post->archived_at->format('d/m/Y')]) }}
+				<div class="w-2 h-2 bg-jobboard-green rounded-full"></div> {{ __('Published until :date', ['date' => $post->archived_at->format('d/m/Y')]) }}
 			@endif
 		</div>
 	</div>

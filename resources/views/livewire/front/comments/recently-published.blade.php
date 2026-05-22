@@ -2,8 +2,8 @@
 	@if($withModeration && $commentsWaitingModeration->isNotEmpty())
 		<div class="flex flex-col gap-y-6 mb-6">
 			@foreach($commentsWaitingModeration as $commentWaitingModeration)
-				<div class="flex flex-col p-6 gap-4 bg-breeder-darkviolet rounded-xl">
-					<div class="flex flex-row text-sm p-3 gap-2 bg-breeder-violet justify-between rounded-xl font-bold">
+				<div class="flex flex-col p-6 gap-4 bg-jobboard-darkviolet rounded-xl">
+					<div class="flex flex-row text-sm p-3 gap-2 bg-jobboard-violet justify-between rounded-xl font-bold">
 						<div class="flex flex-row items-center gap-3 pl-2">
 							<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M11 6.89844V10.8984M11 14.8984H11.01M21 10.8984C21 16.4213 16.5228 20.8984 11 20.8984C5.47715 20.8984 1 16.4213 1 10.8984C1 5.37559 5.47715 0.898438 11 0.898438C16.5228 0.898438 21 5.37559 21 10.8984Z" stroke="#0E1954" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -45,7 +45,7 @@
 						</div>
 					</div>
 
-					<div class="flex bg-breeder-lightcream p-6 rounded-xl">
+					<div class="flex bg-jobboard-lightcream p-6 rounded-xl">
 						{{ $commentWaitingModeration->content }}
 					</div>
 				</div>
@@ -87,7 +87,7 @@
 						<hr />
 					@endif
 
-					<div class="flex flex-col gap-y-2 @if($isMyCompany) rounded-xl border border-breeder-greige p-6 @endif">
+					<div class="flex flex-col gap-y-2 @if($isMyCompany) rounded-xl border border-jobboard-greige p-6 @endif">
 						<div class="flex flex-row justify-between items-center">
 							<div class="flex flex-row items-center gap-x-2">
 								@if($logo = $source == 'company' ? $comment->source->getFirstMedia('logo') : $comment->source->getFirstMedia('avatar'))
@@ -193,7 +193,7 @@
 											<x-front.input-label for="replyContent" :value="__('My reply')" :required="true" />
 										</div>
 
-										<textarea id="replyContent" rows="5" wire:model="replyContent" class="border-breeder-greige focus:border-breeder-deepblue focus:ring-breeder-deepblue rounded-md text-breeder-deepblue placeholder:text-breeder-greige mt-1 block w-full"></textarea>
+										<textarea id="replyContent" rows="5" wire:model="replyContent" class="border-jobboard-greige focus:border-jobboard-deepblue focus:ring-jobboard-deepblue rounded-md text-jobboard-deepblue placeholder:text-jobboard-greige mt-1 block w-full"></textarea>
 
 										@error('replyContent')
 											<span class="error text-danger-700">

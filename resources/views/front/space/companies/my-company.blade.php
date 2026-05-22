@@ -20,11 +20,11 @@
 	</x-slot>
 
 	<div class="flex-1 py-5">
-		<div class="w-full bg-white px-6 py-10 mb-6 rounded-md text-breeder-deepblue">
+		<div class="w-full bg-white px-6 py-10 mb-6 rounded-md text-jobboard-deepblue">
 			@if($company)
 				@if(session('company_published') || session('company_published_modified'))
 					<div x-data="{}" x-init="$nextTick(() => { $dispatch('open-modal', 'company_published') })">
-						<x-front.modal name="company_published" :class="'w-full max-w-2xl text-breeder-deepblue'" focusable>
+						<x-front.modal name="company_published" :class="'w-full max-w-2xl text-jobboard-deepblue'" focusable>
 							<h1 class="text-[40px] font-bold">
 								{{ __('Bravo') }} !
 							</h1>
@@ -58,15 +58,15 @@
 
 				<div x-data="{uppyUploaderCollection: '', uppyUploaderMediaId: '', isActive : 'myCompany'}" class="flex flex-col gap-y-6">
 					<div class="flex flex-row justify-center items-center rounded-full w-[350px] mx-auto">
-						<div x-on:click="isActive = 'myCompany'" :class="isActive == 'myCompany' ? '' : 'opacity-50'" class="w-full h-full bg-breeder-deepblue rounded-l-full flex justify-center items-center text-breeder-cream text-sm px-1 py-2 cursor-pointer font-bold">
+						<div x-on:click="isActive = 'myCompany'" :class="isActive == 'myCompany' ? '' : 'opacity-50'" class="w-full h-full bg-jobboard-deepblue rounded-l-full flex justify-center items-center text-jobboard-cream text-sm px-1 py-2 cursor-pointer font-bold">
 							{{ __('My company') }}
 						</div>
 
-						<div x-on:click="isActive = 'myAnimals'" :class="isActive == 'myAnimals' ? '' : 'opacity-50'" class="w-full h-full bg-breeder-deepblue flex justify-center items-center text-breeder-cream text-sm px-1 py-2 cursor-pointer font-bold">
+						<div x-on:click="isActive = 'myAnimals'" :class="isActive == 'myAnimals' ? '' : 'opacity-50'" class="w-full h-full bg-jobboard-deepblue flex justify-center items-center text-jobboard-cream text-sm px-1 py-2 cursor-pointer font-bold">
 							{{ __('My animals') }}
 						</div>
 
-						<div x-on:click="isActive = 'myComments'" :class="isActive == 'myComments' ? '' : 'opacity-50'" class="w-full h-full bg-breeder-deepblue rounded-r-full flex justify-center items-center text-breeder-cream text-sm px-1 py-2 cursor-pointer font-bold">
+						<div x-on:click="isActive = 'myComments'" :class="isActive == 'myComments' ? '' : 'opacity-50'" class="w-full h-full bg-jobboard-deepblue rounded-r-full flex justify-center items-center text-jobboard-cream text-sm px-1 py-2 cursor-pointer font-bold">
 							{{ __('Comment') }}
 						</div>
 					</div>
@@ -109,24 +109,24 @@
 							{{ __('Comment') }}
 						</x-front.form-part-title>
 
-						<hr class="h-px border border-breeder-deepblue w-full my-[30px]">
+						<hr class="h-px border border-jobboard-deepblue w-full my-[30px]">
 					</div>
 
 					<div x-show="isActive == 'myCompany'">
 						<div class="flex flex-col md:flex-row justify-between md:items-center gap-2">
 							<div class="flex flex-row items-center gap-x-2">
 								@if($lastPublication->isDraft())
-									{{ __('Status : :status', ['status' => __('as draft')]) }} <div class="w-2 h-2 bg-breeder-deepblue rounded-full"></div>
+									{{ __('Status : :status', ['status' => __('as draft')]) }} <div class="w-2 h-2 bg-jobboard-deepblue rounded-full"></div>
 								@elseif($lastPublication->isWaitingToBePublished())
 									@if($company->awaitingModeration())
-										{{ __('Status : :status', ['status' => __('waiting validation')]) }} <div class="w-2 h-2 bg-breeder-orange rounded-full"></div>
+										{{ __('Status : :status', ['status' => __('waiting validation')]) }} <div class="w-2 h-2 bg-jobboard-orange rounded-full"></div>
 									@elseif($company->lastModeration->isDenied())
-										{{ __('Status : :status', ['status' => __('moderation denied, update your company infos and resubmit')]) }} <div class="w-2 h-2 bg-breeder-red rounded-full"></div>
+										{{ __('Status : :status', ['status' => __('moderation denied, update your company infos and resubmit')]) }} <div class="w-2 h-2 bg-jobboard-red rounded-full"></div>
 									@elseif($company->breeds->isEmpty())
-										{{ __('Status : :status', ['status' => __('waiting update')]) }} <div class="w-2 h-2 bg-breeder-orange rounded-full"></div>
+										{{ __('Status : :status', ['status' => __('waiting update')]) }} <div class="w-2 h-2 bg-jobboard-orange rounded-full"></div>
 									@endif
 								@elseif($lastPublication->isPublished())
-									{{ __('Status : :status', ['status' => __('validated')]) }} <div class="w-2 h-2 bg-breeder-green rounded-full"></div>
+									{{ __('Status : :status', ['status' => __('validated')]) }} <div class="w-2 h-2 bg-jobboard-green rounded-full"></div>
 								@endif
 							</div>
 
@@ -177,7 +177,7 @@
 						</div>
 
 						@if($lastPublication->isPublished())
-							<div class="flex flex-row justify-between w-full text-sm bg-breeder-violet p-4 text-breeder-deepblue rounded-xl mb-4">
+							<div class="flex flex-row justify-between w-full text-sm bg-jobboard-violet p-4 text-jobboard-deepblue rounded-xl mb-4">
 								<div class="flex items-center font-medium">
 									<svg class="shrink-0 mr-3" width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<path d="M12.3056 0.75V3.65146M5.19444 0.75V3.65146M0.75 6.55292H16.75M2.52778 2.20073H14.9722C15.9541 2.20073 16.75 2.85025 16.75 3.65146V13.8066C16.75 14.6078 15.9541 15.2573 14.9722 15.2573H2.52778C1.54594 15.2573 0.75 14.6078 0.75 13.8066V3.65146C0.75 2.85025 1.54594 2.20073 2.52778 2.20073Z" stroke="#0E1954" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -235,14 +235,14 @@
 							</div>
 						@endif
 
-						<hr class="w-full hpx border-t border-breeder-deepblue bg-breeder-deepblue">
+						<hr class="w-full hpx border-t border-jobboard-deepblue bg-jobboard-deepblue">
 
 						<livewire:front.space.stats :element="$company" />
 
-						<hr class="w-full hpx border-t border-breeder-deepblue bg-breeder-deepblue">
+						<hr class="w-full hpx border-t border-jobboard-deepblue bg-jobboard-deepblue">
 
 						<div class="flex flex-col bg-white gap-y-6 mt-8">
-							<div class="flex flex-col gap-y-4 p-4 rounded-xl bg-breeder-cream">
+							<div class="flex flex-col gap-y-4 p-4 rounded-xl bg-jobboard-cream">
 								<div class="flex flex-row justify-between">
 									<x-front.space-title>
 										{{ __('Presentation') }}
@@ -465,7 +465,7 @@
 					<x-front.modal name="delete_photo" :class="'w-full max-w-xl'" focusable>
 						<section class="p-10 flex flex-col flex-wrap content-center">
 							<header class="flex flex-col flex-wrap content-center">
-								<p class="mt-1 text-sm m-auto text-breeder-deepblue">
+								<p class="mt-1 text-sm m-auto text-jobboard-deepblue">
 									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
 										<path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
 									</svg>
@@ -538,7 +538,7 @@
 					</div>
 				@endif
 
-				<div class="flex flex-col p-6 gap-y-6 justify-center items-center w-full bg-breeder-cream h-[337px] rounded-xl">
+				<div class="flex flex-col p-6 gap-y-6 justify-center items-center w-full bg-jobboard-cream h-[337px] rounded-xl">
 					<svg width="94" height="83" viewBox="0 0 94 83" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<g clip-path="url(#clip0_3255_49587)">
 							<path d="M7.33203 71.4752V16.8118C7.33203 15.339 8.53484 14.1497 10.0158 14.1497H20.6382" stroke="#0E1954" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>

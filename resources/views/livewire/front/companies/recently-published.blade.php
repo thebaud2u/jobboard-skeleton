@@ -1,5 +1,5 @@
 <div class="flex flex-col @if(!$doubleColumnDisplay) lg:w-[576px] @endif justify-between rounded-md bg-white w-full gap-y-10 py-8">
-	<h4 class="flex max-w-[570px] justify-center pb-2 border-b border-breeder-deepblue sm:text-[28px] text-breeder-deepblue items-center mx-auto">
+	<h4 class="flex max-w-[570px] justify-center pb-2 border-b border-jobboard-deepblue sm:text-[28px] text-jobboard-deepblue items-center mx-auto">
 		@if($forSpecies == 'dog')
 			<svg width="30" height="24" viewBox="0 0 30 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2">
 				<path d="M10.8593 0.297845C9.985 -0.570614 8.17948 0.709755 7.30112 1.01209C4.92223 1.82982 2.36441 2.05506 0.90454 4.36824C-1.54145 8.2479 2.5169 16.8331 6.42072 13.9314C8.5109 12.3771 6.55085 8.20326 8.15305 5.92051C8.79555 5.00741 9.985 4.66043 10.6112 3.50384C10.9955 2.79568 11.4713 0.904549 10.8573 0.295816L10.8593 0.297845ZM28.3208 3.36383C26.8629 1.90896 24.9944 1.87649 23.2011 1.26979C21.5277 0.705697 18.366 -1.67648 18.856 2.15854C19.1854 4.73551 21.975 5.07843 22.4081 7.13595C22.8493 9.23608 21.5155 13.6149 24.3214 14.3555C26.4237 14.9095 27.7535 13.4079 28.6359 11.7501C30.0002 9.18738 30.5756 5.61006 28.3228 3.36383H28.3208ZM10.4465 6.97971C8.89315 7.29828 9.35469 9.79408 10.7678 9.73321C12.6323 9.65205 12.5957 6.53939 10.4465 6.97971ZM18.0753 9.32739C19.3379 10.6544 21.4362 8.45284 20.0495 7.25567C18.6629 6.05849 16.9814 8.17688 18.0753 9.32739ZM6.63625 14.6558V23.4825C6.63625 23.6123 7.12626 23.9674 7.35398 23.9918C9.14933 24.1866 8.12865 20.9522 8.26487 19.9315C10.3713 21.6766 12.7949 22.3015 14.8993 20.1507C17.0749 22.1838 19.2179 21.7273 21.4789 20.1344V23.2796C21.4789 24.2556 23.3088 24.0871 23.3088 23.4825V14.6558C21.1312 14.5747 21.6233 15.8429 21.115 17.2348C20.4826 18.9616 18.1912 20.729 16.5117 19.1077C15.8509 18.4706 15.5601 16.6362 15.7838 15.8145C15.8814 15.4533 17.6747 14.9501 17.3758 13.3897C16.9244 11.0379 12.4513 11.3545 12.5469 13.7265C12.6099 15.2808 14.1369 15.6724 14.1694 15.8063C14.8485 18.6349 12.3293 21.1429 9.88333 18.8236C8.23234 17.2572 9.21846 14.4509 6.63625 14.6579V14.6558Z" fill="#0E1954" />
@@ -44,7 +44,7 @@
 							{{ $company->name }}
 						</h5>
 
-						<div class="flex gap-2 text-breeder-deepblue text-xs flex-wrap">
+						<div class="flex gap-2 text-jobboard-deepblue text-xs flex-wrap">
 							@if($company->hasPureBreedBreeders())
 								@if($company->address?->country?->code == 'FRA')
 									@php
@@ -52,23 +52,23 @@
 									@endphp
 
 									@if($forSpecies == 'cat' && $pureBreedTypes['LOOF'])
-										<div class="rounded-md py-2 px-3 text-center bg-breeder-green">
+										<div class="rounded-md py-2 px-3 text-center bg-jobboard-green">
 											LOOF
 										</div>
 									@elseif($forSpecies == 'dog' && $pureBreedTypes['LOF'])
-										<div class="rounded-md py-2 px-3 text-center bg-breeder-coral">
+										<div class="rounded-md py-2 px-3 text-center bg-jobboard-coral">
 											LOF
 										</div>
 									@endif
 								@else
-									<div class="rounded-md py-2 px-3 text-center bg-breeder-coral">
+									<div class="rounded-md py-2 px-3 text-center bg-jobboard-coral">
 										{{ __('Origin book') }}
 									</div>
 								@endif
 							@endif
 
 							@if($company->littersAvailable->count() > 0)
-								<div class="rounded-md py-2 px-3 text-center bg-breeder-violet">
+								<div class="rounded-md py-2 px-3 text-center bg-jobboard-violet">
 									{{ $company->littersAvailable->count() > 1 ? __('Litters available') : __('Litter available') }}
 								</div>
 							@endif
@@ -78,12 +78,12 @@
 								$count = $breeds->count();
 							@endphp
 							@if($breeds->isNotEmpty())
-								<div class="rounded-md py-2 px-3 text-center bg-breeder-cream">
+								<div class="rounded-md py-2 px-3 text-center bg-jobboard-cream">
 									{{ $breeds->first()->name }}
 								</div>
 
 								@if($count > 1)
-									<div class="rounded-md py-2 px-3 text-center bg-breeder-cream">
+									<div class="rounded-md py-2 px-3 text-center bg-jobboard-cream">
 										{{ '+'.$count-1 }}
 									</div>
 								@endif
@@ -91,7 +91,7 @@
 						</div>
 
 						@if($company->address)
-							<p class="font-medium text-sm text-breeder-deepblue">
+							<p class="font-medium text-sm text-jobboard-deepblue">
 								{{ $company->displayPartOfAddress('department+country') }}
 							</p>
 						@endif
@@ -113,7 +113,7 @@
 	</div>
 
 	<div class="flex justify-center">
-		<a href="{{ route('company-search.'.$forSpecies.'-companies') }}" class="flex justify-center items-center gap-x-1 rounded-full text-breeder-cream text-sm font-semibold bg-breeder-deepblue hover:bg-breeder-deepbluehover py-4 px-6">
+		<a href="{{ route('company-search.'.$forSpecies.'-companies') }}" class="flex justify-center items-center gap-x-1 rounded-full text-jobboard-cream text-sm font-semibold bg-jobboard-deepblue hover:bg-jobboard-deepbluehover py-4 px-6">
 			{{ __('All our :species companies', ['species' => $forSpecies == 'dog' ? __('dogs') : __('cats')] ) }}
 
 			<svg width="11" height="13" viewBox="0 0 11 13" fill="none" xmlns="http://www.w3.org/2000/svg">

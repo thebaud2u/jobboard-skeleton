@@ -6,7 +6,7 @@
 
 	<div class="mb-5 text-sm sm:text-base lg:text-xl">
 		<div class="flex flex-wrap items-center gap-4">
-			<select id="author" wire:model.live="author" class="border-gray-300 focus:border-breeder-deepblue focus:ring-breeder-deepblue rounded-md shadow-sm text-breeder-deepblue placeholder:text-gray-400 mt-1 text-gray-400">
+			<select id="author" wire:model.live="author" class="border-gray-300 focus:border-jobboard-deepblue focus:ring-jobboard-deepblue rounded-md shadow-sm text-jobboard-deepblue placeholder:text-gray-400 mt-1 text-gray-400">
 				<option value="">{{ __('Select :element', ['element' => __('the author')]) }}</option>
 				@foreach($authors as $author)
 					<option value="{{ $author->slug }}">
@@ -15,7 +15,7 @@
 				@endforeach
 			</select>
 
-			<select id="section" wire:model.live="section" class="border-gray-300 focus:border-breeder-deepblue focus:ring-breeder-deepblue rounded-md shadow-sm text-breeder-deepblue placeholder:text-gray-400 mt-1 text-gray-400">
+			<select id="section" wire:model.live="section" class="border-gray-300 focus:border-jobboard-deepblue focus:ring-jobboard-deepblue rounded-md shadow-sm text-jobboard-deepblue placeholder:text-gray-400 mt-1 text-gray-400">
 				<option value="">{{ __('Select :element', ['element' => __('a section')]) }}</option>
 				@foreach($sections as $sectionFilter)
 					<option value="{{ $sectionFilter->id }}">
@@ -25,7 +25,7 @@
 			</select>
 
 			<label for="inSelection" class="inline-flex items-center">
-				<input type="checkbox" name="inSelection" id="inSelection" wire:model.live="inSelection" class="rounded border-breeder-deepblue text-breeder-deepblue focus:ring-breeder-deepblue" />
+				<input type="checkbox" name="inSelection" id="inSelection" wire:model.live="inSelection" class="rounded border-jobboard-deepblue text-jobboard-deepblue focus:ring-jobboard-deepblue" />
 
 				<span class="ms-2 text-sm text-gray-400">
 					{{ __('In selection') }}
@@ -187,7 +187,7 @@
 				</div>
 
 				<div class="flex flex-row gap-x-2">
-					<select id="mainSectionSelected" wire:model.live="mainSectionSelected" class="border-gray-300 focus:border-breeder-deepblue focus:ring-breeder-deepblue rounded-md shadow-sm text-breeder-deepblue placeholder:text-gray-400 mt-1 text-gray-400">
+					<select id="mainSectionSelected" wire:model.live="mainSectionSelected" class="border-gray-300 focus:border-jobboard-deepblue focus:ring-jobboard-deepblue rounded-md shadow-sm text-jobboard-deepblue placeholder:text-gray-400 mt-1 text-gray-400">
 						<option value="">{{ __('Select :element', ['element' => __('the main section')]) }}</option>
 						@foreach($sections as $sectionList)
 							<option value="{{ $sectionList->id }}">
@@ -214,7 +214,7 @@
 				<div class="flex flex-col gap-2">
 					@foreach($sections->reject(fn($section) => $section->id == $mainSectionSelected) as $sectionList)
 						<label for="section_{{ $sectionList->id }}" class="inline-flex items-center">
-							<input type="checkbox" name="{{ $sectionList->name }}" value="{{ $sectionList->id }}" id="section_{{ $sectionList->id }}" wire:model="sectionsSelected" class="rounded border-breeder-deepblue text-breeder-deepblue focus:ring-breeder-deepblue" />
+							<input type="checkbox" name="{{ $sectionList->name }}" value="{{ $sectionList->id }}" id="section_{{ $sectionList->id }}" wire:model="sectionsSelected" class="rounded border-jobboard-deepblue text-jobboard-deepblue focus:ring-jobboard-deepblue" />
 
 							<span class="ms-2">
 								{{ $sectionList->name }}
@@ -240,7 +240,7 @@
 				<div class="flex flex-row gap-x-2">
 					@foreach($targets as $targetList)
 						<label for="target_{{ $targetList->id }}" class="inline-flex items-center">
-							<input type="checkbox" name="{{ $targetList->name }}" value="{{ $targetList->id }}" id="target_{{ $targetList->id }}" wire:model="targetsSelected" class="rounded border-breeder-deepblue text-breeder-deepblue focus:ring-breeder-deepblue" />
+							<input type="checkbox" name="{{ $targetList->name }}" value="{{ $targetList->id }}" id="target_{{ $targetList->id }}" wire:model="targetsSelected" class="rounded border-jobboard-deepblue text-jobboard-deepblue focus:ring-jobboard-deepblue" />
 
 							<span class="ms-2">
 								{{ $targetList->name }}
@@ -266,7 +266,7 @@
 				<div class="flex flex-row gap-x-2">
 					@foreach($species as $speciesList)
 						<label for="species_{{ $speciesList->id }}" class="inline-flex items-center">
-							<input type="checkbox" name="{{ $speciesList->name }}" value="{{ $speciesList->id }}" id="species_{{ $speciesList->id }}" wire:model="speciesSelected" wire:change="selectSpecies" class="rounded border-breeder-deepblue text-breeder-deepblue focus:ring-breeder-deepblue" />
+							<input type="checkbox" name="{{ $speciesList->name }}" value="{{ $speciesList->id }}" id="species_{{ $speciesList->id }}" wire:model="speciesSelected" wire:change="selectSpecies" class="rounded border-jobboard-deepblue text-jobboard-deepblue focus:ring-jobboard-deepblue" />
 
 							<span class="ms-2">
 								{{ ucfirst(__($speciesList->name)) }}
@@ -288,7 +288,7 @@
 						<x-front.input-label for="choiceBreed" :value="__('Breeds')" />
 					</div>
 
-					<select id="choiceBreed" wire:model="choiceBreed" wire:change="selectBreed" class="border-gray-300 focus:border-breeder-deepblue focus:ring-breeder-deepblue rounded-md shadow-sm text-breeder-deepblue placeholder:text-gray-400 mt-1 text-gray-400 ">
+					<select id="choiceBreed" wire:model="choiceBreed" wire:change="selectBreed" class="border-gray-300 focus:border-jobboard-deepblue focus:ring-jobboard-deepblue rounded-md shadow-sm text-jobboard-deepblue placeholder:text-gray-400 mt-1 text-gray-400 ">
 						<option value="">{{ __('Select :element', ['element' => __('a breed to add it to the article')]) }}</option>
 						@foreach($breedsList as $breedList)
 							<option value="{{ $breedList->slug }}">
@@ -318,7 +318,7 @@
 					<x-front.input-label for="choiceDepartment" :value="__('Departments')" />
 				</div>
 
-				<select id="choiceDepartment" wire:model="choiceDepartment" wire:change="selectDepartment" class="border-gray-300 focus:border-breeder-deepblue focus:ring-breeder-deepblue rounded-md shadow-sm text-breeder-deepblue placeholder:text-gray-400 mt-1 text-gray-400 ">
+				<select id="choiceDepartment" wire:model="choiceDepartment" wire:change="selectDepartment" class="border-gray-300 focus:border-jobboard-deepblue focus:ring-jobboard-deepblue rounded-md shadow-sm text-jobboard-deepblue placeholder:text-gray-400 mt-1 text-gray-400 ">
 					<option value="">{{ __('Select :element', ['element' => __('a department to add it to the article')]) }}</option>
 					@foreach($departments as $department)
 						<option value="{{ $department->slug }}">
@@ -349,7 +349,7 @@
 
 				<div class="flex flex-row">
 					<label for="isInfomercial" class="inline-flex items-center">
-						<input type="checkbox" name="isInfomercial" id="isInfomercial" wire:model="isInfomercial" class="rounded border-breeder-deepblue text-breeder-deepblue focus:ring-breeder-deepblue" />
+						<input type="checkbox" name="isInfomercial" id="isInfomercial" wire:model="isInfomercial" class="rounded border-jobboard-deepblue text-jobboard-deepblue focus:ring-jobboard-deepblue" />
 
 						<span class="ms-2">
 							{{ __('Yes') }}
@@ -365,7 +365,7 @@
 
 				<div class="flex flex-row gap-x-2">
 					<label for="isFigoAdopter" class="inline-flex items-center">
-						<input type="checkbox" name="isFigoAdopter" id="isFigoAdopter" wire:model="isFigoAdopter" class="rounded border-breeder-deepblue text-breeder-deepblue focus:ring-breeder-deepblue" />
+						<input type="checkbox" name="isFigoAdopter" id="isFigoAdopter" wire:model="isFigoAdopter" class="rounded border-jobboard-deepblue text-jobboard-deepblue focus:ring-jobboard-deepblue" />
 
 						<span class="ms-2">
 							{{ __('Adopter') }}
@@ -373,7 +373,7 @@
 					</label>
 
 					<label for="isFigoBreeder" class="inline-flex items-center">
-						<input type="checkbox" name="isFigoBreeder" id="isFigoBreeder" wire:model="isFigoBreeder" class="rounded border-breeder-deepblue text-breeder-deepblue focus:ring-breeder-deepblue" />
+						<input type="checkbox" name="isFigoBreeder" id="isFigoBreeder" wire:model="isFigoBreeder" class="rounded border-jobboard-deepblue text-jobboard-deepblue focus:ring-jobboard-deepblue" />
 
 						<span class="ms-2">
 							{{ __('Breeder') }}
@@ -654,7 +654,7 @@
 
 				<div class="flex flex-row">
 					<label for="isInSelection" class="inline-flex items-center">
-						<input type="checkbox" name="isInSelection" id="isInSelection" wire:model="isInSelection" class="rounded border-breeder-deepblue text-breeder-deepblue focus:ring-breeder-deepblue" />
+						<input type="checkbox" name="isInSelection" id="isInSelection" wire:model="isInSelection" class="rounded border-jobboard-deepblue text-jobboard-deepblue focus:ring-jobboard-deepblue" />
 
 						<span class="ms-2">
 							{{ __('Yes') }}
@@ -670,7 +670,7 @@
 
 				<div class="flex flex-row">
 					<label for="isPublished" class="inline-flex items-center">
-						<input type="checkbox" name="isPublished" id="isPublished" wire:model="isPublished" class="rounded border-breeder-deepblue text-breeder-deepblue focus:ring-breeder-deepblue" />
+						<input type="checkbox" name="isPublished" id="isPublished" wire:model="isPublished" class="rounded border-jobboard-deepblue text-jobboard-deepblue focus:ring-jobboard-deepblue" />
 
 						<span class="ms-2">
 							{{ __('Yes') }}

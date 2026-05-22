@@ -85,7 +85,7 @@
 
 					<div>
 						<div class="flex flex-row" x-data="{checked: false}">
-							<input type="checkbox" name="consent" wire:model="consent" class="w-4 h-4 mt-2 text-breeder-deepblue bg-gray-100 border-breeder-greige rounded focus:ring-0 focus:ring-offset-0 focus:outline-none cursor-pointer" />
+							<input type="checkbox" name="consent" wire:model="consent" class="w-4 h-4 mt-2 text-jobboard-deepblue bg-gray-100 border-jobboard-greige rounded focus:ring-0 focus:ring-offset-0 focus:outline-none cursor-pointer" />
 							<x-front.input-label for="consent" :value="__('By submitting this form, I accept that the information entered is used as part of the contact request')" :required="true" :class="'ml-2 cursor-pointer'"/>
 						</div>
 

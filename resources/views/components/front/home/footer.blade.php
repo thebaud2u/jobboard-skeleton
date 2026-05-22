@@ -1,6 +1,6 @@
-<div class="bg-breeder-deepblue text-breeder-cream w-full flex justify-center px-4">
+<div class="bg-jobboard-deepblue text-jobboard-cream w-full flex justify-center px-4">
 	<div class="max-w-[1200px] flex flex-col justify-center items-center w-full ">
-		<div class="w-full flex justify-center border-breeder-cream/30 border-b">
+		<div class="w-full flex justify-center border-jobboard-cream/30 border-b">
 			<div class="w-full flex flex-col max-s:h-[200px] items-center justify-between py-10">
 				<div class="flex flex-col items-center justify-center s:hidden w-full">
 					<a href="{{route('home')}}" class="text-sm">Eleveurs-Online.com</a>

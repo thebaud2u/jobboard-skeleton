@@ -7,7 +7,7 @@
 ])
 
 @if($postType != 'litter')
-	<div class="flex flex-col justify-center items-center mb-4 gap-2 p-4 bg-breeder-cream text-breeder-deepblue rounded-t-xl w-full">
+	<div class="flex flex-col justify-center items-center mb-4 gap-2 p-4 bg-jobboard-cream text-jobboard-deepblue rounded-t-xl w-full">
 		@if($animal->species->getTranslation('slug', 'en') == 'cat')
 			<svg width="31" height="28" viewBox="0 0 31 28" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<g clip-path="url(#clip0_787_15009)">
@@ -66,7 +66,7 @@
 <div class="flex flex-col gap-y-4 mb-4 text-sm rounded-t-xl pb-6">
 	@if($postType == 'litter')
 		@if($type == 'animal')
-			<div class="flex flex-col items-center p-4 gap-2 bg-breeder-cream rounded-t-xl">
+			<div class="flex flex-col items-center p-4 gap-2 bg-jobboard-cream rounded-t-xl">
 				@if($animal->species->getTranslation('slug', 'en') == 'cat')
 					<svg width="31" height="28" viewBox="0 0 31 28" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<g clip-path="url(#clip0_787_15009)">
@@ -298,7 +298,7 @@
 										<path d="M5.28571 6.27777H11.7143M5.28574 10.5H11.7143M5.28574 14.7222H9.57145M11.8991 20H3.14286C1.95893 20 1 19.0553 1 17.8889V3.11111C1 1.94472 1.95893 1 3.14286 1H13.8571C15.0411 1 16 1.94472 16 3.11111V15.9599C16 16.5193 15.775 17.0576 15.3732 17.4535L13.4152 19.3825C13.0134 19.7783 12.4669 20 11.8991 20Z" stroke="#0E1954" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 									</svg>
 	
-									<a href="{{ route('documents.show', ['filename' => $file]) }}" download class="text-breeder-deepblue underline">
+									<a href="{{ route('documents.show', ['filename' => $file]) }}" download class="text-jobboard-deepblue underline">
 										{{ __('File') }}
 									</a>
 								</div>
@@ -386,7 +386,7 @@
 										<path d="M5.28571 6.27777H11.7143M5.28574 10.5H11.7143M5.28574 14.7222H9.57145M11.8991 20H3.14286C1.95893 20 1 19.0553 1 17.8889V3.11111C1 1.94472 1.95893 1 3.14286 1H13.8571C15.0411 1 16 1.94472 16 3.11111V15.9599C16 16.5193 15.775 17.0576 15.3732 17.4535L13.4152 19.3825C13.0134 19.7783 12.4669 20 11.8991 20Z" stroke="#0E1954" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 									</svg>
 
-									<a href="{{ route('documents.show', ['filename' => $file]) }}" download class="text-breeder-deepblue underline">
+									<a href="{{ route('documents.show', ['filename' => $file]) }}" download class="text-jobboard-deepblue underline">
 										{{ __('File') }}
 									</a>
 								</div>
@@ -520,7 +520,7 @@
 						</svg>
 
 						@if($animal->values->has('pedigree') && $animal->values->get('pedigree'))
-							<a href="{{ route('documents.show', ['filename' => $animal->values->get('pedigree')]) }}" download class="text-breeder-deepblue underline">
+							<a href="{{ route('documents.show', ['filename' => $animal->values->get('pedigree')]) }}" download class="text-jobboard-deepblue underline">
 								{{ __('File') }}
 							</a>
 						@endif
@@ -530,7 +530,7 @@
 								/
 							@endif
 
-							<a href="{{ $animal->values->get('pedigree_link') }}" target="_blank" class="text-breeder-deepblue underline">
+							<a href="{{ $animal->values->get('pedigree_link') }}" target="_blank" class="text-jobboard-deepblue underline">
 								{{ __('Link') }}
 							</a>
 						@endif

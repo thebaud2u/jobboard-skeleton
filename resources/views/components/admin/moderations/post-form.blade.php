@@ -23,20 +23,20 @@
 
 			@if($moderation->model->user->lastModeration)
 				@if($moderation->model->user->lastModeration->isValidated())
-					<div class="text-breeder-green">
+					<div class="text-jobboard-green">
 						{{ __('Validated') }}
 					</div>
 				@elseif($moderation->model->user->lastModeration->isDenied())
-					<div class="text-breeder-coralhover">
+					<div class="text-jobboard-coralhover">
 						{{ __('Denied') }}
 					</div>
 				@elseif($moderation->model->user->lastModeration->isWaiting())
-					<div class="text-breeder-yellow">
+					<div class="text-jobboard-yellow">
 						{{ __('Waiting') }}
 					</div>
 				@endif
 			@else
-				<div class="text-breeder-coralhover">
+				<div class="text-jobboard-coralhover">
 					{{ __('User\'s profil is not marked for moderation') }}
 				</div>
 			@endif
@@ -55,20 +55,20 @@
 
 					@if($moderation->model->user->company->lastModeration)
 						@if($moderation->model->user->company->lastModeration->isValidated())
-							<div class="text-breeder-green">
+							<div class="text-jobboard-green">
 								{{ __('Validated') }}
 							</div>
 						@elseif($moderation->model->user->company->lastModeration->isDenied())
-							<div class="text-breeder-coralhover">
+							<div class="text-jobboard-coralhover">
 								{{ __('Denied') }}
 							</div>
 						@elseif($moderation->model->user->company->lastModeration->isWaiting())
-							<div class="text-breeder-yellow">
+							<div class="text-jobboard-yellow">
 								{{ __('Waiting') }}
 							</div>
 						@endif
 					@else
-						<div class="text-breeder-coralhover">
+						<div class="text-jobboard-coralhover">
 							{{ __('The company is not marked for moderation') }}
 						</div>
 					@endif
@@ -79,42 +79,42 @@
 
 					@if($moderation->model->user->company->lastPublication)
 						@if($moderation->model->user->company->lastPublication->isDraft())
-							<div class="text-breeder-coralhover">
+							<div class="text-jobboard-coralhover">
 								{{ __('Draft') }}
 							</div>
 						@elseif($moderation->model->user->company->lastPublication->isDraftWaitingModerationForPublication())
-							<div class="text-breeder-yellow">
+							<div class="text-jobboard-yellow">
 								{{ __('Draft waiting moderation for publication') }}
 							</div>
 						@elseif($moderation->model->user->company->lastPublication->isPublished())
-							<div class="text-breeder-green">
+							<div class="text-jobboard-green">
 								{{ __('Published') }}
 							</div>
 						@elseif($moderation->model->user->company->lastPublication->isPublishedUpdatedWaitingModeration())
-							<div class="text-breeder-yellow">
+							<div class="text-jobboard-yellow">
 								{{ __('Published, updated and waiting moderation') }}
 							</div>
 						@elseif($moderation->model->user->company->lastPublication->isPublishedUpgradedWaitingModeration())
-							<div class="text-breeder-yellow">
+							<div class="text-jobboard-yellow">
 								{{ __('Published, upgraded and waiting moderation') }}
 							</div>
 						@elseif($moderation->model->user->company->lastPublication->isArchived())
-							<div class="text-breeder-coralhover">
+							<div class="text-jobboard-coralhover">
 								{{ __('Archived') }}
 							</div>
 						@elseif($moderation->model->user->company->lastPublication->isDeleted())
-							<div class="text-breeder-coralhover">
+							<div class="text-jobboard-coralhover">
 								{{ __('Deleted') }}
 							</div>
 						@endif
 					@else
-						<div class="text-breeder-coralhover">
+						<div class="text-jobboard-coralhover">
 							{{ __('The company has no publication') }}
 						</div>
 					@endif
 				</div>
 			@else
-				<div class="text-breeder-coralhover">
+				<div class="text-jobboard-coralhover">
 					{{ __('User has no company') }}
 				</div>
 			@endif
@@ -644,8 +644,8 @@
 				<p>
 					@foreach($protrusionTypes as $index => $value)
 						<div class="flex flex-row">
-							<input type="checkbox" name="{{ $index }}" value="{{ $index }}" @checked(in_array($index, $protrusionArray)) disabled class="rounded border-gray-300 text-breeder-deepblue shadow-sm focus:ring-breeder-deepblue" />
-							<span class="ms-2 text-sm text-breeder-deepblue">{{ __($value) }}</span>
+							<input type="checkbox" name="{{ $index }}" value="{{ $index }}" @checked(in_array($index, $protrusionArray)) disabled class="rounded border-gray-300 text-jobboard-deepblue shadow-sm focus:ring-jobboard-deepblue" />
+							<span class="ms-2 text-sm text-jobboard-deepblue">{{ __($value) }}</span>
 						</div>
 					@endforeach
 				</p>
@@ -766,7 +766,7 @@
 			@if($moderation->model->model->mother)
 				<div class="flex flex-col gap-4">
 					@if($moderation->model->model->mother->trashed())
-						<div class="font-bold text-breeder-coralhover">
+						<div class="font-bold text-jobboard-coralhover">
 							{{ __('The associated animal has been deleted by the user') }}
 						</div>
 					@endif
@@ -784,7 +784,7 @@
 			@if($moderation->model->model->father)
 				<div class="flex flex-col gap-4">
 					@if($moderation->model->model->father->trashed())
-						<div class="font-bold text-breeder-coralhover">
+						<div class="font-bold text-jobboard-coralhover">
 							{{ __('The associated animal has been deleted by the user') }}
 						</div>
 					@endif
@@ -802,7 +802,7 @@
 			@if($moderation->model->model->secondFather)
 				<div class="flex flex-col gap-4">
 					@if($moderation->model->model->secondFather->trashed())
-						<div class="font-bold text-breeder-coralhover">
+						<div class="font-bold text-jobboard-coralhover">
 							{{ __('The associated animal has been deleted by the user') }}
 						</div>
 					@endif
@@ -841,7 +841,7 @@
 		<div class="flex flex-col flex-wrap gap-4 mt-4">
 			@if($moderation->model->model)
 				@if($moderation->model->model->trashed())
-					<div class="font-bold text-breeder-coralhover">
+					<div class="font-bold text-jobboard-coralhover">
 						{{ __('The associated animal has been deleted by the user') }}
 					</div>
 				@endif
@@ -850,7 +850,7 @@
 					:animal="$moderation->model->model"
 					:company="$moderation->model->model->company"
 					:forModeration="$moderation->model->model->trashed() ? false : true"
-					:key="'retired-breeder-component-'.$moderation->model->model->id" />
+					:key="'retired-jobboard-component-'.$moderation->model->model->id" />
 			@else
 				{{ __('No breeder') }}
 			@endif

@@ -47,8 +47,8 @@
 					<!-- Remember Me -->
 					<div>
 						<label for="remember_me" class="inline-flex items-center">
-							<input id="remember_me" type="checkbox" class="rounded border-breeder-deepblue text-breeder-deepblue focus:ring-breeder-deepblue" name="remember">
-							<span class="ms-2 text-sm text-breeder-deepblue">{{ __('Remember me') }}</span>
+							<input id="remember_me" type="checkbox" class="rounded border-jobboard-deepblue text-jobboard-deepblue focus:ring-jobboard-deepblue" name="remember">
+							<span class="ms-2 text-sm text-jobboard-deepblue">{{ __('Remember me') }}</span>
 						</label>
 					</div>
 

@@ -5,12 +5,12 @@
 
 	<div class="p-4">
 		<div class="w-full bg-white px-6 pt-6 pb-10 mb-6">
-			<div class="flex flex-row w-full gap-x-2 text-breeder-deepblue mb-4">
-				<h2 class="mb-1 text-base md:text-[24px] !text-[40px] font-bold text-breeder-deepblue">
+			<div class="flex flex-row w-full gap-x-2 text-jobboard-deepblue mb-4">
+				<h2 class="mb-1 text-base md:text-[24px] !text-[40px] font-bold text-jobboard-deepblue">
 					{{ __('My orders and invoices') }}
 				</h2>
 			</div>
-			<hr class="h-px border border-breeder-deepblue w-full my-[30px]">
+			<hr class="h-px border border-jobboard-deepblue w-full my-[30px]">
 
 			<div class="flex flex-col max-sm:items-start max-sm:space-y-4 sm:justify-between">
 				@if($orders->isNotEmpty())
@@ -62,7 +62,7 @@
 						</div>
 					</div>
 				@else
-					<span class="text-breeder-deepblue">{{ __('You have not invoices yet') }}</span>
+					<span class="text-jobboard-deepblue">{{ __('You have not invoices yet') }}</span>
 				@endif
 			</div>
 {{--

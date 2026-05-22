@@ -129,7 +129,7 @@
 				this.canScrollRight = (el.scrollLeft + el.clientWidth) < (el.scrollWidth - tolerance);
 			}
 		}" x-init="init">
-		<div class="flex items-center justify-center rounded-full bg-breeder-cream cursor-pointer" x-show="canScrollLeft" @click="$refs.scrollable.scrollBy({ left: -300, behavior: 'smooth' }); updateArrows()">
+		<div class="flex items-center justify-center rounded-full bg-jobboard-cream cursor-pointer" x-show="canScrollLeft" @click="$refs.scrollable.scrollBy({ left: -300, behavior: 'smooth' }); updateArrows()">
 			<svg class="rotate-180 w-[30px] s:w-[47px] h-[30px] s:h-[47px]" viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path d="M23.5 47C36.4787 47 47 36.4787 47 23.5C47 10.5213 36.4787 0 23.5 0C10.5213 0 0 10.5213 0 23.5C0 36.4787 10.5213 47 23.5 47Z" fill="#F7F6EF"/>
 				<path d="M19.2273 12.8184L29.9091 23.5002L19.2273 34.182" stroke="#0E1954" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -233,11 +233,11 @@
 					@endphp
 
 					@if($link)
-						<a href="{{ $route }}" class="text-breeder-deepblue bg-breeder-cream py-3 px-5 rounded-full flex flex-row justify-between items-center font-bold text-sm shrink-0 max-s:px-3 max-s:py-2 max-s:text-xs">
+						<a href="{{ $route }}" class="text-jobboard-deepblue bg-jobboard-cream py-3 px-5 rounded-full flex flex-row justify-between items-center font-bold text-sm shrink-0 max-s:px-3 max-s:py-2 max-s:text-xs">
 							{{ __(ucfirst($menuEntry->name)) }}
 						</a>
 					@else
-						<div wire:click="setFilter('{{ $slug }}')" class="flex items-center gap-x-1 rounded-md py-2 px-3 text-center bg-breeder-cream text-xs cursor-pointer">
+						<div wire:click="setFilter('{{ $slug }}')" class="flex items-center gap-x-1 rounded-md py-2 px-3 text-center bg-jobboard-cream text-xs cursor-pointer">
 							{{ __(ucfirst($menuEntry->name)) }}
 
 							@if(in_array($slug, $this->filters))
@@ -251,7 +251,7 @@
 			@endif
 		</div>
 
-		<div class="flex items-center justify-center rounded-full bg-breeder-cream cursor-pointer" x-show="canScrollRight" @click="$refs.scrollable.scrollBy({ left: 300, behavior: 'smooth' }); updateArrows()">
+		<div class="flex items-center justify-center rounded-full bg-jobboard-cream cursor-pointer" x-show="canScrollRight" @click="$refs.scrollable.scrollBy({ left: 300, behavior: 'smooth' }); updateArrows()">
 			<svg class="w-[30px] s:w-[47px] h-[30px] s:h-[47px]" viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path d="M23.5 47C36.4787 47 47 36.4787 47 23.5C47 10.5213 36.4787 0 23.5 0C10.5213 0 0 10.5213 0 23.5C0 36.4787 10.5213 47 23.5 47Z" fill="#F7F6EF"/>
 				<path d="M19.2273 12.8184L29.9091 23.5002L19.2273 34.182" stroke="#0E1954" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -263,24 +263,24 @@
 		<div class="max-md:flex max-md:flex-col md:grid md:grid-cols-2 gap-x-2 gap-y-4 w-full lg:w-[770px] content-start">
 			@if($argument1 && !$argument2)
 				@if($articleTag)
-					<div class="font-bold text-breeder-deepblue mb-2 text-[28px] md:text-[40px] col-span-2">
+					<div class="font-bold text-jobboard-deepblue mb-2 text-[28px] md:text-[40px] col-span-2">
 						{{ $articleTag->name }}
 					</div>
 				@elseif($articleSection)
-					<div class="font-bold text-breeder-deepblue mb-2 text-[28px] md:text-[40px] col-span-2">
+					<div class="font-bold text-jobboard-deepblue mb-2 text-[28px] md:text-[40px] col-span-2">
 						{{ $articleSection->name }}
 					</div>
 				@elseif($articleSpecies)
-					<div class="font-bold text-breeder-deepblue mb-2 text-[28px] md:text-[40px] col-span-2">
+					<div class="font-bold text-jobboard-deepblue mb-2 text-[28px] md:text-[40px] col-span-2">
 						{{ __(ucfirst($articleSpecies->name)) }}
 					</div>
 				@elseif($articleTarget)
-					<div class="font-bold text-breeder-deepblue mb-2 text-[28px] md:text-[40px] col-span-2">
+					<div class="font-bold text-jobboard-deepblue mb-2 text-[28px] md:text-[40px] col-span-2">
 						{{ $articleTarget->name }}
 					</div>
 				@endif
 			@elseif ($argument1 && $argument2)
-				<div class="font-bold text-breeder-deepblue mb-2 text-[28px] md:text-[40px] col-span-2 capitalize">
+				<div class="font-bold text-jobboard-deepblue mb-2 text-[28px] md:text-[40px] col-span-2 capitalize">
 					{{ $argument2 }}
 				</div>
 			@endif
@@ -288,7 +288,7 @@
 				@foreach($articles as $index => $article)
 					{{-- TO DO organisation page subsection avec widgets --}}
 					{{-- @if(!$argument2) --}}
-						<div class="flex @if($index > 0) flex-row-reverse max-s:justify-between s:flex-col @else flex-col @endif text-breeder-deepblue sm:max-w-[377px] @if(!$loop->first && !$loop->last) max-s:border-b-2 max-s:border-breeder-greige @endif max-s:py-2">
+						<div class="flex @if($index > 0) flex-row-reverse max-s:justify-between s:flex-col @else flex-col @endif text-jobboard-deepblue sm:max-w-[377px] @if(!$loop->first && !$loop->last) max-s:border-b-2 max-s:border-jobboard-greige @endif max-s:py-2">
 							<div class="w-full max-s:flex max-s:justify-end max-s:grow-0 max-s:shrink-0 @if($index > 0) max-s:max-w-[120px] @endif">
 								<a href="{{ route('article.show', ['article' => $article->slug]) }}" class="w-full @if($index > 0) max-s:max-w-[120px] @else shrink-0 @endif mb-4">
 									@if($photo = $article->getFirstMedia('photo'))
@@ -305,11 +305,11 @@
 									@if(!$argument1)
 										<div class="flex flex-wrap gap-2 mb-2">
 											@foreach($article->sections as $value)
-												<a href="{{ route('article.index', ['arg1' => $value->slug]) }}" class="text-breeder-orange hover:text-breeder-darkorange hover:font-bold text-xs font-medium">
+												<a href="{{ route('article.index', ['arg1' => $value->slug]) }}" class="text-jobboard-orange hover:text-jobboard-darkorange hover:font-bold text-xs font-medium">
 													{{ $value->name }}
 												</a>
 												@if(!$loop->last)
-													<span class="font-medium text-xs text-breeder-greige">|</span>
+													<span class="font-medium text-xs text-jobboard-greige">|</span>
 												@endif
 											@endforeach
 										</div>
@@ -324,7 +324,7 @@
 									<div class="hidden sm:flex flex-wrap gap-2">
 										@if($argument1)
 											@foreach($article->tags as $value)
-												<div class="rounded-md py-2 px-3 text-center bg-breeder-cream text-xs font-medium">
+												<div class="rounded-md py-2 px-3 text-center bg-jobboard-cream text-xs font-medium">
 													<a href="{{ route('article.show', ['article' => $article->slug]) }}">
 														{{ $value->name }}
 													</a>
@@ -333,7 +333,7 @@
 										@endif
 
 										@if($article->values->get('infomercial') == 'false')
-											<div class="rounded-md py-2 px-3 text-center bg-breeder-orange text-xs font-medium">
+											<div class="rounded-md py-2 px-3 text-center bg-jobboard-orange text-xs font-medium">
 												{{ __('Advertorial') }}
 											</div>
 										@endif
@@ -347,15 +347,15 @@
 						@endif
 
 						@if($index === 0)
-							<div class="flex flex-col text-breeder-deepblue md:max-w-[377px] gap-y-1">
+							<div class="flex flex-col text-jobboard-deepblue md:max-w-[377px] gap-y-1">
 								@if(!$argument1)
 									<div class="flex flex-wrap gap-2 mb-2">
 										@foreach($article->sections as $value)
-											<a href="{{ route('article.index', ['arg1' => $value->slug]) }}" class="text-breeder-orange hover:text-breeder-darkorange hover:font-bold text-xs font-medium">
+											<a href="{{ route('article.index', ['arg1' => $value->slug]) }}" class="text-jobboard-orange hover:text-jobboard-darkorange hover:font-bold text-xs font-medium">
 												{{ $value->name }}
 											</a>
 											@if(!$loop->last)
-												<span class="font-medium text-xs text-breeder-greige">|</span>
+												<span class="font-medium text-xs text-jobboard-greige">|</span>
 											@endif
 										@endforeach
 									</div>
@@ -370,7 +370,7 @@
 								<div class="flex flex-wrap gap-2 mt-2">
 									@if($argument1)
 										@foreach($article->tags as $value)
-											<div class="rounded-md py-2 px-3 text-center bg-breeder-cream text-xs font-medium">
+											<div class="rounded-md py-2 px-3 text-center bg-jobboard-cream text-xs font-medium">
 												<a href="{{ route('article.show', ['article' => $article->slug]) }}">
 													{{ $value->name }}
 												</a>
@@ -379,7 +379,7 @@
 									@endif
 
 									@if($article->values->get('infomercial') == 'false')
-										<div class="rounded-md py-2 px-3 text-center bg-breeder-orange text-xs font-medium">
+										<div class="rounded-md py-2 px-3 text-center bg-jobboard-orange text-xs font-medium">
 											{{ __('Advertorial') }}
 										</div>
 									@endif
@@ -409,11 +409,11 @@
 				{{ __('The most read') }}
 			</h2>
 			
-			<div class="border-6 border-breeder-orange w-[56px] h-1 bg-breeder-orange -mt-[13px]"></div>
+			<div class="border-6 border-jobboard-orange w-[56px] h-1 bg-jobboard-orange -mt-[13px]"></div>
 
 			@foreach($mostRead as $index => $articleMostRead)
 				<a href="{{ route('article.show', ['article' => $articleMostRead->slug]) }}">
-					<div class="text-lg font-bold pb-4 text-breeder-deepblue w-full @if(!$loop->last) border-b border-breeder-greige @endif">
+					<div class="text-lg font-bold pb-4 text-jobboard-deepblue w-full @if(!$loop->last) border-b border-jobboard-greige @endif">
 						@if($index === 0)
 							@if($photo = $articleMostRead->getFirstMedia('photo'))
 								<img src="{{ $photo->getAvailableUrl(['optimized']) }}" alt="{{ $articleMostRead->title }}" class="object-cover md:w-[300px] md:h-[200px] mb-2" />
@@ -458,22 +458,22 @@
 	{{-- Section propre aux catégories --}}
 	{{-- @if(!$argument1 || ($argument1 && $articleTarget)) --}}
 	@if(!$argument1)
-		<div class="w-full bg-breeder-deepblue">
+		<div class="w-full bg-jobboard-deepblue">
 			<div class="flex flex-col w-full max-w-[1100px] mx-auto py-10 max-lg:px-2 md:px-6">
 				@if(!$argument1)
 					<h2 class="text-white font-bold text-[25px] md:text-[28px] mb-4">
 						{{ __('Our articles & advice') }}
 					</h2>
 				{{-- @elseif($articleTarget->slug == 'eleveurs')
-					<h2 class="text-breeder-violet font-bold text-[25px] md:text-[28px] mb-4">
+					<h2 class="text-jobboard-violet font-bold text-[25px] md:text-[28px] mb-4">
 						{{ __('Spécial éleveurs') }}
 					</h2>
 				@elseif($articleTarget->slug == 'professionnels')
-					<h2 class="text-breeder-orange font-bold text-[25px] md:text-[28px] mb-4">
+					<h2 class="text-jobboard-orange font-bold text-[25px] md:text-[28px] mb-4">
 						{{ __('Spécial pros') }}
 					</h2>
 				@elseif($articleTarget->slug == 'proprietaires')
-					<h2 class="text-breeder-coral font-bold text-[25px] md:text-[28px] mb-4">
+					<h2 class="text-jobboard-coral font-bold text-[25px] md:text-[28px] mb-4">
 						{{ __('Spécial propriétaire') }}
 					</h2> --}}
 				@endif
@@ -483,7 +483,7 @@
 						@foreach($articleTargets as $entryArticleSection)
 							@if($entryArticleSection->slug == 'proprietaires')
 								<div class="rounded-xl w-[208px] shrink-0">
-									<div class="w-full h-[155px] rounded-t-xl bg-breeder-cream relative">
+									<div class="w-full h-[155px] rounded-t-xl bg-jobboard-cream relative">
 										<a href="{{ route('article.index', ['arg1' => $entryArticleSection->slug]) }}" class="hover:underline hover:underline-offset-4">
 											<img src="{{ asset('storage/home_nl.png') }}" alt="" class="absolute bottom-0 left-[4px] w-[198px] h-[171px]" />
 										</a>
@@ -501,7 +501,7 @@
 								</div>
 							@elseif($entryArticleSection->slug == 'eleveurs')
 								<div class="rounded-xl w-[208px] shrink-0">
-									<div class="w-full h-[155px] rounded-t-xl bg-breeder-violet relative">
+									<div class="w-full h-[155px] rounded-t-xl bg-jobboard-violet relative">
 										<a href="{{ route('article.index', ['arg1' => $entryArticleSection->slug]) }}" class="hover:underline hover:underline-offset-4">
 											<img src="{{ asset('storage/home_article_1.png') }}" alt="" class="absolute bottom-0 left-[4px] w-[187px] h-[174px]" />
 										</a>
@@ -519,7 +519,7 @@
 								</div>
 							@elseif($entryArticleSection->slug == 'professionnels')
 								<div class="rounded-xl w-[208px] shrink-0">
-									<div class="w-full h-[155px] rounded-t-xl bg-breeder-orange relative">
+									<div class="w-full h-[155px] rounded-t-xl bg-jobboard-orange relative">
 										<a href="{{ route('article.index', ['arg1' => $entryArticleSection->slug]) }}" class="hover:underline hover:underline-offset-4">
 											<img src="{{ asset('storage/home_article_2.png') }}" alt="" class="absolute bottom-0 left-0 w-[203px] h-[162px]" />
 										</a>
@@ -541,7 +541,7 @@
 						@foreach($allSpecies as $articleSpeciesSection)
 							@if($articleSpeciesSection->name == 'dog')
 								<div class="rounded-xl w-[208px] shrink-0">
-									<div class="w-full h-[155px] rounded-t-xl bg-breeder-coral relative">
+									<div class="w-full h-[155px] rounded-t-xl bg-jobboard-coral relative">
 										<a href="{{ route('article.index', ['arg1' => $articleSpeciesSection->getTranslation('slug', 'fr')]) }}" class="hover:underline hover:underline-offset-4">
 											<img src="{{ asset('storage/home_dog_advice_2.png') }}" alt="" class="absolute bottom-0 left-[25px] w-[160px] h-[176px]" />
 										</a>
@@ -558,7 +558,7 @@
 								</div>
 							@elseif($articleSpeciesSection->name == 'cat')
 								<div class="rounded-xl w-[208px] shrink-0">
-									<div class="w-full h-[155px] rounded-t-xl bg-breeder-green relative">
+									<div class="w-full h-[155px] rounded-t-xl bg-jobboard-green relative">
 										<a href="{{ route('article.index', ['arg1' => $articleSpeciesSection->getTranslation('slug', 'fr')]) }}" class="hover:underline hover:underline-offset-4">
 											<img src="{{ asset('storage/home_cat_advice_2.png') }}" alt="" class="absolute bottom-0 left-[22px] w-[168px] h-[164px]" />
 										</a>
@@ -579,7 +579,7 @@
 
 
 						<div class="rounded-xl w-[180px]">
-							<div class="w-full h-[155px] rounded-t-xl bg-breeder-coral relative">
+							<div class="w-full h-[155px] rounded-t-xl bg-jobboard-coral relative">
 								<img src="{{ asset('storage/home_dog_advice_2.png') }}" alt="" class="absolute bottom-0 left-0 w-[160px] h-[176px]" />
 							</div>
 							<div class="w-full h-[212px] rounded-b-xl bg-white p-3">
@@ -599,7 +599,7 @@
 							</div>
 						</div>
 						<div class="rounded-xl w-[179px]">
-							<div class="w-full h-[155px] rounded-t-xl bg-breeder-green relative">
+							<div class="w-full h-[155px] rounded-t-xl bg-jobboard-green relative">
 								<img src="{{ asset('storage/home_cat_advice_2.png') }}" alt="" class="absolute bottom-0 left-0 w-[168px] h-[164px]" />
 							</div>
 							<div class="w-full h-[212px] rounded-b-xl bg-white p-3">
@@ -626,17 +626,17 @@
 								@php
 									switch($articleTarget->slug) {
 										case 'eleveurs':
-											$bgCards = 'bg-breeder-violet';
+											$bgCards = 'bg-jobboard-violet';
 											break;
 										case 'professionnels':
-											$bgCards = 'bg-breeder-orange';
+											$bgCards = 'bg-jobboard-orange';
 											break;
 										case 'proprietaires':
-											$bgCards = 'bg-breeder-coral';
+											$bgCards = 'bg-jobboard-coral';
 											break;
 
 										default:
-											$bgCards = 'bg-breeder-cream';
+											$bgCards = 'bg-jobboard-cream';
 											break;
 									}
 									
@@ -752,7 +752,7 @@
 	@if(!$argument1)
 		<div class="flex flex-col gap-y-4 mt-6 w-full max-w-[1100px] mx-auto max-md:px-2">
 			@if($articlesNutrition->isNotEmpty())
-				<div class="flex flex-col border-b border-breeder-deepblue py-8 w-full">
+				<div class="flex flex-col border-b border-jobboard-deepblue py-8 w-full">
 					<h4 class="font-bold text-[28px] lg:text-[40px] mb-2">
 						{{ __('Nutrition') }}
 					</h4>
@@ -788,7 +788,7 @@
 			@endif
 
 			@if($articlesSelection->isNotEmpty())
-				<div class="flex flex-col border-b border-breeder-deepblue py-8"
+				<div class="flex flex-col border-b border-jobboard-deepblue py-8"
 					x-data="{
 						canScrollLeft: false,
 						canScrollRight: false,
@@ -898,7 +898,7 @@
 			@endif
 
 			@if($articlesHealth->isNotEmpty())
-				<div class="flex flex-col border-b border-breeder-deepblue py-8">
+				<div class="flex flex-col border-b border-jobboard-deepblue py-8">
 					<h4 class="font-bold text-[28px] lg:text-[40px] mb-2">
 						{{ __('Health') }}
 					</h4>
@@ -932,7 +932,7 @@
 			@endif
 
 			@if($articlesDog->isNotEmpty())
-				<div class="flex flex-col border-b border-breeder-deepblue py-8">
+				<div class="flex flex-col border-b border-jobboard-deepblue py-8">
 					<h4 class="font-bold text-[28px] lg:text-[40px] mb-2 flex gap-x-2 items-center">
 						<svg width="50" height="40" viewBox="0 0 50 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M17.828 0.496567C16.3708 -0.950852 13.3616 1.18308 11.8977 1.68697C7.93294 3.04984 3.66995 3.42522 1.23686 7.2805C-2.83975 13.7465 3.92411 28.055 10.4304 23.219C13.914 20.6285 10.6473 13.6721 13.3176 9.86759C14.3884 8.34577 16.3708 7.76748 17.4145 5.83984C18.055 4.65959 18.848 1.50773 17.8246 0.493185L17.828 0.496567ZM46.9301 5.60649C44.5004 3.18173 41.3862 3.12762 38.3974 2.11646C35.6085 1.17631 30.339 -2.79394 31.1557 3.59769C31.7047 7.8926 36.354 8.46413 37.0758 11.8933C37.8111 15.3935 35.5881 22.6914 40.2646 23.9258C43.7685 24.849 45.9847 22.3465 47.4554 19.5836C49.7292 15.3123 50.6882 9.35017 46.9335 5.60649H46.9301ZM17.14 11.6329C14.5511 12.1638 15.3203 16.3235 17.6755 16.222C20.7829 16.0868 20.7219 10.899 17.14 11.6329ZM29.8545 15.5457C31.9588 17.7574 35.456 14.0881 33.1449 12.0928C30.8338 10.0976 28.0313 13.6282 29.8545 15.5457ZM10.7896 24.4263V39.1372C10.7896 39.3537 11.6063 39.9455 11.9858 39.9861C14.9781 40.3107 13.2769 34.9201 13.504 33.219C17.0147 36.1274 21.054 37.169 24.5613 33.5843C28.1872 36.9729 31.7589 36.212 35.5271 33.5572V38.799C35.5271 40.4257 38.577 40.145 38.577 39.1372V24.4263C34.9477 24.291 35.7677 26.4047 34.9206 28.7246C33.8667 31.6025 30.0476 34.5481 27.2486 31.846C26.1472 30.7841 25.6626 27.727 26.0354 26.3573C26.1981 25.7554 29.1869 24.9167 28.6887 22.3161C27.9365 18.3965 20.4813 18.9241 20.6406 22.8774C20.7456 25.4679 23.2905 26.1206 23.3448 26.3438C24.4766 31.0581 20.278 35.238 16.2014 31.3726C13.4498 28.7618 15.0933 24.0848 10.7896 24.4297V24.4263Z" fill="#FF7E71"/>
@@ -963,7 +963,7 @@
 			@endif
 
 			@if($articlesEducation->isNotEmpty())
-				<div class="flex flex-col border-b border-breeder-deepblue py-8">
+				<div class="flex flex-col border-b border-jobboard-deepblue py-8">
 					<h4 class="font-bold text-[28px] lg:text-[40px] mb-2">
 						{{ __('Education & behavior') }}
 					</h4>
@@ -1063,7 +1063,7 @@
 			@endif
 		</div>
 
-		@include('components.front.nl', ['bgcolor' => 'bg-breeder-coral'])
+		@include('components.front.nl', ['bgcolor' => 'bg-jobboard-coral'])
 	@endif
 	{{-- End Home blocs article --}}
 
@@ -1073,7 +1073,7 @@
 			{{-- 
 			@foreach($articleSection->subSections as $subSections)
 				@if($subSections->publishedArticles->isNotEmpty())
-					<div class="flex flex-col @if(!$loop->last) border-b border-breeder-deepblue @endif py-8 w-full">
+					<div class="flex flex-col @if(!$loop->last) border-b border-jobboard-deepblue @endif py-8 w-full">
 						<h4 class="font-bold text-[28px] lg:text-[40px] mb-2">
 							{{ $subSections->name }}
 						</h4>
@@ -1081,7 +1081,7 @@
 						<div class="flex flex-col max-lg:items-center lg:flex-row w-full max-w-[1100px] mx-auto gap-6 mb-8">
 							<div class="grid grid-cols-1 md:grid-cols-2 gap-x-2 gap-y-4 w-full lg:w-[770px]">
 								@foreach($subSections->publishedArticles->take(4) as $article)
-									<div class="flex flex-row-reverse justify-between s:flex-col text-breeder-deepblue sm:max-w-[377px]">
+									<div class="flex flex-row-reverse justify-between s:flex-col text-jobboard-deepblue sm:max-w-[377px]">
 										<div class="w-full">
 											<a href="{{ route('article.show', ['article' => $article->slug]) }}" class="w-full max-s:max-w-[120px] mb-4">
 												@if($photo = $article->getFirstMedia('photo'))
@@ -1100,20 +1100,20 @@
 											</h4>
 
 											<div class="hidden sm:flex flex-wrap gap-2">
-												<div class="rounded-md py-2 px-3 text-center bg-breeder-cream text-xs font-medium">
+												<div class="rounded-md py-2 px-3 text-center bg-jobboard-cream text-xs font-medium">
 													<a href="{{ route('article.show', ['article' => $article->slug]) }}">
 														{{ $article->sections->first()->name }}
 													</a>
 												</div>
 
-												<div class="rounded-md py-2 px-3 text-center bg-breeder-cream text-xs font-medium">
+												<div class="rounded-md py-2 px-3 text-center bg-jobboard-cream text-xs font-medium">
 													<a href="{{ route('article.show', ['article' => $article->slug]) }}">
 														{{ $article->targets->first()->name }}
 													</a>
 												</div>
 
 												{{-- To do gestion des tags
-												<div class="rounded-md py-2 px-3 text-center bg-breeder-cream text-xs font-medium">
+												<div class="rounded-md py-2 px-3 text-center bg-jobboard-cream text-xs font-medium">
 													<a href="{{ route('article.show', ['article' => $article->slug]) }}">
 														{{ $article->articleTarget->name }}
 													</a>
@@ -1122,7 +1122,7 @@
 
 												{{--
 												@if($article->values->get('infomercial') == 'false')
-													<div class="rounded-md py-2 px-3 text-center bg-breeder-orange text-xs font-medium">
+													<div class="rounded-md py-2 px-3 text-center bg-jobboard-orange text-xs font-medium">
 														{{ __('Advertorial') }}
 													</div>
 												@endif
@@ -1155,9 +1155,9 @@
 		@if($argument1 == 'eleveurs')
 			{{-- NL inscription breeder --}}
 			<div class="w-full flex justify-center p-4 mb-10">
-				<div class="lg:h-[314px] w-full max-w-[1200px] rounded-3xl bg-breeder-violet flex flex-row max-lg:justify-center p-6 md:py-12 md:px-14">
+				<div class="lg:h-[314px] w-full max-w-[1200px] rounded-3xl bg-jobboard-violet flex flex-row max-lg:justify-center p-6 md:py-12 md:px-14">
 					<div class="flex-1 flex max-lg:justify-center">
-						<div class="flex flex-col text-breeder-deepblue max-w-[610px]">
+						<div class="flex flex-col text-jobboard-deepblue max-w-[610px]">
 							<h4 class="s:text-[40px] text-[25px] font-semibold mb-6 s:mb-0 leading-tight">
 								{{ __('Join our community of breeders') }}
 							</h4>
@@ -1171,7 +1171,7 @@
 
 								<input type="hidden" name="optins[]" value="OPTIN_NL_ELEVEUR">
 
-								<input type="text" name="email" id="email" value="{{ old('email') }}" required placeholder="Votre adresse email" class="border-0 rounded-full text-breeder-deepblue focus:ring-0 focus:outline-none focus:border-none placeholder:text-breeder-deepblue">
+								<input type="text" name="email" id="email" value="{{ old('email') }}" required placeholder="Votre adresse email" class="border-0 rounded-full text-jobboard-deepblue focus:ring-0 focus:outline-none focus:border-none placeholder:text-jobboard-deepblue">
 
 								<button type="submit" class="font-semibold mr-4 hidden s:block">
 									{{ __('I\'m signing up') }}
@@ -1195,7 +1195,7 @@
 			{{-- End NL inscription breeder --}}
 		@elseif($argument1 == 'professionnels')
 		@elseif($argument1 == 'proprietaires')
-			@include('components.front.nl', ['bgcolor' => 'bg-breeder-coral'])
+			@include('components.front.nl', ['bgcolor' => 'bg-jobboard-coral'])
 		@endif
 	@endif
 	{{-- End Blocs article quand dans articleSection + cta nl --}}
@@ -1204,9 +1204,9 @@
 		@if($argument1 == 'eleveurs')
 			{{-- NL inscription breeder --}}
 				<div class="w-full flex justify-center p-4 mb-10">
-					<div class="lg:h-[314px] w-full max-w-[1200px] rounded-3xl bg-breeder-violet flex flex-row max-lg:justify-center p-6 md:py-12 md:px-14">
+					<div class="lg:h-[314px] w-full max-w-[1200px] rounded-3xl bg-jobboard-violet flex flex-row max-lg:justify-center p-6 md:py-12 md:px-14">
 						<div class="flex-1 flex max-lg:justify-center">
-							<div class="flex flex-col text-breeder-deepblue max-w-[610px]">
+							<div class="flex flex-col text-jobboard-deepblue max-w-[610px]">
 								<h4 class="s:text-[40px] text-[25px] font-semibold mb-6 s:mb-0 leading-tight">
 									{{ __('Join our community of breeders') }}
 								</h4>
@@ -1220,7 +1220,7 @@
 
 									<input type="hidden" name="optins[]" value="OPTIN_NL_ELEVEUR">
 
-									<input type="text" name="email" id="email" value="{{ old('email') }}" required placeholder="Votre adresse email" class="border-0 rounded-full text-breeder-deepblue focus:ring-0 focus:outline-none focus:border-none placeholder:text-breeder-deepblue">
+									<input type="text" name="email" id="email" value="{{ old('email') }}" required placeholder="Votre adresse email" class="border-0 rounded-full text-jobboard-deepblue focus:ring-0 focus:outline-none focus:border-none placeholder:text-jobboard-deepblue">
 
 									<button type="submit" class="font-semibold mr-4 hidden s:block">{{ __('I\'m signing up') }}</button>
 									<svg class="block s:hidden mr-4" width="35" height="18" viewBox="0 0 35 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1242,9 +1242,9 @@
 		@elseif($argument1 == 'professionnels')
 			{{-- NL inscription --}}
 			<div class="w-full flex justify-center p-4 my-10">
-				<div class="lg:min-h-[338px] w-full max-w-[1200px] rounded-3xl bg-breeder-orange flex flex-row max-lg:justify-center p-6 md:py-12 md:px-14">
+				<div class="lg:min-h-[338px] w-full max-w-[1200px] rounded-3xl bg-jobboard-orange flex flex-row max-lg:justify-center p-6 md:py-12 md:px-14">
 					<div class="flex-1 flex max-lg:justify-center">
-						<div class="flex flex-col text-breeder-deepblue w-full max-w-[610px]">
+						<div class="flex flex-col text-jobboard-deepblue w-full max-w-[610px]">
 							<h4 class="s:text-[40px] text-[25px] font-semibold mb-6 s:mb-0 w-full max-s:px-4 leading-tight">
 								{{ __('Join our community of pet professionals') }}
 							</h4>
@@ -1258,7 +1258,7 @@
 
 								<input type="hidden" name="optins[]" value="OPTIN_NL_PROFESSIONNEL">
 
-								<input type="text" name="email" id="email" value="{{ old('email') }}" required placeholder="Votre adresse email" class="border-0 rounded-full text-breeder-deepblue focus:ring-0 focus:outline-none focus:border-none placeholder:text-breeder-deepblue">
+								<input type="text" name="email" id="email" value="{{ old('email') }}" required placeholder="Votre adresse email" class="border-0 rounded-full text-jobboard-deepblue focus:ring-0 focus:outline-none focus:border-none placeholder:text-jobboard-deepblue">
 
 								<button type="submit" class="font-semibold mr-4 hidden s:block">{{ __('I\'m signing up') }}</button>
 
@@ -1279,7 +1279,7 @@
 			</div>
 			{{-- End NL inscription --}}
 		@elseif($argument1 == 'proprietaires')
-			@include('components.front.nl', ['bgcolor' => 'bg-breeder-coral'])
+			@include('components.front.nl', ['bgcolor' => 'bg-jobboard-coral'])
 		@endif
 	@endif
 </div>

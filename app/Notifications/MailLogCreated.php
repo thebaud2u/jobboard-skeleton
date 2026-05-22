@@ -432,7 +432,7 @@ class MailLogCreated extends Notification
 
 			<p>Merci pour votre réactivité,</p>';
 		}
-		elseif($notifiable->type == 'adoption-appointment-from-breeder-has-passed') {
+		elseif($notifiable->type == 'adoption-appointment-from-jobboard-has-passed') {
 			$tags = ['Confirmation_adoption', 'Eleveurs'];
 			$object = '✅ Confirmez l\'adoption !';
 			$body = '<p>Bonjour '.$notifiable->user->firstname.',</p><br/>
@@ -777,7 +777,7 @@ class MailLogCreated extends Notification
 		if(
 			$notifiable->type == 'animal-adopted-for-known-user' || $notifiable->type == 'adoption-appointment-for-known-user-has-passed' ||
 			$notifiable->type == 'breeder-account-validated' || $notifiable->type == 'professionnal-account-validated' || $notifiable->type == 'appointment-reminder' || $notifiable->type == 'visit-appointment-has-passed' ||
-			$notifiable->type == 'adoption-appointment-from-breeder-has-passed' || $notifiable->type == 'post-validated' || $notifiable->type == 'company-validated' ||
+			$notifiable->type == 'adoption-appointment-from-jobboard-has-passed' || $notifiable->type == 'post-validated' || $notifiable->type == 'company-validated' ||
 			$notifiable->type == 'post-expires-in-three-days' || $notifiable->type == 'post-expires-tomorrow' || $notifiable->type == 'company-expires-in-three-days' || $notifiable->type == 'company-expires-tomorrow' ||
 			$notifiable->type == 'acaced-expires-in-a-month' || $notifiable->type == 'acaced-expires-in-a-week' || $notifiable->type == 'auto-validation-adoption-for-breeder' ||
 			$notifiable->type == 'professionnal-activity-validated' || $notifiable->type == 'professionnal-activity-expires-in-three-days' || $notifiable->type == 'professionnal-activity-expires-tomorrow'
@@ -844,7 +844,7 @@ class MailLogCreated extends Notification
 				$body = 'Comment s\'est passée la visite avec '.$notifiable->model->to->name.' ?';
 				$url = route('space.responses.my-messages', ['response' => $notifiable->model->response->id]);
 			}
-			elseif($notifiable->type == 'adoption-appointment-from-breeder-has-passed') {
+			elseif($notifiable->type == 'adoption-appointment-from-jobboard-has-passed') {
 				if($notifiable->model->response) {
 					if($notifiable->model->response->model instanceof Animal) $text = $notifiable->model->response->model->name;
 					elseif($notifiable->model->response->model instanceof Post) {

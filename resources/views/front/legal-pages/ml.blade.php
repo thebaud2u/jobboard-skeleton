@@ -9,7 +9,7 @@
 
 	<div class="w-full sm:max-w-4xl mx-auto mb-6 sm:px-6 sm:py-4 sm:rounded-md sm:border sm:border-gray-200">
 		<div class="flex flex-row flex-wrap my-6 mx-10">
-			<h1 class="mb-4 leading-10 text-2xl text-left font-bold text-breeder-deepblue">
+			<h1 class="mb-4 leading-10 text-2xl text-left font-bold text-jobboard-deepblue">
 				Mentions légales
 			</h1>
 		</div>

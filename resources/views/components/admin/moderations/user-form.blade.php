@@ -188,7 +188,7 @@
 
 					<p>
 						@if(($path = $moderation->model->values->get('identity_card')) && Storage::disk('private')->exists($path))
-							<a href="{{ route('admin.documents.show', ['filename' => $moderation->model->values->get('identity_card')]) }}" target="_blank" class="text-breeder-deepblue underline">
+							<a href="{{ route('admin.documents.show', ['filename' => $moderation->model->values->get('identity_card')]) }}" target="_blank" class="text-jobboard-deepblue underline">
 								{{ __('Show the identity card') }}
 							</a>
 						@else
@@ -208,7 +208,7 @@
 
 							<p>
 								@if(($path = $moderation->model->values->get('siren_document')) && Storage::disk('private')->exists($path))
-									<a href="{{ route('admin.documents.show', ['filename' => $moderation->model->values->get('siren_document')]) }}" target="_blank" class="text-breeder-deepblue underline">
+									<a href="{{ route('admin.documents.show', ['filename' => $moderation->model->values->get('siren_document')]) }}" target="_blank" class="text-jobboard-deepblue underline">
 										{{ __('Show the Siren document or Kbis') }}
 									</a>
 								@else
@@ -227,7 +227,7 @@
 
 						<p>
 							@if(($path = $moderation->model->values->get('home_document')) && Storage::disk('private')->exists($path))
-								<a href="{{ route('admin.documents.show', ['filename' => $moderation->model->values->get('home_document')]) }}" target="_blank" class="text-breeder-deepblue underline">
+								<a href="{{ route('admin.documents.show', ['filename' => $moderation->model->values->get('home_document')]) }}" target="_blank" class="text-jobboard-deepblue underline">
 									{{ __('Show the home document') }}
 								</a>
 							@else
@@ -247,7 +247,7 @@
 
 								<p>
 									@if(($path = data_get($moderation->model->values, 'acaced_certificates.dogs')) && Storage::disk('private')->exists($path))
-										<a href="{{ route('admin.documents.show', ['filename' => data_get($moderation->model->values, 'acaced_certificates.dogs')]) }}" target="_blank" class="text-breeder-deepblue underline">
+										<a href="{{ route('admin.documents.show', ['filename' => data_get($moderation->model->values, 'acaced_certificates.dogs')]) }}" target="_blank" class="text-jobboard-deepblue underline">
 											{{ __('Show the dog training certificate') }}
 										</a>
 									@else
@@ -279,7 +279,7 @@
 
 								<p>
 									@if(($path = data_get($moderation->model->values, 'acaced_certificates.cats')) && Storage::disk('private')->exists($path))
-										<a href="{{ route('admin.documents.show', ['filename' => data_get($moderation->model->values, 'acaced_certificates.cats')]) }}" target="_blank" class="text-breeder-deepblue underline">
+										<a href="{{ route('admin.documents.show', ['filename' => data_get($moderation->model->values, 'acaced_certificates.cats')]) }}" target="_blank" class="text-jobboard-deepblue underline">
 											{{ __('Show the cat training certificate') }}
 										</a>
 									@else

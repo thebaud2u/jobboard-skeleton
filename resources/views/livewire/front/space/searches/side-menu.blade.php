@@ -2,7 +2,7 @@
 	<form x-data="{ deploy: false }">
 		<div class="flex flex-row justify-between px-4">
 			<div class="flex-auto flex flex-row items-center">
-				<div class="{{ ($searches->count() > 0) ? 'text-breeder-deepblue' : '' }} mr-3">
+				<div class="{{ ($searches->count() > 0) ? 'text-jobboard-deepblue' : '' }} mr-3">
 					<svg width="25" height="22" viewBox="0 0 25 22" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path id="Vector" d="M23.7768 4.88867H17.1101" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
 						<path id="Vector_2" d="M5.99889 4.88867H1.55444" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
@@ -13,14 +13,14 @@
 					</svg>
 				</div>
 
-				<div class="font-semibold {{ ($searches->count() > 0) ? 'text-breeder-deepblue' : '' }}">
+				<div class="font-semibold {{ ($searches->count() > 0) ? 'text-jobboard-deepblue' : '' }}">
 					{{ __('Filter by') }}
 				</div>
 			</div>
 
 			<div class="flex-auto text-right">
 				@if($searches->count() > 0)
-					<input type="reset" wire:click="resetForm" value="{{ __('Reinitialize') }}" class="inline-block text-breeder-deepblue xl:text-lg font-semibold cursor-pointer" />
+					<input type="reset" wire:click="resetForm" value="{{ __('Reinitialize') }}" class="inline-block text-jobboard-deepblue xl:text-lg font-semibold cursor-pointer" />
 				@else
 					<span class="inline-block font-semibold">
 						{{ __('Reinitialize') }}
@@ -36,7 +36,7 @@
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
 					</svg>
 				</div>
-				<input type="text" name="keywords" wire:model="keywords" wire:keydown.debounce.500ms="search" placeholder="Mot(s)-clé(s)" class="block w-full text-breeder-deepblue text-sm xl:text-base bg-white border p-2 focus:border-breeder-deepblue focus:ring-0 rounded-md" />
+				<input type="text" name="keywords" wire:model="keywords" wire:keydown.debounce.500ms="search" placeholder="Mot(s)-clé(s)" class="block w-full text-jobboard-deepblue text-sm xl:text-base bg-white border p-2 focus:border-jobboard-deepblue focus:ring-0 rounded-md" />
 			</div>
 
 			<div class="flex flex-col mt-6 px-4">
@@ -76,7 +76,7 @@
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
 					</svg>
 				</div>
-				<input type="text" placeholder="Mot(s)-clé(s)" disabled="true" name="keywords" class="block w-full text-breeder-deepblue text-sm xl:text-base bg-white border p-2 rounded-md" />
+				<input type="text" placeholder="Mot(s)-clé(s)" disabled="true" name="keywords" class="block w-full text-jobboard-deepblue text-sm xl:text-base bg-white border p-2 rounded-md" />
 			</div>
 		@endif
 	</form>

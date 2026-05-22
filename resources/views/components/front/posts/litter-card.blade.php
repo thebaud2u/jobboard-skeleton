@@ -18,21 +18,21 @@
 	else $isPureBreed = false;
 
 	if($post->offer()->slug == 'annonce-premium' && $isIndex) {
-		$class = 'bg-breeder-deepblue text-white';
+		$class = 'bg-jobboard-deepblue text-white';
 
-		// if($species->getTranslation('slug', 'en') == 'cat') $class .= ' border-t-[4px] border-t-breeder-green';
-		// elseif($species->getTranslation('slug', 'en') == 'dog') $class .= ' border-t-[4px] border-t-breeder-coral';
+		// if($species->getTranslation('slug', 'en') == 'cat') $class .= ' border-t-[4px] border-t-jobboard-green';
+		// elseif($species->getTranslation('slug', 'en') == 'dog') $class .= ' border-t-[4px] border-t-jobboard-coral';
 	}
 
 	if($isIndex) {
 		$postOffer = $post->offer();
 
 		if($postOffer->slug == 'annonce-premium') {
-			$class = 'bg-breeder-cream text-breeder-deepblue';
+			$class = 'bg-jobboard-cream text-jobboard-deepblue';
 			$isPremium = true;
 		}
 		elseif($postOffer->slug == 'annonce-master') {
-			$class = 'bg-breeder-deepblue text-white';
+			$class = 'bg-jobboard-deepblue text-white';
 			$isMaster = true;
 		}
 	}
@@ -41,7 +41,7 @@
 @endphp
 
 <a href="{{ route('post-search.post.show', ['company' => $post->model->company->slug, 'post' => $post->slug, 'breed' => $breed->slug]) }}" class="h-full @if($isIndex && isset($postType) && $postType->exists != true) w-full max-sm:max-w-[360px] sm:w-[287px] @elseif($postType->exists)) w-full max-sm:max-w-[360px] sm:w-[275px] @endif block">
-	<article class="cursor-pointer @if($isMaster) bg-breeder-deepblue @else bg-breeder-cream @endif text-breeder-deepblue rounded-xl h-full flex flex-col flex-1 group" x-data 
+	<article class="cursor-pointer @if($isMaster) bg-jobboard-deepblue @else bg-jobboard-cream @endif text-jobboard-deepblue rounded-xl h-full flex flex-col flex-1 group" x-data 
     @mouseenter="
         let gif = $el.querySelector('.js-gif-stars'); 
         if(gif) {
@@ -63,16 +63,16 @@
 							<div class="flex flex-row gap-2 items-center">
 								@if($addressInFrance)
 									@if($species->getTranslation('slug', 'en') == 'cat')
-										<span class="px-3 py-1 rounded-md font-medium bg-breeder-green text-breeder-deepblue text-sm w-fit">
+										<span class="px-3 py-1 rounded-md font-medium bg-jobboard-green text-jobboard-deepblue text-sm w-fit">
 											LOOF
 										</span>
 									@elseif($species->getTranslation('slug', 'en') == 'dog')
-										<span class="px-3 py-1 rounded-md font-medium bg-breeder-coral text-breeder-deepblue text-sm w-fit">
+										<span class="px-3 py-1 rounded-md font-medium bg-jobboard-coral text-jobboard-deepblue text-sm w-fit">
 											LOF
 										</span>
 									@endif
 								@else
-									<span class="px-3 py-1 rounded-md font-medium bg-breeder-coral text-breeder-deepblue text-sm w-fit">
+									<span class="px-3 py-1 rounded-md font-medium bg-jobboard-coral text-jobboard-deepblue text-sm w-fit">
 										{{ __('Origin book') }}
 									</span>
 								@endif
@@ -101,7 +101,7 @@
 				<div class="absolute w-full bottom-0 bg-gradient-to-t rounded-t-xl drop-shadow-[0_0_4px_rgba(0,0,0,0.25)]">
 					<div class="flex flex-row gap-2 flex-wrap p-4">
 						@if($isPremium)
-							<span class="px-3 py-1 rounded-md font-medium bg-breeder-cream text-breeder-deepblue text-sm w-fit relative flex">
+							<span class="px-3 py-1 rounded-md font-medium bg-jobboard-cream text-jobboard-deepblue text-sm w-fit relative flex">
 								<div class="relative w-[14px]">
 									<svg class="absolute -top-[8px] -left-[17px]" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<path d="M11 8.0001L7.11038 14.7873L3.05176e-05 18.5001L7.11038 22.213L11 29.0002L14.8885 22.213L22 18.5001L14.8885 14.7873L11 8.0001Z" fill="#FFA244"/>
@@ -113,7 +113,7 @@
 								{{ __('Top post') }}
 							</span>
 						@elseif($isMaster)
-							<span class="px-3 py-1 rounded-md font-medium bg-breeder-cream text-breeder-deepblue text-sm w-fit relative flex">
+							<span class="px-3 py-1 rounded-md font-medium bg-jobboard-cream text-jobboard-deepblue text-sm w-fit relative flex">
 								<div class="relative w-[14px] overflow-visible">
 									<img class="js-gif-stars absolute -top-[30px] -left-[38px] w-[76px] h-[76px] shrink-0 max-w-none" src="{{ asset('storage/etoiles.webp') }}?uid={{ $uniqueId }}&t={{ time() }}" alt="" />
 								</div>

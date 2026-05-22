@@ -11,7 +11,7 @@
 	</x-slot>
 
 	<div class="flex-1 py-5">
-		<div class="w-full bg-white px-6 py-10 mb-6 rounded-md text-breeder-deepblue">
+		<div class="w-full bg-white px-6 py-10 mb-6 rounded-md text-jobboard-deepblue">
 			@if($company)
 				<div class="flex flex-row justify-between items-center mb-8">
 					<x-front.form-part-title>
@@ -77,13 +77,13 @@
 				@endif
 
 				@if($posts->isNotEmpty())
-					<hr class="h-px my-8 bg-breeder-deepblue border-0">
+					<hr class="h-px my-8 bg-jobboard-deepblue border-0">
 
 					<livewire:front.space.posts.filters />
 
 					<livewire:front.space.posts.my-posts />
 				@else
-					<div class="flex flex-col p-6 gap-y-6 justify-center items-center w-full bg-breeder-cream h-[361px] rounded-xl">
+					<div class="flex flex-col p-6 gap-y-6 justify-center items-center w-full bg-jobboard-cream h-[361px] rounded-xl">
 						<svg width="82" height="83" viewBox="0 0 82 83" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<ellipse cx="48.897" cy="36.6446" rx="7.54035" ry="25.9087" transform="rotate(-28.2079 48.897 36.6446)" fill="#C68CFF"/>
 							<path d="M56 15L62 6" stroke="#FFA244" stroke-width="3" stroke-linecap="round"/>
@@ -117,7 +117,7 @@
 					</div>
 				@endif
 			@else
-				<div class="flex flex-col p-6 gap-y-6 justify-center items-center w-full bg-breeder-cream h-[337px] rounded-xl">
+				<div class="flex flex-col p-6 gap-y-6 justify-center items-center w-full bg-jobboard-cream h-[337px] rounded-xl">
 					<svg width="82" height="83" viewBox="0 0 82 83" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<g clip-path="url(#clip0_2149_45769)">
 							<path d="M64.1756 56.9505C64.1756 56.9505 41.5324 53.5433 28.7218 61.7977L18.7551 68.2136C13.2499 71.7577 6.21281 69.6536 3.03718 63.5158C-0.138459 57.3779 1.74381 49.5261 7.249 45.982L17.2157 39.5661C30.0301 31.3159 38.7072 7.73978 38.7072 7.73978M24.1484 64.74L36.1279 79.5306C37.7157 81.4894 40.2801 81.8795 42.2481 80.6096C42.5425 80.4187 42.8295 80.1905 43.0904 79.9249C45.1106 77.8872 45.2709 74.4095 43.4445 72.1561L33.202 59.511M24.4466 64.545C21.3008 66.5702 16.1758 63.2336 13.0002 57.0957C9.82081 50.9579 9.79472 44.3386 12.9405 42.3134M44.0819 28.6765L47.9284 27.4481C49.3784 26.9833 50.9252 27.6847 51.6781 29.1413L54.0449 33.7188C54.7978 35.1713 54.5704 37.0097 53.4895 38.18L50.6121 41.3008M64.1943 24.5514L73.1621 18.7746M70.6014 39.479L80.5085 38.8191M55.8079 10.8979L61.2758 1.66003M58.5595 27.7729C65.8212 41.8054 69.156 54.8182 66.0079 56.8378C62.8598 58.8574 54.421 49.1191 47.1592 35.0866C39.8975 21.0542 36.5627 8.04137 39.7108 6.02175C42.8589 4.00214 51.2978 13.7405 58.5595 27.7729Z" stroke="#0E1954" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />

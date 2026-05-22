@@ -2,8 +2,6 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-	@include('components.front.didomi')
-	
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
@@ -37,12 +35,12 @@
 					@php
 						$user = auth()->user();
 						$userType = $user->hasRole('adopter') ? 'adoptant' : ($user->hasRole('professionnal') ? 'pro' : 'eleveur');
-						
+
 						$isBreeder = $user->hasRole(["professionnal_breeder", "individual_breeder"]);
 						$hasSub = $user->subscriptions()->where("synchronized_with_stripe", true)->exists();
 						$condition = ($isBreeder && $hasSub) ? "client" : "membre";
 					@endphp
-					
+
 					user_id: {!! json_encode((string)$user->id) !!},
 					firstname: {!! json_encode($user->firstname) !!},
 					lastname: {!! json_encode($user->lastname) !!},
@@ -99,7 +97,7 @@
 			<div class="w-full mx-auto">
 				{{-- Image (sub)header --}}
 				@if(!empty($navCvtheque))
-					<div class="mb-6 px-4 md:pl-6 py-5 shadow-md lg:rounded-md bg-breeder-deepblue text-xs xs:text-sm font-medium">
+					<div class="mb-6 px-4 md:pl-6 py-5 shadow-md lg:rounded-md bg-jobboard-deepblue text-xs xs:text-sm font-medium">
 						{{ $navCvtheque }}
 					</div>
 				@endif
@@ -139,7 +137,7 @@
 						</div>
 					</div>
 				@endif
-				
+
 
 				@if(isset($side_menu))
 					<div class="flex flex-col max-md:space-y-4 md:flex-row items-start justify-center w-full max-w-[1440px] mx-auto">
@@ -170,7 +168,7 @@
 					<div class="relative w-[78px]">
 						<img src="{{ asset('storage/breeder_avatar_bot.png') }}" class="max-w-[78px] absolute z-30 -top-[55px]" alt="">
 					</div>
-					<div class="rounded-xl shadow-lg text-breeder-deepblue font-bold text-sm p-2 z-20 flex flex-col items-center">
+					<div class="rounded-xl shadow-lg text-jobboard-deepblue font-bold text-sm p-2 z-20 flex flex-col items-center">
 						<p>{{ __('Une question ?') }}</p>
 						{{ __('BreederGPT') }}
 					</div>
@@ -181,7 +179,7 @@
 					<div class="relative w-[78px] h-[78px]">
 						<img src="{{ asset('storage/breeder_avatar_bot.png') }}" class="max-w-[78px] absolute top-[17px] z-10" alt="">
 					</div>
-					<div class="rounded-xl shadow-lg text-breeder-deepblue font-bold text-sm p-2 bg-white flex flex-col items-center">
+					<div class="rounded-xl shadow-lg text-jobboard-deepblue font-bold text-sm p-2 bg-white flex flex-col items-center">
 						<p>{{ __('Une question ?') }}</p>
 						{{ __('BreederGPT') }}
 					</div>

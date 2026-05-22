@@ -2,9 +2,9 @@
 @include('components.front.footer-partner')
 
 <x-slot name="footerHome">
-	<div class="bg-breeder-deepblue text-breeder-cream w-full flex justify-center px-4">
+	<div class="bg-jobboard-deepblue text-jobboard-cream w-full flex justify-center px-4">
 		<nav
-			class="flex flex-row max-sm:flex-col justify-between gap-y-8 gap-x-10 max-w-[1200px] min-h-[304px] border-b border-breeder-cream/30 w-full py-8 px-8 lg:px-0 flex-nowrap">
+			class="flex flex-row max-sm:flex-col justify-between gap-y-8 gap-x-10 max-w-[1200px] min-h-[304px] border-b border-jobboard-cream/30 w-full py-8 px-8 lg:px-0 flex-nowrap">
 			{{-- Logo + text mobile / Hidden on desktop --}}
 			{{-- <div class="flex flex-row justify-center items-center lg:hidden gap-x-8 max-w-[340px]">
 				<svg class="flex-none" width="94" height="105" viewBox="0 0 94 105" fill="none"
@@ -48,7 +48,7 @@
 					</defs>
 				</svg>
 
-				<a href="{{ route('home') }}" class="rounded-full w-full bg-breeder-cream hover:bg-breeder-greige text-breeder-deepblue inline-flex justify-center items-center px-5 py-3 text-sm font-bold max-s:w-full">
+				<a href="{{ route('home') }}" class="rounded-full w-full bg-jobboard-cream hover:bg-jobboard-greige text-jobboard-deepblue inline-flex justify-center items-center px-5 py-3 text-sm font-bold max-s:w-full">
 					{{ __('Adopters space') }}
 				</a>
 
@@ -66,7 +66,7 @@
 						{{-- facebook --}}
 						<a href="https://www.facebook.com/latribueleveursonline" target="_blank" rel="nofollow" class="group">
 							<svg width="35" height="36" viewBox="0 0 35 36" xmlns="http://www.w3.org/2000/svg">
-								<circle cx="17.4955" cy="18.2998" r="17.5" class="fill-breeder-coral group-hover:fill-breeder-coralhover transition-colors duration-300" />
+								<circle cx="17.4955" cy="18.2998" r="17.5" class="fill-jobboard-coral group-hover:fill-jobboard-coralhover transition-colors duration-300" />
 								<path
 									d="M15.8808 26.1796V19.2376H13.5447V16.5322H15.8808V14.5371C15.8808 12.2217 17.2949 10.9609 19.3604 10.9609C20.3498 10.9609 21.2001 11.0346 21.4479 11.0675V13.4872L20.0154 13.4879C18.8921 13.4879 18.6746 14.0217 18.6746 14.8049V16.5322H21.3536L21.0048 19.2376H18.6746V26.1796H15.8808Z"
 									fill="#0E1954"/>
@@ -76,7 +76,7 @@
 						<a href="https://www.instagram.com/la_tribu_eleveurs_online/" target="_blank" rel="nofollow" class="group">
 							<svg width="35" height="36" viewBox="0 0 35 36"
 								 xmlns="http://www.w3.org/2000/svg">
-								<circle cx="17.4955" cy="18.2998" r="17.5" class="fill-breeder-green group-hover:fill-breeder-greenhover transition-colors duration-300" />
+								<circle cx="17.4955" cy="18.2998" r="17.5" class="fill-jobboard-green group-hover:fill-jobboard-greenhover transition-colors duration-300" />
 								<path
 									d="M17.4958 11.3588C19.7567 11.3588 20.0244 11.3673 20.9176 11.408C21.4546 11.4146 21.9865 11.5132 22.4902 11.6995C22.8554 11.8404 23.1871 12.0562 23.464 12.333C23.7408 12.6098 23.9566 12.9415 24.0974 13.3068C24.2838 13.8105 24.3824 14.3424 24.389 14.8794C24.4293 15.7725 24.4382 16.0403 24.4382 18.3012C24.4382 20.562 24.4297 20.8298 24.389 21.7229C24.3824 22.2599 24.2838 22.7918 24.0974 23.2955C23.9566 23.6608 23.7408 23.9925 23.464 24.2693C23.1871 24.5461 22.8554 24.7619 22.4902 24.9028C21.9865 25.0891 21.4546 25.1877 20.9176 25.1943C20.0249 25.2346 19.7571 25.2435 17.4958 25.2435C15.2345 25.2435 14.9668 25.235 14.074 25.1943C13.537 25.1877 13.0051 25.0891 12.5015 24.9028C12.1362 24.7619 11.8045 24.5461 11.5277 24.2693C11.2509 23.9925 11.0351 23.6608 10.8942 23.2955C10.7079 22.7918 10.6092 22.2599 10.6027 21.7229C10.5624 20.8298 10.5535 20.562 10.5535 18.3012C10.5535 16.0403 10.5619 15.7725 10.6027 14.8794C10.6092 14.3424 10.7079 13.8105 10.8942 13.3068C11.0351 12.9415 11.2509 12.6098 11.5277 12.333C11.8045 12.0562 12.1362 11.8404 12.5015 11.6995C13.0051 11.5132 13.537 11.4146 14.074 11.408C14.9672 11.3677 15.2349 11.3588 17.4958 11.3588ZM17.4958 9.83301C15.1974 9.83301 14.9079 9.84269 14.0047 9.88381C13.3019 9.89779 12.6065 10.0309 11.9482 10.2774C11.3835 10.4901 10.872 10.8236 10.4494 11.2544C10.0182 11.6771 9.68453 12.1889 9.47162 12.754C9.22512 13.4123 9.09206 14.1076 9.07808 14.8104C9.03775 15.7128 9.02808 16.0024 9.02808 18.3007C9.02808 20.5991 9.03775 20.8887 9.07888 21.7919C9.09286 22.4947 9.22593 23.19 9.47243 23.8483C9.6851 24.4133 10.0185 24.9251 10.4494 25.3479C10.8723 25.7788 11.384 26.1123 11.949 26.3249C12.6073 26.5714 13.3027 26.7045 14.0055 26.7185C14.9087 26.7588 15.197 26.7693 17.4966 26.7693C19.7962 26.7693 20.0845 26.7596 20.9878 26.7185C21.6906 26.7045 22.3859 26.5714 23.0442 26.3249C23.6065 26.107 24.1172 25.774 24.5435 25.3475C24.9698 24.9209 25.3024 24.41 25.52 23.8475C25.7665 23.1892 25.8996 22.4939 25.9136 21.7911C25.9539 20.8887 25.9636 20.5991 25.9636 18.3007C25.9636 16.0024 25.9539 15.7128 25.9128 14.8096C25.8988 14.1068 25.7657 13.4115 25.5192 12.7532C25.3065 12.1882 24.9731 11.6764 24.5422 11.2536C24.1194 10.8227 23.6076 10.4892 23.0426 10.2766C22.3843 10.0301 21.6889 9.89699 20.9861 9.88301C20.0837 9.84269 19.7942 9.83301 17.4958 9.83301Z"
 									fill="#0E1954"/>
@@ -99,8 +99,8 @@
 					<div class="flex flex-row max-md:justify-center md:flex-col gap-y-8 gap-x-12 w-full md:pr-[50px] md:max-w-[188px] shrink-0">
 						<ul class="flex flex-col gap-y-2 text-sm lg:max-w-[138px] w-full">
 							<li class="mb-2">
-								<a href="{{route("post-search.dog-posts")}}" class="group flex flex-row items-center  hover:text-breeder-coral">
-									<svg class="w-[31px] mr-2 fill-current text-white group-hover:text-breeder-coral" viewBox="0 0 31 25" xmlns="http://www.w3.org/2000/svg">
+								<a href="{{route("post-search.dog-posts")}}" class="group flex flex-row items-center  hover:text-jobboard-coral">
+									<svg class="w-[31px] mr-2 fill-current text-white group-hover:text-jobboard-coral" viewBox="0 0 31 25" xmlns="http://www.w3.org/2000/svg">
 										<path
 											d="M11.1946 1.09814C10.3203 0.229679 8.5148 1.51005 7.63645 1.81239C5.25755 2.63012 2.69973 2.85535 1.23987 5.16853C-1.20612 9.04819 2.85223 17.6334 6.75605 14.7317C8.84622 13.1774 6.88618 9.00355 8.48837 6.7208C9.13088 5.8077 10.3203 5.46073 10.9466 4.30413C11.3308 3.59597 11.8066 1.70484 11.1926 1.09611L11.1946 1.09814ZM28.6561 4.16412C27.1983 2.70925 25.3297 2.67679 23.5364 2.07008C21.863 1.50599 18.7013 -0.876186 19.1914 2.95883C19.5207 5.5358 22.3103 5.87872 22.7434 7.93624C23.1846 10.0364 21.8508 14.4152 24.6567 15.1558C26.7591 15.7098 28.0888 14.2082 28.9712 12.5504C30.3356 9.98767 30.911 6.41035 28.6581 4.16412H28.6561ZM10.7819 7.78C9.22847 8.09857 9.69002 10.5944 11.1031 10.5335C12.9676 10.4523 12.931 7.33968 10.7819 7.78ZM18.4106 10.1277C19.6732 11.4547 21.7715 9.25313 20.3849 8.05596C18.9982 6.85878 17.3167 8.97717 18.4106 10.1277ZM6.97157 15.4561V24.2828C6.97157 24.4126 7.46159 24.7677 7.68931 24.7921C9.48466 24.9869 8.46397 21.7525 8.6002 20.7318C10.7066 22.4768 13.1303 23.1018 15.2347 20.951C17.4102 22.9841 19.5533 22.5276 21.8142 20.9347V24.0798C21.8142 25.0558 23.6442 24.8874 23.6442 24.2828V15.4561C21.4666 15.375 21.9586 16.6432 21.4503 18.0351C20.8179 19.7619 18.5265 21.5293 16.847 19.908C16.1862 19.2709 15.8955 17.4365 16.1191 16.6147C16.2167 16.2536 18.01 15.7503 17.7112 14.19C17.2598 11.8382 12.7866 12.1548 12.8822 14.5268C12.9452 16.0811 14.4722 16.4727 14.5047 16.6066C15.1838 19.4352 12.6647 21.9432 10.2187 19.6239C8.56767 18.0574 9.55379 15.2512 6.97157 15.4582V15.4561Z"
 												/>
@@ -139,8 +139,8 @@
 	
 						<ul class="flex flex-col gap-y-2 text-sm lg:max-w-[138px] w-full">
 							<li class=" mb-2">
-								<a href="{{route("post-search.cat-posts")}}" class="group flex flex-row items-center hover:text-breeder-green">
-									<svg class="w-[26px] mr-2 fill-current text-white group-hover:text-breeder-green" viewBox="0 0 26 25" xmlns="http://www.w3.org/2000/svg">
+								<a href="{{route("post-search.cat-posts")}}" class="group flex flex-row items-center hover:text-jobboard-green">
+									<svg class="w-[26px] mr-2 fill-current text-white group-hover:text-jobboard-green" viewBox="0 0 26 25" xmlns="http://www.w3.org/2000/svg">
 										<g clip-path="url(#clip0_1378_4181)">
 											<path
 												d="M14.2935 14.6201C14 14.4289 12.4227 14.6975 11.9276 14.5917C11.6162 15.4442 12.5485 15.841 12.4527 16.425C12.1652 18.1891 10.6 17.5644 10.5181 18.356C10.4203 19.3082 11.4185 19.1353 12.0434 18.8789C12.4806 18.6998 12.8839 18.0935 13.0516 18.063C13.2393 18.0284 15.1559 19.9939 15.8307 18.6632C16.2161 17.9063 14.2176 17.9083 13.8502 16.5816C13.6266 15.7718 15.0581 15.1166 14.2935 14.6201Z"
@@ -222,10 +222,10 @@
 							];
 					@endphp
 	
-					<div class="flex md:flex-col gap-y-8 gap-x-12 w-full md:px-[50px] md:border-x md:border-breeder-cream/30 md:max-w-[238px] shrink-0">
+					<div class="flex md:flex-col gap-y-8 gap-x-12 w-full md:px-[50px] md:border-x md:border-jobboard-cream/30 md:max-w-[238px] shrink-0">
 						@foreach($services_products as $sp )
 							<ul class="flex flex-col gap-y-2 text-sm flex-1 md:max-w-[138px] w-full">
-								<li class="font-semibold text-base mb-2 hover:text-breeder-orange"><a href="{{ route('professionnal-activity-search.professionnal-activities', ['activityCategory' =>  $sp['slug']]) }}">{{$sp['title']}}</a></li>
+								<li class="font-semibold text-base mb-2 hover:text-jobboard-orange"><a href="{{ route('professionnal-activity-search.professionnal-activities', ['activityCategory' =>  $sp['slug']]) }}">{{$sp['title']}}</a></li>
 								@php
 		
 									foreach($sp['links'] as $spl):
@@ -245,10 +245,10 @@
 				</div>
 
 				<div class="flex max-lg:w-full max-lg:flex-1 max-sm:flex-col max-sm:gap-8">
-					<div class="flex flex-col gap-y-8 gap-x-12 w-full md:pr-[50px] lg:pl-[50px] md:border-r md:border-breeder-cream/30 max-w-[236px] shrink-0">
+					<div class="flex flex-col gap-y-8 gap-x-12 w-full md:pr-[50px] lg:pl-[50px] md:border-r md:border-jobboard-cream/30 max-w-[236px] shrink-0">
 						<ul class="flex flex-col gap-y-2 text-sm lg:max-w-[136px] w-full">
 							<li class="font-semibold text-base mb-2">
-								<a href="{{route('article.index')}}" class="hover:text-breeder-orange">{{ __('Advices') }}</a>
+								<a href="{{route('article.index')}}" class="hover:text-jobboard-orange">{{ __('Advices') }}</a>
 							</li>
 							@php
 								$advices_link = [
@@ -279,7 +279,7 @@
 					<div class="flex flex-col gap-y-8 gap-x-12 w-full md:pl-[50px]">
 						<ul class="flex flex-col gap-y-2 text-sm md:max-w-[214px] w-full flex-1">
 							<li class="font-semibold text-base mb-2">
-								<a href="{{route('article.index')}}" class="hover:text-breeder-orange">{{ __('Breeders articles') }}</a>
+								<a href="{{route('article.index')}}" class="hover:text-jobboard-orange">{{ __('Breeders articles') }}</a>
 							</li>
 	
 							<li>

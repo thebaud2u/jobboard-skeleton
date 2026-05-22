@@ -220,7 +220,7 @@ class Response extends Model implements HasMedia
 				<input type="hidden" name="user_id" value="'.$this->to->id.'" />
 				<input type="hidden" name="from" value="eol-conversation-message" />
 
-				<button type="submit" class="inline-flex items-center px-5 py-3 whitespace-nowrap gap-x-2 font-bold bg-white hover:bg-breeder-deepblue border border-breeder-deepblue hover:border-breeder-deepblue rounded-full text-sm text-breeder-deepblue hover:text-white focus:outline-none focus:ring-0 transition ease-in-out duration-150  w-full justify-center">
+				<button type="submit" class="inline-flex items-center px-5 py-3 whitespace-nowrap gap-x-2 font-bold bg-white hover:bg-jobboard-deepblue border border-jobboard-deepblue hover:border-jobboard-deepblue rounded-full text-sm text-jobboard-deepblue hover:text-white focus:outline-none focus:ring-0 transition ease-in-out duration-150  w-full justify-center">
 					'.__('I want to protect my pet').'
 				</button>
 			</form>

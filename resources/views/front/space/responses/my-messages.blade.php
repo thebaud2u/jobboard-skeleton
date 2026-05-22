@@ -8,7 +8,7 @@
 			{{ __('My messages') }}
 		</x-front.form-part-title>
 
-		<hr class="h-px border border-breeder-deepblue w-full my-[30px]">
+		<hr class="h-px border border-jobboard-deepblue w-full my-[30px]">
 	</div> --}}
 
 	@if($response->exists || $responses->isNotEmpty())
@@ -26,7 +26,7 @@
 				:key="'my-message'" />
 		</div>
 	@else
-		<p class="text-breeder-deepblue font-medium mt-8">
+		<p class="text-jobboard-deepblue font-medium mt-8">
 			{{ __('You don\'t have any messages yet.') }}
 		</p>
 	@endif

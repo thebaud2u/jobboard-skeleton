@@ -1,7 +1,7 @@
 <div class="md:max-h-[930px] w-full">
 	@if(!$response->exists)
 		<div class="grow flex flex-col items-center md:rounded-l-md lg:rounded-md bg-white my-3">
-			<div class="my-6 text-center text-breeder-deepblue">
+			<div class="my-6 text-center text-jobboard-deepblue">
 				<svg width="27" height="28" viewBox="0 0 27 28" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path d="M24.1087 20.512C25.3043 18.599 26 16.349 26 13.925C26 7.02287 20.4021 1.42505 13.5 1.42505C6.59779 1.42505 1 7.02287 1 13.925C1 20.8272 6.59779 26.425 13.5 26.425C15.9239 26.425 18.1739 25.7294 20.0869 24.5337L26 26.425L24.1087 20.512Z" stroke="#0E1954" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
 					<path d="M8.6084 11.2078H18.391" stroke="#0E1954" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -10,7 +10,7 @@
 			</div>
 
 			@if(!$applications && !$applicants)
-				<h2 class="my-6 text-xl text-center font-bold text-breeder-deepblue">
+				<h2 class="my-6 text-xl text-center font-bold text-jobboard-deepblue">
 					{{ __('You don\'t have any message yet') }}
 				</h2>
 
@@ -22,13 +22,13 @@
 					</a>
 				</div>
 			@elseif($applications || $applicants)
-				<h2 class="my-6 text-xl text-center font-bold text-breeder-deepblue">
+				<h2 class="my-6 text-xl text-center font-bold text-jobboard-deepblue">
 					{{ __('Select a conversation to start chatting') }}
 				</h2>
 			@endif
 		</div>
 	@else
-		<div class="md:grow max-md:order-last rounded-xl border border-breeder-greige bg-white w-full md:h-full md:max-h-[930px] flex flex-col mb-8">
+		<div class="md:grow max-md:order-last rounded-xl border border-jobboard-greige bg-white w-full md:h-full md:max-h-[930px] flex flex-col mb-8">
 			<div class="flex flex-col gap-4 rounded-t-xl">
 				@include('components.front.space.responses.header-info')
 			</div>
@@ -48,11 +48,11 @@
 									@foreach($messages as $message)
 										<div class="flex flex-row-reverse gap-x-3 items-center">
 											<div class="flex flex-col max-w-sm gap-y-2 lg:w-full lg:max-w-[470px] items-end">
-												<span class="text-sm text-breeder-deepblue font-medium">
+												<span class="text-sm text-jobboard-deepblue font-medium">
 													{{ $message->created_at->format('d/m/Y - H:i:s') }}
 												</span>
 
-												<div class="rounded-lg bg-breeder-deepblue p-4 text-sm xl:text-base text-breeder-cream">
+												<div class="rounded-lg bg-jobboard-deepblue p-4 text-sm xl:text-base text-jobboard-cream">
 													{!! $message->body !!}
 												</div>
 
@@ -78,13 +78,13 @@
 							@foreach($messages as $message)
 								@if($message->user_id == $fromUser->id)
 									@if($message->automated && $message->values && $message->values->has($situation))
-										<div class="flex flex-wrap gap-x-1 justify-center w-full text-breeder-deepblue p-4 text-sm">
+										<div class="flex flex-wrap gap-x-1 justify-center w-full text-jobboard-deepblue p-4 text-sm">
 											{!! $message->values->get($situation) !!}
 										</div>
 									@else
 										<div class="flex flex-row-reverse gap-x-3 items-center">
 											<div class="flex flex-col max-w-sm gap-y-2 lg:w-full lg:max-w-[470px] items-end">
-												<span class="text-sm text-breeder-deepblue font-medium">
+												<span class="text-sm text-jobboard-deepblue font-medium">
 													@if($loop->first)
 														@if($response->values->has('message') && $message->body != $response->values->get('message'))
 															{{ $message->created_at->format('d/m/Y - H:i:s') }}
@@ -97,7 +97,7 @@
 												</span>
 
 												@if($message->body)
-													<div class="rounded-lg bg-breeder-deepblue p-4 text-sm xl:text-base text-breeder-cream">
+													<div class="rounded-lg bg-jobboard-deepblue p-4 text-sm xl:text-base text-jobboard-cream">
 														@if($message->automated)
 															{!! $message->body !!}
 														@else
@@ -111,7 +111,7 @@
 												@endif
 
 												@if($message->file)
-													<a href="{{ route('documents.show', ['filename' => $message->file]) }}" target="_blank" class="flex gap-x-2 text-breeder-deepblue underline underline-offset-4">
+													<a href="{{ route('documents.show', ['filename' => $message->file]) }}" target="_blank" class="flex gap-x-2 text-jobboard-deepblue underline underline-offset-4">
 														<svg width="18" height="20" viewBox="0 0 24 27" fill="none" xmlns="http://www.w3.org/2000/svg">
 															<path d="M22.8421 11.7954L14.0902 3.04052C11.0372 -0.0135062 6.09274 -0.0135062 3.03974 3.04052C-0.0132481 6.09454 -0.0132481 11.0407 3.03974 14.0947L13.1041 24.1624C15.2202 26.2792 18.6521 26.2792 20.7682 24.1624C22.8842 22.0457 22.8842 18.6125 20.7682 16.4958L12.5918 8.31661C11.3776 7.10202 9.40542 7.09851 8.18774 8.31661C6.97356 9.5312 6.97356 11.504 8.18774 12.7221L15.0868 19.6235" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"/>
 														</svg>
@@ -133,7 +133,7 @@
 								@else
 									{{-- Messages I've sent --}}
 									@if($message->automated && $message->values && $message->values->has($situation))
-										<div class="flex flex-wrap gap-x-1 justify-center w-full text-breeder-deepblue p-4 text-sm">
+										<div class="flex flex-wrap gap-x-1 justify-center w-full text-jobboard-deepblue p-4 text-sm">
 											{!! $message->values->get($situation) !!}
 										</div>
 									@else
@@ -149,7 +149,7 @@
 											</div>
 
 											<div class="flex flex-col max-w-sm gap-y-2 lg:w-full lg:max-w-[470px]">
-												<span class="text-sm text-breeder-deepblue font-medium">
+												<span class="text-sm text-jobboard-deepblue font-medium">
 													@if($loop->first)
 														@if($response->values->has('message') && $message->body != $response->values->get('message'))
 															{{ $message->created_at->format('d/m/Y - H:i:s') }}
@@ -162,7 +162,7 @@
 												</span>
 
 												@if($message->body)
-													<div class="rounded-lg bg-breeder-cream text-sm xl:text-base text-breeder-deepblue p-4">
+													<div class="rounded-lg bg-jobboard-cream text-sm xl:text-base text-jobboard-deepblue p-4">
 														@if($message->automated)
 															{!! $message->body !!}
 														@else
@@ -176,7 +176,7 @@
 												@endif
 
 												@if($message->file)
-													<a href="{{ route('documents.show', ['filename' => $message->file]) }}" target="_blank" class="flex gap-x-2 text-breeder-deepblue underline underline-offset-4">
+													<a href="{{ route('documents.show', ['filename' => $message->file]) }}" target="_blank" class="flex gap-x-2 text-jobboard-deepblue underline underline-offset-4">
 														<svg width="18" height="20" viewBox="0 0 24 27" fill="none" xmlns="http://www.w3.org/2000/svg">
 															<path d="M22.8421 11.7954L14.0902 3.04052C11.0372 -0.0135062 6.09274 -0.0135062 3.03974 3.04052C-0.0132481 6.09454 -0.0132481 11.0407 3.03974 14.0947L13.1041 24.1624C15.2202 26.2792 18.6521 26.2792 20.7682 24.1624C22.8842 22.0457 22.8842 18.6125 20.7682 16.4958L12.5918 8.31661C11.3776 7.10202 9.40542 7.09851 8.18774 8.31661C6.97356 9.5312 6.97356 11.504 8.18774 12.7221L15.0868 19.6235" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"/>
 														</svg>
@@ -193,7 +193,7 @@
 							<div x-init="$el.scrollIntoView({ behavior: 'smooth', block: 'end' })"></div>
 						</div>
 					@else
-						<p class="text-breeder-deepblue font-medium mt-4">
+						<p class="text-jobboard-deepblue font-medium mt-4">
 							{{ __('No message have been sent yet, start the conversation !') }}
 						</p>
 					@endif
@@ -202,7 +202,7 @@
 						<div class="flex flex-col gap-y-2">
 							@if($response->state->value != 'closed')
 								<div class="flex flex-row gap-2">
-									<textarea rows="4" wire:model.lazy="newMessage" placeholder="{{ __('Write a message') }}" class="border-breeder-greige focus:border-breeder-deepblue focus:ring-breeder-deepblue rounded-md text-breeder-deepblue placeholder:text-breeder-greige mt-1 block w-full"></textarea>
+									<textarea rows="4" wire:model.lazy="newMessage" placeholder="{{ __('Write a message') }}" class="border-jobboard-greige focus:border-jobboard-deepblue focus:ring-jobboard-deepblue rounded-md text-jobboard-deepblue placeholder:text-jobboard-greige mt-1 block w-full"></textarea>
 								</div>
 
 								<div class="flex flex-col gap-2">
@@ -222,7 +222,7 @@
 								<div class="flex items-center gap-x-2">
 									<div>
 										<input type="file" wire:model="file" id="fileUpload" class="hidden" />
-										<label for="fileUpload" class="cursor-pointer w-[202px] h-[45px] rounded-full flex justify-center items-center gap-2 font-bold text-sm border border-breeder-deepblue hover:bg-breeder-deepblue hover:text-breeder-cream text-breeder-deepblue">
+										<label for="fileUpload" class="cursor-pointer w-[202px] h-[45px] rounded-full flex justify-center items-center gap-2 font-bold text-sm border border-jobboard-deepblue hover:bg-jobboard-deepblue hover:text-jobboard-cream text-jobboard-deepblue">
 											<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M16.75 7.81905L10.4115 2.21593C8.20041 0.261356 4.61943 0.261356 2.40833 2.21593C0.197225 4.17051 0.197225 7.33602 2.40833 9.2906L9.69735 15.734C11.2299 17.0887 13.7154 17.0887 15.248 15.734C16.7805 14.3792 16.7805 12.182 15.248 10.8273L9.32629 5.59263C8.44693 4.81529 7.01861 4.81305 6.13671 5.59263C5.25735 6.36997 5.25735 7.63258 6.13671 8.41216L11.1333 12.8291" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"/>
 											</svg>
@@ -232,7 +232,7 @@
 									</div>
 
 									@if($file)
-										<span class="mr-2 text-sm text-breeder-deepblue block">
+										<span class="mr-2 text-sm text-jobboard-deepblue block">
 											{{ $file->getClientOriginalName() }}
 										</span>
 									@endif
@@ -241,7 +241,7 @@
 
 							<div class="flex flex-row justify-between items-center mt-2">
 								@if(($situation == 'asking' && data_get($response->values, 'archive.asking') === false) || ($situation == 'answerer' && data_get($response->values, 'archive.answerer') === false))
-									<div x-on:click.prevent="$dispatch('open-modal', 'archive-conversation-modal');" class="flex flex-row gap-x-2 items-center text-breeder-deepblue font-bold cursor-pointer">
+									<div x-on:click.prevent="$dispatch('open-modal', 'archive-conversation-modal');" class="flex flex-row gap-x-2 items-center text-jobboard-deepblue font-bold cursor-pointer">
 										<svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path d="M7.5 0.5L7.5 4.50001" stroke="#0E1954" stroke-linecap="round" stroke-linejoin="round"/>
 											<path d="M0.5 4.5L14.5 4.5L14.5 12.5C14.5 12.7652 14.3865 13.0196 14.1846 13.2071C13.9826 13.3946 13.7087 13.5 13.4231 13.5L1.57692 13.5C1.2913 13.5 1.01739 13.3946 0.815424 13.2071C0.613462 13.0196 0.500001 12.7652 0.500001 12.5L0.5 4.5Z" stroke="#0E1954" stroke-linecap="round" stroke-linejoin="round"/>
@@ -253,7 +253,7 @@
 									</div>
 
 									<x-front.modal name="archive-conversation-modal" :class="'w-full max-w-2xl'" focusable>
-										<div class="space-y-8 text-breeder-deepblue">
+										<div class="space-y-8 text-jobboard-deepblue">
 											<div class="flex flex-col">
 												<x-front.space-title :class="'mb-4'">
 													{{ __('Archive the conversation') }}
@@ -298,7 +298,7 @@
 						@if($showCommentModal)
 							<div x-data="{}" x-init="$nextTick(() => { $dispatch('open-modal', 'comment-modal') })">
 								<x-front.modal name="comment-modal" :class="'w-full max-w-2xl'" focusable>
-									<div class="space-y-8 text-breeder-deepblue">
+									<div class="space-y-8 text-jobboard-deepblue">
 										<livewire:front.comments.comments
 											:target="$response->to->company"
 											:source="$response->from"

@@ -9,7 +9,7 @@
 
 	<div class="w-full sm:max-w-4xl mx-auto mb-6 sm:px-6 sm:py-4 sm:rounded-md sm:border sm:border-gray-200">
 		<div class="flex flex-row flex-wrap my-6 mx-10">
-			<h1 class="mb-4 leading-10 text-2xl text-left font-bold text-breeder-deepblue">
+			<h1 class="mb-4 leading-10 text-2xl text-left font-bold text-jobboard-deepblue">
 				POLITIQUE DE PROTECTION DES DONNÉES À CARACTÈRE PERSONNEL
 			</h1>
 		</div>
@@ -58,37 +58,37 @@
 
 			<h3 class="mb-4 text-lg font-semibold pl-6">2.2 FINALITÉS DES TRAITEMENTS ET BASES LÉGALES</h3>
 
-			<table class="border-collapse border border-breeder-deepblue mb-4">
+			<table class="border-collapse border border-jobboard-deepblue mb-4">
 				<thead class="bg-gray-100">
 					<tr>
-						<th class="border border-breeder-deepblue p-4 font-medium text-center">Finalités</th>
-						<th class="border border-breeder-deepblue p-4 font-medium text-center">Bases légales</th>
+						<th class="border border-jobboard-deepblue p-4 font-medium text-center">Finalités</th>
+						<th class="border border-jobboard-deepblue p-4 font-medium text-center">Bases légales</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td class="border border-breeder-deepblue p-4">Création de Compte et de Page Elevage</td>
-						<td class="border border-breeder-deepblue p-4">Exécution de mesures contractuelles<br>Consentement</td>
+						<td class="border border-jobboard-deepblue p-4">Création de Compte et de Page Elevage</td>
+						<td class="border border-jobboard-deepblue p-4">Exécution de mesures contractuelles<br>Consentement</td>
 					</tr>
 					<tr>
-						<td class="border border-breeder-deepblue p-4">Achat de Crédits et souscription d’Abonnement</td>
-						<td class="border border-breeder-deepblue p-4">Exécution de mesures contractuelles</td>
+						<td class="border border-jobboard-deepblue p-4">Achat de Crédits et souscription d’Abonnement</td>
+						<td class="border border-jobboard-deepblue p-4">Exécution de mesures contractuelles</td>
 					</tr>
 					<tr>
-						<td class="border border-breeder-deepblue p-4">Suivi de la relation contractuelle</td>
-						<td class="border border-breeder-deepblue p-4">Exécution de mesures contractuelles</td>
+						<td class="border border-jobboard-deepblue p-4">Suivi de la relation contractuelle</td>
+						<td class="border border-jobboard-deepblue p-4">Exécution de mesures contractuelles</td>
 					</tr>
 					<tr>
-						<td class="border border-breeder-deepblue p-4">Gestion de l’Annuaire professionnel</td>
-						<td class="border border-breeder-deepblue p-4">Exécution de mesures contractuelles<br>Consentement</td>
+						<td class="border border-jobboard-deepblue p-4">Gestion de l’Annuaire professionnel</td>
+						<td class="border border-jobboard-deepblue p-4">Exécution de mesures contractuelles<br>Consentement</td>
 					</tr>
 					<tr>
-						<td class="border border-breeder-deepblue p-4">Organisation d’évènements par notre entreprise</td>
-						<td class="border border-breeder-deepblue p-4">Intérêt légitime</td>
+						<td class="border border-jobboard-deepblue p-4">Organisation d’évènements par notre entreprise</td>
+						<td class="border border-jobboard-deepblue p-4">Intérêt légitime</td>
 					</tr>
 					<tr>
-						<td class="border border-breeder-deepblue p-4">Envoi de newsletters ou fils d’information</td>
-						<td class="border border-breeder-deepblue p-4">Intérêt légitime<br>Consentement</td>
+						<td class="border border-jobboard-deepblue p-4">Envoi de newsletters ou fils d’information</td>
+						<td class="border border-jobboard-deepblue p-4">Intérêt légitime<br>Consentement</td>
 					</tr>
 				</tbody>
 			</table>
@@ -99,37 +99,37 @@
 
 			<h3 class="mb-4 text-lg font-semibold pl-6">2.3 DURÉES DE CONSERVATION</h3>
 
-			<table class="border-collapse border border-breeder-deepblue">
+			<table class="border-collapse border border-jobboard-deepblue">
 				<thead class="bg-gray-100">
 					<tr>
-						<th class="border border-breeder-deepblue p-4 text-center font-medium">Traitement</th>
-						<th class="border border-breeder-deepblue p-4 text-center font-medium">Durée de conservation</th>
+						<th class="border border-jobboard-deepblue p-4 text-center font-medium">Traitement</th>
+						<th class="border border-jobboard-deepblue p-4 text-center font-medium">Durée de conservation</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td class="border border-breeder-deepblue p-4">Contrats conclus avec les Personnes concernée (achat crédits et souscription d’Abonnements)</td>
-						<td class="border border-breeder-deepblue p-4">5 ans à compter de leur conclusion.<br>10 ans pour les contrats conclus par voie électronique de plus de 120 euros.</td>
+						<td class="border border-jobboard-deepblue p-4">Contrats conclus avec les Personnes concernée (achat crédits et souscription d’Abonnements)</td>
+						<td class="border border-jobboard-deepblue p-4">5 ans à compter de leur conclusion.<br>10 ans pour les contrats conclus par voie électronique de plus de 120 euros.</td>
 					</tr>
 					<tr>
-						<td class="border border-breeder-deepblue p-4">Gestion de Compte et de Page Elevage, et des relations commerciales</td>
-						<td class="border border-breeder-deepblue p-4">3 ans à compter de la fin de la relation commerciale ou du dernier contact émanant de la Personne concernée.</td>
+						<td class="border border-jobboard-deepblue p-4">Gestion de Compte et de Page Elevage, et des relations commerciales</td>
+						<td class="border border-jobboard-deepblue p-4">3 ans à compter de la fin de la relation commerciale ou du dernier contact émanant de la Personne concernée.</td>
 					</tr>
 					<tr>
-						<td class="border border-breeder-deepblue p-4">Correspondance commerciale (factures, etc.)</td>
-						<td class="border border-breeder-deepblue p-4">10 ans à compter de la clôture de l’exercice comptable.</td>
+						<td class="border border-jobboard-deepblue p-4">Correspondance commerciale (factures, etc.)</td>
+						<td class="border border-jobboard-deepblue p-4">10 ans à compter de la clôture de l’exercice comptable.</td>
 					</tr>
 					<tr>
-						<td class="border border-breeder-deepblue p-4">Données traitées à des fins de prospection</td>
-						<td class="border border-breeder-deepblue p-4">3 ans à compter de la fin de la relation commerciale (à compter du terme d’un contrat) ou du dernier contact émanant de la Personne concernée.</td>
+						<td class="border border-jobboard-deepblue p-4">Données traitées à des fins de prospection</td>
+						<td class="border border-jobboard-deepblue p-4">3 ans à compter de la fin de la relation commerciale (à compter du terme d’un contrat) ou du dernier contact émanant de la Personne concernée.</td>
 					</tr>
 					<tr>
-						<td class="border border-breeder-deepblue p-4">Données pour vérification d’identité (papier d’identité)</td>
-						<td class="border border-breeder-deepblue p-4">Non stockées</td>
+						<td class="border border-jobboard-deepblue p-4">Données pour vérification d’identité (papier d’identité)</td>
+						<td class="border border-jobboard-deepblue p-4">Non stockées</td>
 					</tr>
 					<tr>
-						<td class="border border-breeder-deepblue p-4">Cookies</td>
-						<td class="border border-breeder-deepblue p-4">Voir la politique cookies</td>
+						<td class="border border-jobboard-deepblue p-4">Cookies</td>
+						<td class="border border-jobboard-deepblue p-4">Voir la politique cookies</td>
 					</tr>
 				</tbody>
 			</table>

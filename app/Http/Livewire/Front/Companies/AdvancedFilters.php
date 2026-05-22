@@ -18,17 +18,6 @@ class AdvancedFilters extends Component
 	// Filters fields
 	public $postsTypesAvailable;
 
-	/*
-	#[On('breed-selected-in-filters')]
-	public function setBreed($breed)
-	{
-		if($breed) {
-			$this->breed = Breed::findBySlug($breed);
-			$this->filters['company_breed'] = $breed;
-			$this->search();
-		}
-	}*/
-
 	public function search()
 	{
 		$this->dispatch('companies-advanced-filters', filters: $this->filters);

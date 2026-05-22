@@ -14,8 +14,6 @@ class SaveSearch extends Component
 	#[On('send-filters-to-save-search')]
 	public function receiveFilters($filters)
 	{
-		$this->filters['species'] = $filters['species'];
-		$this->filters['breed'] = $filters['breed'];
 		$this->filters['post_type'] = $filters['post_type'];
 		$this->filters['country_id'] = $filters['country_id'];
 		$this->filters['region_id'] = $filters['region_id'];
@@ -25,8 +23,6 @@ class SaveSearch extends Component
 		$this->filters['distance'] = $filters['distance'];
 		$this->filters['max_price'] = $filters['max_price'];
 		$this->filters['min_price'] = $filters['min_price'];
-		$this->filters['pure_breed'] = $filters['pure_breed'];
-		$this->filters['sex'] = $filters['sex'];
 
 		session()->put('save-search-with-filters', $this->filters);
 
@@ -40,8 +36,6 @@ class SaveSearch extends Component
 
 	public function mount()
 	{
-		$this->filters['species'] = null;
-		$this->filters['breed'] = null;
 		$this->filters['post_type'] = null;
 		$this->filters['country_id'] = null;
 		$this->filters['region_id'] = null;
@@ -51,8 +45,6 @@ class SaveSearch extends Component
 		$this->filters['distance'] = null;
 		$this->filters['max_price'] = null;
 		$this->filters['min_price'] = null;
-		$this->filters['pure_breed'] = null;
-		$this->filters['sex'] = [];
 	}
 
 	public function render()

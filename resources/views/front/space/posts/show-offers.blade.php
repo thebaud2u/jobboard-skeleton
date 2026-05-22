@@ -11,7 +11,7 @@
 	</x-slot>
 
 	<div class="flex-1 py-5">
-		<div class="w-full bg-white px-6 py-10 mb-6 rounded-md text-breeder-deepblue">
+		<div class="w-full bg-white px-6 py-10 mb-6 rounded-md text-jobboard-deepblue">
 			<div class="flex flex-row justify-between items-center mb-8">
 				<x-front.form-part-title>
 					{{ __('My posts') }}
@@ -55,7 +55,7 @@
 				</div>
 			@endif
 
-			<div class="flex flex-col px-6 py-10 placeholder-yellow-100 gap-y-6 justify-center items-center w-full bg-breeder-cream rounded-xl">
+			<div class="flex flex-col px-6 py-10 placeholder-yellow-100 gap-y-6 justify-center items-center w-full bg-jobboard-cream rounded-xl">
 				<svg width="82" height="83" viewBox="0 0 82 83" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<ellipse cx="48.897" cy="36.6446" rx="7.54035" ry="25.9087" transform="rotate(-28.2079 48.897 36.6446)" fill="#C68CFF"/>
 					<path d="M56 15L62 6" stroke="#FFA244" stroke-width="3" stroke-linecap="round"/>
@@ -91,7 +91,7 @@
 					{{ __('Choose the post type :') }}
 				</p>
 
-				<div class="flex flex-col gap-y-6 text-breeder-deepblue w-full">
+				<div class="flex flex-col gap-y-6 text-jobboard-deepblue w-full">
 					@foreach($offers as $offer)
 						@php
 							$options = $offer->options;
@@ -102,23 +102,23 @@
 
 							if(!(empty($subscription))) $dateEnd = $subscription->end_date->format('d/m/Y');
 
-							$color = 'text-breeder-deepblue';
-							$bg_primary = 'bg-breeder-deepblue';
+							$color = 'text-jobboard-deepblue';
+							$bg_primary = 'bg-jobboard-deepblue';
 							switch ($offer->slug) {
 								case 'annonce-standard':
 									$name = 'Standard';
 									$color = 'text-white';
-									$bg_primary = 'bg-breeder-deepblue';
+									$bg_primary = 'bg-jobboard-deepblue';
 									break;
 								case 'annonce-premium':
 									$name = 'Premium';
-									$color = 'text-breeder-deepblue';
-									$bg_primary = 'bg-breeder-violet';
+									$color = 'text-jobboard-deepblue';
+									$bg_primary = 'bg-jobboard-violet';
 									break;
 								case 'annonce-master':
 									$name = 'Master';
-									$color = 'text-breeder-deepblue';
-									$bg_primary = 'bg-breeder-orange';
+									$color = 'text-jobboard-deepblue';
+									$bg_primary = 'bg-jobboard-orange';
 									break;
 							}
 						@endphp
@@ -192,7 +192,7 @@
 										<path d="M14.4872 7.54379C14.4872 8.69345 13.5949 9.62542 12.4946 9.62542C11.3943 9.62542 10.502 8.69345 10.502 7.54379C10.502 6.39413 11.3943 5.46216 12.4946 5.46216C13.5949 5.46216 14.4872 6.39413 14.4872 7.54379Z" fill="#0E1954" stroke="#0E1954" stroke-miterlimit="10"/>
 									</svg>
 
-									<div class="absolute rounded-xl bg-white p-6 flex flex-col gap-2 font-medium text-breeder-deepblue left-2 top-2 z-[20] @if($offer->slug == 'annonce-standard') w-[242px] @else w-[290px] @endif"
+									<div class="absolute rounded-xl bg-white p-6 flex flex-col gap-2 font-medium text-jobboard-deepblue left-2 top-2 z-[20] @if($offer->slug == 'annonce-standard') w-[242px] @else w-[290px] @endif"
 										x-show="showDetail"
 										x-transition:enter.duration.100ms
 										x-transition:leave.duration.100ms
@@ -253,7 +253,7 @@
 							</div>
 
 							<div class="w-full max-xl:flex-wrap xl:w-2/3 flex items-center justify-between gap-x-2 gap-y-4 p-6">
-								<div class="flex flex-col sm:max-w-[394px] w-full p-4 rounded-xl bg-breeder-cream">
+								<div class="flex flex-col sm:max-w-[394px] w-full p-4 rounded-xl bg-jobboard-cream">
 									@if($remaining > 0)
 										<span class="font-bold">
 											{{ ($remaining > 1) ? __(':x credits available', ['x' => $remaining]) : __(':x credit available', ['x' => $remaining]) }}

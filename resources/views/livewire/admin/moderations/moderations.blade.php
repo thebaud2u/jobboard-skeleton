@@ -1,7 +1,7 @@
 <div>
 	<div class="mb-5 text-sm sm:text-base lg:text-xl">
 		<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:flex lg:flex-wrap max-w-[936px]">
-			<select id="state" wire:model.live="state" class="border-gray-300 focus:border-breeder-deepblue focus:ring-breeder-deepblue rounded-md shadow-sm text-breeder-deepblue placeholder:text-gray-400 mt-1 text-gray-400">
+			<select id="state" wire:model.live="state" class="border-gray-300 focus:border-jobboard-deepblue focus:ring-jobboard-deepblue rounded-md shadow-sm text-jobboard-deepblue placeholder:text-gray-400 mt-1 text-gray-400">
 				<option value="">{{ __('Select a moderation state') }}</option>
 				@foreach($moderationStates as $index => $value)
 					<option value="{{ $index }}" wire:key="state-{{ $index }}">
@@ -10,7 +10,7 @@
 				@endforeach
 			</select>
 
-			<select id="type" wire:model.live="type" class="border-gray-300 focus:border-breeder-deepblue focus:ring-breeder-deepblue rounded-md shadow-sm text-breeder-deepblue placeholder:text-gray-400 mt-1 text-gray-400">
+			<select id="type" wire:model.live="type" class="border-gray-300 focus:border-jobboard-deepblue focus:ring-jobboard-deepblue rounded-md shadow-sm text-jobboard-deepblue placeholder:text-gray-400 mt-1 text-gray-400">
 				<option value="">{{ __('Select a data source') }}</option>
 				@foreach($types as $key => $value)
 					<option value="{{ $key }}"  wire:key="type-{{ $key }}">

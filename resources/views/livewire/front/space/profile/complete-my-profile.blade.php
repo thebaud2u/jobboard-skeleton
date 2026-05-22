@@ -1,6 +1,6 @@
 <div class="min-h-screen">
 	@if($user->hasRole('adopter'))
-		<div class="bg-breeder-cream w-full flex flex-col justify-center items-center gap-y-4 s:gap-y-12 h-[174px] s:h-[261px] text-breeder-deepblue">
+		<div class="bg-jobboard-cream w-full flex flex-col justify-center items-center gap-y-4 s:gap-y-12 h-[174px] s:h-[261px] text-jobboard-deepblue">
 			<h2 class="text-[25px] sm:text-[30px] lg:text-[40px] font-bold text-center mt-4 lg:mt-8">{{ __('Complete my profile') }}</h2>
 			<div id="anchor" class="flex justify-between items-center font-bold w-[323px] s:w-[438px]">
 				@for ($i = 1; $i <= $totalSteps; $i++)
@@ -21,7 +21,7 @@
 							{{ __('My house') }}
 						</div>
 					@elseif($i == 2)
-						<div class="flex flex-col items-center gap-y-4 w-[108px] @if($active == 1) text-breeder-greige @else text-breeder-deepblue cursor-pointer @endif" @if($active == 3) wire:click="goto(2)" @endif>
+						<div class="flex flex-col items-center gap-y-4 w-[108px] @if($active == 1) text-jobboard-greige @else text-jobboard-deepblue cursor-pointer @endif" @if($active == 3) wire:click="goto(2)" @endif>
 							@if($active != 3)
 								<svg class="w-[54px] sm:w-[62px]" viewBox="0 0 62 70" fill="none" xmlns="http://www.w3.org/2000/svg" class="z-10">
 									<path d="M27.8203 1.8457C29.6627 0.788427 31.9124 0.722349 33.8057 1.64746L34.1797 1.8457L34.1807 1.84668L57.3193 15.0781V15.0869L57.8252 15.375C59.7941 16.4957 61 18.5748 61 20.8164V47.8496C61 49.9485 59.9358 51.9038 58.1816 53.0703L57.8232 53.292L34.1807 66.8125L34.1797 66.8135C32.3373 67.8708 30.0876 67.9368 28.1943 67.0117L27.8203 66.8135L27.8193 66.8125L4.17676 53.292L4.1748 53.291L3.81543 53.0703C2.06023 51.9104 1 49.9514 1 47.8496V20.8096C1 18.5708 2.21118 16.4953 4.17871 15.3662L4.17773 15.3652L27.8193 1.84668L27.8203 1.8457Z" stroke="currentColor" stroke-width="2"/>
@@ -37,7 +37,7 @@
 							{{ __('My project') }}
 						</div>
 					@else
-						<div class="flex flex-col items-center gap-y-4 w-[108px] @if($active != 3) text-breeder-greige @else text-breeder-deepblue cursor-pointer @endif">
+						<div class="flex flex-col items-center gap-y-4 w-[108px] @if($active != 3) text-jobboard-greige @else text-jobboard-deepblue cursor-pointer @endif">
 							<svg class="w-[54px] sm:w-[62px]" viewBox="0 0 62 70" fill="none" xmlns="http://www.w3.org/2000/svg" class="z-10">
 								<path d="M27.8203 1.8457C29.6627 0.788427 31.9124 0.722349 33.8057 1.64746L34.1797 1.8457L34.1807 1.84668L57.3193 15.0781V15.0869L57.8252 15.375C59.7941 16.4957 61 18.5748 61 20.8164V47.8496C61 49.9485 59.9358 51.9038 58.1816 53.0703L57.8232 53.292L34.1807 66.8125L34.1797 66.8135C32.3373 67.8708 30.0876 67.9368 28.1943 67.0117L27.8203 66.8135L27.8193 66.8125L4.17676 53.292L4.1748 53.291L3.81543 53.0703C2.06023 51.9104 1 49.9514 1 47.8496V20.8096C1 18.5708 2.21118 16.4953 4.17871 15.3662L4.17773 15.3652L27.8193 1.84668L27.8203 1.8457Z" stroke="currentColor" stroke-width="2"/>
 								<path d="M24.9359 29.852C25.0665 28.1347 25.7292 26.7907 26.9239 25.82C28.1185 24.8493 29.6679 24.364 31.5719 24.364C32.8412 24.364 33.9332 24.5973 34.8479 25.064C35.7812 25.512 36.4812 26.128 36.9479 26.912C37.4332 27.696 37.6759 28.5827 37.6759 29.572C37.6759 30.7293 37.3399 31.728 36.6679 32.568C36.0145 33.408 35.1559 33.9493 34.0919 34.192V34.332C35.3052 34.6307 36.2665 35.2187 36.9759 36.096C37.6852 36.9733 38.0399 38.1213 38.0399 39.54C38.0399 40.604 37.7972 41.5653 37.3119 42.424C36.8265 43.264 36.0985 43.9267 35.1279 44.412C34.1572 44.8973 32.9905 45.14 31.6279 45.14C29.6492 45.14 28.0252 44.6267 26.7559 43.6C25.4865 42.5547 24.7772 41.08 24.6279 39.176H27.0919C27.2225 40.296 27.6799 41.2107 28.4639 41.92C29.2479 42.6293 30.2932 42.984 31.5999 42.984C32.9065 42.984 33.8959 42.648 34.5679 41.976C35.2585 41.2853 35.6039 40.3987 35.6039 39.316C35.6039 37.916 35.1372 36.908 34.2039 36.292C33.2705 35.676 31.8612 35.368 29.9759 35.368H29.3319V33.24H30.0039C31.7212 33.2213 33.0185 32.9413 33.8959 32.4C34.7732 31.84 35.2119 30.9813 35.2119 29.824C35.2119 28.8347 34.8852 28.0413 34.2319 27.444C33.5972 26.8467 32.6825 26.548 31.4879 26.548C30.3305 26.548 29.3972 26.8467 28.6879 27.444C27.9785 28.0413 27.5585 28.844 27.4279 29.852H24.9359Z" fill="currentColor"/>
@@ -49,15 +49,15 @@
 				@endfor
 			</div>
 			<div class="relative">
-				<div class="absolute w-[30px] s:w-[70px] border-t-2 @if($active < 2) border-breeder-greige @else border-breeder-deepblue @endif -top-[89px] s:-top-[124px] -left-[70px] s:-left-[117px]">
+				<div class="absolute w-[30px] s:w-[70px] border-t-2 @if($active < 2) border-jobboard-greige @else border-jobboard-deepblue @endif -top-[89px] s:-top-[124px] -left-[70px] s:-left-[117px]">
 				</div>
 
-				<div class="absolute w-[30px] s:w-[70px] border-t-2 @if($active != 3) border-breeder-greige @else border-breeder-deepblue @endif -top-[89px] s:-top-[124px] left-[38px] s:left-[48px]">
+				<div class="absolute w-[30px] s:w-[70px] border-t-2 @if($active != 3) border-jobboard-greige @else border-jobboard-deepblue @endif -top-[89px] s:-top-[124px] left-[38px] s:left-[48px]">
 				</div>
 			</div>
 		</div>
 	@elseif($user->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']) && $active != 1)
-		<div class="bg-breeder-cream w-full flex flex-col justify-center items-center gap-y-4 s:gap-y-12 h-[174px] s:h-[261px] text-breeder-deepblue">
+		<div class="bg-jobboard-cream w-full flex flex-col justify-center items-center gap-y-4 s:gap-y-12 h-[174px] s:h-[261px] text-jobboard-deepblue">
 			<h2 class="text-[25px] sm:text-[30px] lg:text-[40px] font-bold text-center mt-4 lg:mt-8">{{ __('Complete my profile') }}</h2>
 			<div id="anchor" class="flex justify-between items-center font-bold w-[323px] s:w-[438px]">
 				@for ($i = 1; $i <= $totalSteps; $i++)
@@ -78,7 +78,7 @@
 							{{ __('Informations') }}
 						</div>
 					@elseif($i == 3)
-						<div class="flex flex-col items-center gap-y-4 w-[108px] @if($active == 2) text-breeder-greige @else text-breeder-deepblue cursor-pointer @endif" @if($active == 4) wire:click="goto(3)" @endif>
+						<div class="flex flex-col items-center gap-y-4 w-[108px] @if($active == 2) text-jobboard-greige @else text-jobboard-deepblue cursor-pointer @endif" @if($active == 4) wire:click="goto(3)" @endif>
 							@if($active <= 3)
 								<svg class="w-[54px] sm:w-[62px]" viewBox="0 0 62 70" fill="none" xmlns="http://www.w3.org/2000/svg" class="z-10">
 									<path d="M27.8203 1.8457C29.6627 0.788427 31.9124 0.722349 33.8057 1.64746L34.1797 1.8457L34.1807 1.84668L57.3193 15.0781V15.0869L57.8252 15.375C59.7941 16.4957 61 18.5748 61 20.8164V47.8496C61 49.9485 59.9358 51.9038 58.1816 53.0703L57.8232 53.292L34.1807 66.8125L34.1797 66.8135C32.3373 67.8708 30.0876 67.9368 28.1943 67.0117L27.8203 66.8135L27.8193 66.8125L4.17676 53.292L4.1748 53.291L3.81543 53.0703C2.06023 51.9104 1 49.9514 1 47.8496V20.8096C1 18.5708 2.21118 16.4953 4.17871 15.3662L4.17773 15.3652L27.8193 1.84668L27.8203 1.8457Z" stroke="currentColor" stroke-width="2"/>
@@ -94,7 +94,7 @@
 							{{ __('Supporting documents') }}
 						</div>
 					@elseif($i == 4)
-						<div class="flex flex-col items-center gap-y-4 w-[108px] @if($active != 4) text-breeder-greige @else text-breeder-deepblue cursor-pointer @endif">
+						<div class="flex flex-col items-center gap-y-4 w-[108px] @if($active != 4) text-jobboard-greige @else text-jobboard-deepblue cursor-pointer @endif">
 							<svg class="w-[54px] sm:w-[62px]" viewBox="0 0 62 70" fill="none" xmlns="http://www.w3.org/2000/svg" class="z-10">
 								<path d="M27.8203 1.8457C29.6627 0.788427 31.9124 0.722349 33.8057 1.64746L34.1797 1.8457L34.1807 1.84668L57.3193 15.0781V15.0869L57.8252 15.375C59.7941 16.4957 61 18.5748 61 20.8164V47.8496C61 49.9485 59.9358 51.9038 58.1816 53.0703L57.8232 53.292L34.1807 66.8125L34.1797 66.8135C32.3373 67.8708 30.0876 67.9368 28.1943 67.0117L27.8203 66.8135L27.8193 66.8125L4.17676 53.292L4.1748 53.291L3.81543 53.0703C2.06023 51.9104 1 49.9514 1 47.8496V20.8096C1 18.5708 2.21118 16.4953 4.17871 15.3662L4.17773 15.3652L27.8193 1.84668L27.8203 1.8457Z" stroke="currentColor" stroke-width="2"/>
 								<path d="M24.9359 29.852C25.0665 28.1347 25.7292 26.7907 26.9239 25.82C28.1185 24.8493 29.6679 24.364 31.5719 24.364C32.8412 24.364 33.9332 24.5973 34.8479 25.064C35.7812 25.512 36.4812 26.128 36.9479 26.912C37.4332 27.696 37.6759 28.5827 37.6759 29.572C37.6759 30.7293 37.3399 31.728 36.6679 32.568C36.0145 33.408 35.1559 33.9493 34.0919 34.192V34.332C35.3052 34.6307 36.2665 35.2187 36.9759 36.096C37.6852 36.9733 38.0399 38.1213 38.0399 39.54C38.0399 40.604 37.7972 41.5653 37.3119 42.424C36.8265 43.264 36.0985 43.9267 35.1279 44.412C34.1572 44.8973 32.9905 45.14 31.6279 45.14C29.6492 45.14 28.0252 44.6267 26.7559 43.6C25.4865 42.5547 24.7772 41.08 24.6279 39.176H27.0919C27.2225 40.296 27.6799 41.2107 28.4639 41.92C29.2479 42.6293 30.2932 42.984 31.5999 42.984C32.9065 42.984 33.8959 42.648 34.5679 41.976C35.2585 41.2853 35.6039 40.3987 35.6039 39.316C35.6039 37.916 35.1372 36.908 34.2039 36.292C33.2705 35.676 31.8612 35.368 29.9759 35.368H29.3319V33.24H30.0039C31.7212 33.2213 33.0185 32.9413 33.8959 32.4C34.7732 31.84 35.2119 30.9813 35.2119 29.824C35.2119 28.8347 34.8852 28.0413 34.2319 27.444C33.5972 26.8467 32.6825 26.548 31.4879 26.548C30.3305 26.548 29.3972 26.8467 28.6879 27.444C27.9785 28.0413 27.5585 28.844 27.4279 29.852H24.9359Z" fill="currentColor"/>
@@ -106,16 +106,16 @@
 				@endfor
 			</div>
 			<div class="relative">
-				<div class="absolute w-[30px] s:w-[70px] border-t-2 @if($active < 3) border-breeder-greige @else border-breeder-deepblue @endif -top-[89px] s:-top-[124px] -left-[70px] s:-left-[117px]">
+				<div class="absolute w-[30px] s:w-[70px] border-t-2 @if($active < 3) border-jobboard-greige @else border-jobboard-deepblue @endif -top-[89px] s:-top-[124px] -left-[70px] s:-left-[117px]">
 				</div>
 
-				<div class="absolute w-[30px] s:w-[70px] border-t-2 @if($active != 4) border-breeder-greige @else border-breeder-deepblue @endif -top-[89px] s:-top-[124px] left-[38px] s:left-[48px]">
+				<div class="absolute w-[30px] s:w-[70px] border-t-2 @if($active != 4) border-jobboard-greige @else border-jobboard-deepblue @endif -top-[89px] s:-top-[124px] left-[38px] s:left-[48px]">
 				</div>
 			</div>
 		</div>
 	@endif
 
-	<div class="w-full mx-auto max-w-[840px] bg-white px-4 lmd:px-0 py-10 mb-6 rounded-md text-breeder-deepblue">
+	<div class="w-full mx-auto max-w-[840px] bg-white px-4 lmd:px-0 py-10 mb-6 rounded-md text-jobboard-deepblue">
 		@if($user->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
 			<div class="flex flex-row max-sm:items-start max-sm:space-y-4 sm:flex-row sm:justify-between">
 				<x-front.space-title>
@@ -148,7 +148,7 @@
 					<div class="flex mt-4 gap-y-4 max-lmd:gap-x-4 flex-wrap justify-center lmd:justify-between">
 						<div class="w-full max-w-[360px] s:max-w-[270px]">
 							<input type="radio" name="placeConfiguration" value="house_with_garden" id="houseWithGarden" wire:model="placeConfiguration" class="peer hidden" />
-							<label for="houseWithGarden" class="block cursor-pointer border border-breeder-greige rounded-xl hover:bg-breeder-cream peer-checked:bg-breeder-cream peer-checked:border-breeder-cream max-s:w-[360px]">
+							<label for="houseWithGarden" class="block cursor-pointer border border-jobboard-greige rounded-xl hover:bg-jobboard-cream peer-checked:bg-jobboard-cream peer-checked:border-jobboard-cream max-s:w-[360px]">
 								<div>
 									<h3 class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium lowercase h-[85px] s:h-[144px]">
 										<svg width="69" height="47" viewBox="0 0 69 47" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -166,7 +166,7 @@
 
 						<div class="w-full max-w-[360px] s:max-w-[270px]">
 							<input type="radio" name="placeConfiguration" value="house_without_garden" id="houseWithoutGarden" wire:model="placeConfiguration" class="peer hidden" />
-							<label for="houseWithoutGarden" class="block cursor-pointer border border-breeder-greige rounded-xl hover:bg-breeder-cream peer-checked:bg-breeder-cream peer-checked:border-breeder-cream max-s:w-[360px]">
+							<label for="houseWithoutGarden" class="block cursor-pointer border border-jobboard-greige rounded-xl hover:bg-jobboard-cream peer-checked:bg-jobboard-cream peer-checked:border-jobboard-cream max-s:w-[360px]">
 								<div>
 									<h3 class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium lowercase h-[85px] s:h-[144px]">
 										<svg width="60" height="50" viewBox="0 0 60 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -183,7 +183,7 @@
 
 						<div class="w-full max-w-[360px] s:max-w-[270px]">
 							<input type="radio" name="placeConfiguration" value="flat" id="flat" wire:model="placeConfiguration" class="peer hidden" />
-							<label for="flat" class="block cursor-pointer border border-breeder-greige rounded-xl hover:bg-breeder-cream peer-checked:bg-breeder-cream peer-checked:border-breeder-cream max-s:w-[360px]">
+							<label for="flat" class="block cursor-pointer border border-jobboard-greige rounded-xl hover:bg-jobboard-cream peer-checked:bg-jobboard-cream peer-checked:border-jobboard-cream max-s:w-[360px]">
 								<div>
 									<h3 class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium lowercase h-[85px] s:h-[144px]">
 										<svg width="47" height="48" viewBox="0 0 47 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -208,7 +208,7 @@
 					<div class="flex mt-4 gap-y-4 max-lmd:gap-x-4 flex-wrap justify-center lmd:justify-between">
 						<div class="w-full max-w-[360px] s:max-w-[198px]">
 							<input type="checkbox" name="householdComposition" value="young_children" id="youngChildren" wire:model="householdComposition" class="peer hidden" />
-							<label for="youngChildren" class="block cursor-pointer border border-breeder-greige rounded-xl hover:bg-breeder-cream peer-checked:bg-breeder-cream peer-checked:border-breeder-cream">
+							<label for="youngChildren" class="block cursor-pointer border border-jobboard-greige rounded-xl hover:bg-jobboard-cream peer-checked:bg-jobboard-cream peer-checked:border-jobboard-cream">
 								<div>
 									<h3 class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium text-center h-[85px] s:h-[170px]">
 										<svg width="40" height="47" viewBox="0 0 40 47" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -226,7 +226,7 @@
 
 						<div class="w-full max-w-[360px] s:max-w-[198px]">
 							<input type="checkbox" name="householdComposition" value="children" id="children" wire:model="householdComposition" class="peer hidden" />
-							<label for="children" class="block cursor-pointer border border-breeder-greige rounded-xl hover:bg-breeder-cream peer-checked:bg-breeder-cream peer-checked:border-breeder-cream">
+							<label for="children" class="block cursor-pointer border border-jobboard-greige rounded-xl hover:bg-jobboard-cream peer-checked:bg-jobboard-cream peer-checked:border-jobboard-cream">
 								<div>
 									<h3 class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium text-center h-[85px] s:h-[170px]">
 										<svg width="43" height="47" viewBox="0 0 43 47" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -244,7 +244,7 @@
 
 						<div class="w-full max-w-[360px] s:max-w-[198px]">
 							<input type="checkbox" name="householdComposition" value="teenagers" id="teenagers" wire:model="householdComposition" class="peer hidden" />
-							<label for="teenagers" class="block cursor-pointer border border-breeder-greige rounded-xl hover:bg-breeder-cream peer-checked:bg-breeder-cream peer-checked:border-breeder-cream">
+							<label for="teenagers" class="block cursor-pointer border border-jobboard-greige rounded-xl hover:bg-jobboard-cream peer-checked:bg-jobboard-cream peer-checked:border-jobboard-cream">
 								<div>
 									<h3 class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium text-center h-[85px] s:h-[170px]">
 										<svg width="26" height="48" viewBox="0 0 26 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -262,7 +262,7 @@
 
 						<div class="w-full max-w-[360px] s:max-w-[198px]">
 							<input type="checkbox" name="householdComposition" value="adult" id="adult" wire:model="householdComposition" class="peer hidden" />
-							<label for="adult" class="block cursor-pointer border border-breeder-greige rounded-xl hover:bg-breeder-cream peer-checked:bg-breeder-cream peer-checked:border-breeder-cream">
+							<label for="adult" class="block cursor-pointer border border-jobboard-greige rounded-xl hover:bg-jobboard-cream peer-checked:bg-jobboard-cream peer-checked:border-jobboard-cream">
 								<div>
 									<h3 class="flex flex-row s:flex-col items-center max-s:pl-4 s:justify-center gap-4 text-base font-medium text-center h-[85px] s:h-[170px]">
 										<svg width="62" height="47" viewBox="0 0 62 47" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -289,7 +289,7 @@
 					<div class="flex mt-4 gap-y-4 max-lmd:gap-x-4 flex-wrap justify-center lmd:justify-between">
 						<div class="w-full max-w-[360px] s:max-w-[198px]">
 							<input type="checkbox" name="homeAnimals" value="dogs" id="dogs" wire:model="homeAnimals" wire:change="homeAnimalsSelected" class="peer hidden" />
-							<label for="dogs" class="block cursor-pointer border border-breeder-greige rounded-xl hover:bg-breeder-cream peer-checked:bg-breeder-cream peer-checked:border-breeder-cream">
+							<label for="dogs" class="block cursor-pointer border border-jobboard-greige rounded-xl hover:bg-jobboard-cream peer-checked:bg-jobboard-cream peer-checked:border-jobboard-cream">
 								<div>
 									<h3 class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium text-center h-[85px] s:h-[184px]">
 										<svg width="49" height="47" viewBox="0 0 49 47" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -306,7 +306,7 @@
 
 						<div class="w-full max-w-[360px] s:max-w-[198px]">
 							<input type="checkbox" name="homeAnimals" value="cats" id="cats" wire:model="homeAnimals" wire:change="homeAnimalsSelected" class="peer hidden" />
-							<label for="cats" class="block cursor-pointer border border-breeder-greige rounded-xl hover:bg-breeder-cream peer-checked:bg-breeder-cream peer-checked:border-breeder-cream">
+							<label for="cats" class="block cursor-pointer border border-jobboard-greige rounded-xl hover:bg-jobboard-cream peer-checked:bg-jobboard-cream peer-checked:border-jobboard-cream">
 								<div>
 									<h3 class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium text-center h-[85px] s:h-[184px]">
 										<svg width="43" height="46" viewBox="0 0 43 46" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -323,7 +323,7 @@
 
 						<div class="w-full max-w-[360px] s:max-w-[198px]">
 							<input type="checkbox" name="homeAnimals" value="others" id="others" wire:model="homeAnimals" wire:change="homeAnimalsSelected" class="peer hidden" />
-							<label for="others" class="block cursor-pointer border border-breeder-greige rounded-xl hover:bg-breeder-cream peer-checked:bg-breeder-cream peer-checked:border-breeder-cream">
+							<label for="others" class="block cursor-pointer border border-jobboard-greige rounded-xl hover:bg-jobboard-cream peer-checked:bg-jobboard-cream peer-checked:border-jobboard-cream">
 								<div>
 									<h3 class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium text-center h-[85px] s:h-[184px]">
 										<svg width="119" height="48" viewBox="0 0 119 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -344,7 +344,7 @@
 
 						<div class="w-full max-w-[360px] s:max-w-[198px]">
 							<input type="checkbox" name="homeAnimals" value="none" id="none" wire:model="homeAnimals" wire:change="homeAnimalsSelected" class="peer hidden" />
-							<label for="none" class="block cursor-pointer border border-breeder-greige rounded-xl hover:bg-breeder-cream peer-checked:bg-breeder-cream peer-checked:border-breeder-cream">
+							<label for="none" class="block cursor-pointer border border-jobboard-greige rounded-xl hover:bg-jobboard-cream peer-checked:bg-jobboard-cream peer-checked:border-jobboard-cream">
 								<div>
 									<h3 class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium text-center h-[85px] s:h-[184px]">
 										<svg width="48" height="47" viewBox="0 0 48 47" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -368,7 +368,7 @@
 					<div class="flex mt-4 gap-y-4 max-lmd:gap-x-4 flex-wrap justify-center lmd:justify-between">
 						<div class="w-full max-w-[360px] s:max-w-[156px]">
 							<input type="radio" name="adoptionProject" value="looking_for_dog" id="lookingForDog" wire:model="adoptionProject" class="peer hidden" />
-							<label for="lookingForDog" class="block cursor-pointer border border-breeder-greige rounded-xl hover:bg-breeder-cream peer-checked:bg-breeder-cream peer-checked:border-breeder-cream">
+							<label for="lookingForDog" class="block cursor-pointer border border-jobboard-greige rounded-xl hover:bg-jobboard-cream peer-checked:bg-jobboard-cream peer-checked:border-jobboard-cream">
 								<div>
 									<h3 class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium text-center h-[85px] s:h-[208px]">
 										<svg width="50" height="47" viewBox="0 0 50 47" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -388,7 +388,7 @@
 
 						<div class="w-full max-w-[360px] s:max-w-[156px]">
 							<input type="radio" name="adoptionProject" value="thinking_about_dog" id="thinkingAboutDog" wire:model="adoptionProject" class="peer hidden" />
-							<label for="thinkingAboutDog" class="block cursor-pointer border border-breeder-greige rounded-xl hover:bg-breeder-cream peer-checked:bg-breeder-cream peer-checked:border-breeder-cream">
+							<label for="thinkingAboutDog" class="block cursor-pointer border border-jobboard-greige rounded-xl hover:bg-jobboard-cream peer-checked:bg-jobboard-cream peer-checked:border-jobboard-cream">
 								<div>
 									<h3 class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium text-center h-[85px] s:h-[208px]">
 										<svg width="51" height="47" viewBox="0 0 51 47" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -407,7 +407,7 @@
 
 						<div class="w-full max-w-[360px] s:max-w-[156px]">
 							<input type="radio" name="adoptionProject" value="looking_for_cat" id="lookingForCat" wire:model="adoptionProject" class="peer hidden" />
-							<label for="lookingForCat" class="block cursor-pointer border border-breeder-greige rounded-xl hover:bg-breeder-cream peer-checked:bg-breeder-cream peer-checked:border-breeder-cream">
+							<label for="lookingForCat" class="block cursor-pointer border border-jobboard-greige rounded-xl hover:bg-jobboard-cream peer-checked:bg-jobboard-cream peer-checked:border-jobboard-cream">
 								<div>
 									<h3 class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium text-center h-[85px] s:h-[208px]">
 										<svg width="49" height="47" viewBox="0 0 49 47" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -427,7 +427,7 @@
 
 						<div class="w-full max-w-[360px] s:max-w-[156px]">
 							<input type="radio" name="adoptionProject" value="thinking_about_cat" id="thinkingAboutCat" wire:model="adoptionProject" class="peer hidden" />
-							<label for="thinkingAboutCat" class="block cursor-pointer border border-breeder-greige rounded-xl hover:bg-breeder-cream peer-checked:bg-breeder-cream peer-checked:border-breeder-cream">
+							<label for="thinkingAboutCat" class="block cursor-pointer border border-jobboard-greige rounded-xl hover:bg-jobboard-cream peer-checked:bg-jobboard-cream peer-checked:border-jobboard-cream">
 								<div>
 									<h3 class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium text-center h-[85px] s:h-[208px]">
 										<svg width="49" height="47" viewBox="0 0 49 47" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -446,7 +446,7 @@
 
 						<div class="w-full max-w-[360px] s:max-w-[156px]">
 							<input type="radio" name="adoptionProject" value="none" id="none" wire:model="adoptionProject" class="peer hidden" />
-							<label for="none" class="block cursor-pointer border border-breeder-greige rounded-xl hover:bg-breeder-cream peer-checked:bg-breeder-cream peer-checked:border-breeder-cream">
+							<label for="none" class="block cursor-pointer border border-jobboard-greige rounded-xl hover:bg-jobboard-cream peer-checked:bg-jobboard-cream peer-checked:border-jobboard-cream">
 								<div>
 									<h3 class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium text-center h-[85px] s:h-[208px]">
 										<svg width="48" height="47" viewBox="0 0 48 47" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -470,7 +470,7 @@
 					<div class="flex mt-4 gap-y-4 max-lmd:gap-x-4 flex-wrap justify-center lmd:justify-between">
 						<div class="w-full max-w-[360px] s:max-w-[270px]">
 							<input type="radio" name="animalExperience" value="expert" id="expert" wire:model="animalExperience" class="peer hidden" />
-							<label for="expert" class="block cursor-pointer border border-breeder-greige rounded-xl hover:bg-breeder-cream peer-checked:bg-breeder-cream peer-checked:border-breeder-cream">
+							<label for="expert" class="block cursor-pointer border border-jobboard-greige rounded-xl hover:bg-jobboard-cream peer-checked:bg-jobboard-cream peer-checked:border-jobboard-cream">
 								<div>
 									<h3 class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium text-center h-[85px] s:h-[184px]">
 										<svg width="47" height="47" viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -491,7 +491,7 @@
 
 						<div class="w-full max-w-[360px] s:max-w-[270px]">
 							<input type="radio" name="animalExperience" value="experienced" id="experienced" wire:model="animalExperience" class="peer hidden" />
-							<label for="experienced" class="block cursor-pointer border border-breeder-greige rounded-xl hover:bg-breeder-cream peer-checked:bg-breeder-cream peer-checked:border-breeder-cream">
+							<label for="experienced" class="block cursor-pointer border border-jobboard-greige rounded-xl hover:bg-jobboard-cream peer-checked:bg-jobboard-cream peer-checked:border-jobboard-cream">
 								<div>
 									<h3 class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium text-center h-[85px] s:h-[184px]">
 										<svg width="49" height="50" viewBox="0 0 49 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -510,7 +510,7 @@
 
 						<div class="w-full max-w-[360px] s:max-w-[270px]">
 							<input type="radio" name="animalExperience" value="beginner" id="beginner" wire:model="animalExperience" class="peer hidden" />
-							<label for="beginner" class="block cursor-pointer border border-breeder-greige rounded-xl hover:bg-breeder-cream peer-checked:bg-breeder-cream peer-checked:border-breeder-cream">
+							<label for="beginner" class="block cursor-pointer border border-jobboard-greige rounded-xl hover:bg-jobboard-cream peer-checked:bg-jobboard-cream peer-checked:border-jobboard-cream">
 								<div>
 									<h3 class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium text-center h-[85px] s:h-[184px]">
 										<svg width="45" height="47" viewBox="0 0 45 47" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -531,10 +531,10 @@
 							</x-front.space-title>
 						</div>
 
-						<div class="flex mt-4 gap-y-4 max-lmd:gap-x-4 flex-wrap justify-center md:justify-between text-breeder-deepblue w-full">
+						<div class="flex mt-4 gap-y-4 max-lmd:gap-x-4 flex-wrap justify-center md:justify-between text-jobboard-deepblue w-full">
 							<div class="w-full max-w-[360px] s:max-w-[270px]">
 								<input type="radio" name="timeDedication" value="few_time" id="fewTime" wire:model="timeDedication" class="peer hidden" />
-								<label for="fewTime" class="block cursor-pointer border border-breeder-greige rounded-xl hover:bg-breeder-cream peer-checked:bg-breeder-cream peer-checked:border-breeder-cream">
+								<label for="fewTime" class="block cursor-pointer border border-jobboard-greige rounded-xl hover:bg-jobboard-cream peer-checked:bg-jobboard-cream peer-checked:border-jobboard-cream">
 									<div>
 										<h3 class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium text-center h-[85px] s:h-[208px]">
 											<svg class="shrink-0" width="38" height="42" viewBox="0 0 38 42" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -550,7 +550,7 @@
 
 							<div class="w-full max-w-[360px] s:max-w-[270px]">
 								<input type="radio" name="timeDedication" value="medium_time" id="mediumTime" wire:model="timeDedication" class="peer hidden" />
-								<label for="mediumTime" class="block cursor-pointer border border-breeder-greige rounded-xl hover:bg-breeder-cream peer-checked:bg-breeder-cream peer-checked:border-breeder-cream">
+								<label for="mediumTime" class="block cursor-pointer border border-jobboard-greige rounded-xl hover:bg-jobboard-cream peer-checked:bg-jobboard-cream peer-checked:border-jobboard-cream">
 									<div>
 										<h3 class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium text-center h-[85px] s:h-[208px]">
 											<svg class="shrink-0" width="38" height="42" viewBox="0 0 38 42" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -566,7 +566,7 @@
 
 							<div class="w-full max-w-[360px] s:max-w-[270px]">
 								<input type="radio" name="timeDedication" value="lot_time" id="lotTime" wire:model="timeDedication" class="peer hidden" />
-								<label for="lotTime" class="block cursor-pointer border border-breeder-greige rounded-xl hover:bg-breeder-cream peer-checked:bg-breeder-cream peer-checked:border-breeder-cream">
+								<label for="lotTime" class="block cursor-pointer border border-jobboard-greige rounded-xl hover:bg-jobboard-cream peer-checked:bg-jobboard-cream peer-checked:border-jobboard-cream">
 									<div>
 										<h3 class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium text-center h-[85px] s:h-[208px]">
 											<svg class="shrink-0" width="38" height="42" viewBox="0 0 38 42" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -611,7 +611,7 @@
 								<x-front.input-label for="phone" :value="__('Phone')" />
 							</div>
 
-							<x-front.text-input name="phone" id="phone" wire:model="phone" placeholder="{{ __('Phone number') }}" :class="'mt-1 block bg-white focus:border-breeder-deepblue focus:ring-breeder-deepblue w-full'" />
+							<x-front.text-input name="phone" id="phone" wire:model="phone" placeholder="{{ __('Phone number') }}" :class="'mt-1 block bg-white focus:border-jobboard-deepblue focus:ring-jobboard-deepblue w-full'" />
 
 							@error('phone')
 								<span class="error text-danger-700">
@@ -636,10 +636,10 @@
 			@elseif($user->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
 				@if($user->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']) && $active == 1)
 					@if($user->hasRole('breeder'))
-						<div class="flex max-sm:flex-col mt-4 gap-4 text-breeder-deepblue">
+						<div class="flex max-sm:flex-col mt-4 gap-4 text-jobboard-deepblue">
 							<div class="w-full">
 								<input type="radio" name="role" value="individual_breeder" id="individualBreeder" wire:model="role" class="peer hidden" />
-								<label for="individualBreeder" class="block cursor-pointer border border-breeder-greige rounded-xl hover:bg-breeder-cream peer-checked:bg-breeder-cream peer-checked:border-breeder-cream max-s:w-full">
+								<label for="individualBreeder" class="block cursor-pointer border border-jobboard-greige rounded-xl hover:bg-jobboard-cream peer-checked:bg-jobboard-cream peer-checked:border-jobboard-cream max-s:w-full">
 									<div>
 										<h3 class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium lowercase h-[85px] s:h-[144px]">
 											<svg width="63" height="70" viewBox="0 0 63 70" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -655,7 +655,7 @@
 
 							<div class="w-full">
 								<input type="radio" name="role" value="professionnal_breeder" id="professionnalBreeder" wire:model="role" class="peer hidden" />
-								<label for="professionnalBreeder" class="block cursor-pointer border border-breeder-greige rounded-xl hover:bg-breeder-cream peer-checked:bg-breeder-cream peer-checked:border-breeder-cream max-s:w-full">
+								<label for="professionnalBreeder" class="block cursor-pointer border border-jobboard-greige rounded-xl hover:bg-jobboard-cream peer-checked:bg-jobboard-cream peer-checked:border-jobboard-cream max-s:w-full">
 									<div>
 										<h3 class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium lowercase h-[85px] s:h-[144px]">
 											<svg width="64" height="70" viewBox="0 0 64 70" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -679,7 +679,7 @@
 						</div>
 					@endif
 
-					<div class="flex flex-row mt-4 text-breeder-deepblue text-base font-medium">
+					<div class="flex flex-row mt-4 text-jobboard-deepblue text-base font-medium">
 						@if($user->hasRole('adopter'))
 							{{ __('I\'m interested by :') }}
 						@elseif($user->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
@@ -687,10 +687,10 @@
 						@endif
 					</div>
 
-					<div class="flex max-sm:flex-col mt-4 gap-4 text-breeder-deepblue">
+					<div class="flex max-sm:flex-col mt-4 gap-4 text-jobboard-deepblue">
 						<div class="w-full">
 							<input type="radio" name="interestedIn" value="dogs" id="dogs" wire:model.live="interestedIn" class="peer hidden" />
-							<label for="dogs" class="block cursor-pointer border border-breeder-greige rounded-xl hover:bg-breeder-cream peer-checked:bg-breeder-cream">
+							<label for="dogs" class="block cursor-pointer border border-jobboard-greige rounded-xl hover:bg-jobboard-cream peer-checked:bg-jobboard-cream">
 								<div>
 									<h3 class="w-full md:w-[250px] h-[150px] md:h-[184px] text-base font-medium flex flex-col items-center justify-center gap-y-4">
 										<svg width="48" height="47" viewBox="0 0 48 47" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -709,7 +709,7 @@
 
 						<div class="w-full">
 							<input type="radio" name="interestedIn" value="cats" id="cats" wire:model.live="interestedIn" class="peer hidden" />
-							<label for="cats" class="block cursor-pointer border border-breeder-greige rounded-xl hover:bg-breeder-cream peer-checked:bg-breeder-cream">
+							<label for="cats" class="block cursor-pointer border border-jobboard-greige rounded-xl hover:bg-jobboard-cream peer-checked:bg-jobboard-cream">
 								<div>
 									<h3 class="w-full md:w-[250px] h-[150px] md:h-[184px] text-base font-medium flex flex-col items-center justify-center gap-y-4">
 										<svg width="43" height="46" viewBox="0 0 43 46" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -726,7 +726,7 @@
 
 						<div class="w-full">
 							<input type="radio" name="interestedIn" value="both" id="both" wire:model.live="interestedIn" class="peer hidden" />
-							<label for="both" class="block cursor-pointer border border-breeder-greige rounded-xl hover:bg-breeder-cream peer-checked:bg-breeder-cream">
+							<label for="both" class="block cursor-pointer border border-jobboard-greige rounded-xl hover:bg-jobboard-cream peer-checked:bg-jobboard-cream">
 								<div>
 									<h3 class="w-full md:w-[250px] h-[150px] md:h-[184px] text-base font-medium flex flex-col items-center justify-center text-center gap-y-4">
 										<svg width="103" height="47" viewBox="0 0 103 47" fill="none"
@@ -764,7 +764,7 @@
 					</div>
 
 					@if($user->hasRole(['professionnal_breeder', 'individual_breeder']) && $userState == 'update' && $interestedIn != $user->values->get('interested_in'))
-						<div class="flex flex-row w-full mt-2 text-breeder-red">
+						<div class="flex flex-row w-full mt-2 text-jobboard-red">
 							{{ __('Be careful ! By changing your company\'s species, you\'ll have to resubmit every document to justify your new choice') }}
 						</div>
 					@endif
@@ -845,13 +845,13 @@
 					<div class="flex flex-col gap-y-4 max-w-[540px] mx-auto">
 						<div>
 							<div class="flex flex-col gap-2">
-								<h3 class="text-breeder-deepblue font-bold text-[18px]">{{ __('Identity document') }} </h3>
+								<h3 class="text-jobboard-deepblue font-bold text-[18px]">{{ __('Identity document') }} </h3>
 
 								<div>
 									<div class="flex flex-row items-center pl-4 gap-x-2">
 										<x-front.input-label for="identityCard" :value="__('My identity card')" :required="true" />
 										•
-										<div class="text-xs text-breeder-deepblue italic">
+										<div class="text-xs text-jobboard-deepblue italic">
 											{{ __('Passport or identity card') }}
 										</div>
 									</div>
@@ -878,7 +878,7 @@
 								</div>
 
 								<ul class="mt-2 pl-4 space-y-2 text-sm text-gray-400">
-									<li class="flex items-center justify-between text-sm text-breeder-deepblue">
+									<li class="flex items-center justify-between text-sm text-jobboard-deepblue">
 										<div class="flex items-center gap-x-2">
 											•
 
@@ -900,13 +900,13 @@
 
 						<div>
 							<div class="flex flex-col gap-2">
-								<h3 class="text-breeder-deepblue font-bold text-[18px]">{{ __('Home document') }} </h3>
+								<h3 class="text-jobboard-deepblue font-bold text-[18px]">{{ __('Home document') }} </h3>
 
 								<div>
 									<div class="flex flex-row items-center pl-4 gap-x-2">
 										<x-front.input-label for="homeDocument" :value="__('My home document')" :required="true" />
 										•
-										<div class="text-xs text-breeder-deepblue italic">
+										<div class="text-xs text-jobboard-deepblue italic">
 											{{ __('Electricity bill or other relevant document of your current address') }}
 										</div>
 									</div>
@@ -933,7 +933,7 @@
 								</div>
 
 								<ul class="mt-2 pl-4 space-y-2 text-sm text-gray-400">
-									<li class="flex items-center justify-between text-sm text-breeder-deepblue">
+									<li class="flex items-center justify-between text-sm text-jobboard-deepblue">
 										<div class="flex items-center gap-x-2">
 											•
 
@@ -958,7 +958,7 @@
 						@if($user->hasRole('professionnal_breeder'))
 							<div>
 								<div class="flex flex-col gap-2">
-									<h3 class="text-breeder-deepblue font-bold text-[18px]">{{ __('Proof of SIREN') }} </h3>
+									<h3 class="text-jobboard-deepblue font-bold text-[18px]">{{ __('Proof of SIREN') }} </h3>
 
 									<x-front.input-label for="sirenDocument" :value="__('SIREN')" :required="true" :class="'pl-4'"/>
 
@@ -983,7 +983,7 @@
 									</div>
 
 									<ul class="mt-2 pl-4 space-y-2 text-sm text-gray-400">
-										<li class="flex items-center justify-between text-sm text-breeder-deepblue">
+										<li class="flex items-center justify-between text-sm text-jobboard-deepblue">
 											<div class="flex items-center gap-x-2">
 												•
 
@@ -1009,7 +1009,7 @@
 								@if($user->values->get('interested_in') == 'both' || $user->values->get('interested_in') == 'dogs')
 									<div>
 										<div class="flex flex-col gap-2">
-											<h3 class="text-breeder-deepblue font-bold text-[18px]">
+											<h3 class="text-jobboard-deepblue font-bold text-[18px]">
 												{{ __('Dog training certificate') }}
 											</h3>
 
@@ -1036,7 +1036,7 @@
 											</div>
 
 											<ul class="mt-2 pl-4 space-y-2 text-sm text-gray-400">
-												<li class="flex items-center justify-between text-sm text-breeder-deepblue">
+												<li class="flex items-center justify-between text-sm text-jobboard-deepblue">
 													<div class="flex items-center gap-x-2">
 														•
 
@@ -1077,7 +1077,7 @@
 								@if($user->values->get('interested_in') == 'both' || $user->values->get('interested_in') == 'cats')
 									<div>
 										<div class="flex flex-col gap-2">
-											<h3 class="text-breeder-deepblue font-bold text-[18px]">
+											<h3 class="text-jobboard-deepblue font-bold text-[18px]">
 												{{ __('Cat training certificate') }}
 											</h3>
 
@@ -1104,7 +1104,7 @@
 											</div>
 
 											<ul class="mt-2 pl-4 space-y-2 text-sm text-gray-400">
-												<li class="flex items-center justify-between text-sm text-breeder-deepblue">
+												<li class="flex items-center justify-between text-sm text-jobboard-deepblue">
 													<div class="flex items-center gap-x-2">
 														•
 
@@ -1143,12 +1143,12 @@
 					</div>
 				@elseif($active == 4)
 					@if($user->values->get('interested_in') == 'both' || $user->values->get('interested_in') == 'dogs')
-						<h2 class="mb-8 text-base md:text-[24px] lg:text-[28px] font-bold text-center text-breeder-violet">
+						<h2 class="mb-8 text-base md:text-[24px] lg:text-[28px] font-bold text-center text-jobboard-violet">
 							{{ __('Eleveur Online dog agreement') }}
 						</h2>
 
-						<div class="flex flex-col gap-y-4 text-breeder-deepblue">
-							<h3 class="mb-1 text-base md:text-lg lg:text-[22px] font-bold text-breeder-deepblue">
+						<div class="flex flex-col gap-y-4 text-jobboard-deepblue">
+							<h3 class="mb-1 text-base md:text-lg lg:text-[22px] font-bold text-jobboard-deepblue">
 								I. {{ __('Living environment, health, veterinary monitoring and genetic') }}
 							</h3>
 
@@ -1156,7 +1156,7 @@
 								{{ __('The livestock buildings are maintained in compliance with legal standards, guaranteeing hygiene, safety, space and comfort. I strictly respect the rules of animal welfare and make sure that each dog lives in an environment adapted to its needs. I keep myself informed of the known hereditary diseases of my race and have genetic tests, eye examinations, radio checks and cardiac ultrasounds performed if the race is subject to them. I have a reference veterinarian to ensure rigorous health monitoring of my animals.') }}
 							</div>
 
-							<h3 class="mb-1 text-base md:text-lg lg:text-[22px] font-bold text-breeder-deepblue">
+							<h3 class="mb-1 text-base md:text-lg lg:text-[22px] font-bold text-jobboard-deepblue">
 								II. {{ __('Framed and ethical reproduction') }}
 							</h3>
 
@@ -1164,7 +1164,7 @@
 								{{ __('No lice (female breeder) will be born before reaching 15 months and 1 day. A litter may not exceed 8 litters during its life. No litter will be born after 9 years (unless the breed club waives if LOF). I respect a reasonable reproduction rate: maximum 3 litters in 24 months for the same bitch. I forbid any mating between two carriers of the “merle” allele. “merle x fauve” crosses are subject to mandatory DNA testing. Mating between close relatives (father-daughter, mother-son, brother-sister) is prohibited, unless an exceptional derogation is granted by the breed club (if LOF).') }}
 							</div>
 
-							<h3 class="mb-1 text-base md:text-lg lg:text-[22px] font-bold text-breeder-deepblue">
+							<h3 class="mb-1 text-base md:text-lg lg:text-[22px] font-bold text-jobboard-deepblue">
 								III. {{ __('Identification, transfer and traceability') }}
 							</h3>
 
@@ -1172,7 +1172,7 @@
 								{{ __('All puppies are identified (electronic chip or tattoo) before release. The chip is required for export. No puppy will be given up for 8 weeks. I provide each adopter with all the required documents, namely: Certificate of assignment/ invoice Certificate of identification Health card or passport (if vaccines were done) Notice of post-adoption care Race book (if available) I ensure that any first-time adopters sign the Certificate of Commitment and Knowledge at least 7 days prior to adoption.') }}
 							</div>
 
-							<h3 class="mb-1 text-base md:text-lg lg:text-[22px] font-bold text-breeder-deepblue">
+							<h3 class="mb-1 text-base md:text-lg lg:text-[22px] font-bold text-jobboard-deepblue">
 								IV. {{ __('Commitment to :babies and adopters', ['babies' => __('puppies')]) }}
 							</h3>
 
@@ -1180,7 +1180,7 @@
 								{{ __('I guarantee the origin of puppies and their parents, with supporting evidence if necessary. I agree to place or keep any non-compliant or unadopted puppy, regardless of their age. I socialize puppies daily, stimulating them through play, human interactions and the discovery of their environment. I make sure that each puppy develops his personality, stability and confidence before leaving.') }}
 							</div>
 
-							<h3 class="mb-1 text-base md:text-lg lg:text-[22px] font-bold text-breeder-deepblue">
+							<h3 class="mb-1 text-base md:text-lg lg:text-[22px] font-bold text-jobboard-deepblue">
 								V. {{ __('End of career and sustainable responsibility') }}
 							</h3>
 
@@ -1188,8 +1188,8 @@
 								{{ __('I am committed to offering my breeders a peaceful and well-deserved retirement, either by keeping them with me at the farm or by finding them a loving family that will offer them all the attention, affection and comfort they deserve after their successful career.') }}
 							</div>
 
-							<div class="flex flex-row items-center justify-center bg-breeder-orange p-4 rounded-xl">
-								<input type="checkbox" id="dogs_agreement" wire:model="dogsAgreement" class="w-4 h-4 text-breeder-deepblue bg-gray-100 border-gray-300 rounded focus:ring-0 focus:ring-offset-0 focus:outline-none cursor-pointer" />
+							<div class="flex flex-row items-center justify-center bg-jobboard-orange p-4 rounded-xl">
+								<input type="checkbox" id="dogs_agreement" wire:model="dogsAgreement" class="w-4 h-4 text-jobboard-deepblue bg-gray-100 border-gray-300 rounded focus:ring-0 focus:ring-offset-0 focus:outline-none cursor-pointer" />
 								<x-front.input-label for="dogs_agreement" :value="__('I undertake to respect the following principles, which guarantee ethical company, transparency and compliance with current regulations. My commitment is both to respect the animals and the quality of their environment, in order to ensure their physical, emotional and social well-being throughout their lives, as well as the guarantee of producing healthy puppies, well in their heads and in their paws.')" :required="true" :class="'ml-2 cursor-pointer'" />
 							</div>
 
@@ -1206,12 +1206,12 @@
 					@if($user->values->get('interested_in') == 'both' || $user->values->get('interested_in') == 'cats')
 						<hr class="my-4">
 
-						<h2 class="mb-8 text-base md:text-[24px] lg:text-[28px] font-bold text-center text-breeder-violet">
+						<h2 class="mb-8 text-base md:text-[24px] lg:text-[28px] font-bold text-center text-jobboard-violet">
 							{{ __('Eleveur Online cat agreement') }}
 						</h2>
 
-						<div class="flex flex-col gap-y-4 text-breeder-deepblue">
-							<h3 class="mb-1 text-base md:text-lg lg:text-[22px] font-bold text-breeder-deepblue">
+						<div class="flex flex-col gap-y-4 text-jobboard-deepblue">
+							<h3 class="mb-1 text-base md:text-lg lg:text-[22px] font-bold text-jobboard-deepblue">
 								I. {{ __('Living environment, health, veterinary monitoring and genetic') }}
 							</h3>
 
@@ -1219,7 +1219,7 @@
 								{{ __('The company premises are maintained in compliance with legal standards, ensuring hygiene, safety, space, comfort and enrichment. I make sure to offer the cats areas for rest, play, climbing and exploration, respecting their natural needs. I strictly respect animal welfare rules and make sure that each cat lives in an environment adapted to its physical and behavioral needs. I keep myself informed of the hereditary diseases specific to my race (ex: PKD, HCM, PRA...) and have the necessary genetic tests, cardiac ultrasound, ophthalmological examinations or other assessments. I have a veterinary reference to ensure a rigorous health monitoring of my cats.') }}
 							</div>
 
-							<h3 class="mb-1 text-base md:text-lg lg:text-[22px] font-bold text-breeder-deepblue">
+							<h3 class="mb-1 text-base md:text-lg lg:text-[22px] font-bold text-jobboard-deepblue">
 								II. {{ __('Framed and ethical reproduction') }}
 							</h3>
 
@@ -1227,7 +1227,7 @@
 								{{ __('No lice (female breeder) will be born before reaching 15 months and 1 day. A litter may not exceed 8 litters during its life. No litter will be born after 9 years (unless the breed club waives if LOF). I respect a reasonable reproduction rate: maximum 3 litters in 24 months for the same bitch. I forbid any mating between two carriers of the “merle” allele. “merle x fauve” crosses are subject to mandatory DNA testing. Mating between close relatives (father-daughter, mother-son, brother-sister) is prohibited, unless an exceptional derogation is granted by the breed club (if LOF).') }}
 							</div>
 
-							<h3 class="mb-1 text-base md:text-lg lg:text-[22px] font-bold text-breeder-deepblue">
+							<h3 class="mb-1 text-base md:text-lg lg:text-[22px] font-bold text-jobboard-deepblue">
 								III. {{ __('Identification, transfer and traceability') }}
 							</h3>
 
@@ -1235,7 +1235,7 @@
 								{{ __('All kittens are identified (microchip or tattoo) before release. The microchip is required for export. No kittens will be transferred before 12 weeks, in accordance with the recommendations of the LOOF I provide to each adopter all the required documents, namely: Certificate of transfer/ invoice Certificate of identification Health card or passport (if vaccines were carried out) Notice of post-adoption care Race book (if available) I make sure that any first-time adopters sign the certificate of commitment and knowledge at least 7 days before the adoption.') }}
 							</div>
 
-							<h3 class="mb-1 text-base md:text-lg lg:text-[22px] font-bold text-breeder-deepblue">
+							<h3 class="mb-1 text-base md:text-lg lg:text-[22px] font-bold text-jobboard-deepblue">
 								IV. {{ __('Commitment to :babies and adopters', ['babies' => __('kitties')]) }}
 							</h3>
 
@@ -1243,7 +1243,7 @@
 								{{ __('I guarantee the origin of the kittens and their broods, with supporting evidence if necessary. I agree to replace or keep any non-compliant or unadopted kitten, regardless of their age. I socialize the kittens daily, habituating them to the human, to various environments, noises, games and interactions adapted to their age. I make sure that each kitten develops his personality, stability and confidence before leaving.') }}
 							</div>
 
-							<h3 class="mb-1 text-base md:text-lg lg:text-[22px] font-bold text-breeder-deepblue">
+							<h3 class="mb-1 text-base md:text-lg lg:text-[22px] font-bold text-jobboard-deepblue">
 								V. {{ __('End of career and sustainable responsibility') }}
 							</h3>
 
@@ -1251,8 +1251,8 @@
 								{{ __('I am committed to offering my breeders a peaceful and well-deserved retirement, either by keeping them with me at the farm or by finding them a loving family that will offer them all the attention, affection and comfort they deserve after their successful career.') }}
 							</div>
 
-							<div class="flex flex-row items-center justify-center bg-breeder-orange p-4 rounded-xl">
-								<input type="checkbox" id="cats_agreement" wire:model="catsAgreement" class="w-4 h-4 text-breeder-deepblue bg-gray-100 border-gray-300 rounded focus:ring-0 focus:ring-offset-0 focus:outline-none cursor-pointer" />
+							<div class="flex flex-row items-center justify-center bg-jobboard-orange p-4 rounded-xl">
+								<input type="checkbox" id="cats_agreement" wire:model="catsAgreement" class="w-4 h-4 text-jobboard-deepblue bg-gray-100 border-gray-300 rounded focus:ring-0 focus:ring-offset-0 focus:outline-none cursor-pointer" />
 								<x-front.input-label for="cats_agreement" :value="__('I undertake to respect the following principles, which guarantee ethical company, transparency and compliance with current regulations. My commitment is both to respect the animals and the quality of their environment, in order to ensure their physical, emotional and social well-being throughout their lives, as well as the guarantee of producing healthy kitties, well in their heads and in their paws.')" :required="true" :class="'ml-2 cursor-pointer'" />
 							</div>
 
@@ -1269,7 +1269,7 @@
 			@endif
 		</div>
 
-		<hr class="w-full h-px border border-breeder-deepblue my-8">
+		<hr class="w-full h-px border border-jobboard-deepblue my-8">
 
 		<div class="flex s:flex-row flex-col items-center max-s:space-y-5 justify-between mt-10">
 			<div class="flex gap-x-4 text-sm font-bold">

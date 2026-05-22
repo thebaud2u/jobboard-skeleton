@@ -15,7 +15,7 @@
 	@endpush
 
 	@if($errors->any() || Session::has('error') || Session::has('success') || Session::has('warning') || Session::has('info'))
-		<div class="bg-breeder-cream flex justify-center w-full" x-data="{}" x-ref="alert">
+		<div class="bg-jobboard-cream flex justify-center w-full" x-data="{}" x-ref="alert">
 			@include('components.front.alerts')
 		</div>
 	@endif
@@ -37,7 +37,7 @@
 	</nav>
 
 	{{-- PACK --}}
-	<div class="w-full flex flex-col justify-center items-center bg-breeder-deepblue text-white py-8">
+	<div class="w-full flex flex-col justify-center items-center bg-jobboard-deepblue text-white py-8">
 		<div class="w-full flex flex-col items-center mb-10">
 			<h1 class="text-[22px] md:text-[25px] lg:text-[28px] font-bold text-center mb-0">
 				{{ __('Nos offres') }}<br>
@@ -69,34 +69,34 @@
 						$bg = '';
 						$text = '';
 
-						$bg_primary = 'bg-breeder-deepblue';
-						$border = 'border-breeder-deepblue';
+						$bg_primary = 'bg-jobboard-deepblue';
+						$border = 'border-jobboard-deepblue';
 						$bg_secondary = '';
 						switch ($packOffer->slug) {
 							case 'pack-premium':
-								$bg_primary = 'bg-breeder-violet';
-								$border = 'border-breeder-deepblue';
+								$bg_primary = 'bg-jobboard-violet';
+								$border = 'border-jobboard-deepblue';
 								$bg_secondary = '';
 								break;
 							case 'pack-master':
-								$bg_primary = 'bg-breeder-orange';
+								$bg_primary = 'bg-jobboard-orange';
 								break;
 							default:
-								$bg_primary = 'bg-breeder-deepblue';
-								$border = 'border-breeder-deepblue';
+								$bg_primary = 'bg-jobboard-deepblue';
+								$border = 'border-jobboard-deepblue';
 								break;
 						}
 					@endphp
 
-					<div class="flex flex-col w-[348px] shadow-md rounded-xl mb-4 text-breeder-deepblue z-10">
+					<div class="flex flex-col w-[348px] shadow-md rounded-xl mb-4 text-jobboard-deepblue z-10">
 						<div class="flex flex-col {{ $bg_primary }} items-center w-full py-4 rounded-t-xl">
 							<div class="relative w-full">
 								@if($packOffer->slug == 'pack-premium')
-									<div class="absolute w-[215px] rounded-full text-sm font-medium {{ $bg_primary }} border border-breeder-deepblue top-0 transform -translate-y-[120%] left-[50%] -translate-x-[50%] text-center">
+									<div class="absolute w-[215px] rounded-full text-sm font-medium {{ $bg_primary }} border border-jobboard-deepblue top-0 transform -translate-y-[120%] left-[50%] -translate-x-[50%] text-center">
 										{{ __('Recommandé pour vous') }}
 									</div>
 								@elseif($packOffer->slug == 'pack-master')
-									<div class="absolute w-[257px] rounded-full text-sm font-medium {{ $bg_primary }} border border-breeder-deepblue top-0 transform -translate-y-[120%] left-[50%] -translate-x-[50%] text-center">
+									<div class="absolute w-[257px] rounded-full text-sm font-medium {{ $bg_primary }} border border-jobboard-deepblue top-0 transform -translate-y-[120%] left-[50%] -translate-x-[50%] text-center">
 										{{ __('Idéal pour les grands entreprises') }}
 									</div>
 								@endif
@@ -160,28 +160,28 @@
 
 										{{ __('Bouton de contact') }}
 									</p>
-									<p class="flex gap-x-2 shrink-0 items-center text-sm font-medium text-breeder-greige">
+									<p class="flex gap-x-2 shrink-0 items-center text-sm font-medium text-jobboard-greige">
 										<svg class="shrink-0" width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path d="M1.5 12.2307L11.5 2.23071M1.5 2.23071L11.5 12.2307" stroke="#DDDBD2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
 										</svg>
 
 										{{ __('Vidéos') }}
 									</p>
-									<p class="flex gap-x-2 shrink-0 items-center text-sm font-medium text-breeder-greige">
+									<p class="flex gap-x-2 shrink-0 items-center text-sm font-medium text-jobboard-greige">
 										<svg class="shrink-0" width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path d="M1.5 12.2307L11.5 2.23071M1.5 2.23071L11.5 12.2307" stroke="#DDDBD2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
 										</svg>
 
 										{{ __('Fiches animaux reproducteurs') }}
 									</p>
-									<p class="flex gap-x-2 shrink-0 items-center text-sm font-medium text-breeder-greige">
+									<p class="flex gap-x-2 shrink-0 items-center text-sm font-medium text-jobboard-greige">
 										<svg class="shrink-0" width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path d="M1.5 12.2307L11.5 2.23071M1.5 2.23071L11.5 12.2307" stroke="#DDDBD2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
 										</svg>
 
 										{{ __('Remontée hebdomadaire dans la liste des entreprises') }}
 									</p>
-									<p class="flex gap-x-2 shrink-0 items-center text-sm font-medium text-breeder-greige">
+									<p class="flex gap-x-2 shrink-0 items-center text-sm font-medium text-jobboard-greige">
 										<svg class="shrink-0" width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path d="M1.5 12.2307L11.5 2.23071M1.5 2.23071L11.5 12.2307" stroke="#DDDBD2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
 										</svg>
@@ -189,7 +189,7 @@
 										{{ __('Accès à BreedersGPT, le robot d\'IA pensé par Eleveurs Online pour les éleveurs') }}
 									</p>
 
-									<div class="w-full flex flex-col rounded-xl bg-breeder-cream px-6 py-4" x-data="{ open: false }">
+									<div class="w-full flex flex-col rounded-xl bg-jobboard-cream px-6 py-4" x-data="{ open: false }">
 										<div class="relative w-full">
 											<div class="absolute left-0 transform -translate-x-[130%] translate-y-[50%] cursor-pointer" x-on:click="open = !open">
 												<svg width="29" height="28" viewBox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -329,7 +329,7 @@
 										{{ __('Accès à BreedersGPT, le robot d\'IA pensé par Eleveurs Online pour les éleveurs') }}
 									</p>
 
-									<div class="w-full flex flex-col rounded-xl bg-breeder-cream px-6 py-4" x-data="{ open: false }">
+									<div class="w-full flex flex-col rounded-xl bg-jobboard-cream px-6 py-4" x-data="{ open: false }">
 										<div class="relative w-full">
 											<div class="absolute left-0 transform -translate-x-[130%] translate-y-[50%] cursor-pointer" x-on:click="open = !open">
 												<svg width="29" height="28" viewBox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -402,7 +402,7 @@
 								@endif
 							</div>
 
-							<hr class="w-full border border-breeder-deepblue my-4">
+							<hr class="w-full border border-jobboard-deepblue my-4">
 
 							<div class="w-full flex flex-row justify-center items-center gap-1">
 								@if(count($prices) === 1)
@@ -482,9 +482,9 @@
 	</div>
 	{{-- END PACK --}}
 
-	<div class="w-full flex flex-col justify-center items-center bg-breeder-cream text-breeder-deepblue pt-10 pb-20">
+	<div class="w-full flex flex-col justify-center items-center bg-jobboard-cream text-jobboard-deepblue pt-10 pb-20">
 		{{-- Abonnement annuels page entreprise seule --}}
-			<div class="w-full flex flex-col items-center text-breeder-deepblue my-10">
+			<div class="w-full flex flex-col items-center text-jobboard-deepblue my-10">
 				<h2 class="text-[40px] font-bold text-center">
 					<span class="text-[28px] font-bold text-center">
 						{{ __('Our annual subscriptions') }}
@@ -505,40 +505,40 @@
 							$bg = '';
 							$text = '';
 
-							$bg_primary = 'bg-breeder-deepblue';
-							$border = 'border-breeder-deepblue';
+							$bg_primary = 'bg-jobboard-deepblue';
+							$border = 'border-jobboard-deepblue';
 							$bg_secondary = '';
 							switch ($offer->slug) {
 								case 'page-elevage-standard':
 									$color = 'text-white';
 									$name = "Standard";
-									$bg_primary = 'bg-breeder-deepblue';
-									$border = 'border-breeder-deepblue';
+									$bg_primary = 'bg-jobboard-deepblue';
+									$border = 'border-jobboard-deepblue';
 									$bg_secondary = '';
 									break;
 								case 'page-elevage-premium':
-									$color = 'text-breeder-deepblue';
+									$color = 'text-jobboard-deepblue';
 									$name = "Premium";
-									$bg_primary = 'bg-breeder-violet';
-									$border = 'border-breeder-violet';
-									$bg_secondary = 'bg-breeder-lighterviolet';
+									$bg_primary = 'bg-jobboard-violet';
+									$border = 'border-jobboard-violet';
+									$bg_secondary = 'bg-jobboard-lighterviolet';
 									break;
 								case 'page-elevage-master':
-									$color = 'text-breeder-deepblue';
+									$color = 'text-jobboard-deepblue';
 									$name = "Master";
-									$bg_primary = 'bg-breeder-orange';
-									$border = 'border-breeder-orange';
-									$bg_secondary = 'bg-breeder-lighterorange';
+									$bg_primary = 'bg-jobboard-orange';
+									$border = 'border-jobboard-orange';
+									$bg_secondary = 'bg-jobboard-lighterorange';
 									break;
 								default:
-									$bg_primary = 'bg-breeder-deepblue';
-									$border = 'border-breeder-deepblue';
+									$bg_primary = 'bg-jobboard-deepblue';
+									$border = 'border-jobboard-deepblue';
 									$bg_secondary = '';
 									break;
 							}
 						@endphp
 
-						<div class="flex flex-col w-[348px] shadow-md rounded-xl mb-4 text-breeder-deepblue">
+						<div class="flex flex-col w-[348px] shadow-md rounded-xl mb-4 text-jobboard-deepblue">
 							<div class="flex flex-col {{ $bg_primary }} items-center w-full py-4 rounded-t-xl">
 								<h3 class="text-lg font-bold {{$color}}">
 									{{ __($offer->name) }}
@@ -580,42 +580,42 @@
 
 											{{ __('1 photo') }}
 										</p>
-										<p class="flex gap-x-2 shrink-0 items-center text-sm font-medium text-breeder-greige">
+										<p class="flex gap-x-2 shrink-0 items-center text-sm font-medium text-jobboard-greige">
 											<svg class="shrink-0" width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M1.5 12.2307L11.5 2.23071M1.5 2.23071L11.5 12.2307" stroke="#DDDBD2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
 											</svg>
 
 											{{ __('Liens vers mes annonces') }}
 										</p>
-										<p class="flex gap-x-2 shrink-0 items-center text-sm font-medium text-breeder-greige">
+										<p class="flex gap-x-2 shrink-0 items-center text-sm font-medium text-jobboard-greige">
 											<svg class="shrink-0" width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M1.5 12.2307L11.5 2.23071M1.5 2.23071L11.5 12.2307" stroke="#DDDBD2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
 											</svg>
 
 											{{ __('Bouton de contact') }}
 										</p>
-										<p class="flex gap-x-2 shrink-0 items-center text-sm font-medium text-breeder-greige">
+										<p class="flex gap-x-2 shrink-0 items-center text-sm font-medium text-jobboard-greige">
 											<svg class="shrink-0" width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M1.5 12.2307L11.5 2.23071M1.5 2.23071L11.5 12.2307" stroke="#DDDBD2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
 											</svg>
 
 											{{ __('Vidéos') }}
 										</p>
-										<p class="flex gap-x-2 shrink-0 items-center text-sm font-medium text-breeder-greige">
+										<p class="flex gap-x-2 shrink-0 items-center text-sm font-medium text-jobboard-greige">
 											<svg class="shrink-0" width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M1.5 12.2307L11.5 2.23071M1.5 2.23071L11.5 12.2307" stroke="#DDDBD2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
 											</svg>
 
 											{{ __('Fiches animaux reproducteurs') }}
 										</p>
-										<p class="flex gap-x-2 shrink-0 items-center text-sm font-medium text-breeder-greige">
+										<p class="flex gap-x-2 shrink-0 items-center text-sm font-medium text-jobboard-greige">
 											<svg class="shrink-0" width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M1.5 12.2307L11.5 2.23071M1.5 2.23071L11.5 12.2307" stroke="#DDDBD2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
 											</svg>
 
 											{{ __('Remontée hebdomadaire dans la liste des entreprises') }}
 										</p>
-										<p class="flex gap-x-2 shrink-0 items-center text-sm font-medium text-breeder-greige">
+										<p class="flex gap-x-2 shrink-0 items-center text-sm font-medium text-jobboard-greige">
 											<svg class="shrink-0" width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M1.5 12.2307L11.5 2.23071M1.5 2.23071L11.5 12.2307" stroke="#DDDBD2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
 											</svg>
@@ -665,28 +665,28 @@
 
 											{{ __('Bouton de contact') }}
 										</p>
-										<p class="flex gap-x-2 shrink-0 items-center text-sm font-medium text-breeder-greige">
+										<p class="flex gap-x-2 shrink-0 items-center text-sm font-medium text-jobboard-greige">
 											<svg class="shrink-0" width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M1.5 12.2307L11.5 2.23071M1.5 2.23071L11.5 12.2307" stroke="#DDDBD2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
 											</svg>
 
 											{{ __('Vidéos') }}
 										</p>
-										<p class="flex gap-x-2 shrink-0 items-center text-sm font-medium text-breeder-greige">
+										<p class="flex gap-x-2 shrink-0 items-center text-sm font-medium text-jobboard-greige">
 											<svg class="shrink-0" width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M1.5 12.2307L11.5 2.23071M1.5 2.23071L11.5 12.2307" stroke="#DDDBD2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
 											</svg>
 
 											{{ __('Fiches animaux reproducteurs') }}
 										</p>
-										<p class="flex gap-x-2 shrink-0 items-center text-sm font-medium text-breeder-greige">
+										<p class="flex gap-x-2 shrink-0 items-center text-sm font-medium text-jobboard-greige">
 											<svg class="shrink-0" width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M1.5 12.2307L11.5 2.23071M1.5 2.23071L11.5 12.2307" stroke="#DDDBD2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
 											</svg>
 
 											{{ __('Remontée hebdomadaire dans la liste des entreprises') }}
 										</p>
-										<p class="flex gap-x-2 shrink-0 items-center text-sm font-medium text-breeder-greige">
+										<p class="flex gap-x-2 shrink-0 items-center text-sm font-medium text-jobboard-greige">
 											<svg class="shrink-0" width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M1.5 12.2307L11.5 2.23071M1.5 2.23071L11.5 12.2307" stroke="#DDDBD2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
 											</svg>
@@ -767,7 +767,7 @@
 									@endif
 								</div>
 
-								<hr class="w-full border border-breeder-deepblue my-4">
+								<hr class="w-full border border-jobboard-deepblue my-4">
 
 								<div class="w-full flex flex-row justify-center items-center gap-1">
 									@if(!$offer->free)
@@ -895,7 +895,7 @@
 		{{-- END Abonnement annuels page entreprise seule --}}
 
 		{{-- Achat crédits annonces --}}
-			<div class="w-full flex flex-col items-center text-breeder-deepblue my-10">
+			<div class="w-full flex flex-col items-center text-jobboard-deepblue my-10">
 				<h2 class="text-[40px] font-bold text-center">
 					{{ __('Purchase of post credits') }}
 				</h2>
@@ -913,43 +913,43 @@
 
 							$prices = $offer->getPrices();
 
-							$color = 'text-breeder-deepblue';
-							$bg_primary = 'bg-breeder-deepblue';
-							$border = 'border-breeder-deepblue';
+							$color = 'text-jobboard-deepblue';
+							$bg_primary = 'bg-jobboard-deepblue';
+							$border = 'border-jobboard-deepblue';
 							$bg_secondary = '';
 							switch ($offer->slug) {
 								case 'annonce-standard':
 									$color = 'text-white';
-									$bg_primary = 'bg-breeder-deepblue';
-									$border = 'border-breeder-deepblue';
+									$bg_primary = 'bg-jobboard-deepblue';
+									$border = 'border-jobboard-deepblue';
 									$bg_secondary = '';
 									break;
 								case 'annonce-premium':
-									$color = 'text-breeder-deepblue';
-									$bg_primary = 'bg-breeder-violet';
+									$color = 'text-jobboard-deepblue';
+									$bg_primary = 'bg-jobboard-violet';
 									break;
 								case 'annonce-master':
-									$color = 'text-breeder-deepblue';
-									$bg_primary = 'bg-breeder-orange';
+									$color = 'text-jobboard-deepblue';
+									$bg_primary = 'bg-jobboard-orange';
 									break;
 								case '':
-									$color = 'text-breeder-deepblue';
-									$bg_primary = 'bg-breeder-deepblue';
-									$border = 'border-breeder-deepblue';
+									$color = 'text-jobboard-deepblue';
+									$bg_primary = 'bg-jobboard-deepblue';
+									$border = 'border-jobboard-deepblue';
 									$bg_secondary = '';
 									break;
 								case '':
 									$color = '';
 									break;
 								default:
-									$color = 'text-breeder-deepblue';
-									$bg_primary = 'bg-breeder-deepblue';
-									$border = 'border-breeder-deepblue';
+									$color = 'text-jobboard-deepblue';
+									$bg_primary = 'bg-jobboard-deepblue';
+									$border = 'border-jobboard-deepblue';
 									break;
 							}
 						@endphp
 
-						<div class="flex flex-col w-[348px] shadow-md rounded-xl mb-4 text-breeder-deepblue">
+						<div class="flex flex-col w-[348px] shadow-md rounded-xl mb-4 text-jobboard-deepblue">
 							<div class="flex flex-col {{ $bg_primary }} items-center w-full py-4 rounded-t-xl">
 								<h3 class="text-lg font-bold {{$color}} flex justify-center items-center gap-x-2">
 									{{ __($offer->name) }}
@@ -1056,7 +1056,7 @@
 									</p>
 
 									@if($offer->slug == 'annonce-standard')
-										<p class="flex gap-x-2 shrink-0 items-center text-base font-medium text-breeder-greige">
+										<p class="flex gap-x-2 shrink-0 items-center text-base font-medium text-jobboard-greige">
 											<svg class="shrink-0" width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M1.5 12.2307L11.5 2.23071M1.5 2.23071L11.5 12.2307" stroke="#DDDBD2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
 											</svg>
@@ -1064,7 +1064,7 @@
 											{{ __('Remontée dans la liste d\'annonce') }}
 										</p>
 
-										<p class="flex gap-x-2 shrink-0 items-center text-base font-medium text-breeder-greige">
+										<p class="flex gap-x-2 shrink-0 items-center text-base font-medium text-jobboard-greige">
 											<svg class="shrink-0" width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M1.5 12.2307L11.5 2.23071M1.5 2.23071L11.5 12.2307" stroke="#DDDBD2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
 											</svg>
@@ -1072,7 +1072,7 @@
 											{{ __('Visibilité renforcée') }}
 										</p>
 
-										{{--<p class="flex gap-x-2 shrink-0 items-center text-base font-medium text-breeder-greige">
+										{{--<p class="flex gap-x-2 shrink-0 items-center text-base font-medium text-jobboard-greige">
 											<svg class="shrink-0" width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M1.5 12.2307L11.5 2.23071M1.5 2.23071L11.5 12.2307" stroke="#DDDBD2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
 											</svg>
@@ -1096,7 +1096,7 @@
 											{{ __('Visibilité renforcée') }}
 										</p>
 
-										{{-- <p class="flex gap-x-2 shrink-0 items-center text-base font-medium text-breeder-greige">
+										{{-- <p class="flex gap-x-2 shrink-0 items-center text-base font-medium text-jobboard-greige">
 											<svg class="shrink-0" width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M1.5 12.2307L11.5 2.23071M1.5 2.23071L11.5 12.2307" stroke="#DDDBD2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
 											</svg>
@@ -1130,7 +1130,7 @@
 									@endif
 								</div>
 
-								<hr class="w-full border border-breeder-deepblue my-4">
+								<hr class="w-full border border-jobboard-deepblue my-4">
 								<div class="w-full flex flex-col justify-between">
 									<form id="posts-form" method="POST" action="{{ route('space.posts.offer-chosen') }}" class="w-full">
 										@csrf
@@ -1140,7 +1140,7 @@
 
 										<div class="w-full">
 											<div x-data="{ selectedIndex: 0 }" class="w-full flex flex-col justify-center items-center gap-2">
-												<select name="price" x-model="selectedIndex" class="w-full text-breeder-deepblue mt-1 block border border-breeder-greige rounded-xl focus:ring-abreeder-deepblue focus:border-breeder-deepblue">
+												<select name="price" x-model="selectedIndex" class="w-full text-jobboard-deepblue mt-1 block border border-jobboard-greige rounded-xl focus:ring-abreeder-deepblue focus:border-jobboard-deepblue">
 													@foreach($prices as $index => $price)
 														<option value="{{ $index }}">
 															{{ $price['label'] }}
@@ -1280,15 +1280,15 @@
 	</div>
 
 	{{-- Découvrez nos offres --}}
-	<div class="w-full bg-breeder-deepblue flex mb-20">
+	<div class="w-full bg-jobboard-deepblue flex mb-20">
 		<div class="mx-auto flex flex-col lg:flex-row py-10 px-6">
-			<div class="w-full max-w-[585px] flex flex-col justify-center text-breeder-cream">
+			<div class="w-full max-w-[585px] flex flex-col justify-center text-jobboard-cream">
 				<h3 class="text-[28px] lg:text-[40px] mb-8 leading-tight lg:leading-[49px] font-normal">
 					<strong>{{ __('Do you have a side business ?') }}</strong><br/>
 					{{ __('Post your ad in our professional directory.') }}
 				</h3>
 
-				<p class="text-xl lg:text-[28px] text-breeder-orange leading-[35px]">
+				<p class="text-xl lg:text-[28px] text-jobboard-orange leading-[35px]">
 					<strong>
 						{{ __('Get 50% off your annual subscription') }}
 					</strong><br/>
@@ -1353,7 +1353,7 @@
 							<hr class="w-full border border-gray-100 my-2">
 
 							<div x-data="{ selectedIndex: 0 }" class="w-full flex flex-col justify-center items-center gap-2">
-								<select name="price" x-model="selectedIndex" wire:change="priceSelected({{ $offer->id }})" class="w-full text-breeder-deepblue mt-1 block border border-breeder-greige rounded-md focus:ring-abreeder-deepblue focus:border-breeder-deepblue">
+								<select name="price" x-model="selectedIndex" wire:change="priceSelected({{ $offer->id }})" class="w-full text-jobboard-deepblue mt-1 block border border-jobboard-greige rounded-md focus:ring-abreeder-deepblue focus:border-jobboard-deepblue">
 									@foreach($prices as $index => $price)
 										<option value="{{ $index }}">
 											@switch($price['label'])
@@ -1426,9 +1426,9 @@
 	{{-- NL inscription --}}
 	<div class="w-full flex justify-center p-4">
 		<div
-			class="lg:h-[314px] w-full max-w-[1200px] rounded-3xl bg-breeder-violet flex flex-row max-lg:justify-center p-6 md:py-12 md:px-14">
+			class="lg:h-[314px] w-full max-w-[1200px] rounded-3xl bg-jobboard-violet flex flex-row max-lg:justify-center p-6 md:py-12 md:px-14">
 			<div class="flex-1 flex max-lg:justify-center">
-				<div class="flex flex-col text-breeder-deepblue max-w-[610px]">
+				<div class="flex flex-col text-jobboard-deepblue max-w-[610px]">
 					<h4 class="s:text-[40px] text-[25px] font-semibold mb-6 s:mb-0 leading-tight">
 						{{ __('Join our community of breeders') }}
 					</h4>
@@ -1440,7 +1440,7 @@
 
 						<input type="hidden" name="optins[]" value="OPTIN_NL_ELEVEUR">
 
-						<input type="text" name="email" id="email" value="{{ old('email') }}" required placeholder="Votre adresse email" class="border-0 rounded-full text-breeder-deepblue focus:ring-0 focus:outline-none focus:border-none placeholder:text-breeder-deepblue">
+						<input type="text" name="email" id="email" value="{{ old('email') }}" required placeholder="Votre adresse email" class="border-0 rounded-full text-jobboard-deepblue focus:ring-0 focus:outline-none focus:border-none placeholder:text-jobboard-deepblue">
 						<button type="submit" class="font-semibold mr-4 hidden s:block">{{ __('I\'m signing up') }}</button>
 						<svg class="block s:hidden mr-4" width="35" height="18" viewBox="0 0 35 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M26.5 16.2144L34 8.71436L26.5 1.21436" stroke="#0E1954" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />

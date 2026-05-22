@@ -1,5 +1,5 @@
 <div class="flex flex-col items-center px-4 md:px-8 pb-4 w-full bg-white overflow-hidden">
-	<h3 class="font-semibold text-breeder-deepblue text-[25px] sm:text-[40px] text-center mt-8 md:mt-14 mb-12">
+	<h3 class="font-semibold text-jobboard-deepblue text-[25px] sm:text-[40px] text-center mt-8 md:mt-14 mb-12">
 		{{ __('Find a product') }}
 	</h3>
 
@@ -7,7 +7,7 @@
 		<a href="{{ route('professionnal-activity-search.professionnal-activities', ['activityCategory' => 'produits', 'activity' => 'hygiene']) }}">
 			<div class="relative w-[167px] md:w-[270px] h-[185px] md:h-[299px] ">
 				<svg class="absolute inset-0 w-full h-full" viewBox="0 0 270 299" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M253.972 63.1402L151.013 4.26118C141.112 -1.42039 128.888 -1.42039 118.987 4.26118L16.0279 63.1402C6.12745 68.8217 0 79.2878 0 90.621V208.379C0 219.712 6.09726 230.208 16.0279 235.86L118.987 294.739C128.888 300.42 141.112 300.42 151.013 294.739L253.972 235.86C263.873 230.178 270 219.712 270 208.379V90.6509C270 79.3177 263.903 68.8217 253.972 63.1701V63.1402Z" class="fill-breeder-lightcream hover:fill-breeder-violet" />
+					<path d="M253.972 63.1402L151.013 4.26118C141.112 -1.42039 128.888 -1.42039 118.987 4.26118L16.0279 63.1402C6.12745 68.8217 0 79.2878 0 90.621V208.379C0 219.712 6.09726 230.208 16.0279 235.86L118.987 294.739C128.888 300.42 141.112 300.42 151.013 294.739L253.972 235.86C263.873 230.178 270 219.712 270 208.379V90.6509C270 79.3177 263.903 68.8217 253.972 63.1701V63.1402Z" class="fill-jobboard-lightcream hover:fill-jobboard-violet" />
 				</svg>
 
 				<!-- Contenu superposé -->
@@ -39,7 +39,7 @@
 					</svg>
 
 					<!-- Texte en bas -->
-					<p class="text-breeder-deepblue font-bold text-sm md:text-[18px] text-center">
+					<p class="text-jobboard-deepblue font-bold text-sm md:text-[18px] text-center">
 						{{ __('Hygiene') }}
 					</p>
 				</div>
@@ -49,7 +49,7 @@
 		<a href="{{ route('professionnal-activity-search.professionnal-activities', ['activityCategory' => 'produits', 'activity' => 'sante-animale']) }}">
 			<div class="relative w-[167px] md:w-[270px] h-[185px] md:h-[299px] ">
 				<svg class="absolute inset-0 w-full h-full" viewBox="0 0 270 299" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M253.972 63.1402L151.013 4.26118C141.112 -1.42039 128.888 -1.42039 118.987 4.26118L16.0279 63.1402C6.12745 68.8217 0 79.2878 0 90.621V208.379C0 219.712 6.09726 230.208 16.0279 235.86L118.987 294.739C128.888 300.42 141.112 300.42 151.013 294.739L253.972 235.86C263.873 230.178 270 219.712 270 208.379V90.6509C270 79.3177 263.903 68.8217 253.972 63.1701V63.1402Z" class="fill-breeder-lightcream hover:fill-breeder-violet" />
+					<path d="M253.972 63.1402L151.013 4.26118C141.112 -1.42039 128.888 -1.42039 118.987 4.26118L16.0279 63.1402C6.12745 68.8217 0 79.2878 0 90.621V208.379C0 219.712 6.09726 230.208 16.0279 235.86L118.987 294.739C128.888 300.42 141.112 300.42 151.013 294.739L253.972 235.86C263.873 230.178 270 219.712 270 208.379V90.6509C270 79.3177 263.903 68.8217 253.972 63.1701V63.1402Z" class="fill-jobboard-lightcream hover:fill-jobboard-violet" />
 				</svg>
 
 				<!-- Contenu superposé -->
@@ -84,7 +84,7 @@
 					</svg>
 
 					<!-- Texte en bas -->
-					<p class="text-breeder-deepblue font-bold text-sm md:text-[18px] text-center">
+					<p class="text-jobboard-deepblue font-bold text-sm md:text-[18px] text-center">
 						{{ __('Animal health') }}
 					</p>
 				</div>
@@ -94,7 +94,7 @@
 		<a href="{{ route('professionnal-activity-search.professionnal-activities', ['activityCategory' => 'produits', 'activity' => 'promenade']) }}">
 			<div class="relative w-[167px] md:w-[270px] h-[185px] md:h-[299px]">
 				<svg class="absolute inset-0 w-full h-full" viewBox="0 0 270 299" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M253.972 63.1402L151.013 4.26118C141.112 -1.42039 128.888 -1.42039 118.987 4.26118L16.0279 63.1402C6.12745 68.8217 0 79.2878 0 90.621V208.379C0 219.712 6.09726 230.208 16.0279 235.86L118.987 294.739C128.888 300.42 141.112 300.42 151.013 294.739L253.972 235.86C263.873 230.178 270 219.712 270 208.379V90.6509C270 79.3177 263.903 68.8217 253.972 63.1701V63.1402Z" class="fill-breeder-lightcream hover:fill-breeder-violet" />
+					<path d="M253.972 63.1402L151.013 4.26118C141.112 -1.42039 128.888 -1.42039 118.987 4.26118L16.0279 63.1402C6.12745 68.8217 0 79.2878 0 90.621V208.379C0 219.712 6.09726 230.208 16.0279 235.86L118.987 294.739C128.888 300.42 141.112 300.42 151.013 294.739L253.972 235.86C263.873 230.178 270 219.712 270 208.379V90.6509C270 79.3177 263.903 68.8217 253.972 63.1701V63.1402Z" class="fill-jobboard-lightcream hover:fill-jobboard-violet" />
 				</svg>
 
 				<!-- Contenu superposé -->
@@ -141,7 +141,7 @@
 							fill="#0E1954" />
 					</svg>
 					<!-- Texte en bas -->
-					<p class="text-breeder-deepblue font-bold text-sm md:text-[18px] text-center">
+					<p class="text-jobboard-deepblue font-bold text-sm md:text-[18px] text-center">
 						{{ __('Walk') }}
 					</p>
 				</div>
@@ -151,7 +151,7 @@
 		<a href="{{ route('professionnal-activity-search.professionnal-activities', ['activityCategory' => 'produits', 'activity' => 'nourriture']) }}">
 			<div class="relative w-[167px] md:w-[270px] h-[185px] md:h-[299px] ">
 				<svg class="absolute inset-0 w-full h-full" viewBox="0 0 270 299" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M253.972 63.1402L151.013 4.26118C141.112 -1.42039 128.888 -1.42039 118.987 4.26118L16.0279 63.1402C6.12745 68.8217 0 79.2878 0 90.621V208.379C0 219.712 6.09726 230.208 16.0279 235.86L118.987 294.739C128.888 300.42 141.112 300.42 151.013 294.739L253.972 235.86C263.873 230.178 270 219.712 270 208.379V90.6509C270 79.3177 263.903 68.8217 253.972 63.1701V63.1402Z" class="fill-breeder-lightcream hover:fill-breeder-violet" />
+					<path d="M253.972 63.1402L151.013 4.26118C141.112 -1.42039 128.888 -1.42039 118.987 4.26118L16.0279 63.1402C6.12745 68.8217 0 79.2878 0 90.621V208.379C0 219.712 6.09726 230.208 16.0279 235.86L118.987 294.739C128.888 300.42 141.112 300.42 151.013 294.739L253.972 235.86C263.873 230.178 270 219.712 270 208.379V90.6509C270 79.3177 263.903 68.8217 253.972 63.1701V63.1402Z" class="fill-jobboard-lightcream hover:fill-jobboard-violet" />
 				</svg>
 
 				<div class="absolute  inset-0 flex flex-col items-center justify-center gap-y-2 md:gap-y-4 py-4 md:py-6 pointer-events-none">
@@ -183,7 +183,7 @@
 							fill="#0E1954" />
 					</svg>
 					<!-- Texte en bas -->
-					<p class="text-breeder-deepblue font-bold text-sm md:text-[18px] text-center">
+					<p class="text-jobboard-deepblue font-bold text-sm md:text-[18px] text-center">
 						{{ __('Food') }}<br>& {{ __('complements') }}
 					</p>
 				</div>
@@ -193,7 +193,7 @@
 		<a href="{{ route('professionnal-activity-search.professionnal-activities', ['activityCategory' => 'produits', 'activity' => 'accessoires']) }}">
 			<div class="relative w-[167px] md:w-[270px] h-[185px] md:h-[299px] ">
 				<svg class="absolute inset-0 w-full h-full" viewBox="0 0 270 299" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M253.972 63.1402L151.013 4.26118C141.112 -1.42039 128.888 -1.42039 118.987 4.26118L16.0279 63.1402C6.12745 68.8217 0 79.2878 0 90.621V208.379C0 219.712 6.09726 230.208 16.0279 235.86L118.987 294.739C128.888 300.42 141.112 300.42 151.013 294.739L253.972 235.86C263.873 230.178 270 219.712 270 208.379V90.6509C270 79.3177 263.903 68.8217 253.972 63.1701V63.1402Z" class="fill-breeder-lightcream hover:fill-breeder-violet" />
+					<path d="M253.972 63.1402L151.013 4.26118C141.112 -1.42039 128.888 -1.42039 118.987 4.26118L16.0279 63.1402C6.12745 68.8217 0 79.2878 0 90.621V208.379C0 219.712 6.09726 230.208 16.0279 235.86L118.987 294.739C128.888 300.42 141.112 300.42 151.013 294.739L253.972 235.86C263.873 230.178 270 219.712 270 208.379V90.6509C270 79.3177 263.903 68.8217 253.972 63.1701V63.1402Z" class="fill-jobboard-lightcream hover:fill-jobboard-violet" />
 				</svg>
 
 				<div class="absolute inset-0 flex flex-col items-center justify-center gap-y-2 md:gap-y-4 py-4 md:py-6 pointer-events-none">
@@ -206,7 +206,7 @@
 					</svg>
 
 					<!-- Texte en bas -->
-					<p class="text-breeder-deepblue font-bold text-sm md:text-[18px] text-center">
+					<p class="text-jobboard-deepblue font-bold text-sm md:text-[18px] text-center">
 						{{ __('Accessories') }}
 					</p>
 				</div>

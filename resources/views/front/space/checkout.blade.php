@@ -11,8 +11,8 @@
 	</x-slot>
 
 	<div class="flex-1 py-5">
-		<div class="w-full bg-white px-6 py-10 mb-6 rounded-md text-breeder-deepblue">
-			<div class="flex flex-col p-6 gap-y-6 justify-center items-center w-full bg-breeder-cream rounded-xl">
+		<div class="w-full bg-white px-6 py-10 mb-6 rounded-md text-jobboard-deepblue">
+			<div class="flex flex-col p-6 gap-y-6 justify-center items-center w-full bg-jobboard-cream rounded-xl">
 				<svg width="84" height="88" viewBox="0 0 84 88" fill="none" xmlns="http://www.w3.org/2000/svg" class="shrink-0">
 					<path d="M16.8295 55.6387C15.0096 59.4317 12.8473 64.2723 10.2988 69.8074C11.0792 70.8176 12.5476 70.8436 13.3049 71.702C13.6389 71.7754 13.9499 71.94 14.1774 72.1983C14.8138 72.9275 15.5452 73.6542 16.4149 74.4214C17.2039 75.1177 18.0649 75.7862 18.9719 76.4141C20.907 77.7283 22.8277 78.6246 24.3107 78.9158C29.6236 77.0218 34.1388 75.3811 37.9744 73.9631C36.7361 73.4998 35.567 72.9376 34.5851 72.416C31.6565 70.8639 28.6013 68.7192 25.7505 66.215C22.9141 63.721 20.4751 61.0345 18.7041 58.4518" fill="#C68CFF"/>
 					<path d="M65.7333 59.2877C65.755 60.259 65.5185 61.0164 65.0019 61.5359C62.037 64.5175 50.972 58.229 40.2933 47.49C29.6146 36.751 23.3615 25.6235 26.3264 22.6419C27.175 21.7884 28.6683 21.6902 30.6347 22.2424" stroke="#0E1954" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>

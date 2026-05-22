@@ -18,7 +18,7 @@
 		@include('components.front.space.profile.side-menu')
 	</x-slot>
 
-	<div x-data="{uppyUploaderCollection: '', uppyUploaderMediaId: ''}" class="flex flex-col gap-6 mt-6 text-breeder-deepblue p-6">
+	<div x-data="{uppyUploaderCollection: '', uppyUploaderMediaId: ''}" class="flex flex-col gap-6 mt-6 text-jobboard-deepblue p-6">
 		<a href="{{ route('space.posts.my-posts') }}">
 			<div class="flex flex-wrap justify-start items-center font-bold gap-x-2">
 				<svg width="12" height="17" viewBox="0 0 12 17" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -98,7 +98,7 @@
 			</div>
 		</div>
 
-		<div class="flex flex-col items-center lg:justify-between w-full text-sm bg-breeder-violet rounded-xl p-4 flex-wrap lg:flex-row">
+		<div class="flex flex-col items-center lg:justify-between w-full text-sm bg-jobboard-violet rounded-xl p-4 flex-wrap lg:flex-row">
 			@if(!$post->isAvailable())
 				<div class="flex flex-col lg:flex-row justify-between items-center gap-x-2 font-bold">
 					<svg class="shrink-0" width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -143,15 +143,15 @@
 
 					<div class="flex flex-row justify-start items-center gap-x-2 font-normal">
 						@if($lastPublication->isDraft())
-							{{ ucfirst(__('as draft')) }} <div class="w-2 h-2 bg-breeder-deepblue rounded-full"></div>
+							{{ ucfirst(__('as draft')) }} <div class="w-2 h-2 bg-jobboard-deepblue rounded-full"></div>
 						@elseif($lastPublication->isWaitingToBePublished())
 							@if($post->awaitingModeration())
-								{{ ucfirst(__('waiting validation')) }} <div class="w-2 h-2 bg-breeder-orange rounded-full"></div>
+								{{ ucfirst(__('waiting validation')) }} <div class="w-2 h-2 bg-jobboard-orange rounded-full"></div>
 							@elseif($post->lastModeration->isDenied())
-								{{ ucfirst(__('moderation denied, update your post infos and resubmit')) }} <div class="w-2 h-2 bg-breeder-red rounded-full"></div>
+								{{ ucfirst(__('moderation denied, update your post infos and resubmit')) }} <div class="w-2 h-2 bg-jobboard-red rounded-full"></div>
 							@endif
 						@elseif($lastPublication->isPublished())
-							{{ ucfirst(__('published the :date', ['date' => $post->published_at->format('d/m/Y')])) }} <div class="w-2 h-2 bg-breeder-green rounded-full"></div>
+							{{ ucfirst(__('published the :date', ['date' => $post->published_at->format('d/m/Y')])) }} <div class="w-2 h-2 bg-jobboard-green rounded-full"></div>
 						@endif
 					</div>
 
@@ -183,11 +183,11 @@
 		</div>
 
 		<div class="w-full">
-			<hr class="w-full hpx border-t border-breeder-deepblue bg-breeder-deepblue">
+			<hr class="w-full hpx border-t border-jobboard-deepblue bg-jobboard-deepblue">
 	
 			<livewire:front.space.stats :element="$post" />
 	
-			<hr class="w-full hpx border-t border-breeder-deepblue bg-breeder-deepblue">
+			<hr class="w-full hpx border-t border-jobboard-deepblue bg-jobboard-deepblue">
 		</div>
 
 		@include('components.front.space.posts.details.'.$post->type->getTranslation('slug', 'en'))
@@ -205,7 +205,7 @@
 		<x-front.modal name="delete_photo" :class="'w-full max-w-xl'" focusable>
 			<section class="p-10 flex flex-col flex-wrap content-center">
 				<header class="flex flex-col flex-wrap content-center">
-					<p class="mt-1 text-sm m-auto text-breeder-deepblue">
+					<p class="mt-1 text-sm m-auto text-jobboard-deepblue">
 						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
 							<path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
 						</svg>

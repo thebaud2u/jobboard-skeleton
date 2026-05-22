@@ -16,19 +16,19 @@
 
 	<x-slot name="mainTitle">
 		@if($errors->any() || Session::has('error') || Session::has('success') || Session::has('warning') || Session::has('info'))
-			<div class="bg-breeder-cream flex justify-center w-full" x-data="{}" x-ref="alert">
+			<div class="bg-jobboard-cream flex justify-center w-full" x-data="{}" x-ref="alert">
 				@include('components.front.alerts')
 			</div>
 		@endif
 		<div class="h-[440px] lg:h-[500px] max-s:h-[390px] bg white w-full overflow-hidden">
-			<div class="h-[400px] max-s:h-[390px] bg-breeder-cream w-full px-4">
+			<div class="h-[400px] max-s:h-[390px] bg-jobboard-cream w-full px-4">
 				<div class="flex flex-col lg:flex-row lg:items-stretch h-full max-w-[1200px] mx-auto">
 					<div class="flex flex-col items-center lg:items-start lg:gap-y-3 md:mt-6 lg:mt-12 lg:flex-1">
-						<h1 class="text-breeder-deepblue text-[30px] lg:text-[40px] w-[97%] max-s:w-[350px] md:w-[80%] xlsm:w-[700px] font-bold max-lg:text-center">
+						<h1 class="text-jobboard-deepblue text-[30px] lg:text-[40px] w-[97%] max-s:w-[350px] md:w-[80%] xlsm:w-[700px] font-bold max-lg:text-center">
 							{{ __('Adopt dogs and cats with confidence') }}
 						</h1>
 						<div class="flex flex-col gap-y-2 max-lg:items-center">
-							<p class="text-breeder-deepblue">
+							<p class="text-jobboard-deepblue">
 								{{ __("I'm looking for") }} :
 							</p>
 
@@ -142,7 +142,7 @@
 	@if(! auth()->check() || ! auth()->user()->hasRole('adopter'))
 		<div class="w-full flex justify-center px-4 my-4 md:my-8">
 			<nav class="flex flex-row gap-x-4 md:gap-x-12 bg-white overflow-x-scroll scrollbar-none">
-				<x-front.home.nav-link :href="route('post-search.dog-posts')" :active="request()->routeIs('post-search.dog-posts*')" :class="' hover:bg-breeder-coral w-[159px] shrink-0'">
+				<x-front.home.nav-link :href="route('post-search.dog-posts')" :active="request()->routeIs('post-search.dog-posts*')" :class="' hover:bg-jobboard-coral w-[159px] shrink-0'">
 					<svg width="37" height="30" viewBox="0 0 37 30" fill="none" xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0">
 						<path d="M13.3372 0.372725C12.2471 -0.712824 9.99594 0.8876 8.90077 1.26551C5.93468 2.28765 2.74551 2.56919 0.925293 5.4606C-2.12445 10.3101 2.93564 21.0413 7.80306 17.4143C10.4092 15.4715 7.96531 10.2543 9.96298 7.40089C10.7641 6.25954 12.2471 5.82583 13.0279 4.38012C13.5071 3.49495 14.1003 1.13109 13.3347 0.370189L13.3372 0.372725ZM35.1088 4.20512C33.2911 2.38657 30.9613 2.34599 28.7254 1.58763C26.639 0.882527 22.6969 -2.09512 23.3078 2.69854C23.7185 5.91968 27.1967 6.34831 27.7367 8.92015C28.2868 11.5453 26.6238 17.0186 30.1222 17.9444C32.7435 18.6368 34.4015 16.7599 35.5017 14.6878C37.2028 11.4844 37.9202 7.01283 35.1113 4.20512H35.1088ZM12.8226 8.72486C10.8858 9.12306 11.4612 12.2427 13.2231 12.1667C15.5478 12.0652 15.5022 8.17447 12.8226 8.72486ZM22.3343 11.6594C23.9087 13.3181 26.5249 10.5662 24.7959 9.0698C23.067 7.57336 20.9705 10.2213 22.3343 11.6594ZM8.07179 18.3198V29.3528C8.07179 29.5151 8.68275 29.959 8.96668 29.9894C11.2052 30.2329 9.93256 26.19 10.1024 24.9142C12.7288 27.0955 15.7507 27.8767 18.3745 25.1882C21.0871 27.7296 23.7591 27.1589 26.5781 25.1679V29.0992C26.5781 30.3192 28.8597 30.1086 28.8597 29.3528V18.3198C26.1446 18.2183 26.7581 19.8035 26.1243 21.5435C25.3359 23.7019 22.4788 25.911 20.3848 23.8845C19.5609 23.0881 19.1984 20.7952 19.4773 19.768C19.599 19.3166 21.8349 18.6876 21.4623 16.7371C20.8995 13.7975 15.3222 14.1932 15.4414 17.1581C15.52 19.101 17.4238 19.5905 17.4644 19.7579C18.3111 23.2935 15.1701 26.4284 12.1204 23.5294C10.0619 21.5714 11.2914 18.0636 8.07179 18.3223V18.3198Z" fill="#0E1954" />
 						<path d="M13.3373 0.372752C14.1029 1.13365 13.5072 3.49751 13.0306 4.38269C12.2497 5.8284 10.7642 6.26211 9.9656 7.40346C7.96539 10.2543 10.4092 15.4741 7.80568 17.4169C2.93572 21.0413 -2.12437 10.3101 0.925376 5.46063C2.74559 2.56921 5.93476 2.28768 8.90085 1.26554C9.99602 0.887627 12.2472 -0.715333 13.3373 0.372752Z" fill="#0E1954" />
@@ -155,11 +155,11 @@
 					{{ __('Adopt a dog') }}
 				</x-front.home.nav-link>
 
-				<x-front.home.nav-link :href="route('company-search.dog-companies')" :active="request()->routeIs('company-search.dog-companies')" :class="' hover:bg-breeder-coral w-[120px] shrink-0'">
+				<x-front.home.nav-link :href="route('company-search.dog-companies')" :active="request()->routeIs('company-search.dog-companies')" :class="' hover:bg-jobboard-coral w-[120px] shrink-0'">
 					{{ __('Dog breeders') }}
 				</x-front.home.nav-link>
 
-				<x-front.home.nav-link :href="route('post-search.cat-posts')" :active="request()->routeIs('post-search.cat-posts*')" :class="' hover:bg-breeder-green w-[151px] shrink-0'">
+				<x-front.home.nav-link :href="route('post-search.cat-posts')" :active="request()->routeIs('post-search.cat-posts*')" :class="' hover:bg-jobboard-green w-[151px] shrink-0'">
 					<svg width="32" height="30" viewBox="0 0 32 30" fill="none" xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0">
 						<g clip-path="url(#clip0_366_9938)">
 							<path d="M17.6585 17.2751C17.2829 17.036 15.264 17.3718 14.6302 17.2395C14.2316 18.3052 15.425 18.8012 15.3023 19.5312C14.9344 21.7363 12.9308 20.9555 12.8261 21.9449C12.7008 23.1352 13.9786 22.919 14.7785 22.5986C15.3381 22.3747 15.8543 21.6168 16.069 21.5786C16.3092 21.5354 18.7625 23.9924 19.6263 22.3289C20.1195 21.3828 17.5614 21.3853 17.0912 19.727C16.805 18.7147 18.6373 17.8957 17.6585 17.2751Z" fill="#0E1954" />
@@ -182,27 +182,27 @@
 					{{ __('Adopt a cat') }}
 				</x-front.home.nav-link>
 
-				<x-front.home.nav-link :href="route('company-search.cat-companies')" :active="request()->routeIs('company-search.cat-companies')" :class="' hover:bg-breeder-green w-[115px] shrink-0'">
+				<x-front.home.nav-link :href="route('company-search.cat-companies')" :active="request()->routeIs('company-search.cat-companies')" :class="' hover:bg-jobboard-green w-[115px] shrink-0'">
 					{{ __('Cat breeders') }}
 				</x-front.home.nav-link>
 
-				<x-front.home.nav-link :href="route('pages.quisommesnous')" :active="request()->routeIs('pages.quisommesnous')" :class="' hover:bg-breeder-orange w-[151px] shrink-0'">
+				<x-front.home.nav-link :href="route('pages.quisommesnous')" :active="request()->routeIs('pages.quisommesnous')" :class="' hover:bg-jobboard-orange w-[151px] shrink-0'">
 
 					{{ __('Our guarantees') }}
 				</x-front.home.nav-link>
 
-				<x-front.home.nav-link :href="route('professionnal-activity-search.professionnal-activities')" :active="request()->routeIs('professionnal-activity-search.*')" :class="' hover:bg-breeder-orange w-[120px] shrink-0'">
+				<x-front.home.nav-link :href="route('professionnal-activity-search.professionnal-activities')" :active="request()->routeIs('professionnal-activity-search.*')" :class="' hover:bg-jobboard-orange w-[120px] shrink-0'">
 					{{ __('Products & services') }}
 				</x-front.home.nav-link>
 
-				<x-front.home.nav-link :href="route('article.index')" :active="request()->routeIs('article.*')" :class="' hover:bg-breeder-orange w-[112px] shrink-0'">
+				<x-front.home.nav-link :href="route('article.index')" :active="request()->routeIs('article.*')" :class="' hover:bg-jobboard-orange w-[112px] shrink-0'">
 					{{ __('Advices') }}
 				</x-front.home.nav-link>
 			</nav>
 		</div>
 	@endif
 
-	<hr class="bg-breeder-greige border-0 @if(auth()->check() && auth()->user()->hasRole('adopter')) mb-6 mt-12 @else my-2 md:my-6 @endif h-px w-full max-w-[1200px]">
+	<hr class="bg-jobboard-greige border-0 @if(auth()->check() && auth()->user()->hasRole('adopter')) mb-6 mt-12 @else my-2 md:my-6 @endif h-px w-full max-w-[1200px]">
 
 	<div class="max-w-[1200px] w-full mb-8 px-4">
 		<livewire:front.animals.litter-animals.recently-published
@@ -216,9 +216,9 @@
 			:key="'kitties-posts'" />
 	</div>
 
-	<div class="flex flex-col items-center w-full bg-breeder-deepblue py-8 lg:py-16">
+	<div class="flex flex-col items-center w-full bg-jobboard-deepblue py-8 lg:py-16">
 		<div class="max-w-[1200px] w-full flex flex-col gap-y-8 px-2 lg:px-0">
-			<h2 class="text-breeder-cream text-center">
+			<h2 class="text-jobboard-cream text-center">
 				{{ __(('Top breeds')) }}
 			</h2>
 
@@ -254,8 +254,8 @@
 	{{-- End Adopter garanties --}}
 
 	{{-- Certified breeders --}}
-	<div class="flex flex-col items-center px-4 md:px-8 py-8 lg:py-16 w-full bg-breeder-cream gap-y-12">
-		<h3 class="font-semibold text-breeder-deepblue text-[25px] md:text-[40px] text-center">
+	<div class="flex flex-col items-center px-4 md:px-8 py-8 lg:py-16 w-full bg-jobboard-cream gap-y-12">
+		<h3 class="font-semibold text-jobboard-deepblue text-[25px] md:text-[40px] text-center">
 			{{ __('Our certified companies') }}
 		</h3>
 
@@ -301,7 +301,7 @@
 	{{-- <div class="mx-auto max-w-[1200px] w-full my-8 md:my-10 lg:my-20 px-4"> --}}
 
 	@if(! auth()->check() || ! auth()->user()->hasRole('adopter'))
-		<div class="mx-auto max-w-[1200px] w-full flex flex-col md:flex-row items-center max-md:gap-y-4 rounded-md bg-breeder-orange justify-between px-8 lg:px-20 max-lg:py-8 my-20">
+		<div class="mx-auto max-w-[1200px] w-full flex flex-col md:flex-row items-center max-md:gap-y-4 rounded-md bg-jobboard-orange justify-between px-8 lg:px-20 max-lg:py-8 my-20">
 			<div class="flex items-center gap-x-4">
 				<div class="relative w-[120px] md:h-[122px] max-lg:hidden">
 					<div class="absolute w-[212px] h-[161px] -right-[16px] bottom-[4px]">
@@ -309,7 +309,7 @@
 					</div>
 				</div>
 
-				<div class="flex flex-col max-md:items-center text-breeder-deepblue">
+				<div class="flex flex-col max-md:items-center text-jobboard-deepblue">
 					<h6 class="font-semibold text-[20px] sm:text-[28px] max-md:text-center">
 						{{ __('Are you a professional ?') }}
 					</h6>
@@ -321,7 +321,7 @@
 			</div>
 
 			<div class="flex justify-center min-w-[225px]">
-				<a href="{{ route('home.pro') }}" class="flex justify-center items-center gap-x-1 rounded-full text-breeder-cream text-sm font-semibold bg-breeder-deepblue hover:bg-breeder-deepbluehover py-4 px-6">
+				<a href="{{ route('home.pro') }}" class="flex justify-center items-center gap-x-1 rounded-full text-jobboard-cream text-sm font-semibold bg-jobboard-deepblue hover:bg-jobboard-deepbluehover py-4 px-6">
 					{{ __('I discover the services') }}
 
 					<svg width="11" height="13" viewBox="0 0 11 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -337,7 +337,7 @@
 	{{-- End Best advices --}}
 
 	{{-- NL inscription --}}
-	@include('components.front.nl', ['bgcolor' => 'bg-breeder-coral'])
+	@include('components.front.nl', ['bgcolor' => 'bg-jobboard-coral'])
 	{{-- CTA Create post --}}
 
 	@if(! auth()->check() || ! auth()->user()->hasRole('adopter'))

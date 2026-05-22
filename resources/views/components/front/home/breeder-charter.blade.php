@@ -1,5 +1,5 @@
 <div class="flex flex-col sm:flex-row w-full @if(auth()->check() && auth()->user()->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder', 'admin']) && Route::is('home.breeder')) mt-10 @endif">
-	<div class="flex-1 bg-breeder-deepblue px-2 py-8 md:py-16">
+	<div class="flex-1 bg-jobboard-deepblue px-2 py-8 md:py-16">
 		<div class="flex flex-col items-center">
 			<h3 class="text-white max-w-[230px] font-semibold text-center text-[25px] md:text-[28px] mb-8">
 				{{ __('The breeders-online charter') }}
@@ -65,14 +65,14 @@
 			<div class="flex justify-center mt-8 md:mt-12">
 				<a href="{{ route('pages.quisommesnous') }}">
 					<button
-						class="bg-breeder-deepblue hover:bg-breeder-cream border border-breeder-cream rounded-full text-breeder-cream hover:text-breeder-deepblue font-semibold text-sm py-4 px-8">{{ __('Discover us') }}</button>
+						class="bg-jobboard-deepblue hover:bg-jobboard-cream border border-jobboard-cream rounded-full text-jobboard-cream hover:text-jobboard-deepblue font-semibold text-sm py-4 px-8">{{ __('Discover us') }}</button>
 				</a>
 			</div>
 		</div>
 	</div>
-	<div class="flex-1 bg-breeder-orange px-2 py-8 md:py-16">
+	<div class="flex-1 bg-jobboard-orange px-2 py-8 md:py-16">
 		<div class="flex flex-col items-center">
-			<h3 class="text-breeder-deepblue max-w-[285px] font-semibold text-center text-[25px] md:text-[28px] mb-8">
+			<h3 class="text-jobboard-deepblue max-w-[285px] font-semibold text-center text-[25px] md:text-[28px] mb-8">
 				{{ __('Be part of our community') }}
 			</h3>
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 max-md:px-4 max-sm:self-start">
@@ -88,7 +88,7 @@
 					</svg>
 
 
-					<div class="flex flex-row md:flex-col text-breeder-deepblue text-md">
+					<div class="flex flex-row md:flex-col text-jobboard-deepblue text-md">
 						<p class="md:text-center max-w-[230px]"><strong>Bénéficiez d’avantages</strong> et promotions
 							exclusifs</p>
 					</div>
@@ -104,7 +104,7 @@
 							stroke="#0E1954" stroke-width="2" stroke-miterlimit="10" />
 					</svg>
 
-					<div class="flex flex-row md:flex-col text-breeder-deepblue text-md">
+					<div class="flex flex-row md:flex-col text-jobboard-deepblue text-md">
 						<p class="md:text-center max-w-[270px]"><strong>Gérez vos annonces, vos demandes</strong> et
 							vos rendez-vous</p>
 					</div>
@@ -120,7 +120,7 @@
 							stroke="#0E1954" stroke-width="2" stroke-miterlimit="10" stroke-linejoin="round" />
 					</svg>
 
-					<div class="flex flex-row md:flex-col text-breeder-deepblue text-md">
+					<div class="flex flex-row md:flex-col text-jobboard-deepblue text-md">
 						<p class="md:text-center max-w-[280px]"><strong>Bénéficiez d'une visibilité</strong> auprès de
 							nos communautés d'adoptants</p>
 					</div>
@@ -136,14 +136,14 @@
 							stroke="#0E1954" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
 					</svg>
 
-					<div class="flex flex-row md:flex-col text-breeder-deepblue text-md">
+					<div class="flex flex-row md:flex-col text-jobboard-deepblue text-md">
 						<p class="md:text-center max-w-[200px]"><strong>Accédez aux conseils</strong> de nos experts</p>
 					</div>
 				</div>
 			</div>
 			<div class="flex justify-center mt-8 md:mt-12">
 				<a href="{{ route('register', ['role' => 'eleveur']) }}">
-					<button class="bg-breeder-orange hover:bg-breeder-deepblue border border-breeder-deepbluehover rounded-full text-breeder-deepbluehover hover:text-breeder-cream font-semibold text-sm py-4 px-8">{{ __("I'm signing up") }}</button>
+					<button class="bg-jobboard-orange hover:bg-jobboard-deepblue border border-jobboard-deepbluehover rounded-full text-jobboard-deepbluehover hover:text-jobboard-cream font-semibold text-sm py-4 px-8">{{ __("I'm signing up") }}</button>
 				</a>
 			</div>
 		</div>

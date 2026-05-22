@@ -11,7 +11,7 @@ use Illuminate\Support\Carbon;
 
 use App\Enums\PublicationStates;
 
-use App\Models\{Animal, Litter, Offer, Post};
+use App\Models\{Offer, Post};
 
 class MyPosts extends Component
 {
@@ -20,7 +20,6 @@ class MyPosts extends Component
 	// Search filters
 	public $offer = null;
 	public $postType = null;
-	public $species = null;
 	public $state = null;
 
 	#[On('posts-search-slot')]
@@ -28,7 +27,6 @@ class MyPosts extends Component
 	{
 		$this->offer = $filters['offer'];
 		$this->postType = $filters['postType'];
-		$this->species = $filters['species'];
 		$this->state = $filters['state'];
 	}
 
@@ -39,7 +37,6 @@ class MyPosts extends Component
 
 			if(!empty($filters['offer'])) $this->offer = $filters['offer'];
 			if(!empty($filters['postType'])) $this->postType = $filters['postType'];
-			if(!empty($filters['species'])) $this->species = $filters['species'];
 			if(!empty($filters['state'])) $this->state = $filters['state'];
 		}
 	}
@@ -58,13 +55,6 @@ class MyPosts extends Component
 			->when($this->postType, function($when) {
 				$when->whereHas('type', function($whereHas) {
 					$whereHas->where('slug->en', $this->postType);
-				});
-			})
-			->when($this->species, function($when) {
-				$when->whereHasMorph('model', [Animal::class, Litter::class], function($whereHasMorph) {
-					$whereHasMorph->whereHas('species', function($whereHas) {
-						$whereHas->where('slug->en', $this->species);
-					});
 				});
 			})
 			->when($this->state, function($when) {

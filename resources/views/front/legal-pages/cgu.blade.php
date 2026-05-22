@@ -9,7 +9,7 @@
 
 	<div class="w-full sm:max-w-4xl mx-auto mb-6 sm:px-6 sm:py-4 sm:rounded-md sm:border sm:border-gray-200">
 		<div class="flex flex-row flex-wrap my-6 mx-10">
-			<h1 class="mb-4 leading-10 text-2xl text-left font-bold text-breeder-deepblue">Conditions générales d'utilisation du site {{ env('APP_NAME') }}</h1>
+			<h1 class="mb-4 leading-10 text-2xl text-left font-bold text-jobboard-deepblue">Conditions générales d'utilisation du site {{ env('APP_NAME') }}</h1>
 		</div>
 
 		<div class="mx-10">
@@ -17,10 +17,10 @@
 				1HEALTHMEDIA - HEALTH INITIATIVE est une société par actions simplifiée au capital de 2000 euros, immatriculée au Registre du Commerce et des Sociétés (RCS) de Nanterre sous le numéro 838 045 987, dont le siège social est situé 19-21, 19 RUE DUMONT D'URVILLE, 75016 PARIS (ci-après « HI »).
 			</p>
 			<p class="mb-4 text-justify">
-				Les présentes conditions d’utilisation du site internet <a href="{{ env('APP_URL') }}" target="_blank" class="underline underline-offset-4 text-breeder-deepblue hover:opacity-80">https://www.Eleveurs-Online.com</a> (ci-après, le « <strong>Site</strong> ») régissent la relation entre HI et les Utilisateurs du Site, à l’exclusion des Professionnels et des Eleveurs, tels que définis ci-dessous, pour lesquels des conditions générales d’utilisation et de vente propres s’appliquent et qui sont accessibles sur le Site.
+				Les présentes conditions d’utilisation du site internet <a href="{{ env('APP_URL') }}" target="_blank" class="underline underline-offset-4 text-jobboard-deepblue hover:opacity-80">https://www.Eleveurs-Online.com</a> (ci-après, le « <strong>Site</strong> ») régissent la relation entre HI et les Utilisateurs du Site, à l’exclusion des Professionnels et des Eleveurs, tels que définis ci-dessous, pour lesquels des conditions générales d’utilisation et de vente propres s’appliquent et qui sont accessibles sur le Site.
 			</p>
 
-			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-breeder-deepblue">Article 1 - Définition</h2>
+			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-jobboard-deepblue">Article 1 - Définition</h2>
 			<p class="mb-4">
 				Les termes qui suivent, reproduits dans les Conditions Générales d’Utilisation avec une majuscule, auront le sens qui leur est donné ci-après, qu’ils soient employés au singulier ou au pluriel : 
 			</p>
@@ -41,7 +41,7 @@
 					« <strong>Eleveur</strong> » désigne la personne qui pratique un entreprise de chien et/ou de chat.
 				</li>
 				<li>
-					« <strong>Eleveurs-Online</strong> » désigne le Site <a href="{{ env('APP_URL') }}" target="_blank" class="underline underline-offset-4 text-breeder-deepblue hover:opacity-80">Eleveurs-Online.com</a>
+					« <strong>Eleveurs-Online</strong> » désigne le Site <a href="{{ env('APP_URL') }}" target="_blank" class="underline underline-offset-4 text-jobboard-deepblue hover:opacity-80">Eleveurs-Online.com</a>
 				</li>
 				<li>
 					« <strong>Fonctionnalité</strong> » désigne les fonctionnalités proposées sur le Site aux Utilisateurs.
@@ -63,7 +63,7 @@
 				</li>
 			</ul>
 
-			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-breeder-deepblue">Article 2 - Objet</h2>
+			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-jobboard-deepblue">Article 2 - Objet</h2>
 			<p class="mb-4">
 				Le Site a été développé aux fins de proposer divers services relatifs aux chiens/chiots et chats/chaton, dont le référencement d’Annonces et la mise en relation des Utilisateurs avec des Eleveurs et des Professionnels.
 			</p>
@@ -80,8 +80,8 @@
 				Les CGU, ainsi que l'ensemble des informations mentionnées sur le Site, sont rédigées en langue française.
 			</p>
 
-			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-breeder-deepblue">Article 3 - Acceptation des CGU</h2>
-			<p class="mb-4">Les CGU sont disponibles à tout moment sur le Site et <a href="{{ asset('storage/cgu-eol.pdf') }}" download class="underline underline-offset-4 text-breeder-deepblue hover:opacity-80">
+			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-jobboard-deepblue">Article 3 - Acceptation des CGU</h2>
+			<p class="mb-4">Les CGU sont disponibles à tout moment sur le Site et <a href="{{ asset('storage/cgu-eol.pdf') }}" download class="underline underline-offset-4 text-jobboard-deepblue hover:opacity-80">
 					sont téléchargeables sous format PDF au moyen d’un lien hypertexte.
 				</a>
 			</p>
@@ -89,13 +89,13 @@
 				La navigation sur le Site emporte acceptation sans réserve des CGU par l’Utilisateur.
 			</p>
 
-			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-breeder-deepblue">Article 4 - Modification des CGU</h2>
+			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-jobboard-deepblue">Article 4 - Modification des CGU</h2>
 			<p class="mb-4">
 				HI se réserve le droit de modifier et de mettre à jour les CGU à tout moment et sans préavis. Les modifications entreront en vigueur dès leur publication sur le Site. 
 			</p>
 
-			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-breeder-deepblue">Article 5 - Création d’un Compte</h2>
-			<h3 class="mb-4 leading-10 text-lg text-left font-bold text-breeder-deepblue">5.1 Création </h3>
+			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-jobboard-deepblue">Article 5 - Création d’un Compte</h2>
+			<h3 class="mb-4 leading-10 text-lg text-left font-bold text-jobboard-deepblue">5.1 Création </h3>
 			<p class="mb-4">
 				L’Utilisateur doit être une personne physique ayant la capacité légale de contracter pour pouvoir s’inscrire sur le Site.
 			</p>
@@ -129,7 +129,7 @@
 				Eleveurs-Online ne sera en aucun cas responsable d’une utilisation frauduleuse de ces éléments ou du Site, en cas de sécurisation insuffisante des éléments de connexion.
 			</p>
 
-			<h3 class="mb-4 leading-10 text-lg text-left font-bold text-breeder-deepblue">5.2 Fonctionnalités </h3>
+			<h3 class="mb-4 leading-10 text-lg text-left font-bold text-jobboard-deepblue">5.2 Fonctionnalités </h3>
 			<p class="mb-4">
 				L’Utilisateur ayant créé un Compte bénéficiera des fonctionnalités suivantes :  
 			</p>
@@ -160,7 +160,7 @@
 				Les Fonctionnalités proposées sur le Site peuvent être amenées à évoluer.  
 			</p>
 
-			<h3 class="mb-4 leading-10 text-lg text-left font-bold text-breeder-deepblue">5.3 Accès </h3>
+			<h3 class="mb-4 leading-10 text-lg text-left font-bold text-jobboard-deepblue">5.3 Accès </h3>
 			<p class="mb-4">
 				Les Utilisateurs pourront accéder à leur Compte depuis la page d’accueil du Site, et indiquer leur adresse email et le mot de passe choisi au moment de la création du Compte.  
 			</p>
@@ -177,7 +177,7 @@
 				En cas de manquement aux CGU ou au droit applicable, ou si le Compte présente un risque pour la sécurité ou l'intégrité du Site ou des utilisateurs, HI se réserve le droit de limiter l’accès de l’Utilisateur aux Fonctionnalités et Services en suspendant immédiatement, de manière temporaire ou définitive, sans préavis, ni indemnité, le Compte de l’Utilisateur et/ou en résiliant le Compte.
 			</p>
 
-			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-breeder-deepblue">Article 6 - Services proposés sur le Site</h2>
+			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-jobboard-deepblue">Article 6 - Services proposés sur le Site</h2>
 			<p class="mb-4">
 				Eleveurs-Online propose les Services des Eleveurs et des Professionnels spécialisés dans l’offre de prestations dans les domaines canin et félin, telles que :
 			</p>
@@ -206,7 +206,7 @@
 			</p>
 
 
-			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-breeder-deepblue">Article 7 - Garantie et limitations de responsabilité</h2>
+			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-jobboard-deepblue">Article 7 - Garantie et limitations de responsabilité</h2>
 			<p class="mb-4">
 				<strong>7.1</strong> L’Utilisateur n’effectue aucun achat auprès de HI sur le Site. Tout achat s’effectue directement auprès des Eleveurs et des Professionnels.
 			</p>
@@ -265,7 +265,7 @@
 				En aucun cas, la responsabilité de HI ne pourra être engagée en cas d’erreur, d’omission ou d’imprécision des informations communiquées par l’Utilisateur.
 			</p>
 
-			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-breeder-deepblue">Article 8 - Propriété intellectuelle</h2>
+			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-jobboard-deepblue">Article 8 - Propriété intellectuelle</h2>
 			<p class="mb-4">
 				<strong>8.1</strong> Chaque Utilisateur dispose d'un droit d'usage privé et non exclusif du Site et s'engage à ne pas utiliser le Site à des fins commerciales ou illicites.
 			</p>
@@ -279,12 +279,12 @@
 				<strong>8.3</strong> Sous réserve des dispositions de l'article L. 342-3 du Code de la propriété intellectuelle, HI interdit l'extraction, la réutilisation, la commercialisation, la distribution, la modification, l'adaptation, la traduction, ainsi que la reproduction de tout ou partie des éléments (en ce compris les Eléments) du Site. Le non-respect de cette interdiction est susceptible de constituer des faits de contrefaçon pouvant engager la responsabilité civile et pénale de leur auteur.
 			</p>
 
-			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-breeder-deepblue">Article 9 - Données personnelles</h2>
+			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-jobboard-deepblue">Article 9 - Données personnelles</h2>
 			<p class="mb-4">
-				Eleveurs-Online est susceptible de traiter vos données à caractère personnel conformément à la réglementation applicable et à la politique de protection des données à caractère personnel accessible <a href="{{ route('pages.confidentialite') }}" target="_blank" class="underline underline-offset-4 text-breeder-deepblue hover:opacity-80">ici</a>.
+				Eleveurs-Online est susceptible de traiter vos données à caractère personnel conformément à la réglementation applicable et à la politique de protection des données à caractère personnel accessible <a href="{{ route('pages.confidentialite') }}" target="_blank" class="underline underline-offset-4 text-jobboard-deepblue hover:opacity-80">ici</a>.
 			</p>
 
-			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-breeder-deepblue">Article 10 - Service client</h2>
+			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-jobboard-deepblue">Article 10 - Service client</h2>
 			<p class="mb-4">
 				Pour toute information ou question, le service clientèle est à disposition des Utilisateurs du Site :
 			</p>
@@ -297,7 +297,7 @@
 				</li>
 			</ul>
 
-			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-breeder-deepblue">Article 11 - Droit applicable - Litiges</h2>
+			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-jobboard-deepblue">Article 11 - Droit applicable - Litiges</h2>
 			<p class="mb-4">
 				En cas de litige, l’Utilisateur pourra s’adresser à HI afin de tenter de le résoudre amiablement.
 			</p>

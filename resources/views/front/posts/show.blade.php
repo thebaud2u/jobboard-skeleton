@@ -33,7 +33,7 @@
 	</div>
 
 	{{-- To do component create alert html ok --}}
-	{{-- <div class="w-full flex flex-col items-center bg-breeder-darkorange p-10">
+	{{-- <div class="w-full flex flex-col items-center bg-jobboard-darkorange p-10">
 		<svg width="45" height="50" viewBox="0 0 45 50" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<path d="M20.9467 42.3895C22.3445 45.1823 25.7488 46.3184 28.5374 44.9227C31.3261 43.527 32.4571 40.121 31.0594 37.3282M41.7657 28.5158L37.8162 26.3286C35.4081 25.0009 33.4515 22.9675 32.215 20.4969L29.5885 15.249C26.6547 9.38719 20.2286 6.42461 14.1056 7.62784L12.5926 4.60488C11.648 2.71745 9.37076 1.95749 7.48613 2.90073C5.6015 3.84397 4.84492 6.12231 5.78956 8.00974L7.30252 11.0327C2.66939 15.2128 1.18922 22.1324 4.12297 27.9942L6.74954 33.2422C7.98602 35.7127 8.44099 38.4976 8.06043 41.221L7.44398 45.6935C7.24607 47.0974 8.7111 48.1487 9.98284 47.5122L41.6998 31.6382C42.9716 31.0017 42.9928 29.2065 41.7657 28.5158Z" stroke="#0E1954" stroke-width="3.5" stroke-miterlimit="10"/>
 		</svg>
@@ -50,7 +50,7 @@
 					<x-front.input-label for="email" :value="__('Select a breed')" :required="true" :class="'pl-4'"/>
 				</div>
 
-				<select name="email" id="email" value="{{ old('email') }}" required placeholder="{{ __('Account\'s email address') }}" class="border-breeder-greige focus:border-breeder-deepblue focus:ring-breeder-deepblue rounded-md shadow-sm text-breeder-deepblue placeholder:text-gray-400 mt-1 w-full">
+				<select name="email" id="email" value="{{ old('email') }}" required placeholder="{{ __('Account\'s email address') }}" class="border-jobboard-greige focus:border-jobboard-deepblue focus:ring-jobboard-deepblue rounded-md shadow-sm text-jobboard-deepblue placeholder:text-gray-400 mt-1 w-full">
 				</select>
 
 				@error('email')

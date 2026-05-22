@@ -5,7 +5,7 @@
 				{{ __('Welcome') }} !
 			</x-front.form-part-title>
 
-			<div class="flex flex-row text-breeder-deepblue text-base font-medium">
+			<div class="flex flex-row text-jobboard-deepblue text-base font-medium">
 				@if($user->hasRole('adopter'))
 					{{ __('To personalize your experience and provide you with the services that interest you, tell us more about yourself.') }}
 				@elseif($user->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
@@ -13,7 +13,7 @@
 				@endif
 			</div>
 
-			<div class="flex flex-row mt-4 text-breeder-deepblue text-base font-medium">
+			<div class="flex flex-row mt-4 text-jobboard-deepblue text-base font-medium">
 				@if($user->hasRole('adopter'))
 					{{ __('I\'m interested by :') }}
 				@elseif($user->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
@@ -24,12 +24,12 @@
 			</div>
 
 			@if($user->hasRole(['adopter', 'breeder', 'professionnal_breeder', 'individual_breeder']))
-				<div class="flex flex-col max-sm:items-center gap-y-4 sm:flex-row sm:justify-between mt-4 text-breeder-deepblue">
+				<div class="flex flex-col max-sm:items-center gap-y-4 sm:flex-row sm:justify-between mt-4 text-jobboard-deepblue">
 					<div class="flex flex-col items-center justify-center">
 						<input type="radio" name="interestedIn" value="dogs" id="dogs" wire:model="interestedIn"
 							class="peer hidden" />
 						<label for="dogs"
-							class="block cursor-pointer border border-breeder-greige rounded-xl hover:bg-breeder-cream peer-checked:bg-breeder-cream">
+							class="block cursor-pointer border border-jobboard-greige rounded-xl hover:bg-jobboard-cream peer-checked:bg-jobboard-cream">
 							<div>
 								<h3
 									class="w-[150px] md:w-[170px] h-[150px] md:h-[184px] text-base font-medium flex flex-col items-center justify-center gap-y-4">
@@ -54,7 +54,7 @@
 						<input type="radio" name="interestedIn" value="cats" id="cats"
 							wire:model="interestedIn" class="peer hidden" />
 						<label for="cats"
-							class="block cursor-pointer border border-breeder-greige rounded-xl hover:bg-breeder-cream peer-checked:bg-breeder-cream">
+							class="block cursor-pointer border border-jobboard-greige rounded-xl hover:bg-jobboard-cream peer-checked:bg-jobboard-cream">
 							<div>
 								<h3 class="w-[150px] md:w-[170px] h-[150px] md:h-[184px] text-base font-medium flex flex-col items-center justify-center gap-y-4">
 									<svg width="43" height="46" viewBox="0 0 43 46" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -73,7 +73,7 @@
 						<input type="radio" name="interestedIn" value="both" id="both"
 							wire:model="interestedIn" class="peer hidden" />
 						<label for="both"
-							class="block cursor-pointer border border-breeder-greige rounded-xl hover:bg-breeder-cream peer-checked:bg-breeder-cream">
+							class="block cursor-pointer border border-jobboard-greige rounded-xl hover:bg-jobboard-cream peer-checked:bg-jobboard-cream">
 							<div>
 								<h3
 									class="w-[150px] md:w-[170px] h-[150px] md:h-[184px] text-base font-medium flex flex-col items-center justify-center text-center gap-y-4">
@@ -111,7 +111,7 @@
 			@endif
 
 			<div class="flex s:flex-row flex-col items-center max-s:space-y-5 justify-between mt-10">
-				<button type="button" wire:click="later" x-data="" x-on:interest-saved.window="$dispatch('close');" class="text-sm font-bold text-breeder-deepblue hover:underline hover:underline-offset-4">
+				<button type="button" wire:click="later" x-data="" x-on:interest-saved.window="$dispatch('close');" class="text-sm font-bold text-jobboard-deepblue hover:underline hover:underline-offset-4">
 					{{ __('Later') }}
 				</button>
 

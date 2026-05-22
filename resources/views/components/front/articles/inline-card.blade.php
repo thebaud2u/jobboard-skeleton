@@ -1,4 +1,4 @@
-<div class="flex flex-col text-breeder-deepblue md:max-w-[264px]">
+<div class="flex flex-col text-jobboard-deepblue md:max-w-[264px]">
 	<a href="{{ route('article.show', ['article' => $article->slug]) }}" class="w-full mb-4 @if(!$loop->first) max-s:hidden @endif">
 		@if($photo = $article->getFirstMedia('photo'))
 			<img src="{{ $photo->getAvailableUrl(['optimized']) }}" alt="{{ $article->title }}" class="object-cover md:w-[264px] md:h-[225px] rounded-sm" />
@@ -15,7 +15,7 @@
 
 	<div class="flex flex-wrap gap-2 max-s:hidden">
 		@if($article->values->get('infomercial') == 'false')
-			<div class="rounded-md py-2 px-3 text-center bg-breeder-orange text-xs font-medium">
+			<div class="rounded-md py-2 px-3 text-center bg-jobboard-orange text-xs font-medium">
 				{{ __('Advertorial') }}
 			</div>
 		@endif

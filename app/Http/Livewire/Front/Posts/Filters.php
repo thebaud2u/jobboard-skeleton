@@ -5,15 +5,11 @@ namespace App\Http\Livewire\Front\Posts;
 use Livewire\Component;
 use Livewire\Attributes\On;
 
-use App\Models\Breed;
 use App\Models\PostType;
-use App\Models\Species;
 
 class Filters extends Component
 {
-	public Breed $breed;
 	public PostType $postType;
-	public Species $species;
 
 	public $withRedirect = false;
 	public $responsive = false;
@@ -25,7 +21,6 @@ class Filters extends Component
 	public $autocomplete = false;
 
 	// Lists
-	public $breedsList;
 	public $postTypesList;
 
 	#[On('location-selected')]
@@ -42,47 +37,42 @@ class Filters extends Component
 		// if(!$this->withRedirect) $this->search();
 	}
 
+	/*
 	#[On('autocompleted')]
-	public function breedSelected($slug)
+	public function Selected($slug)
 	{
 		if($slug) {
 			$breed = Breed::findBySlug($slug);
 
 			if($breed) {
-				/*$this->filters['breed'] = $breed->slug;
+				$this->filters['company_breed'] = $breed->slug;
+				session()->put('filters', $this->filters);
+				$this->breed = $breed;
 
-				$this->dispatch('breed-selected-in-filters', breed: $this->filters['breed']);
+				$this->autocomplete = false;
+
+				/*$this->dispatch('breed-selected-in-filters', breed: $this->filters['breed']);
 
 				if(!$this->withRedirect) $this->search();
 				else {
 					session()->put('filters', $this->filters);
 					$this->dispatch('posts-filters', $this->filters);
-				}*/
-
-				$this->filters['breed'] = $breed->slug;
-				session()->put('filters', $this->filters);
-				$this->breed = $breed;
-
-				$this->autocomplete = false;
+				}
 			}
 		}
-	}
+	}*/
 
-	#[On('autocomplete-reset')]
+	/*#[On('autocomplete-reset')]
 	public function breedEmptied()
 	{
-		$this->filters['breed'] = null;
+		$this->filters['company_breed'] = null;
 		session()->put('filters', $this->filters);
 		$this->breed = new Breed;
 
 		/*$this->dispatch('breed-selected-in-filters', breed: $this->filters['breed']);
 
 		if(!$this->withRedirect) $this->search();
-		else {
-			session()->put('filters', $this->filters);
-			$this->dispatch('posts-filters', $this->filters);
-		}*/
-	}
+	}*/
 
 	public function removeLocalisation()
 	{
@@ -118,15 +108,7 @@ class Filters extends Component
 			if($this->filters['post_type']) {
 				$postType = PostType::findBySlug($this->filters['post_type'], 'en');
 
-				if($postType) {
-					if($this->filters['breed']) {
-						$breed = Breed::findBySlug($this->filters['breed']);
-
-						if($breed) return redirect()->route('post-search.'.$this->species->getTranslation('slug', 'en').'-posts-with-breed', ['postType' => $postType->getTranslation('slug', 'fr'), 'breed' => $breed->slug]);
-					}
-
-					return redirect()->route('post-search.'.$this->species->getTranslation('slug', 'en').'-posts-with-post-type', ['postType' => $postType->getTranslation('slug', 'fr')]);
-				}
+				if($postType) return redirect()->route('post-search.'.$this->species->getTranslation('slug', 'en').'-posts-with-post-type', ['postType' => $postType->getTranslation('slug', 'fr')]);
 			}
 
 			return redirect()->route('post-search.'.$this->species->getTranslation('slug', 'en').'-posts');
@@ -137,7 +119,6 @@ class Filters extends Component
 	public function mount()
 	{
 		$this->filters['post_keyword'] = null;
-		$this->filters['breed'] = null;
 		$this->filters['post_type'] = null;
 
 		$this->filters['country_id'] = null;
@@ -154,7 +135,6 @@ class Filters extends Component
 			$filters = session()->get('filters');
 
 			if(!empty($filters['post_keyword'])) $this->filters['post_keyword'] = $filters['post_keyword'];
-			if(!empty($filters['breed'])) $this->filters['breed'] = $filters['breed'];
 			if(!empty($filters['post_type'])) $this->filters['post_type'] = $filters['post_type'];
 			if(!empty($filters['country_id'])) $this->filters['country_id'] = $filters['country_id'];
 			if(!empty($filters['region_id'])) $this->filters['region_id'] = $filters['region_id'];
@@ -165,16 +145,6 @@ class Filters extends Component
 		}
 
 		if($this->postType->exists) $this->filters['post_type'] = $this->postType->getTranslation('slug', 'en');
-
-		$this->breedsList = $this->species->breeds;
-
-		if($this->breed->exists && $this->breed->species->getTranslation('slug', 'en') == $this->species->getTranslation('slug', 'en')) {
-			$this->filters['breed'] = $this->breed->slug;
-		}
-		else {
-			$this->filters['breed'] = null;
-			$this->breed = new Breed;
-		}
 	}
 
 	public function render()

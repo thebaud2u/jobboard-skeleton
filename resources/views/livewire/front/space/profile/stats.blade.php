@@ -1,5 +1,5 @@
 <div @if((($where == 'all' || $where == 'breeder' || $where == 'adopter') && $user->hasRole(['adopter', 'breeder', 'professionnal_breeder', 'individual_breeder'])) || (($where == 'all' || $where == 'pro') && $user->hasRole('professionnal')))
-		class="flex flex-col gap-y-4 text-breeder-deepblue w-full max-w-[1200px] mt-10"
+		class="flex flex-col gap-y-4 text-jobboard-deepblue w-full max-w-[1200px] mt-10"
 	@endif>
 	@if($isHome && (($user->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']) && Route::is('home.breeder')) || ($user->hasRole('professionnal') && Route::is('home.pro')) || ($user->hasRole('adopter') && Route::is('home'))))
 		<div class="flex flex-col s:flex-row s:justify-between max-s:gap-y-2 font-bold text-[28px] px-4">
@@ -16,11 +16,11 @@
 	@endif
 
 	<div @if((($where == 'all' || $where == 'breeder' || $where == 'adopter') && $user->hasRole(['adopter', 'breeder', 'professionnal_breeder', 'individual_breeder'])) || (($where == 'all' || $where == 'pro') && $user->hasRole('professionnal')))
-			class="flex flex-col max-md:items-center md:flex-row gap-y-4 justify-between flex-wrap text-breeder-deepblue w-full max-w-[1200px]"
+			class="flex flex-col max-md:items-center md:flex-row gap-y-4 justify-between flex-wrap text-jobboard-deepblue w-full max-w-[1200px]"
 		@endif>
 		@if(($where == 'all' || $where == 'breeder' || $where == 'adopter') && $user->hasRole(['adopter', 'breeder', 'professionnal_breeder', 'individual_breeder']))
 			@if($user->hasRole('adopter'))
-				<div class="flex flex-col justify-between gap-y-4 border border-breeder-greige rounded-xl p-4 @if($isHome) w-[300px] s:w-[380px] @else w-full s:w-[340px] @endif">
+				<div class="flex flex-col justify-between gap-y-4 border border-jobboard-greige rounded-xl p-4 @if($isHome) w-[300px] s:w-[380px] @else w-full s:w-[340px] @endif">
 					<div class="flex flex-row justify-between items-center gap-x-2">
 						<div class="flex items-center gap-x-2 font-bold">
 							<svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -32,7 +32,7 @@
 					</div>
 
 					<div class="flex flex-row gap-x-2">
-						<div class="bg-breeder-cream flex flex-col justify-center items-center gap-y-2 w-1/2 py-3 rounded-xl">
+						<div class="bg-jobboard-cream flex flex-col justify-center items-center gap-y-2 w-1/2 py-3 rounded-xl">
 							<svg width="31" height="24" viewBox="0 0 31 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M11.564 0.298082C10.6801 -0.570356 8.85483 0.709982 7.96685 1.01231C5.56192 1.83002 2.9761 2.05525 1.50025 4.36838C-0.972516 8.24795 3.13026 16.8329 7.07682 13.9314C9.18987 12.3771 7.20837 8.20331 8.82811 5.92062C9.47764 5.00754 10.6801 4.66057 11.3132 3.504C11.7017 2.79586 12.1827 0.904772 11.5619 0.296053L11.564 0.298082ZM29.2166 3.364C27.7428 1.90916 25.8538 1.87669 24.0409 1.27C22.3492 0.705924 19.1529 -1.6762 19.6483 2.15873C19.9812 4.73564 22.8014 5.07855 23.2392 7.13602C23.6853 9.2361 22.3368 13.6148 25.1734 14.3554C27.2988 14.9094 28.6431 13.4079 29.5352 11.7501C30.9144 9.18741 31.4962 5.61017 29.2187 3.364H29.2166ZM11.1467 6.97979C9.57631 7.29835 10.0429 9.7941 11.4715 9.73322C13.3564 9.65206 13.3194 6.53948 11.1467 6.97979ZM18.8589 9.32741C20.1354 10.6544 22.2567 8.45289 20.8548 7.25574C19.453 6.05859 17.7531 8.17693 18.8589 9.32741ZM7.2947 14.6557V23.4822C7.2947 23.612 7.79008 23.9671 8.02029 23.9914C9.8353 24.1862 8.80344 20.9519 8.94116 19.9313C11.0707 21.6763 13.5208 22.3012 15.6483 20.1504C17.8476 22.1836 20.0141 21.727 22.2998 20.1342V23.2792C22.2998 24.2552 24.1498 24.0868 24.1498 23.4822V14.6557C21.9484 14.5746 22.4458 15.8427 21.9319 17.2347C21.2927 18.9614 18.9761 20.7287 17.2783 19.1075C16.6102 18.4704 16.3163 16.6361 16.5424 15.8143C16.6411 15.4532 18.454 14.9499 18.1519 13.3896C17.6955 11.0379 13.1734 11.3544 13.27 13.7264C13.3338 15.2807 14.8774 15.6723 14.9103 15.8062C15.5969 18.6347 13.0501 21.1426 10.5773 18.8234C8.90827 17.257 9.90519 14.4508 7.2947 14.6578V14.6557Z" fill="#FF7E71" />
 								<path d="M11.564 0.298202C12.1847 0.906921 11.7017 2.79801 11.3152 3.50615C10.6821 4.66272 9.47762 5.00969 8.83014 5.92276C7.20835 8.20343 9.18985 12.3792 7.07886 13.9335C3.13024 16.833 -0.972535 8.24807 1.50023 4.3685C2.97608 2.05537 5.5619 1.83014 7.96683 1.01243C8.85481 0.710101 10.6801 -0.572266 11.564 0.298202Z" fill="#FF7E71" />
@@ -45,7 +45,7 @@
 							{{ __(':x :y', ['x' => $count = $user->countAnimalSpecies('dog'), 'y' => $count > 1 ? __('dogs') : __('dog')]) }}
 						</div>
 
-						<div class="bg-breeder-cream flex flex-col justify-center items-center gap-y-2 w-1/2 py-3 rounded-xl">
+						<div class="bg-jobboard-cream flex flex-col justify-center items-center gap-y-2 w-1/2 py-3 rounded-xl">
 							<svg width="31" height="28" viewBox="0 0 31 28" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<g clip-path="url(#clip0_787_15009)">
 									<path d="M16.8051 16.1234C16.4529 15.9003 14.5602 16.2136 13.966 16.0902C13.5923 17.0848 14.7111 17.5477 14.5961 18.229C14.2511 20.2872 12.3729 19.5584 12.2746 20.4819C12.1572 21.5928 13.3551 21.3911 14.105 21.0919C14.6297 20.883 15.1136 20.1756 15.3149 20.14C15.5401 20.0997 17.84 22.3928 18.6498 20.8403C19.1122 19.9572 16.714 19.9596 16.2732 18.4118C16.0049 17.467 17.7226 16.7026 16.8051 16.1234Z" fill="#3DD8AC" />
@@ -84,7 +84,7 @@
 					</div>
 				</div>
 			@elseif(($where == 'all' || $where == 'breeder') && $user->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
-				<div class="flex flex-col justify-between gap-y-4 border border-breeder-greige rounded-xl p-4 @if($isHome) w-[300px] s:w-[380px] @else w-full s:w-[340px] @endif">
+				<div class="flex flex-col justify-between gap-y-4 border border-jobboard-greige rounded-xl p-4 @if($isHome) w-[300px] s:w-[380px] @else w-full s:w-[340px] @endif">
 					@php
 						$postStats = $user->getPostStats()
 					@endphp
@@ -114,7 +114,7 @@
 					<div class="flex justify-between gap-x-6">
 						<a href="{{ route('space.posts.show-offers') }}">
 							<x-front.secondary-button :class="'font-bold'">
-								<svg class="mr-2" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-breeder-deepblue hover:text-white">
+								<svg class="mr-2" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-jobboard-deepblue hover:text-white">
 									<path d="M5.02967 8.92505H8.66603M8.66603 8.92505H12.3024M8.66603 8.92505V5.28869M8.66603 8.92505V12.5614M16.666 8.92505C16.666 13.3433 13.0843 16.925 8.66602 16.925C4.24774 16.925 0.666016 13.3433 0.666016 8.92505C0.666016 4.50677 4.24774 0.925049 8.66602 0.925049C13.0843 0.925049 16.666 4.50677 16.666 8.92505Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
 								</svg>
 
@@ -133,7 +133,7 @@
 				</div>
 			@endif
 
-			<div class="flex flex-col justify-between gap-y-4 border border-breeder-greige rounded-xl p-4 @if($isHome) w-[300px] s:w-[380px] @else w-full s:w-[340px] @endif">
+			<div class="flex flex-col justify-between gap-y-4 border border-jobboard-greige rounded-xl p-4 @if($isHome) w-[300px] s:w-[380px] @else w-full s:w-[340px] @endif">
 				@php
 					$responseState = $user->getResponseStats()
 				@endphp
@@ -171,7 +171,7 @@
 				</div>
 			</div>
 
-			<div class="flex flex-col justify-between gap-y-4 border border-breeder-greige rounded-xl p-4 @if($isHome) w-[300px] s:w-[380px] @else w-full s:w-[340px] @endif">
+			<div class="flex flex-col justify-between gap-y-4 border border-jobboard-greige rounded-xl p-4 @if($isHome) w-[300px] s:w-[380px] @else w-full s:w-[340px] @endif">
 				@php
 					$countUnreadMessages = $user->countUnreadMessages()
 				@endphp
@@ -187,7 +187,7 @@
 						{{ __('My messages') }}
 
 						@if($countUnreadMessages > 0)
-							<div class="w-[10px] h-[10px] rounded-full bg-breeder-coral justify-self-end"></div>
+							<div class="w-[10px] h-[10px] rounded-full bg-jobboard-coral justify-self-end"></div>
 						@endif
 					</div>
 	
@@ -211,7 +211,7 @@
 				</div>
 			</div>
 		@elseif(($where == 'all' || $where == 'pro') && $user->hasRole('professionnal'))
-			<div class="flex flex-col justify-between gap-y-4 border border-breeder-greige rounded-xl p-4 @if($isHome) w-[300px] s:w-[380px] @else w-full s:w-[340px] @endif">
+			<div class="flex flex-col justify-between gap-y-4 border border-jobboard-greige rounded-xl p-4 @if($isHome) w-[300px] s:w-[380px] @else w-full s:w-[340px] @endif">
 				@php
 					$professionnalActivities = $user->professionnalActivities()->orderBy('published_at', 'DESC')
 						->orderBy('created_at', 'DESC')
@@ -235,7 +235,7 @@
 									{{ $professionnalActivity->name }}
 
 									<div class="flex flex-row gap-2">
-										<span class="w-fit px-3 py-1 rounded-md font-medium bg-breeder-cream text-breeder-deepblue text-sm">
+										<span class="w-fit px-3 py-1 rounded-md font-medium bg-jobboard-cream text-jobboard-deepblue text-sm">
 											{{ __($professionnalActivity->activity?->name) }}
 										</span>
 
@@ -253,15 +253,15 @@
 										@else
 											<div class="flex flex-row items-center gap-x-2">
 												@if($lastPublication->isDraft())
-													<div class="w-2 h-2 bg-breeder-deepblue rounded-full"></div> {{ __('As draft') }}
+													<div class="w-2 h-2 bg-jobboard-deepblue rounded-full"></div> {{ __('As draft') }}
 												@elseif($lastPublication->isWaitingToBePublished())
 													@if($professionnalActivity->awaitingModeration())
-														<div class="w-2 h-2 bg-breeder-orange rounded-full"></div> {{ __('Waiting validation') }}
+														<div class="w-2 h-2 bg-jobboard-orange rounded-full"></div> {{ __('Waiting validation') }}
 													@elseif($professionnalActivity->lastModeration->isDenied())
-														<div class="w-2 h-2 bg-breeder-red rounded-full"></div> {{ ucfirst(__('moderation denied, update your activity infos and resubmit')) }}
+														<div class="w-2 h-2 bg-jobboard-red rounded-full"></div> {{ ucfirst(__('moderation denied, update your activity infos and resubmit')) }}
 													@endif
 												@elseif($lastPublication->isPublished())
-													<div class="w-2 h-2 bg-breeder-green rounded-full"></div> {{ __('Published') }}
+													<div class="w-2 h-2 bg-jobboard-green rounded-full"></div> {{ __('Published') }}
 												@endif
 											</div>
 										@endif
@@ -270,7 +270,7 @@
 							</div>
 
 							@if(!$loop->last)
-								<div class="border-b border-breeder-greige"></div>
+								<div class="border-b border-jobboard-greige"></div>
 							@endif
 						@endforeach
 					@else
@@ -281,7 +281,7 @@
 				<div class="flex justify-between items-center gap-x-6">
 					<a href="{{ route('space.professionnal-activities.show-offers') }}">
 						<x-front.secondary-button :class="'font-bold'">
-							<svg class="mr-2" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-breeder-deepblue hover:text-white">
+							<svg class="mr-2" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-jobboard-deepblue hover:text-white">
 								<path d="M5.02967 8.92505H8.66603M8.66603 8.92505H12.3024M8.66603 8.92505V5.28869M8.66603 8.92505V12.5614M16.666 8.92505C16.666 13.3433 13.0843 16.925 8.66602 16.925C4.24774 16.925 0.666016 13.3433 0.666016 8.92505C0.666016 4.50677 4.24774 0.925049 8.66602 0.925049C13.0843 0.925049 16.666 4.50677 16.666 8.92505Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
 							</svg>
 
@@ -301,7 +301,7 @@
 				</div>
 			</div>
 
-			<div class="flex flex-col justify-between gap-y-4 border border-breeder-greige rounded-xl p-4 @if($isHome) w-[300px] s:w-[380px] @else w-full s:w-[340px] @endif">
+			<div class="flex flex-col justify-between gap-y-4 border border-jobboard-greige rounded-xl p-4 @if($isHome) w-[300px] s:w-[380px] @else w-full s:w-[340px] @endif">
 				<div class="flex items-center gap-x-2 font-bold w-full">
 					<svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M24.1087 20.087C25.3043 18.1739 26 15.9239 26 13.5C26 6.59783 20.4021 1 13.5 1C6.59779 1 1 6.59783 1 13.5C1 20.4022 6.59779 26 13.5 26C15.9239 26 18.1739 25.3043 20.0869 24.1087L26 26L24.1087 20.087Z" stroke="#0E1954" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -312,7 +312,7 @@
 					{{ __('My messages') }}
 
 					@if(Auth::guard('web')->user()->countUnreadMessages() > 0)
-						<div class="w-[10px] h-[10px] rounded-full bg-breeder-coral justify-self-end"></div>
+						<div class="w-[10px] h-[10px] rounded-full bg-jobboard-coral justify-self-end"></div>
 					@endif
 				</div>
 
@@ -335,7 +335,7 @@
 				</div>
 			</div>
 
-			<div class="flex flex-col justify-between gap-y-4 border border-breeder-greige rounded-xl p-4 @if($isHome) w-[300px] s:w-[380px] @else w-full s:w-[340px] @endif">
+			<div class="flex flex-col justify-between gap-y-4 border border-jobboard-greige rounded-xl p-4 @if($isHome) w-[300px] s:w-[380px] @else w-full s:w-[340px] @endif">
 				@php
 					$professionnalActivityStats = $user->getProfessionnalActivitiesStats()
 				@endphp
@@ -366,7 +366,7 @@
 				<div class="flex justify-end gap-x-6">
 					{{-- <a href="{{ route('space.professionnal-activities.show-offers') }}">
 						<x-front.secondary-button :class="'font-bold'">
-							<svg class="mr-2" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-breeder-deepblue hover:text-white">
+							<svg class="mr-2" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-jobboard-deepblue hover:text-white">
 								<path d="M5.02967 8.92505H8.66603M8.66603 8.92505H12.3024M8.66603 8.92505V5.28869M8.66603 8.92505V12.5614M16.666 8.92505C16.666 13.3433 13.0843 16.925 8.66602 16.925C4.24774 16.925 0.666016 13.3433 0.666016 8.92505C0.666016 4.50677 4.24774 0.925049 8.66602 0.925049C13.0843 0.925049 16.666 4.50677 16.666 8.92505Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
 							</svg>
 

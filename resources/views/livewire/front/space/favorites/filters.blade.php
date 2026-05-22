@@ -2,7 +2,7 @@
 	<form class="rounded-lg ">
 		<div class="flex flex-row justify-between px-4">
 			<div class="flex flex-row items-center">
-				<div class="text-breeder-deepblue inline-block mr-3">
+				<div class="text-jobboard-deepblue inline-block mr-3">
 					<svg width="25" height="22" viewBox="0 0 25 22" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path id="Vector" d="M23.7768 4.88867H17.1101" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
 						<path id="Vector_2" d="M5.99889 4.88867H1.55444" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
@@ -13,13 +13,13 @@
 					</svg>
 				</div>
 
-				<div class="inline-block text-breeder-deepblue font-semibold">
+				<div class="inline-block text-jobboard-deepblue font-semibold">
 					{{ __('Filter by') }} :
 				</div>
 			</div>
 
 			<div class="flex-2 inline-block">
-				<input type="reset" wire:click="resetForm" value="{{ __('Reinitialize') }}" class="font-semibold text-breeder-deepblue hover:text-breeder-deepblue cursor-pointer">
+				<input type="reset" wire:click="resetForm" value="{{ __('Reinitialize') }}" class="font-semibold text-jobboard-deepblue hover:text-jobboard-deepblue cursor-pointer">
 			</div>
 		</div>
 
@@ -27,7 +27,7 @@
 			<div class="flex flex-row py-4 mt-4">
 				<div class="bg-white lg:flex-1 p-0 min-w-[250px] ">
 					<div class="flex justify-between">
-						<input type="text" wire:model="keywords" wire:keydown.debounce.500ms="search" name="keywords" placeholder="Mot(s)-clé(s)" class="p-0 block w-full text-sm xl:text-base bg-white border py-3 px-2 focus:border-breeder-deepblue focus:ring-0 rounded-md">
+						<input type="text" wire:model="keywords" wire:keydown.debounce.500ms="search" name="keywords" placeholder="Mot(s)-clé(s)" class="p-0 block w-full text-sm xl:text-base bg-white border py-3 px-2 focus:border-jobboard-deepblue focus:ring-0 rounded-md">
 						<div class="relative">
 							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5 absolute left-[-35px] top-[13px]">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>

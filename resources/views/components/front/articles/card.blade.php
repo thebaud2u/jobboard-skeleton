@@ -1,4 +1,4 @@
-<div class="flex flex-row-reverse max-s:justify-between s:flex-col text-breeder-deepblue sm:max-w-[377px]">
+<div class="flex flex-row-reverse max-s:justify-between s:flex-col text-jobboard-deepblue sm:max-w-[377px]">
 	<div class="w-full">
 		<a href="{{ route('article.show', ['article' => $article->slug]) }}" class="w-full max-s:max-w-[120px] mb-4">
 			@if($photo = $article->getFirstMedia('photo'))
@@ -19,7 +19,7 @@
 		<div class="hidden sm:flex flex-wrap gap-2">
 			@if($article->tags->isNotEmpty())
 				@foreach($article->tags as $value)
-					<div class="rounded-md py-2 px-3 text-center bg-breeder-cream text-xs font-medium">
+					<div class="rounded-md py-2 px-3 text-center bg-jobboard-cream text-xs font-medium">
 						<a href="{{ route('article.show', ['article' => $article->slug]) }}">
 							{{ $value->name }}
 						</a>
@@ -28,7 +28,7 @@
 			@endif
 
 			@if($article->values->get('infomercial') == 'false')
-				<div class="rounded-md py-2 px-3 text-center bg-breeder-orange text-xs font-medium">
+				<div class="rounded-md py-2 px-3 text-center bg-jobboard-orange text-xs font-medium">
 					{{ __('Advertorial') }}
 				</div>
 			@endif

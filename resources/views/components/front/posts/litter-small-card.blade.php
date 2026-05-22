@@ -10,12 +10,12 @@
 	<article class="w-[220px] h-[220px] relative">
 		<div class="absolute w-[220px] top-0 z-10">
 			<div class="w-full flex flex-row items-start justify-end gap-2 p-2">
-				<span class="py-1 px-2 rounded-md font-medium bg-breeder-cream text-breeder-deepblue text-xs text-right">
+				<span class="py-1 px-2 rounded-md font-medium bg-jobboard-cream text-jobboard-deepblue text-xs text-right">
 					{{ $isPureBreed ? $breed->name : __('Of appearance :breed', ['breed' => $breed->name]) }}
 				</span>
 
 				@if($isPureBreed)
-					<span class="text-xs grow-0 rounded-md py-1 px-2 text-center @if($species->getTranslation('slug', 'en') == 'cat' && $addressInFrance) bg-breeder-green @elseif($species->getTranslation('slug', 'en') == 'dog' && $addressInFrance) bg-breeder-coral @else bg-breeder-cream @endif">
+					<span class="text-xs grow-0 rounded-md py-1 px-2 text-center @if($species->getTranslation('slug', 'en') == 'cat' && $addressInFrance) bg-jobboard-green @elseif($species->getTranslation('slug', 'en') == 'dog' && $addressInFrance) bg-jobboard-coral @else bg-jobboard-cream @endif">
 						@if($addressInFrance)
 							@if($species->getTranslation('slug', 'en') == 'cat')
 								LOOF

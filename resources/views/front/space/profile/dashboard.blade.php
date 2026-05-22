@@ -10,7 +10,7 @@
 		@include('components.front.space.profile.side-menu')
 	</x-slot>
 
-	<div x-data="{}" class="flex-1 text-breeder-deepblue max-w-[1080px] py-10 max-lg:px-6 md:pr-6 xlmd:pr-0">
+	<div x-data="{}" class="flex-1 text-jobboard-deepblue max-w-[1080px] py-10 max-lg:px-6 md:pr-6 xlmd:pr-0">
 		<div class="w-full bg-white mb-6 flex flex-row s:justify-between s:items-center max-s:flex-col">
 			<div class="flex flex-col sm:flex-row gap-x-2 sm:items-center">
 				<svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -84,8 +84,8 @@
 		@if($user->hasRole(['adopter', 'breeder', 'professionnal_breeder', 'individual_breeder']))
 			<livewire:front.space.benefits.benefits />
 		@elseif($user->hasRole('professionnal'))
-			<div class="flex flex-row justify-between items-center bg-breeder-deepblue rounded-t-xl min-h-[293px] mt-8">
-				<div class="flex flex-col px-10 py-4 gap-2 text-breeder-cream flex-1">
+			<div class="flex flex-row justify-between items-center bg-jobboard-deepblue rounded-t-xl min-h-[293px] mt-8">
+				<div class="flex flex-col px-10 py-4 gap-2 text-jobboard-cream flex-1">
 					<div class="flex flex-col gap-4">
 						<h3 class=" text-[28px] max-w-[531px]">
 							<span class="font-bold">
@@ -101,7 +101,7 @@
 						{{ __('Contact us to create a special offer for breeders or adopters who are members of Eleveurs-Online!') }}
 					</p>
 					<div class="my-4 w-full s:w-[306px]">
-						<a href="{{ route('contact') }}" class="flex justify-center items-center gap-x-2 w-full py-3 px-4 text-center border border-breeder-darkorange bg-breeder-darkorange text-breeder-deepblue text-sm font-bold rounded-full">
+						<a href="{{ route('contact') }}" class="flex justify-center items-center gap-x-2 w-full py-3 px-4 text-center border border-jobboard-darkorange bg-jobboard-darkorange text-jobboard-deepblue text-sm font-bold rounded-full">
 							<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M15.7896 13.1414C16.5548 11.9171 17 10.4771 17 8.92578C17 4.50839 13.4174 0.925781 8.99999 0.925781C4.58259 0.925781 1 4.50839 1 8.92578C1 13.3432 4.58259 16.9258 8.99999 16.9258C10.5513 16.9258 11.9913 16.4806 13.2156 15.7153L17 16.9258L15.7896 13.1414Z" stroke="#0E1954" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 								<path d="M5.86963 7.1875H12.1305" stroke="#0E1954" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -124,14 +124,14 @@
 				</div>
 			</div>
 
-			<div class="w-full rounded-b-xl bg-breeder-cream min-h-[342px] flex items-center p-6">
+			<div class="w-full rounded-b-xl bg-jobboard-cream min-h-[342px] flex items-center p-6">
 				<livewire:front.professionnal-activities.recently-published />
 			</div>
 		@endif
 
 		@if($user->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
 			<div class="flex flex-col sm:flex-row md:flex-col lg:flex-row gap-6 mt-8 flex-wrap">
-				<div class="flex-1 flex flex-col bg-breeder-deepblue text-breeder-cream px-10 py-4 gap-2 rounded-xl">
+				<div class="flex-1 flex flex-col bg-jobboard-deepblue text-jobboard-cream px-10 py-4 gap-2 rounded-xl">
 					<div class="flex flex-col gap-4">
 						<h3 class="font-bold text-[28px] max-w-[350px]">
 							{{ __('Do you have a side business ?') }}
@@ -143,13 +143,13 @@
 					</div>
 
 					<div class="my-4">
-						<a href="{{ route('space.professionnal-activities.my-professionnal-activities') }}" class="py-2 px-4 text-center border border-breeder-cream bg-breeder-deepblue text-breeder-cream hover:bg-breeder-cream hover:text-breeder-deepblue text-sm font-bold rounded-full">
+						<a href="{{ route('space.professionnal-activities.my-professionnal-activities') }}" class="py-2 px-4 text-center border border-jobboard-cream bg-jobboard-deepblue text-jobboard-cream hover:bg-jobboard-cream hover:text-jobboard-deepblue text-sm font-bold rounded-full">
 							{{ __('Promote my business')}}
 						</a>
 					</div>
 				</div>
 
-				<div class="flex-1 flex flex-col bg-breeder-violet text-breeder-deepblue px-10 py-4 gap-4 rounded-xl justify-between">
+				<div class="flex-1 flex flex-col bg-jobboard-violet text-jobboard-deepblue px-10 py-4 gap-4 rounded-xl justify-between">
 					<div class="flex flex-col gap-4">
 						<h3 class="font-bold text-[28px] max-w-[350px]">
 							{{ __('Want to train ?') }}
@@ -163,18 +163,18 @@
 					</div>
 
 					<div class="my-4">
-						<a href="{{ route('professionnal-activity-search.professionnal-activities', ['activityCategory' => 'services-prestations', 'activity' => 'formations']) }}" class="py-2 px-4 text-center border border-breeder-deepblue bg-breeder-deepblue hover:border-breeder-deepbluehover hover:bg-breeder-deepbluehover text-breeder-cream text-sm font-bold rounded-full">
+						<a href="{{ route('professionnal-activity-search.professionnal-activities', ['activityCategory' => 'services-prestations', 'activity' => 'formations']) }}" class="py-2 px-4 text-center border border-jobboard-deepblue bg-jobboard-deepblue hover:border-jobboard-deepbluehover hover:bg-jobboard-deepbluehover text-jobboard-cream text-sm font-bold rounded-full">
 							{{ __('Find training')}}
 						</a>
 					</div>
 				</div>
 			</div>
 
-			<div class="w-full rounded-xl bg-breeder-cream min-h-[312px] flex justify-between mt-8">
+			<div class="w-full rounded-xl bg-jobboard-cream min-h-[312px] flex justify-between mt-8">
 				<div class="flex flex-col gap-4 justify-between pr-0 p-6 lg:px-10 lg:pr-0 rounded-l-xl lg:max-w-[60%] z-10">
 					<p class="text-[28px] leading-tight">
 						<span class="font-bold">{{ __('Une question ?') }}</span><br>
-						{!! __('<span class=\'font-bold text-breeder-violet\'>BreederGPT,</span> you AI assistant specialized in company, answers you !') !!}
+						{!! __('<span class=\'font-bold text-jobboard-violet\'>BreederGPT,</span> you AI assistant specialized in company, answers you !') !!}
 					</p>
 
 					<div class="text-lg">
@@ -188,7 +188,7 @@
 					</div>
 
 					<a href="{{ route('space.profile.breeder-gpt') }}">
-						<x-front.secondary-button :class="'!bg-breeder-cream hover:!text-breeder-cream hover:!bg-breeder-deepblue'">
+						<x-front.secondary-button :class="'!bg-jobboard-cream hover:!text-jobboard-cream hover:!bg-jobboard-deepblue'">
 							<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M9.00031 0.924805C4.58154 0.924805 1 4.50635 1 8.92512C1 10.4558 1.42996 11.8857 2.17578 13.1012L1.20615 16.7187L4.82363 15.749C6.03913 16.4948 7.4696 16.9248 8.99968 16.9248C13.4185 16.9248 17 13.3433 17 8.92449C17 4.50572 13.4191 0.924805 9.00031 0.924805Z" fill="#C68CFF" stroke="#0E1954" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 								<path d="M7.40039 6.68048C7.40039 5.62257 8.25964 4.76465 9.32039 4.76465C10.3811 4.76465 11.2404 5.62203 11.2404 6.68048C11.2404 7.17095 11.0552 7.61861 10.7516 7.95733L9.32093 9.55394V11.1646" stroke="#0E1954" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -274,7 +274,7 @@
 				</div>
 			</div>
 		@elseif($user->hasRole('adopter'))
-			<div class="w-full rounded-xl bg-breeder-cream flex justify-between min-h-[326px] max-lg:max-w-[367px] mt-6 max-lg:mx-auto">
+			<div class="w-full rounded-xl bg-jobboard-cream flex justify-between min-h-[326px] max-lg:max-w-[367px] mt-6 max-lg:mx-auto">
 				<div class="flex flex-col lg:flex-row w-full justify-between lg:max-h-[326px]">
 					<div class="flex flex-col gap-y-2 justify-between max-w-full lg:max-w-[50%] py-12 pl-10">
 						<h2 class="text-[27px] break-words font-normal leading-none !mb-0">
@@ -339,7 +339,7 @@
 			<livewire:front.space.profile.interested-in />
 		@elseif($profileCompletionPercentage == 100 && session('profile_completed'))
 			<div x-data="{}" x-init="$nextTick(() => { $dispatch('open-modal', 'profile_completed') })">
-				<x-front.modal name="profile_completed" :class="'w-full max-w-2xl text-breeder-deepblue'" focusable>
+				<x-front.modal name="profile_completed" :class="'w-full max-w-2xl text-jobboard-deepblue'" focusable>
 					<h1 class="text-[40px] font-bold">
 						{{ __('Bravo') }} !
 					</h1>
@@ -413,7 +413,7 @@
 		@endif
 	@elseif($user->hasRole('professionnal') && !$user->hasRole(['professionnal_breeder', 'individual_breeder']) && $user->professionnalActivities->isEmpty())
 		<div x-data="{}" x-init="$nextTick(() => { $dispatch('open-modal', 'create_professionnal_activity') })">
-			<x-front.modal name="create_professionnal_activity" :class="'w-full max-w-2xl text-breeder-deepblue'" focusable>
+			<x-front.modal name="create_professionnal_activity" :class="'w-full max-w-2xl text-jobboard-deepblue'" focusable>
 				<x-front.form-part-title :class="'mb-4'">
 					{{ __('Welcome') }} !
 				</x-front.form-part-title>
@@ -428,8 +428,8 @@
 							$options = $offer->options;
 							$prices = $offer->getPrices();
 						@endphp
-						<div class="flex flex-col w-[220px] rounded-xl border border-breeder-orange mb-4">
-							<div class="flex flex-col items-center bg-breeder-orange w-full py-4 rounded-t-xl">
+						<div class="flex flex-col w-[220px] rounded-xl border border-jobboard-orange mb-4">
+							<div class="flex flex-col items-center bg-jobboard-orange w-full py-4 rounded-t-xl">
 								<h2 class="text-lg text-center font-bold flex">
 									{{ __('Annuaire') }}<br>
 									{{ __('Produits et Services') }}
@@ -454,7 +454,7 @@
 								<hr class="w-full border border-gray-100 my-2">
 
 								<div x-data="{ selectedIndex: 0 }" class="w-full flex flex-col justify-center items-center gap-2">
-									<select name="price" x-model="selectedIndex" wire:change="priceSelected({{ $offer->id }})" class="w-full text-breeder-deepblue mt-1 block border border-breeder-greige rounded-md focus:ring-abreeder-deepblue focus:border-breeder-deepblue">
+									<select name="price" x-model="selectedIndex" wire:change="priceSelected({{ $offer->id }})" class="w-full text-jobboard-deepblue mt-1 block border border-jobboard-greige rounded-md focus:ring-abreeder-deepblue focus:border-jobboard-deepblue">
 										@foreach($prices as $index => $price)
 											<option value="{{ $index }}">
 												{{ $price['label'] }}

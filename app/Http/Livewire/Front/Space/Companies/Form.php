@@ -10,10 +10,10 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Carbon;
 
-use App\Enums\{Affixes, PublicationStates};
+use App\Enums\PublicationStates;
 
 use App\Models\{Address, City, Country, Department, Region};
-use App\Models\{Breed, Company, Media, Mediable, Offer, Species, Subscription, User};
+use App\Models\{Company, Media, Mediable, Offer, Subscription, User};
 
 use App\Services\EmbedService;
 use App\Rules\MediaUrl;
@@ -34,18 +34,11 @@ class Form extends Component
 
 	// Properties
 	public $name;
-	public $affix = 'suffix';
-	public $affixName;
-	public $breeds = [];
 	public $description;
 	public $addressArray;
 	public $videos = [];
-	public $catFacebook;
-	public $catInstagram;
-	public $dogFacebook;
-	public $dogInstagram;
-	public $numberActiveFemaleCatBreeder = null;
-	public $numberActiveFemaleDogBreeder = null;
+	public $facebook;
+	public $instagram;
 	public $website;
 
 	// Misc
@@ -53,8 +46,6 @@ class Form extends Component
 	public $companyState = 'create';
 	public $active = 1;
 	public $totalSteps = 3;
-	public $maxBreeds;
-	public $breedCount = 0;
 	public $subComponentKey = 0;
 	public $changeHasBeenMade = false;
 	public $mediableClassLogo;
@@ -73,10 +64,6 @@ class Form extends Component
 	{
 		return [
 			'name' => [],
-			'affixName' => [],
-			'breeds' => [],
-			'numberActiveFemaleCatBreeder' => [],
-			'numberActiveFemaleDogBreeder' => [],
 			'addressArray' => [],
 			'description' => [],
 			'videos' => [],
@@ -90,23 +77,6 @@ class Form extends Component
 	public function addressSelected($address)
 	{
 		$this->addressArray = $address;
-	}
-
-	#[On('breed-selected')]
-	public function breedSelected($breedSlug)
-	{
-		if($this->maxBreeds == 'unlimited' || count($this->breeds) < $this->maxBreeds) {
-			$breed = Breed::findBySlug($breedSlug);
-
-			if($breed && !in_array($breed->slug, $this->breeds)) $this->breeds[$breed->slug] = $breed->name;
-		}
-		else session()->flash('error', __('You\'ve reached the maximum breeds your offer allows you'));
-	}
-
-	#[On('new-breeder-associated')]
-	public function newBreederAssociated($animalSlug)
-	{
-		$this->subComponentKey++;
 	}
 
 	#[On('media-added')]
@@ -149,11 +119,6 @@ class Form extends Component
 
 		$this->photoCount = $model->getMedia('photos')->count();
 		$this->mediasLeft = $this->offer->getMaxPhoto() - $this->photoCount;
-	}
-
-	public function removeBreed($breedSlug)
-	{
-		unset($this->breeds[$breedSlug]);
 	}
 
 	public function previous()
@@ -308,92 +273,6 @@ class Form extends Component
 		if($status == 'draft' || ($status == 'publish' && $this->active == $this->totalSteps)) return redirect(route('space.companies.my-company'))->with('success', $message);
 	}
 
-	public function syncPivots()
-	{
-		// Association of the breeds to the company
-		if($this->companyState == 'create') {
-			// Association of the species to the company
-			if($this->userInterestedIn == 'both' || $this->userInterestedIn == 'cats') {
-				$catSpecies = Species::findBySlug('cat', 'en');
-
-				if($catSpecies) $this->company->species()->syncWithoutDetaching($catSpecies->id);
-			}
-
-			if($this->userInterestedIn == 'both' || $this->userInterestedIn == 'dogs') {
-				$dogSpecies = Species::findBySlug('dog', 'en');
-
-				if($dogSpecies) $this->company->species()->syncWithoutDetaching($dogSpecies->id);
-			}
-
-			if($this->breeds) {
-				foreach($this->breeds as $slug => $name) {
-					$breed = Breed::findBySlug($slug);
-
-					if($breed) $this->company->breeds()->syncWithoutDetaching($breed->id);
-				}
-			}
-		}
-		elseif($this->companyState == 'update') {
-			$fromModeration = false;
-
-			if(data_get($this->company->values, 'for_moderation.breeds')) {
-				$source = $this->company->constructBreedsFromModeration();
-				$fromModeration = true;
-			}
-			else $source = $this->company->breeds;
-
-			$currentBreeds = $source->pluck('slug');
-
-			if($this->breeds) {
-				$formBreeds = collect();
-
-				foreach($this->breeds as $slug => $name) {
-					$breed = Breed::findBySlug($slug);
-
-					if($breed) $formBreeds->push($breed->slug);
-				}
-
-				// Breeds added
-				$addedBreeds = $formBreeds->diff($currentBreeds);
-				if($addedBreeds->isNotEmpty()) {
-					$values = $this->company->values;
-					$forModeration = $values->get('for_moderation', []);
-					$forModeration['breeds'] = $formBreeds;
-					$values->put('for_moderation', $forModeration);
-
-					$this->company->values = $values;
-					$this->company->save();
-					$this->company->markForModeration();
-					$this->changeHasBeenMade = true;
-				}
-
-				// Suppression
-				$deletedBreeds = $currentBreeds->diff($formBreeds);
-				if($deletedBreeds->isNotEmpty()) {
-					foreach($deletedBreeds as $index => $slug) {
-						$breed = Breed::findBySlug($slug);
-
-						if($breed) {
-							if($fromModeration) {
-								$breedsFromModeration = data_get($this->company->values, 'for_moderation.breeds');
-
-								$key = array_search($breed->slug, $breedsFromModeration);
-
-								if($key || $key === 0) unset($breedsFromModeration[$key]);
-							}
-							else $this->company->breeds()->detach($breed->id);
-						}
-					}
-
-					if($fromModeration) {
-						$this->company->updateValue('for_moderation.breeds', array_values($breedsFromModeration));
-						$this->company->save();
-					}
-				}
-			}
-		}
-	}
-
 	public function submitCompanyForm($status)
 	{
 		$this->embedService = new EmbedService;
@@ -401,18 +280,12 @@ class Form extends Component
 		if($this->active == 1) {
 			$rules = [
 				'name' => ['required', 'min:2', 'max:125'],
-				'affixName' => ['required', 'min:2', 'max:100'],
-				'breeds' => ['required'],
-				'numberActiveFemaleCatBreeder' => ['nullable', 'required_if:userInterestedIn,both,cats', 'numeric'],
-				'numberActiveFemaleDogBreeder' => ['nullable', 'required_if:userInterestedIn,both,dogs', 'numeric'],
 				'description' => ['required', 'min:2'],
 				'addressArray.street' => ['required'],
 				'addressArray.custom_city' => ['required_without:addressArray.city_id'],
 				'addressArray.city_id' => ['required_without:addressArray.custom_city'],
-				'catFacebook' => ['nullable', 'url:http,https'],
-				'catInstagram' => ['nullable', 'url:http,https'],
-				'dogFacebook' => ['nullable', 'url:http,https'],
-				'dogInstagram' => ['nullable', 'url:http,https'],
+				'facebook' => ['nullable', 'url:http,https'],
+				'instagram' => ['nullable', 'url:http,https'],
 				'website' => ['nullable', 'url:http,https']
 			];
 
@@ -420,30 +293,15 @@ class Form extends Component
 				'name.required' => __(':element is mandatory', ['element' => __('Your company\'s name')]),
 				'name.min' => __('Your :element must be :x characters minimum', ['element' => __('company\'s name'), 'x' => 2]),
 				'name.max' => __('Your :element must be :x characters maximum', ['element' => __('company\'s name'), 'x' => 125]),
-				'affixName.required' => __(':element is mandatory', ['element' => __($this->affix == 'suffix' ? 'Suffix name' : 'Prefix name')]),
-				'affixName.min' => __('Your :element must be :x characters minimum', ['element' => __($this->affix == 'suffix' ? 'Suffix name' : 'Prefix name'), 'x' => 2]),
-				'affixName.max' => __('Your :element must be :x characters maximum', ['element' => __($this->affix == 'suffix' ? 'Suffix name' : 'Prefix name'), 'x' => 100]),
-				'breeds.required' => __(':element is mandatory', ['element' => __('Your company\'s must have at least one breed')]),
-				'numberActiveFemaleCatBreeder.required_if' => __(':element is mandatory', ['element' => __('The number of active female cat breeder')]),
-				'numberActiveFemaleCatBreeder.numeric' => __('Only numerals'),
-				'numberActiveFemaleDogBreeder.required_if' => __(':element is mandatory', ['element' => __('The number of active female dog breeder')]),
-				'numberActiveFemaleDogBreeder.numeric' => __('Only numerals'),
 				'description.required' => __(':element is mandatory', ['element' => __('Your company\'s description')]),
 				'description.min' => __('Your :element must be :x characters minimum', ['element' => __('company\'s description'), 'x' => 2]),
 				'addressArray.street.required' => __(':element is mandatory', ['element' => __('Your street')]),
 				'addressArray.custom_city.required_without' => __(':element is mandatory', ['element' => __('Your city')]),
 				'addressArray.city_id.required_without' => __(':element is mandatory', ['element' => __('Your city')]),
-				'catFacebook.url' => __('An http or https url is needed'),
-				'catInstagram.url' => __('An http or https url is needed'),
-				'dogFacebook.url' => __('An http or https url is needed'),
-				'dogInstagram.url' => __('An http or https url is needed'),
+				'facebook.url' => __('An http or https url is needed'),
+				'instagram.url' => __('An http or https url is needed'),
 				'website.url' => __('An http or https url is needed'),
 			];
-
-			if($this->maxBreeds != 'unlimited') {
-				$rules['breeds'][] = 'max:'.$this->maxBreeds;
-				$messages['breeds.max'] = __('Your company\'s must have maximum :x :breed', ['x' => $this->maxBreeds, 'breed' => $this->maxBreeds > 1 ? __('breeds') : __('breed')]);
-			}
 
 			if($this->offer->hasOption('4-video')) {
 				foreach($this->videos as $key => $video) {
@@ -470,12 +328,8 @@ class Form extends Component
 			if($this->companyState == 'create') {
 				$values = new Collection();
 
-				$values->put('affix', $this->affix)
-					->put('affix_name', $this->affixName)
-					->put('cat_facebook', $this->catFacebook)
-					->put('cat_instagram', $this->catInstagram)
-					->put('dog_facebook', $this->dogFacebook)
-					->put('dog_instagram', $this->dogInstagram)
+				$values->put('facebook', $this->facebook)
+					->put('instagram', $this->instagram)
 					->put('website', $this->website);
 
 				if($this->offer->hasOption('4-video')) {
@@ -500,13 +354,6 @@ class Form extends Component
 				$this->company->user_id = $this->user->id;
 				$this->company->name = $this->name;
 				$this->company->description = $this->description;
-				$this->company->values = $values;
-				$this->company->save();
-
-				$this->syncPivots();
-
-				$this->company->values = $values;
-				$this->company->save();
 
 				// The Media associated with a Mediable is taken back and transferred to the newly created company
 				$mediableLogo = $this->user->mediable->where('type', 'company-logo')->first();
@@ -542,10 +389,8 @@ class Form extends Component
 			elseif($this->companyState == 'update') {
 				$this->company->description = $this->description;
 				$values = $this->company->values;
-				$values->put('cat_facebook', $this->catFacebook)
-					->put('cat_instagram', $this->catInstagram)
-					->put('dog_facebook', $this->dogFacebook)
-					->put('dog_instagram', $this->dogInstagram)
+				$values->put('facebook', $this->facebook)
+					->put('instagram', $this->instagram)
 					->put('website', $this->website);
 
 				if($this->offer->hasOption('4-video')) {
@@ -567,8 +412,6 @@ class Form extends Component
 
 				if(
 					($this->company->name != $this->name) ||
-					($values->get('affix') != $this->affix) ||
-					($values->get('affix_name') != $this->affixName) ||
 					($this->offer->hasOption('4-video') && $values->get('videos') != $videos)
 				) {
 					$this->changeHasBeenMade = true;
@@ -576,27 +419,15 @@ class Form extends Component
 					$forModeration = $values->get('for_moderation', []);
 
 					if($this->company->name != $this->name) $forModeration['name'] = $this->name;
-					if($values->get('affix') != $this->affix) $forModeration['affix'] = $this->affix;
-					if($values->get('affix_name') != $this->affixName) $forModeration['affix_name'] = $this->affixName;
 					if($this->offer->hasOption('4-video') && $values->get('videos') != $videos) $forModeration['videos'] = $videos;
 
 					$values->put('for_moderation', $forModeration);
-					
 
 					session()->flash('warning', __('Your updates needs to be moderated to be displayed. The customer service will moderate your updates as soon as possible.'));
 				}
 
-				$this->company->values = $values;
-				$this->company->save();
-
-				$this->syncPivots();
 				$this->setAddress();
 			}
-
-			$values = $this->company->values;
-
-			if($this->userInterestedIn == 'both' || $this->userInterestedIn == 'cats') $values->put('active_female_cat_breeder', $this->numberActiveFemaleCatBreeder);
-			if($this->userInterestedIn == 'both' || $this->userInterestedIn == 'dogs') $values->put('active_female_dog_breeder', $this->numberActiveFemaleDogBreeder);
 
 			$this->company->values = $values;
 			$this->company->save();
@@ -604,17 +435,12 @@ class Form extends Component
 
 		$this->setPublication($status);
 
-		if($this->active < $this->totalSteps && $status == 'publish') {
-			$this->active++;
-
-			if(!$this->offer->hasOption('display-breeders')) $this->active++;
-		}
+		if($this->active < $this->totalSteps && $status == 'publish') $this->active++;
 	}
 
 	public function mount()
 	{
 		$this->user = Auth::guard('web')->user();
-		$this->userInterestedIn = $this->user->values->get('interested_in');
 
 		if($this->company->id) {
 			$this->companyState = 'update';
@@ -631,19 +457,8 @@ class Form extends Component
 
 			$this->address = $this->company->addressForModeration ?? $this->company->address ?? new Address();
 
-			if(data_get($this->company->values, 'for_moderation.breeds')) $source = $this->company->constructBreedsFromModeration();
-			else $source = $this->company->breeds;
-
-			foreach($source as $breed) {
-				$this->breeds[$breed->slug] = $breed->name;
-			}
-
-			$this->numberActiveFemaleCatBreeder = $this->company->values->get('active_female_cat_breeder');
-			$this->numberActiveFemaleDogBreeder = $this->company->values->get('active_female_dog_breeder');
-			$this->catFacebook = $this->company->values->get('cat_facebook');
-			$this->catInstagram = $this->company->values->get('cat_instagram');
-			$this->dogFacebook = $this->company->values->get('dog_facebook');
-			$this->dogInstagram = $this->company->values->get('dog_instagram');
+			$this->facebook = $this->company->values->get('facebook');
+			$this->instagram = $this->company->values->get('instagram');
 			$this->website = $this->company->values->get('website');
 
 			if(data_get($this->company->values, 'for_moderation.name')) $this->name = data_get($this->company->values, 'for_moderation.name');
@@ -652,12 +467,6 @@ class Form extends Component
 			if(data_get($this->company->values, 'for_moderation.description')) $this->description = data_get($this->company->values, 'for_moderation.description');
 			else $this->description = $this->company->description;
 
-			if(data_get($this->company->values, 'for_moderation.affix')) $this->affix = data_get($this->company->values, 'for_moderation.affix');
-			else $this->affix = $this->company->values->get('affix');
-
-			if(data_get($this->company->values, 'for_moderation.affix_name')) $this->affixName = data_get($this->company->values, 'for_moderation.affix_name');
-			else $this->affixName = $this->company->values->get('affix_name');
-			
 			if($this->offer->hasOption('4-video')) {
 				if(data_get($this->company->values, 'for_moderation.videos')) $this->videos = data_get($this->company->values, 'for_moderation.videos');
 				else $this->videos = $this->company->values->get('videos') ?? [];
@@ -687,19 +496,12 @@ class Form extends Component
 		}
 
 		$this->countCompanyPhotos();
-		$this->maxBreeds = $this->offer->getMaxBreed();
 	}
 
 	public function render()
 	{
-		$affixes = Affixes::asHumanArray();
-
-		if($this->maxBreeds != 'unlimited') $this->breedCount = $this->maxBreeds - count($this->breeds);
-
 		$this->subComponentKey++;
 
-		return view('livewire.front.space.companies.form', [
-			'affixes' => $affixes,
-		]);
+		return view('livewire.front.space.companies.form');
 	}
 }

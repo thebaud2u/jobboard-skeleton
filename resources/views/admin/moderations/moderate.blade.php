@@ -45,7 +45,7 @@
 						<x-front.input-label for="reason" :value="__('Reason')" />
 					</div>
 
-					<select id="reason" name="reason" x-model="selectedReason" @change="updateDescription()" class="border-gray-300 focus:border-breeder-deepblue focus:ring-breeder-deepblue rounded-md shadow-sm text-breeder-deepblue placeholder:text-gray-400 mt-1 text-gray-400">
+					<select id="reason" name="reason" x-model="selectedReason" @change="updateDescription()" class="border-gray-300 focus:border-jobboard-deepblue focus:ring-jobboard-deepblue rounded-md shadow-sm text-jobboard-deepblue placeholder:text-gray-400 mt-1 text-gray-400">
 						@foreach($reasons as $value => $reason)
 							<option value="{{ $value }}">{{ $reason['Title'] }}</option>
 						@endforeach

@@ -11,7 +11,7 @@
 						<div>
 							<div class="flex flex-row">
 								<div class="pr-2">
-									<input type="checkbox" name="pending_done" id="pending_done" wire:model="pending" class="mr-1 disabled:bg-breeder-greige my-1 checked:bg-breeder-deepblue checked:hover:bg-breeder-deepblue checked:active:bg-breeder-deepblue checked:focus:bg-breeder-deepblue focus:bg-breeder-deepblue focus:outline-none focus:ring-1 focus:ring-breeder-deepblue w-3 h-3" />
+									<input type="checkbox" name="pending_done" id="pending_done" wire:model="pending" class="mr-1 disabled:bg-jobboard-greige my-1 checked:bg-jobboard-deepblue checked:hover:bg-jobboard-deepblue checked:active:bg-jobboard-deepblue checked:focus:bg-jobboard-deepblue focus:bg-jobboard-deepblue focus:outline-none focus:ring-1 focus:ring-jobboard-deepblue w-3 h-3" />
 									<x-front.input-label for="pending_done" :value="__('By checking this box, you confirm the creation of your account and accept the general terms of use of Eleveurs-Online.')" :required="true" />
 								</div>
 							</div>
@@ -31,14 +31,14 @@
 
 								<div class="flex flex-row">
 									<div class="pr-2">
-										<input type="radio" name="optin_newsletter" value="1" id="optin_newsletter" wire:model="optinNewsletter" class="mr-1 disabled:bg-breeder-greige my-1 checked:bg-breeder-deepblue checked:hover:bg-breeder-deepblue checked:active:bg-breeder-deepblue checked:focus:bg-breeder-deepblue focus:bg-breeder-deepblue focus:outline-none focus:ring-1 focus:ring-breeder-deepblue w-3 h-3" />
+										<input type="radio" name="optin_newsletter" value="1" id="optin_newsletter" wire:model="optinNewsletter" class="mr-1 disabled:bg-jobboard-greige my-1 checked:bg-jobboard-deepblue checked:hover:bg-jobboard-deepblue checked:active:bg-jobboard-deepblue checked:focus:bg-jobboard-deepblue focus:bg-jobboard-deepblue focus:outline-none focus:ring-1 focus:ring-jobboard-deepblue w-3 h-3" />
 										<label for="optin_newsletter">
 											{{ __('yes') }}
 										</label>
 									</div>
 
 									<div class="pr-2">
-										<input type="radio" name="optin_newsletter" value="0" id="optin_newsletter" wire:model="optinNewsletter" class="mr-1 disabled:bg-breeder-greige my-1 checked:bg-breeder-deepblue checked:hover:bg-breeder-deepblue checked:active:bg-breeder-deepblue checked:focus:bg-breeder-deepblue focus:bg-breeder-deepblue focus:outline-none focus:ring-1 focus:ring-breeder-deepblue w-3 h-3" />
+										<input type="radio" name="optin_newsletter" value="0" id="optin_newsletter" wire:model="optinNewsletter" class="mr-1 disabled:bg-jobboard-greige my-1 checked:bg-jobboard-deepblue checked:hover:bg-jobboard-deepblue checked:active:bg-jobboard-deepblue checked:focus:bg-jobboard-deepblue focus:bg-jobboard-deepblue focus:outline-none focus:ring-1 focus:ring-jobboard-deepblue w-3 h-3" />
 										<label for="optin_newsletter">
 											{{ __('no') }}
 										</label>
@@ -53,14 +53,14 @@
 
 								<div class="flex flex-row">
 									<div class="pr-2">
-										<input type="radio" name="optin_receive_info" value="1" id="optin_receive_info" wire:model="optinReceiveInfo" class="mr-1 disabled:bg-breeder-greige my-1 checked:bg-breeder-deepblue checked:hover:bg-breeder-deepblue checked:active:bg-breeder-deepblue checked:focus:bg-breeder-deepblue focus:bg-breeder-deepblue focus:outline-none focus:ring-1 focus:ring-breeder-deepblue w-3 h-3"/>
+										<input type="radio" name="optin_receive_info" value="1" id="optin_receive_info" wire:model="optinReceiveInfo" class="mr-1 disabled:bg-jobboard-greige my-1 checked:bg-jobboard-deepblue checked:hover:bg-jobboard-deepblue checked:active:bg-jobboard-deepblue checked:focus:bg-jobboard-deepblue focus:bg-jobboard-deepblue focus:outline-none focus:ring-1 focus:ring-jobboard-deepblue w-3 h-3"/>
 										<label for="optin_receive_info">
 											{{ __('yes') }}
 										</label>
 									</div>
 
 									<div class="pr-2">
-										<input type="radio" name="optin_receive_info" value="2" id="optin_receive_info" wire:model="optinReceiveInfo" class="mr-1 disabled:bg-breeder-greige my-1 checked:bg-breeder-deepblue checked:hover:bg-breeder-deepblue checked:active:bg-breeder-deepblue checked:focus:bg-breeder-deepblue focus:bg-breeder-deepblue focus:outline-none focus:ring-1 focus:ring-breeder-deepblue w-3 h-3"/>
+										<input type="radio" name="optin_receive_info" value="2" id="optin_receive_info" wire:model="optinReceiveInfo" class="mr-1 disabled:bg-jobboard-greige my-1 checked:bg-jobboard-deepblue checked:hover:bg-jobboard-deepblue checked:active:bg-jobboard-deepblue checked:focus:bg-jobboard-deepblue focus:bg-jobboard-deepblue focus:outline-none focus:ring-1 focus:ring-jobboard-deepblue w-3 h-3"/>
 										<label for="optin_receive_info">
 											{{ __('no') }}
 										</label>
@@ -75,14 +75,14 @@
 
 								<div class="flex flex-row">
 									<div class="pr-2">
-										<input type="radio" name="optin_receive_deals" value="1" id="optin_receive_deals" wire:model="optinReceiveDeals" class="mr-1 disabled:bg-breeder-greige my-1 checked:bg-breeder-deepblue checked:hover:bg-breeder-deepblue checked:active:bg-breeder-deepblue checked:focus:bg-breeder-deepblue focus:bg-breeder-deepblue focus:outline-none focus:ring-1 focus:ring-breeder-deepblue w-3 h-3" />
+										<input type="radio" name="optin_receive_deals" value="1" id="optin_receive_deals" wire:model="optinReceiveDeals" class="mr-1 disabled:bg-jobboard-greige my-1 checked:bg-jobboard-deepblue checked:hover:bg-jobboard-deepblue checked:active:bg-jobboard-deepblue checked:focus:bg-jobboard-deepblue focus:bg-jobboard-deepblue focus:outline-none focus:ring-1 focus:ring-jobboard-deepblue w-3 h-3" />
 										<label for="optin_receive_deals">
 											{{ __('yes') }}
 										</label>
 									</div>
 
 									<div class="pr-2">
-										<input type="radio" name="optin_receive_deals" value="2" id="optin_receive_deals" wire:model="optinReceiveDeals" class="mr-1 disabled:bg-breeder-greige my-1 checked:bg-breeder-deepblue checked:hover:bg-breeder-deepblue checked:active:bg-breeder-deepblue checked:focus:bg-breeder-deepblue focus:bg-breeder-deepblue focus:outline-none focus:ring-1 focus:ring-breeder-deepblue w-3 h-3" />
+										<input type="radio" name="optin_receive_deals" value="2" id="optin_receive_deals" wire:model="optinReceiveDeals" class="mr-1 disabled:bg-jobboard-greige my-1 checked:bg-jobboard-deepblue checked:hover:bg-jobboard-deepblue checked:active:bg-jobboard-deepblue checked:focus:bg-jobboard-deepblue focus:bg-jobboard-deepblue focus:outline-none focus:ring-1 focus:ring-jobboard-deepblue w-3 h-3" />
 										<label for="optin_receive_deals">
 											{{ __('no') }}
 										</label>
@@ -90,11 +90,11 @@
 								</div>
 							</div>
 
-							<div class="mt-4 w-full rounded-xl bg-breeder-cream flex justify-between p-6">
+							<div class="mt-4 w-full rounded-xl bg-jobboard-cream flex justify-between p-6">
 								<div class="flex flex-row items-center">
 									<div class="flex flex-col gap-y-2">
 										<x-front.input-label for="optin_figo" :class="'cursor-pointer'">
-											<input type="checkbox" name="optin_figo" id="optin_figo" checked class="rounded border-breeder-deepblue text-breeder-deepblue focus:ring-breeder-deepblue">
+											<input type="checkbox" name="optin_figo" id="optin_figo" checked class="rounded border-jobboard-deepblue text-jobboard-deepblue focus:ring-jobboard-deepblue">
 
 											<span class="font-bold">
 												{{ __('I agree to receive tips, advice, and exclusive offers from Assur O’Poil, the pet health insurance recommended by Éleveurs Online.') }}

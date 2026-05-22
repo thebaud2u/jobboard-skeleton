@@ -1,8 +1,8 @@
 {{-- NL inscription --}}
 <div class="w-full flex justify-center p-8 lg:py-16">
-	<div class="lg:min-h-[338px] w-full max-w-[1200px] rounded-3xl {{ $bgcolor ?? 'bg-breeder-orange' }}  flex flex-row max-lg:justify-center p-4 sm:p-6 md:py-12 md:px-14">
+	<div class="lg:min-h-[338px] w-full max-w-[1200px] rounded-3xl {{ $bgcolor ?? 'bg-jobboard-orange' }}  flex flex-row max-lg:justify-center p-4 sm:p-6 md:py-12 md:px-14">
 		<div class="flex-1 flex max-lg:justify-center">
-			<div class="flex flex-col text-breeder-deepblue max-w-[450px]">
+			<div class="flex flex-col text-jobboard-deepblue max-w-[450px]">
 				<h4 class="s:text-[40px] text-[25px] leading-tight font-semibold mb-6 s:mb-0 max-s:text-center">
 					{{ __('Join our community') }}
 				</h4>
@@ -15,7 +15,7 @@
 					 @csrf
 
 					<input type="hidden" name="optins[]" value="OPTIN_NL_ADOPTANT">
-					<input type="text" name="email" id="email" value="{{ old('email') }}" required placeholder="Votre adresse email" class="border-0 rounded-full text-breeder-deepblue focus:ring-0 focus:outline-none focus:border-none placeholder:text-breeder-deepblue w-2/3">
+					<input type="text" name="email" id="email" value="{{ old('email') }}" required placeholder="Votre adresse email" class="border-0 rounded-full text-jobboard-deepblue focus:ring-0 focus:outline-none focus:border-none placeholder:text-jobboard-deepblue w-2/3">
 
 					<button type="submit" class="font-semibold mr-4 hidden s:block w-[102px]">
 						{{ __('I\'m signing up') }}

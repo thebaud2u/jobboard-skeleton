@@ -28,7 +28,7 @@
 			</li>
         </ol>
 	</nav>
-    <div class="bg-breeder-cream w-full py-8 flex flex-col items-center text-breeder-deepblue" x-data="{ passionateShow: false, breederShow: false, proShow: false }">
+    <div class="bg-jobboard-cream w-full py-8 flex flex-col items-center text-jobboard-deepblue" x-data="{ passionateShow: false, breederShow: false, proShow: false }">
         <h1 class="flex flex-col items-center text-[40px] font-bold">
             <svg width="56" height="55" viewBox="0 0 56 55" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <mask id="mask0_1439_23553" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0"
@@ -76,14 +76,14 @@
 				<div class="flex flex-row md:flex-col w-full md:w-[281px] rounded-md"
 					:class="{ 'opacity-50': breederShow || proShow, 'opacity-100': passionateShow }">
 					<div
-						class="relative bg-breeder-coral w-[115px] md:w-full h-[98px] dc:h-full md:h-[200px] max-md:rounded-l-md md:rounded-t-md">
+						class="relative bg-jobboard-coral w-[115px] md:w-full h-[98px] dc:h-full md:h-[200px] max-md:rounded-l-md md:rounded-t-md">
 						<div
 							class="absolute w-[115px] md:w-[327px] h-[108px] md:h-[219px] left-0 md:-left-[23px] top-[21px] md:-top-[18px]">
 							<img src="{{ asset('/storage/newsletter_passiones.png') }}" alt="" class="w-full">
 						</div>
 					</div>
 					<div
-						class="w-[235px] md:w-full flex flex-col items-center text-breeder-deepblue bg-white max-md:rounded-b-none max-md:rounded-r-md rounded-b-md py-3 md:py-6 px-6 md:px-4">
+						class="w-[235px] md:w-full flex flex-col items-center text-jobboard-deepblue bg-white max-md:rounded-b-none max-md:rounded-r-md rounded-b-md py-3 md:py-6 px-6 md:px-4">
 						<h4 class="max-md:text-lg md::text-[28px] font-semibold text-center max-md:mb-2">{{ __('For enthusiasts') }}
 						</h4>
 						<p class="hidden md:block text-center text-base mb-4">
@@ -105,14 +105,14 @@
 				<div class="flex flex-row md:flex-col w-full md:w-[281px] rounded-md"
 					:class="{ 'opacity-50': passionateShow || proShow, 'opacity-100': breederShow }">
 					<div
-						class="relative bg-breeder-violet w-[115px] md:w-full h-[98px] dc:h-full md:h-[200px] max-md:rounded-l-md md:rounded-t-md">
+						class="relative bg-jobboard-violet w-[115px] md:w-full h-[98px] dc:h-full md:h-[200px] max-md:rounded-l-md md:rounded-t-md">
 						<div
 							class="absolute w-[96px] md:w-[265px] h-[113px] md:h-[219px] left-[13px] md:left-[21px] top-[20px] md:-top-[16px]">
 							<img src="{{ asset('/storage/newsletter_breeders.png') }}" alt="" class="w-full">
 						</div>
 					</div>
 					<div
-						class="w-[235px] md:w-full flex flex-col items-center text-breeder-deepblue bg-white max-md:rounded-b-none max-md:rounded-r-md rounded-b-md py-3 md:py-6 px-6 md:px-4">
+						class="w-[235px] md:w-full flex flex-col items-center text-jobboard-deepblue bg-white max-md:rounded-b-none max-md:rounded-r-md rounded-b-md py-3 md:py-6 px-6 md:px-4">
 						<h4 class="max-md:text-lg md::text-[28px] font-semibold text-center max-md:mb-2">
 							{{ __('Special breeders') }}</h4>
 						<p class="hidden md:block text-center text-base mb-4">
@@ -134,14 +134,14 @@
 				<div class="flex flex-row md:flex-col w-full md:w-[281px] rounded-md"
 					:class="{ 'opacity-50': passionateShow || breederShow, 'opacity-100': proShow }">
 					<div
-						class="relative bg-breeder-orange w-[115px] md:w-full h-[98px] md:h-[200px] max-md:rounded-l-md md:rounded-t-md">
+						class="relative bg-jobboard-orange w-[115px] md:w-full h-[98px] md:h-[200px] max-md:rounded-l-md md:rounded-t-md">
 						<div
 							class="absolute w-[81px] md:w-[237px] h-[111px] md:h-[219px] left-[15px] md:left-[15px] top-[24px] md:-top-[17px]">
 							<img src="{{ asset('/storage/newsletter_pro.png') }}" alt="" class="w-full">
 						</div>
 					</div>
 					<div
-						class="w-[235px] md:w-full flex flex-col items-center text-breeder-deepblue bg-white max-md:rounded-b-none max-md:rounded-r-md rounded-b-md py-3 md:py-6 px-6 md:px-4">
+						class="w-[235px] md:w-full flex flex-col items-center text-jobboard-deepblue bg-white max-md:rounded-b-none max-md:rounded-r-md rounded-b-md py-3 md:py-6 px-6 md:px-4">
 						<h4 class="max-md:text-lg md::text-[28px] font-semibold text-center max-md:mb-2">
 							{{ __('For the pros') }}</h4>
 						<p class="hidden md:block text-center text-base mb-4">
@@ -168,7 +168,7 @@
 			@csrf
 
             <div class="flex flex-col items-center gap-3 mb-4">
-                <p class="text-breeder-deepblue font-bold">Je m'abonne à la newsletter</p>
+                <p class="text-jobboard-deepblue font-bold">Je m'abonne à la newsletter</p>
                 <h2 class="text-center text-[28px] md:text-[40px]">
                     {{ __('Pour les passionnés') }}
                 </h2>
@@ -182,7 +182,7 @@
 
 			<div class="flex flex-row justify-between flex-wrap gap-y-2 items-center">
 				<x-front.input-label :class="'cursor-pointer'">
-					<input checked type="checkbox" name="optins[]" value="OPTIN_NL_ADOPTANT" class="rounded border-breeder-deepblue text-breeder-deepblue focus:ring-breeder-deepblue">
+					<input checked type="checkbox" name="optins[]" value="OPTIN_NL_ADOPTANT" class="rounded border-jobboard-deepblue text-jobboard-deepblue focus:ring-jobboard-deepblue">
 
 					{{ __('I subscribe to the monthly newsletter of Eleveurs Online') }}
 				</x-front.input-label>
@@ -190,7 +190,7 @@
 
 			<div class="flex flex-row justify-between flex-wrap gap-y-2 items-center">
 				<x-front.input-label :class="'cursor-pointer'">
-					<input checked type="checkbox" name="optins[]" value="OPTIN_MARKETING_ADOPTANT" class="rounded border-breeder-deepblue text-breeder-deepblue focus:ring-breeder-deepblue">
+					<input checked type="checkbox" name="optins[]" value="OPTIN_MARKETING_ADOPTANT" class="rounded border-jobboard-deepblue text-jobboard-deepblue focus:ring-jobboard-deepblue">
 
 					{{ __('I would like to receive information from Eleveurs Online and their publishers') }}
 				</x-front.input-label>
@@ -198,7 +198,7 @@
 
 			<div class="flex flex-row justify-between flex-wrap gap-y-2 items-center">
 				<x-front.input-label :class="'cursor-pointer'">
-					<input checked type="checkbox" name="optins[]" value="OPTIN_PARTENAIRE_ADOPTANT" class="rounded border-breeder-deepblue text-breeder-deepblue focus:ring-breeder-deepblue">
+					<input checked type="checkbox" name="optins[]" value="OPTIN_PARTENAIRE_ADOPTANT" class="rounded border-jobboard-deepblue text-jobboard-deepblue focus:ring-jobboard-deepblue">
 
 					{{ __('I would like to receive good deals from Eleveurs Online partners') }}
 				</x-front.input-label>
@@ -219,7 +219,7 @@
             class="flex flex-col bg-white rounded-xl max-w-[873px] w-full mt-8 p-8 gap-4" x-show="breederShow">
             @csrf
             <div class="flex flex-col items-center gap-3 mb-4">
-                <p class="text-breeder-deepblue font-bold">Je m'abonne à la newsletter</p>
+                <p class="text-jobboard-deepblue font-bold">Je m'abonne à la newsletter</p>
                 <h2 class="text-center text-[28px] md:text-[40px]">
                     {{ __('Spécial éleveurs') }}
                 </h2>
@@ -233,7 +233,7 @@
 
 			<div class="flex flex-row justify-between flex-wrap gap-y-2 items-center">
 				<x-front.input-label :class="'cursor-pointer'">
-					<input checked type="checkbox" name="optins[]" value="OPTIN_NL_ELEVEUR" class="rounded border-breeder-deepblue text-breeder-deepblue focus:ring-breeder-deepblue">
+					<input checked type="checkbox" name="optins[]" value="OPTIN_NL_ELEVEUR" class="rounded border-jobboard-deepblue text-jobboard-deepblue focus:ring-jobboard-deepblue">
 
 					{{ __('I subscribe to the monthly newsletter of Eleveurs Online') }}
 				</x-front.input-label>
@@ -241,7 +241,7 @@
 
 			<div class="flex flex-row justify-between flex-wrap gap-y-2 items-center">
 				<x-front.input-label :class="'cursor-pointer'">
-					<input checked type="checkbox" name="optins[]" value="OPTIN_MARKETING_ELEVEUR" class="rounded border-breeder-deepblue text-breeder-deepblue focus:ring-breeder-deepblue">
+					<input checked type="checkbox" name="optins[]" value="OPTIN_MARKETING_ELEVEUR" class="rounded border-jobboard-deepblue text-jobboard-deepblue focus:ring-jobboard-deepblue">
 
 					{{ __('I would like to receive information from Eleveurs Online and their publishers') }}
 				</x-front.input-label>
@@ -249,7 +249,7 @@
 
 			<div class="flex flex-row justify-between flex-wrap gap-y-2 items-center">
 				<x-front.input-label :class="'cursor-pointer'">
-					<input checked type="checkbox" name="optins[]" value="OPTIN_PARTENAIRE_ELEVEUR" class="rounded border-breeder-deepblue text-breeder-deepblue focus:ring-breeder-deepblue">
+					<input checked type="checkbox" name="optins[]" value="OPTIN_PARTENAIRE_ELEVEUR" class="rounded border-jobboard-deepblue text-jobboard-deepblue focus:ring-jobboard-deepblue">
 
 					{{ __('I would like to receive good deals from Eleveurs Online partners') }}
 				</x-front.input-label>
@@ -269,7 +269,7 @@
             class="flex flex-col bg-white rounded-xl max-w-[873px] w-full mt-8 p-8 gap-4" x-show="proShow">
             @csrf
             <div class="flex flex-col items-center gap-3 mb-4">
-                <p class="text-breeder-deepblue font-bold">Je m'abonne à la newsletter</p>
+                <p class="text-jobboard-deepblue font-bold">Je m'abonne à la newsletter</p>
                 <h2 class="text-center text-[28px] md:text-[40px]">
                     {{ __('Pour les pros') }}
                 </h2>
@@ -283,7 +283,7 @@
 
 			<div class="flex flex-row justify-between flex-wrap gap-y-2 items-center">
 				<x-front.input-label :class="'cursor-pointer'">
-					<input checked type="checkbox" name="optins[]" value="OPTIN_NL_PROFESSIONNEL" class="rounded border-breeder-deepblue text-breeder-deepblue focus:ring-breeder-deepblue">
+					<input checked type="checkbox" name="optins[]" value="OPTIN_NL_PROFESSIONNEL" class="rounded border-jobboard-deepblue text-jobboard-deepblue focus:ring-jobboard-deepblue">
 
 					{{ __('I subscribe to the monthly newsletter of Eleveurs Online') }}
 				</x-front.input-label>
@@ -291,7 +291,7 @@
 
 			<div class="flex flex-row justify-between flex-wrap gap-y-2 items-center">
 				<x-front.input-label :class="'cursor-pointer'">
-					<input checked type="checkbox" name="optins[]" value="OPTIN_MARKETING_PROFESSIONNEL" class="rounded border-breeder-deepblue text-breeder-deepblue focus:ring-breeder-deepblue">
+					<input checked type="checkbox" name="optins[]" value="OPTIN_MARKETING_PROFESSIONNEL" class="rounded border-jobboard-deepblue text-jobboard-deepblue focus:ring-jobboard-deepblue">
 
 					{{ __('I would like to receive information from Eleveurs Online and their publishers') }}
 				</x-front.input-label>
@@ -299,7 +299,7 @@
 
 			<div class="flex flex-row justify-between flex-wrap gap-y-2 items-center">
 				<x-front.input-label :class="'cursor-pointer'">
-					<input checked type="checkbox" name="optins[]" value="OPTIN_PARTENAIRE_PROFESSIONNEL" class="rounded border-breeder-deepblue text-breeder-deepblue focus:ring-breeder-deepblue">
+					<input checked type="checkbox" name="optins[]" value="OPTIN_PARTENAIRE_PROFESSIONNEL" class="rounded border-jobboard-deepblue text-jobboard-deepblue focus:ring-jobboard-deepblue">
 
 					{{ __('I would like to receive good deals from Eleveurs Online partners') }}
 				</x-front.input-label>
@@ -315,7 +315,7 @@
 				</svg>
 			</x-front.primary-button>
 		</form>
-		<div class="flex justify-center items-center mx-auto max-w-[1200px] bg-breeder-cream w-full mt-10">
+		<div class="flex justify-center items-center mx-auto max-w-[1200px] bg-jobboard-cream w-full mt-10">
 			<x-front.ad-slot slotName="banniere_basse" variant="all" :targeting="['Targetingslug' => Request::url(), 'role' => ['adoptant', 'eleveur', 'pro'], 'espece' => ['chien', 'chat']]" />
 		</div>
 	</div>

@@ -930,10 +930,6 @@
 	"Adult": "Adulte",
 	":x posts found": ":x annonces trouvées",
 	":x post found": ":x annonce trouvée",
-	":x post :breed found": ":x annonce :breed trouvée",
-	":x posts :breed found": ":x annonces :breed trouvées",
-	":x :breed posts found": ":x :breed annonces trouvées",
-	":x :breed post found": ":x :breed annonce trouvée",
 	"Keywords": "Mots clés",
 	"For enthusiasts": "Pour les passionnés",
 	"Special breeders": "Spécial éleveurs",
@@ -1122,7 +1118,7 @@
 	"Then, only the price and description can be updated.": "Ensuite, seuls le prix et la description pourront être mis à jour.",
 	"Then, only the information concerning the young (status, identification number and origin book) can be updated.": "Ensuite, seules les informations concernant les petits (statut, numéro identification et livre des origines) pourront être mises à jour.",
 	"Then, the information will no longer be editable from your space.": "Ensuite, les informations ne seront plus modifiables depuis votre espace.",
-	"Eleveurs-Online will check your :element and broadcast it within 24 working days subject to the successful receipt of your payment.": "Eleveurs-Online va contrôler votre :element et la diffuser en 24h jours ouvrés sous réserve de bonne réception de votre paiement.",
+	":siteName will check your :element and broadcast it within 24 working days subject to the successful receipt of your payment.": ":siteName va contrôler votre :element et la diffuser en 24h jours ouvrés sous réserve de bonne réception de votre paiement.",
 	"error": "erreur",
 	"I accept the general conditions of use of the site.": "J'accepte les conditions générales d'utilisation du site.",
 	"You must accept the terms of use": "Vous devez accepter les conditions générales d'utilisation",
@@ -1808,7 +1804,7 @@
 	"<strong>Create an alert</strong><br>for new litters": "<strong>Créez une alerte</strong><br> pour les nouvelles portées",
 	"Sign up to be notified as soon as a litter becomes available.": "Inscrivez-vous pour être tenu informé(e) dés qu’une portée est disponible.",
 	"Create an alert": "Créer une alerte",
-	"<span class='font-bold text-breeder-violet'>BreederGPT,</span> you AI assistant specialized in company, answers you !": "<span class='font-bold text-breeder-violet'>BreederGPT,</span> votre assistant IA spécialisé en entreprise, vous répond !",
+	"<span class='font-bold text-jobboard-violet'>BreederGPT,</span> you AI assistant specialized in company, answers you !": "<span class='font-bold text-jobboard-violet'>BreederGPT,</span> votre assistant IA spécialisé en entreprise, vous répond !",
 	"Alerts": "Alertes",
 	"success": "Succès",
 	"Review back the inquire": "Ré-étudier la demande",
@@ -2293,5 +2289,7 @@
 	"Archive date": "Date d'archivage",
 	"Would you like to be listed on Eleveurs-Online?": "Vous souhaitez être référencé sur Eleveurs-Online ?",
 	"Check out our offers": "Consultez nos offres",
-	"My search": "Ma recherche"
+	"My search": "Ma recherche",
+	"Create an alert to not miss anything !": "Créez une alerte pour ne rien louper !",
+	"No post matches your search ?": "Aucune annonce ne correspond à votre recherche ?"
 }

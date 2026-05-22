@@ -1,7 +1,7 @@
 <div class="flex flex-col
 @if ((Route::is('home.breeder') || Route::is('home.pro'))
 	|| Auth::guard('web')->user()?->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder', 'professionnal']))
-	bg-breeder-deepblue @else bg-white @endif
+	bg-jobboard-deepblue @else bg-white @endif
 px-4 h-screen overflow-y-auto overscroll-contain">
 	@php
 		if(Auth::guard('web')->check()) {
@@ -14,13 +14,13 @@ px-4 h-screen overflow-y-auto overscroll-contain">
 	<div class="w-full flex flex-col gap-y-1 mt-6">
 		@if ((Route::is('home.breeder') || Route::is('home.pro'))	|| Auth::guard('web')->user()?->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder', 'professionnal']))
 			<div x-data="{deployItem: false}">
-				<x-front.header.nav-link-mobile :href="route('pages.quisommesnous')" :active="request()->routeIs('pages.quisommesnous')" :textColor="'text-breeder-cream'" :svgArrows="false">
+				<x-front.header.nav-link-mobile :href="route('pages.quisommesnous')" :active="request()->routeIs('pages.quisommesnous')" :textColor="'text-jobboard-cream'" :svgArrows="false">
 					{{ __('About') }}
 				</x-front.header.nav-link-mobile>
 			</div>
 
 			<div x-data="{deployItem: false}">
-				<x-front.header.nav-link-mobile :href="route('post-search.dog-posts-with-post-type', ['postType' => 'etalon'])" :active="request()->routeIs('post-search.dog-posts*')" :textColor="'text-breeder-cream'" :svgArrows="true">
+				<x-front.header.nav-link-mobile :href="route('post-search.dog-posts-with-post-type', ['postType' => 'etalon'])" :active="request()->routeIs('post-search.dog-posts*')" :textColor="'text-jobboard-cream'" :svgArrows="true">
 					<svg width="30" height="24" viewBox="0 0 30 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M10.814 0.298082C9.93011 -0.570356 8.10483 0.709982 7.21685 1.01231C4.81192 1.83002 2.2261 2.05525 0.75025 4.36838C-1.72252 8.24795 2.38026 16.8329 6.32682 13.9314C8.43987 12.3771 6.45837 8.20331 8.07811 5.92062C8.72764 5.00754 9.93011 4.66057 10.5632 3.504C10.9517 2.79586 11.4327 0.904772 10.8119 0.296053L10.814 0.298082ZM28.4666 3.364C26.9928 1.90916 25.1038 1.87669 23.2909 1.27C21.5992 0.705924 18.4029 -1.6762 18.8983 2.15873C19.2312 4.73564 22.0514 5.07855 22.4892 7.13602C22.9353 9.2361 21.5868 13.6148 24.4234 14.3554C26.5488 14.9094 27.8931 13.4079 28.7852 11.7501C30.1644 9.18741 30.7462 5.61017 28.4687 3.364H28.4666ZM10.3967 6.97979C8.82631 7.29835 9.29291 9.7941 10.7215 9.73322C12.6064 9.65206 12.5694 6.53948 10.3967 6.97979ZM18.1089 9.32741C19.3854 10.6544 21.5067 8.45289 20.1048 7.25574C18.703 6.05859 17.0031 8.17693 18.1089 9.32741ZM6.5447 14.6557V23.4822C6.5447 23.612 7.04008 23.9671 7.27029 23.9914C9.0853 24.1862 8.05344 20.9519 8.19116 19.9313C10.3207 21.6763 12.7708 22.3012 14.8983 20.1504C17.0976 22.1836 19.2641 21.727 21.5498 20.1342V23.2792C21.5498 24.2552 23.3998 24.0868 23.3998 23.4822V14.6557C21.1984 14.5746 21.6958 15.8427 21.1819 17.2347C20.5427 18.9614 18.2261 20.7287 16.5283 19.1075C15.8602 18.4704 15.5663 16.6361 15.7924 15.8143C15.8911 15.4532 17.704 14.9499 17.4019 13.3896C16.9455 11.0379 12.4234 11.3544 12.52 13.7264C12.5838 15.2807 14.1274 15.6723 14.1603 15.8062C14.8469 18.6347 12.3001 21.1426 9.82734 18.8234C8.15827 17.257 9.15519 14.4508 6.5447 14.6578V14.6557Z" fill="#FF7E71"/>
 						<path d="M10.814 0.298202C11.4347 0.906921 10.9517 2.79801 10.5652 3.50615C9.93215 4.66272 8.72762 5.00969 8.08014 5.92276C6.45835 8.20343 8.43985 12.3792 6.32886 13.9335C2.38024 16.833 -1.72254 8.24807 0.750231 4.3685C2.22608 2.05537 4.8119 1.83014 7.21683 1.01243C8.10481 0.710101 9.93009 -0.572266 10.814 0.298202Z" fill="#FF7E71"/>
@@ -33,31 +33,31 @@ px-4 h-screen overflow-y-auto overscroll-contain">
 					{{ __('Dogs') }}
 				</x-front.header.nav-link-mobile>
 
-				<div class="w-full flex flex-col bg-breeder-deepblue text-breeder-cream pl-4" x-show="deployItem">
-					<a href="{{ route('post-search.dog-posts-with-post-type', ['postType' => 'etalon']) }}" class="font-medium hover:font-bold hover:border-l-2 border-breeder-coral p-4 ">
+				<div class="w-full flex flex-col bg-jobboard-deepblue text-jobboard-cream pl-4" x-show="deployItem">
+					<a href="{{ route('post-search.dog-posts-with-post-type', ['postType' => 'etalon']) }}" class="font-medium hover:font-bold hover:border-l-2 border-jobboard-coral p-4 ">
 						{{ __('Stallions for company') }}
 					</a>
 
-					<a href="{{ route('company-search.dog-companies') }}" class="font-medium hover:font-bold hover:border-l-2 border-breeder-coral p-4 ">
+					<a href="{{ route('company-search.dog-companies') }}" class="font-medium hover:font-bold hover:border-l-2 border-jobboard-coral p-4 ">
 						{{ __('Dog breeders') }}
 					</a>
 					
-					<a href="{{ route('post-search.dog-posts-with-post-type', ['postType' => 'portee']) }}" class="font-medium hover:font-bold hover:border-l-3 border-breeder-coral p-4 ">
+					<a href="{{ route('post-search.dog-posts-with-post-type', ['postType' => 'portee']) }}" class="font-medium hover:font-bold hover:border-l-3 border-jobboard-coral p-4 ">
 						{{ __('Puppies to adopt') }}
 					</a>
 
-					<a href="{{ route('post-search.dog-posts-with-post-type', ['postType' => 'adulte-retraite']) }}" class="font-medium hover:font-bold hover:border-l-2 border-breeder-coral p-4 ">
+					<a href="{{ route('post-search.dog-posts-with-post-type', ['postType' => 'adulte-retraite']) }}" class="font-medium hover:font-bold hover:border-l-2 border-jobboard-coral p-4 ">
 						{{ __('Dogs to adopt') }}
 					</a>
 
-					<a href="{{ route('breed-search.dog-breeds') }}" class="font-medium hover:font-bold hover:border-l-2 border-breeder-coral p-4 ">
+					<a href="{{ route('breed-search.dog-breeds') }}" class="font-medium hover:font-bold hover:border-l-2 border-jobboard-coral p-4 ">
 						{{ __('Dogs breeds') }}
 					</a>
 				</div>
 			</div>
 
 			<div x-data="{deployItem: false}">
-				<x-front.header.nav-link-mobile :href="route('post-search.cat-posts-with-post-type', ['postType' => 'etalon'])" :active="request()->routeIs('post-search.cat-posts*')" :textColor="'text-breeder-cream'" :svgArrows="true">
+				<x-front.header.nav-link-mobile :href="route('post-search.cat-posts-with-post-type', ['postType' => 'etalon'])" :active="request()->routeIs('post-search.cat-posts*')" :textColor="'text-jobboard-cream'" :svgArrows="true">
 					<svg width="30" height="28" viewBox="0 0 30 28" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<g clip-path="url(#clip0_1439_5721)">
 							<path d="M16.5551 16.1234C16.2029 15.9003 14.3102 16.2136 13.716 16.0902C13.3423 17.0848 14.4611 17.5477 14.3461 18.229C14.0011 20.2872 12.1229 19.5584 12.0246 20.4819C11.9072 21.5928 13.1051 21.3911 13.855 21.0919C14.3797 20.883 14.8636 20.1756 15.0649 20.14C15.2901 20.0997 17.59 22.3928 18.3998 20.8403C18.8622 19.9572 16.464 19.9596 16.0232 18.4118C15.7549 17.467 17.4726 16.7026 16.5551 16.1234Z" fill="#3DD8AC"/>
@@ -80,93 +80,93 @@ px-4 h-screen overflow-y-auto overscroll-contain">
 					{{ __('Cats') }}
 				</x-front.header.nav-link-mobile>
 
-				<div class="w-full flex flex-col bg-breeder-deepblue text-breeder-cream pl-4" x-show="deployItem">
-					<a href="{{ route('post-search.cat-posts-with-post-type', ['postType' => 'etalon']) }}" class="font-medium hover:font-bold hover:border-l-2 border-breeder-coral p-4 ">
+				<div class="w-full flex flex-col bg-jobboard-deepblue text-jobboard-cream pl-4" x-show="deployItem">
+					<a href="{{ route('post-search.cat-posts-with-post-type', ['postType' => 'etalon']) }}" class="font-medium hover:font-bold hover:border-l-2 border-jobboard-coral p-4 ">
 						{{ __('Stallions for company') }}
 					</a>
 
-					<a href="{{ route('company-search.cat-companies') }}" class="font-medium hover:font-bold hover:border-l-2 border-breeder-coral p-4 ">
+					<a href="{{ route('company-search.cat-companies') }}" class="font-medium hover:font-bold hover:border-l-2 border-jobboard-coral p-4 ">
 						{{ __('Cat breeders') }}
 					</a>
 
-					<a href="{{ route('post-search.cat-posts-with-post-type', ['postType' => 'portee']) }}" class="font-medium hover:font-bold hover:border-l-3 border-breeder-coral p-4 ">
+					<a href="{{ route('post-search.cat-posts-with-post-type', ['postType' => 'portee']) }}" class="font-medium hover:font-bold hover:border-l-3 border-jobboard-coral p-4 ">
 						{{ __('Kittens to adopt') }}
 					</a>
 
-					<a href="{{ route('post-search.cat-posts-with-post-type', ['postType' => 'adulte-retraite']) }}" class="font-medium hover:font-bold hover:border-l-2 border-breeder-coral p-4 ">
+					<a href="{{ route('post-search.cat-posts-with-post-type', ['postType' => 'adulte-retraite']) }}" class="font-medium hover:font-bold hover:border-l-2 border-jobboard-coral p-4 ">
 						{{ __('Cats to adopt') }}
 					</a>
 
-					<a href="{{ route('breed-search.cat-breeds') }}" class="font-medium hover:font-bold hover:border-l-2 border-breeder-coral p-4 ">
+					<a href="{{ route('breed-search.cat-breeds') }}" class="font-medium hover:font-bold hover:border-l-2 border-jobboard-coral p-4 ">
 						{{ __('Cats breeds') }}
 					</a>
 				</div>
 			</div>
 
 			<div x-data="{deployItem: false}">
-				<x-front.header.nav-link-mobile :href="route('professionnal-activity-search.professionnal-activities')" :active="request()->routeIs('professionnal-activity-search.professionnal-activities')" :active="request()->routeIs('professionnal-activity-search.professionnal-activities')" :textColor="'text-breeder-cream'" :svgArrows="false">
+				<x-front.header.nav-link-mobile :href="route('professionnal-activity-search.professionnal-activities')" :active="request()->routeIs('professionnal-activity-search.professionnal-activities')" :active="request()->routeIs('professionnal-activity-search.professionnal-activities')" :textColor="'text-jobboard-cream'" :svgArrows="false">
 					{{ __('Products & Services') }}
 				</x-front.header.nav-link-mobile>
 			</div>
 
 			<div x-data="{deployItem: false}">
-				<x-front.header.nav-link-mobile :href="route('article.index')" :active="request()->routeIs('article.index')" :textColor="'text-breeder-cream'">
+				<x-front.header.nav-link-mobile :href="route('article.index')" :active="request()->routeIs('article.index')" :textColor="'text-jobboard-cream'">
 					{{ __('Articles & advices') }}
 				</x-front.header.nav-link-mobile>
 
-				<div class="w-full flex flex-col gap-4 bg-breeder-deepblue text-breeder-cream p-4 ml-4 mr-4" x-show="deployItem" x-data="{deployNavOwner: false, deployNavBreeder: false, deployNavPro: false}">
-					<a href="{{ route('article.index', ['arg1' => 'nutrition']) }}" class="flex justify-between items-center font-medium hover:border-l-4 hover:pl-2 hover:font-bold border-breeder-orange text-base w-full">
+				<div class="w-full flex flex-col gap-4 bg-jobboard-deepblue text-jobboard-cream p-4 ml-4 mr-4" x-show="deployItem" x-data="{deployNavOwner: false, deployNavBreeder: false, deployNavPro: false}">
+					<a href="{{ route('article.index', ['arg1' => 'nutrition']) }}" class="flex justify-between items-center font-medium hover:border-l-4 hover:pl-2 hover:font-bold border-jobboard-orange text-base w-full">
 						{{ __('Nutrition') }}
 					</a>
 
-					<a href="{{ route('article.index', ['arg1' => 'sante']) }}" class="flex justify-between items-center font-medium hover:border-l-4 hover:pl-2 hover:font-bold border-breeder-orange text-base w-full">
+					<a href="{{ route('article.index', ['arg1' => 'sante']) }}" class="flex justify-between items-center font-medium hover:border-l-4 hover:pl-2 hover:font-bold border-jobboard-orange text-base w-full">
 						{{ __('Santé') }}
 					</a>
 
-					<a href="{{ route('article.index', ['arg1' => 'conseils-entretien']) }}" class="flex justify-between items-center font-medium hover:border-l-4 hover:pl-2 hover:font-bold border-breeder-orange text-base w-full">
+					<a href="{{ route('article.index', ['arg1' => 'conseils-entretien']) }}" class="flex justify-between items-center font-medium hover:border-l-4 hover:pl-2 hover:font-bold border-jobboard-orange text-base w-full">
 						{{ __('Conseils & entretien') }}
 					</a>
 
-					<a href="{{ route('article.index', ['arg1' => 'education-comportement']) }}" class="flex justify-between items-center font-medium hover:border-l-4 hover:pl-2 hover:font-bold border-breeder-orange text-base w-full">
+					<a href="{{ route('article.index', ['arg1' => 'education-comportement']) }}" class="flex justify-between items-center font-medium hover:border-l-4 hover:pl-2 hover:font-bold border-jobboard-orange text-base w-full">
 						<span class="whitespace-nowrap">{{ __('Éducation & comportement') }}</span>
 					</a>
 
-					<a href="{{ route('article.index', ['arg1' => 'reproduction-genetique']) }}" class="flex justify-between items-center font-medium hover:border-l-4 hover:pl-2 hover:font-bold border-breeder-orange text-base w-full">
+					<a href="{{ route('article.index', ['arg1' => 'reproduction-genetique']) }}" class="flex justify-between items-center font-medium hover:border-l-4 hover:pl-2 hover:font-bold border-jobboard-orange text-base w-full">
 						{{ __('Reproduction & génétique') }}
 					</a>
 
-					<a href="{{ route('article.index', ['arg1' => 'prevention']) }}" class="flex justify-between items-center font-medium hover:border-l-4 hover:pl-2 hover:font-bold border-breeder-orange text-base w-full">
+					<a href="{{ route('article.index', ['arg1' => 'prevention']) }}" class="flex justify-between items-center font-medium hover:border-l-4 hover:pl-2 hover:font-bold border-jobboard-orange text-base w-full">
 						{{ __('Prevention') }}
 					</a>
 
-					<a href="{{ route('article.index', ['arg1' => 'gestion-elevage']) }}" class="flex justify-between items-center font-medium hover:border-l-4 hover:pl-2 hover:font-bold border-breeder-orange text-base w-full">
+					<a href="{{ route('article.index', ['arg1' => 'gestion-elevage']) }}" class="flex justify-between items-center font-medium hover:border-l-4 hover:pl-2 hover:font-bold border-jobboard-orange text-base w-full">
 						{{ __('Gestion d\'entreprise') }}
 					</a>
 
-					<a href="{{ route('article.index', ['arg1' => 'legislation']) }}" class="flex justify-between items-center font-medium hover:border-l-4 hover:pl-2 hover:font-bold border-breeder-orange text-base w-full">
+					<a href="{{ route('article.index', ['arg1' => 'legislation']) }}" class="flex justify-between items-center font-medium hover:border-l-4 hover:pl-2 hover:font-bold border-jobboard-orange text-base w-full">
 						{{ __('Legislation') }}
 					</a>
 
-					<a href="{{ route('article.index', ['arg1' => 'produits']) }}" class="flex justify-between items-center font-medium hover:pl-2 hover:border-l-4 hover:font-bold border-breeder-orange">
+					<a href="{{ route('article.index', ['arg1' => 'produits']) }}" class="flex justify-between items-center font-medium hover:pl-2 hover:border-l-4 hover:font-bold border-jobboard-orange">
 						{{ __('Products') }}
 					</a>
 
-					<a href="{{ route('article.index', ['arg1' => 'marches-entreprises']) }}" class="flex justify-between items-center font-medium hover:pl-2 hover:border-l-4 hover:font-bold border-breeder-orange">
+					<a href="{{ route('article.index', ['arg1' => 'marches-entreprises']) }}" class="flex justify-between items-center font-medium hover:pl-2 hover:border-l-4 hover:font-bold border-jobboard-orange">
 						{{ __('Markets & businesses') }}
 					</a>
 
-					<a href="{{ route('article.index', ['arg1' => 'agenda']) }}" class="flex justify-between items-center font-medium hover:pl-2 hover:border-l-4 hover:font-bold border-breeder-orange">
+					<a href="{{ route('article.index', ['arg1' => 'agenda']) }}" class="flex justify-between items-center font-medium hover:pl-2 hover:border-l-4 hover:font-bold border-jobboard-orange">
 						{{ __('Agenda') }}
 					</a>
 
-					<a href="{{ route('article.index', ['arg1' => 'inspiration']) }}" class="flex justify-between items-center font-medium hover:pl-2 hover:border-l-4 hover:font-bold border-breeder-orange">
+					<a href="{{ route('article.index', ['arg1' => 'inspiration']) }}" class="flex justify-between items-center font-medium hover:pl-2 hover:border-l-4 hover:font-bold border-jobboard-orange">
 						{{ __('Inspiration') }}
 					</a>
 				</div>
 			</div>
 
 			<div x-data="{deployItem: false}">
-				<x-front.header.nav-link-mobile :href="Auth::guard('web')->check() && Auth::guard('web')->user()->hasRole('professionnal') ? route('home.pro') : route('home.offer')" :active="Auth::guard('web')->check() && Auth::guard('web')->user()->hasRole('professionnal') ? request()->routeIs('home.pro') : request()->routeIs('home.offer')" :textColor="'text-breeder-cream'" :svgArrows="false">
+				<x-front.header.nav-link-mobile :href="Auth::guard('web')->check() && Auth::guard('web')->user()->hasRole('professionnal') ? route('home.pro') : route('home.offer')" :active="Auth::guard('web')->check() && Auth::guard('web')->user()->hasRole('professionnal') ? request()->routeIs('home.pro') : request()->routeIs('home.offer')" :textColor="'text-jobboard-cream'" :svgArrows="false">
 					{{ __('Our offers') }}
 				</x-front.header.nav-link-mobile>
 			</div>
@@ -185,24 +185,24 @@ px-4 h-screen overflow-y-auto overscroll-contain">
 					{{ __('Dogs') }}
 				</x-front.header.nav-link-mobile>
 
-				<div class="w-full flex flex-col bg-breeder-cream text-breeder-deepblue" x-show="deployItem">
-					<a href="{{ route('post-search.dog-posts-with-post-type', ['postType' => 'portee']) }}" class="font-medium hover:font-bold hover:border-l-3 border-breeder-coral p-4 ">
+				<div class="w-full flex flex-col bg-jobboard-cream text-jobboard-deepblue" x-show="deployItem">
+					<a href="{{ route('post-search.dog-posts-with-post-type', ['postType' => 'portee']) }}" class="font-medium hover:font-bold hover:border-l-3 border-jobboard-coral p-4 ">
 						{{ __('Puppies to adopt') }}
 					</a>
 
-					<a href="{{ route('post-search.dog-posts-with-post-type', ['postType' => 'adulte-retraite']) }}" class="font-medium hover:font-bold hover:border-l-2 border-breeder-coral p-4 ">
+					<a href="{{ route('post-search.dog-posts-with-post-type', ['postType' => 'adulte-retraite']) }}" class="font-medium hover:font-bold hover:border-l-2 border-jobboard-coral p-4 ">
 						{{ __('Dogs to adopt') }}
 					</a>
 
-					<a href="{{ route('company-search.dog-companies') }}" class="font-medium hover:font-bold hover:border-l-2 border-breeder-coral p-4 ">
+					<a href="{{ route('company-search.dog-companies') }}" class="font-medium hover:font-bold hover:border-l-2 border-jobboard-coral p-4 ">
 						{{ __('Dog breeders') }}
 					</a>
 
-					<a href="{{ route('breed-search.dog-breeds') }}" class="font-medium hover:font-bold hover:border-l-2 border-breeder-coral p-4 ">
+					<a href="{{ route('breed-search.dog-breeds') }}" class="font-medium hover:font-bold hover:border-l-2 border-jobboard-coral p-4 ">
 						{{ __('Dogs breeds') }}
 					</a>
 
-					<a href="{{ route('post-search.dog-posts-with-post-type', ['postType' => 'etalon']) }}" class="font-medium hover:font-bold hover:border-l-2 border-breeder-coral p-4 ">
+					<a href="{{ route('post-search.dog-posts-with-post-type', ['postType' => 'etalon']) }}" class="font-medium hover:font-bold hover:border-l-2 border-jobboard-coral p-4 ">
 						{{ __('Stallions for company') }}
 					</a>
 				</div>
@@ -232,24 +232,24 @@ px-4 h-screen overflow-y-auto overscroll-contain">
 					{{ __('Cats') }}
 				</x-front.header.nav-link-mobile>
 
-				<div class="w-full flex flex-col bg-breeder-cream text-breeder-deepblue" x-show="deployItem">
-					<a href="{{ route('post-search.cat-posts-with-post-type', ['postType' => 'portee']) }}" class="font-medium hover:font-bold hover:border-l-3 border-breeder-coral p-4 ">
+				<div class="w-full flex flex-col bg-jobboard-cream text-jobboard-deepblue" x-show="deployItem">
+					<a href="{{ route('post-search.cat-posts-with-post-type', ['postType' => 'portee']) }}" class="font-medium hover:font-bold hover:border-l-3 border-jobboard-coral p-4 ">
 						{{ __('Kittens to adopt') }}
 					</a>
 
-					<a href="{{ route('post-search.cat-posts-with-post-type', ['postType' => 'adulte-retraite']) }}" class="font-medium hover:font-bold hover:border-l-2 border-breeder-coral p-4 ">
+					<a href="{{ route('post-search.cat-posts-with-post-type', ['postType' => 'adulte-retraite']) }}" class="font-medium hover:font-bold hover:border-l-2 border-jobboard-coral p-4 ">
 						{{ __('Cats to adopt') }}
 					</a>
 
-					<a href="{{ route('company-search.cat-companies') }}" class="font-medium hover:font-bold hover:border-l-2 border-breeder-coral p-4 ">
+					<a href="{{ route('company-search.cat-companies') }}" class="font-medium hover:font-bold hover:border-l-2 border-jobboard-coral p-4 ">
 						{{ __('Cat breeders') }}
 					</a>
 
-					<a href="{{ route('breed-search.cat-breeds') }}" class="font-medium hover:font-bold hover:border-l-2 border-breeder-coral p-4 ">
+					<a href="{{ route('breed-search.cat-breeds') }}" class="font-medium hover:font-bold hover:border-l-2 border-jobboard-coral p-4 ">
 						{{ __('Cats breeds') }}
 					</a>
 
-					<a href="{{ route('post-search.cat-posts-with-post-type', ['postType' => 'etalon']) }}" class="font-medium hover:font-bold hover:border-l-2 border-breeder-coral p-4 ">
+					<a href="{{ route('post-search.cat-posts-with-post-type', ['postType' => 'etalon']) }}" class="font-medium hover:font-bold hover:border-l-2 border-jobboard-coral p-4 ">
 						{{ __('Stallions for company') }}
 					</a>
 				</div>
@@ -266,52 +266,52 @@ px-4 h-screen overflow-y-auto overscroll-contain">
 					{{ __('Articles & advices') }}
 				</x-front.header.nav-link-mobile>
 
-				<div class="w-full flex flex-col gap-4 bg-breeder-cream text-breeder-deepblue p-4 ml-4 mr-4 mb-4" x-show="deployItem" x-data="{deployNavOwner: false, deployNavBreeder: false, deployNavPro: false}">
-					<a href="{{ route('article.index', ['arg1' => 'nutrition']) }}" class="flex justify-between items-center font-medium hover:border-l-4 hover:pl-2 hover:font-bold border-breeder-orange text-base w-full">
+				<div class="w-full flex flex-col gap-4 bg-jobboard-cream text-jobboard-deepblue p-4 ml-4 mr-4 mb-4" x-show="deployItem" x-data="{deployNavOwner: false, deployNavBreeder: false, deployNavPro: false}">
+					<a href="{{ route('article.index', ['arg1' => 'nutrition']) }}" class="flex justify-between items-center font-medium hover:border-l-4 hover:pl-2 hover:font-bold border-jobboard-orange text-base w-full">
 						{{ __('Nutrition') }}
 					</a>
 
-					<a href="{{ route('article.index', ['arg1' => 'sante']) }}" class="flex justify-between items-center font-medium hover:border-l-4 hover:pl-2 hover:font-bold border-breeder-orange text-base w-full">
+					<a href="{{ route('article.index', ['arg1' => 'sante']) }}" class="flex justify-between items-center font-medium hover:border-l-4 hover:pl-2 hover:font-bold border-jobboard-orange text-base w-full">
 						{{ __('Santé') }}
 					</a>
 
-					<a href="{{ route('article.index', ['arg1' => 'conseils-entretien']) }}" class="flex justify-between items-center font-medium hover:border-l-4 hover:pl-2 hover:font-bold border-breeder-orange text-base w-full">
+					<a href="{{ route('article.index', ['arg1' => 'conseils-entretien']) }}" class="flex justify-between items-center font-medium hover:border-l-4 hover:pl-2 hover:font-bold border-jobboard-orange text-base w-full">
 						{{ __('Conseils & entretien') }}
 					</a>
 
-					<a href="{{ route('article.index', ['arg1' => 'education-comportement']) }}" class="flex justify-between items-center font-medium hover:border-l-4 hover:pl-2 hover:font-bold border-breeder-orange text-base w-full">
+					<a href="{{ route('article.index', ['arg1' => 'education-comportement']) }}" class="flex justify-between items-center font-medium hover:border-l-4 hover:pl-2 hover:font-bold border-jobboard-orange text-base w-full">
 						<span class="whitespace-nowrap">{{ __('Éducation & comportement') }}</span>
 					</a>
 
-					<a href="{{ route('article.index', ['arg1' => 'reproduction-genetique']) }}" class="flex justify-between items-center font-medium hover:border-l-4 hover:pl-2 hover:font-bold border-breeder-orange text-base w-full">
+					<a href="{{ route('article.index', ['arg1' => 'reproduction-genetique']) }}" class="flex justify-between items-center font-medium hover:border-l-4 hover:pl-2 hover:font-bold border-jobboard-orange text-base w-full">
 						{{ __('Reproduction & génétique') }}
 					</a>
 
-					<a href="{{ route('article.index', ['arg1' => 'prevention']) }}" class="flex justify-between items-center font-medium hover:border-l-4 hover:pl-2 hover:font-bold border-breeder-orange text-base w-full">
+					<a href="{{ route('article.index', ['arg1' => 'prevention']) }}" class="flex justify-between items-center font-medium hover:border-l-4 hover:pl-2 hover:font-bold border-jobboard-orange text-base w-full">
 						{{ __('Prevention') }}
 					</a>
 
-					<a href="{{ route('article.index', ['arg1' => 'gestion-elevage']) }}" class="flex justify-between items-center font-medium hover:border-l-4 hover:pl-2 hover:font-bold border-breeder-orange text-base w-full">
+					<a href="{{ route('article.index', ['arg1' => 'gestion-elevage']) }}" class="flex justify-between items-center font-medium hover:border-l-4 hover:pl-2 hover:font-bold border-jobboard-orange text-base w-full">
 						{{ __('Gestion d\'entreprise') }}
 					</a>
 
-					<a href="{{ route('article.index', ['arg1' => 'legislation']) }}" class="flex justify-between items-center font-medium hover:border-l-4 hover:pl-2 hover:font-bold border-breeder-orange text-base w-full">
+					<a href="{{ route('article.index', ['arg1' => 'legislation']) }}" class="flex justify-between items-center font-medium hover:border-l-4 hover:pl-2 hover:font-bold border-jobboard-orange text-base w-full">
 						{{ __('Legislation') }}
 					</a>
 
-					<a href="{{ route('article.index', ['arg1' => 'produits']) }}" class="flex justify-between items-center font-medium hover:pl-2 hover:border-l-4 hover:font-bold border-breeder-orange">
+					<a href="{{ route('article.index', ['arg1' => 'produits']) }}" class="flex justify-between items-center font-medium hover:pl-2 hover:border-l-4 hover:font-bold border-jobboard-orange">
 						{{ __('Products') }}
 					</a>
 
-					<a href="{{ route('article.index', ['arg1' => 'marches-entreprises']) }}" class="flex justify-between items-center font-medium hover:pl-2 hover:border-l-4 hover:font-bold border-breeder-orange">
+					<a href="{{ route('article.index', ['arg1' => 'marches-entreprises']) }}" class="flex justify-between items-center font-medium hover:pl-2 hover:border-l-4 hover:font-bold border-jobboard-orange">
 						{{ __('Markets & businesses') }}
 					</a>
 
-					<a href="{{ route('article.index', ['arg1' => 'agenda']) }}" class="flex justify-between items-center font-medium hover:pl-2 hover:border-l-4 hover:font-bold border-breeder-orange">
+					<a href="{{ route('article.index', ['arg1' => 'agenda']) }}" class="flex justify-between items-center font-medium hover:pl-2 hover:border-l-4 hover:font-bold border-jobboard-orange">
 						{{ __('Agenda') }}
 					</a>
 
-					<a href="{{ route('article.index', ['arg1' => 'inspiration']) }}" class="flex justify-between items-center font-medium hover:pl-2 hover:border-l-4 hover:font-bold border-breeder-orange">
+					<a href="{{ route('article.index', ['arg1' => 'inspiration']) }}" class="flex justify-between items-center font-medium hover:pl-2 hover:border-l-4 hover:font-bold border-jobboard-orange">
 						{{ __('Inspiration') }}
 					</a>
 				</div>
@@ -343,7 +343,7 @@ px-4 h-screen overflow-y-auto overscroll-contain">
 					}
 				@endphp
 
-				<x-front.header.picto-link :href="route('space.profile.my-notifications')" :activeColor="'text-breeder-violet'" :textColor="$isBreederOrPro || $isBreederOrProRoute ? 'text-breeder-cream' : 'text-breeder-deepblue'" :class="'relative'">
+				<x-front.header.picto-link :href="route('space.profile.my-notifications')" :activeColor="'text-jobboard-violet'" :textColor="$isBreederOrPro || $isBreederOrProRoute ? 'text-jobboard-cream' : 'text-jobboard-deepblue'" :class="'relative'">
 					<svg width="23" height="27" viewBox="0 0 23 27" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M8.49936 22.988C8.49936 24.6491 9.85022 26 11.5114 26C13.1726 26 14.5235 24.6491 14.5235 22.988M21.7247 21.345L20.3647 19.3644C19.5341 18.1596 19.0869 16.7265 19.0869 15.257V12.1355C19.0869 8.64878 16.732 5.70975 13.5283 4.82439V3.02629C13.5283 1.90361 12.6247 1 11.502 1C10.3793 1 9.47573 1.90361 9.47573 3.02629V4.82439C6.272 5.70975 3.91713 8.64878 3.91713 12.1355V15.257C3.91713 16.7265 3.46988 18.1596 2.63929 19.3644L1.2793 21.345C0.850312 21.9657 1.29756 22.8145 2.05513 22.8145H20.9489C21.7065 22.8145 22.1446 21.9657 21.7247 21.345Z" stroke="{{ $svgColor }}" stroke-width="1.5" stroke-miterlimit="10"/>
 					</svg>
@@ -351,11 +351,11 @@ px-4 h-screen overflow-y-auto overscroll-contain">
 					{{ __('Notifications') }}
 
 					@if($notReadNotifications->isNotEmpty())
-						<span class="absolute bottom-[33px] left-[50.33%] w-[10px] h-[10px] rounded-full bg-breeder-coral"></span>
+						<span class="absolute bottom-[33px] left-[50.33%] w-[10px] h-[10px] rounded-full bg-jobboard-coral"></span>
 					@endif
 				</x-front.header.picto-link>
 
-				<x-front.header.picto-link :href="route('space.responses.my-messages')" :active="request()->routeIs('space.responses.my-messages')" :activeColor="$isBreederOrPro || $isBreederOrProRoute ? 'text-breeder-violet' : 'text-breeder-deepblue'" :textColor="$isBreederOrPro || $isBreederOrProRoute ? 'text-breeder-cream' : 'text-breeder-deepblue'" :class="'relative'">
+				<x-front.header.picto-link :href="route('space.responses.my-messages')" :active="request()->routeIs('space.responses.my-messages')" :activeColor="$isBreederOrPro || $isBreederOrProRoute ? 'text-jobboard-violet' : 'text-jobboard-deepblue'" :textColor="$isBreederOrPro || $isBreederOrProRoute ? 'text-jobboard-cream' : 'text-jobboard-deepblue'" :class="'relative'">
 					<svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M23.8587 19.837C25.0543 17.9239 25.75 15.6739 25.75 13.25C25.75 6.34783 20.1521 0.75 13.25 0.75C6.34779 0.75 0.75 6.34783 0.75 13.25C0.75 20.1522 6.34779 25.75 13.25 25.75C15.6739 25.75 17.9239 25.0543 19.8369 23.8587L25.75 25.75L23.8587 19.837Z" stroke="{{ $svgColor }}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 						<path d="M8.35938 10.5327H18.142" stroke="{{ $svgColor }}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -363,7 +363,7 @@ px-4 h-screen overflow-y-auto overscroll-contain">
 					</svg>
 
 					@if(Auth::guard('web')->user()->countUnreadMessages() > 0)
-						<span class="absolute bottom-[33px] left-[50.33%] w-[10px] h-[10px] rounded-full bg-breeder-coral"></span>
+						<span class="absolute bottom-[33px] left-[50.33%] w-[10px] h-[10px] rounded-full bg-jobboard-coral"></span>
 					@endif
 
 					{{ __('Messaging') }}

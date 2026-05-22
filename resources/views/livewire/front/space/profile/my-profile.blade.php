@@ -1,27 +1,27 @@
 <div class="p-4">
 	<div class="w-full bg-white px-6 pt-6 pb-10 mb-6">
 		@if($user->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
-			<div class="flex flex-row w-full justify-end items-center gap-x-2 text-breeder-deepblue mb-4">
+			<div class="flex flex-row w-full justify-end items-center gap-x-2 text-jobboard-deepblue mb-4">
 				@if($user->awaitingModeration())
 					{{ __('Status : :status', ['status' => __('waiting validation')]) }}
 
-					<div class="w-2 h-2 rounded-full bg-breeder-orange"></div>
+					<div class="w-2 h-2 rounded-full bg-jobboard-orange"></div>
 				@elseif($user->lastModeration)
 					{{ __('Status : :status', ['status' => __($user->lastModeration->state->inHuman())]) }}
 
 					@if($user->lastModeration->state->value == 'validated')
-						<div class="w-2 h-2 rounded-full bg-breeder-green"></div>
+						<div class="w-2 h-2 rounded-full bg-jobboard-green"></div>
 					@elseif($user->lastModeration->state->value == 'denied')
-						<div class="w-2 h-2 rounded-full bg-breeder-coralhover"></div>
+						<div class="w-2 h-2 rounded-full bg-jobboard-coralhover"></div>
 					@elseif($user->lastModeration->state->value == 'waiting')
-						<div class="w-2 h-2 rounded-full bg-breeder-deepblue"></div>
+						<div class="w-2 h-2 rounded-full bg-jobboard-deepblue"></div>
 					@endif
 				@endif
 			</div>
 		@endif
 
 		<div class="flex flex-col max-sm:items-start max-sm:space-y-4 sm:justify-between">
-			<div class="p-6 border border-breeder-greige rounded-md text-breeder-deepblue mb-8 flex flex-row justify-between gap-4 w-full max-lg:flex-wrap">
+			<div class="p-6 border border-jobboard-greige rounded-md text-jobboard-deepblue mb-8 flex flex-row justify-between gap-4 w-full max-lg:flex-wrap">
 				@if($avatar = $user->getFirstMedia('avatar'))
 					<img src="{{ $avatar->getAvailableUrl(['optimized']) }}" title="{{ $user->name }}" class="inline-block object-cover w-[100px] h-[100px] rounded-full" />
 				@else
@@ -37,7 +37,7 @@
 				@endif
 
 				<div class="flex flex-col w-full">
-					<h2 class="text-breeder-deepblue text-[25px] md:text-[40px] font-bold">
+					<h2 class="text-jobboard-deepblue text-[25px] md:text-[40px] font-bold">
 						{{ $user->name }}
 					</h2>
 
@@ -79,7 +79,7 @@
 							@if(isset($user->phone))
 								{{ $user->phone }}
 							@else
-								<span class="text-breeder-greige">{{ __('Not provided') }}</span>
+								<span class="text-jobboard-greige">{{ __('Not provided') }}</span>
 							@endif
 						</div>
 
@@ -99,7 +99,7 @@
 							@if($user->address && $user->address->city)
 								{{ $user->address->city->name }}
 							@else
-								<span class="text-breeder-greige">{{ __('Not provided') }}</span>
+								<span class="text-jobboard-greige">{{ __('Not provided') }}</span>
 							@endif
 						</div>
 					</div>
@@ -112,7 +112,7 @@
 						@elseif($user->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
 							<a href="{{ route('space.profile.complete-my-profile') }}">
 						@endif
-							<div class="flex flex-row justify-end cursor-pointer font-bold text-breeder-deepblue text-sm items-center gap-x-1">
+							<div class="flex flex-row justify-end cursor-pointer font-bold text-jobboard-deepblue text-sm items-center gap-x-1">
 								<svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path
 										d="M7.26201 2.37054L2.39156 2.37054C2.02249 2.37054 1.66855 2.50668 1.40758 2.74901C1.14661 2.99134 1 3.32 1 3.66271L1 12.7078C1 13.0505 1.14661 13.3792 1.40758 13.6215C1.66855 13.8639 2.0225 14 2.39156 14L12.1325 14C12.5015 14 12.8555 13.8639 13.1164 13.6215C13.3774 13.3792 13.524 13.0505 13.524 12.7078L13.524 8.18527M12.4804 1.40142C12.7572 1.1444 13.1326 0.999999 13.524 0.999999C13.9155 0.999999 14.2909 1.1444 14.5677 1.40142C14.8445 1.65845 15 2.00705 15 2.37054C15 2.73403 14.8445 3.08264 14.5677 3.33966L7.95779 9.47743L5.17468 10.1235L5.87046 7.53919L12.4804 1.40142Z"
@@ -128,14 +128,14 @@
 			</div>
 
 			@if($user->hasRole('adopter'))
-				<div class="p-6 border border-breeder-greige rounded-md text-breeder-deepblue mb-8 w-full">
+				<div class="p-6 border border-jobboard-greige rounded-md text-jobboard-deepblue mb-8 w-full">
 					<div class="flex justify-between items-center">
 						<h2 class="text-[28px] font-bold">{{ __('My house') }}</h2>
 
 						<div>
 							<a href="{{ route('space.profile.complete-my-profile', ['active' => 1]) }}">
 								<div
-									class="flex flex-row justify-end cursor-pointer font-bold text-breeder-deepblue text-sm items-center gap-x-1">
+									class="flex flex-row justify-end cursor-pointer font-bold text-jobboard-deepblue text-sm items-center gap-x-1">
 									<svg width="16" height="15" viewBox="0 0 16 15" fill="none"
 										xmlns="http://www.w3.org/2000/svg">
 										<path
@@ -159,7 +159,7 @@
 							<div class="w-full max-w-[360px] s:w-[268px]">
 								@if($interestedIn == 'dogs')
 									<label for="interested_in_dogs"
-										class="block border rounded-xl bg-breeder-cream border-breeder-cream">
+										class="block border rounded-xl bg-jobboard-cream border-jobboard-cream">
 										<div>
 											<h3
 												class="h-[85px] s:h-[184px] flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium text-center">
@@ -180,7 +180,7 @@
 									</label>
 								@elseif($interestedIn == 'cats')
 									<label for="interested_in_cats"
-										class="block border rounded-xl bg-breeder-cream border-breeder-cream">
+										class="block border rounded-xl bg-jobboard-cream border-jobboard-cream">
 										<div>
 											<h3
 												class="h-[85px] s:h-[184px] flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium text-center">
@@ -201,7 +201,7 @@
 									</label>
 								@elseif($interestedIn == 'both')
 									<label for="interested_in_both"
-										class="block border rounded-xl bg-breeder-cream border-breeder-cream">
+										class="block border rounded-xl bg-jobboard-cream border-jobboard-cream">
 										<div>
 											<h3
 												class="h-[85px] s:h-[184px] flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium text-center">
@@ -243,7 +243,7 @@
 								@if($placeConfiguration == 'house_with_garden')
 									<div class="w-full max-w-[360px] s:max-w-[270px]">
 										<label for="houseWithGarden"
-											class="block border rounded-xl bg-breeder-cream border-breeder-cream">
+											class="block border rounded-xl bg-jobboard-cream border-jobboard-cream">
 											<div>
 												<h3
 													class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium text-center lowercase h-[85px] s:h-[184px]">
@@ -268,7 +268,7 @@
 								@elseif($placeConfiguration == 'house_without_garden')
 									<div class="w-full max-w-[360px] s:max-w-[270px]">
 										<label for="houseWithoutGarden"
-											class="block border rounded-xl bg-breeder-cream border-breeder-cream">
+											class="block border rounded-xl bg-jobboard-cream border-jobboard-cream">
 											<div>
 												<h3
 													class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-center text-base font-medium lowercase h-[85px] s:h-[184px]">
@@ -291,7 +291,7 @@
 								@elseif($placeConfiguration == 'flat')
 									<div class="w-full max-w-[360px] s:max-w-[270px]">
 										<label for="flat"
-											class="block border rounded-xl bg-breeder-cream border-breeder-cream">
+											class="block border rounded-xl bg-jobboard-cream border-jobboard-cream">
 											<div>
 												<h3
 													class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium lowercase h-[85px] s:h-[184px]">
@@ -326,7 +326,7 @@
 									@if($householdCompositionEntry == 'young_children')
 										<div class="w-full max-w-[360px] s:max-w-[268px]">
 											<label for="youngChildren"
-												class="block border rounded-xl bg-breeder-cream border-breeder-cream">
+												class="block border rounded-xl bg-jobboard-cream border-jobboard-cream">
 												<div>
 													<h3
 														class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium text-center h-[85px] s:h-[184px]">
@@ -355,7 +355,7 @@
 									@if($householdCompositionEntry == 'children')
 										<div class="w-full max-w-[360px] s:max-w-[268px]">
 											<label for="children"
-												class="block border rounded-xl bg-breeder-cream border-breeder-cream">
+												class="block border rounded-xl bg-jobboard-cream border-jobboard-cream">
 												<div>
 													<h3
 														class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium text-center h-[85px] s:h-[184px]">
@@ -386,7 +386,7 @@
 									@if($householdCompositionEntry == 'teenagers')
 										<div class="w-full max-w-[360px] s:max-w-[268px]">
 											<label for="teenagers"
-												class="block border rounded-xl bg-breeder-cream border-breeder-cream">
+												class="block border rounded-xl bg-jobboard-cream border-jobboard-cream">
 												<div>
 													<h3
 														class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium text-center h-[85px] s:h-[184px]">
@@ -415,7 +415,7 @@
 									@if($householdCompositionEntry == 'adult')
 										<div class="w-full max-w-[360px] s:max-w-[268px]">
 											<label for="adult"
-												class="block border rounded-xl bg-breeder-cream border-breeder-cream">
+												class="block border rounded-xl bg-jobboard-cream border-jobboard-cream">
 												<div>
 													<h3
 														class="flex flex-row s:flex-col items-center max-s:pl-4 s:justify-center gap-4 text-base font-medium text-center h-[85px] s:h-[184px]">
@@ -457,7 +457,7 @@
 									@if($homeAnimalsEntry == 'dogs')
 										<div class="w-full max-w-[360px] s:max-w-[268px]">
 											<label for="dogs"
-												class="block border rounded-xl  bg-breeder-cream border-breeder-cream">
+												class="block border rounded-xl  bg-jobboard-cream border-jobboard-cream">
 												<div>
 													<h3
 														class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium text-center h-[85px] s:h-[184px]">
@@ -483,7 +483,7 @@
 									@if($homeAnimalsEntry == 'cats')
 										<div class="w-full max-w-[360px] s:max-w-[268px]">
 											<label for="cats"
-												class="block border rounded-xl bg-breeder-cream border-breeder-cream">
+												class="block border rounded-xl bg-jobboard-cream border-jobboard-cream">
 												<div>
 													<h3
 														class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium text-center h-[85px] s:h-[184px]">
@@ -509,7 +509,7 @@
 									@if($homeAnimalsEntry == 'others')
 										<div class="w-full max-w-[360px] s:max-w-[268px]">
 											<label for="others"
-												class="block border rounded-xl bg-breeder-cream border-breeder-cream">
+												class="block border rounded-xl bg-jobboard-cream border-jobboard-cream">
 												<div>
 													<h3
 														class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium text-center h-[85px] s:h-[184px]">
@@ -547,7 +547,7 @@
 									@if($homeAnimalsEntry == 'none')
 										<div class="w-full max-w-[360px] s:max-w-[268px]">
 											<label for="none"
-												class="block border rounded-xl bg-breeder-cream border-breeder-cream">
+												class="block border rounded-xl bg-jobboard-cream border-jobboard-cream">
 												<div>
 													<h3
 														class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium text-center h-[85px] s:h-[184px]">
@@ -573,14 +573,14 @@
 					@endif
 				</div>
 
-				<div class="p-6 border border-breeder-greige rounded-md text-breeder-deepblue w-full">
+				<div class="p-6 border border-jobboard-greige rounded-md text-jobboard-deepblue w-full">
 					<div class="flex justify-between items-center">
 						<h2 class="text-[28px] font-bold">{{ __('My project') }}</h2>
 
 						<div>
 							<a href="{{ route('space.profile.complete-my-profile', ['active' => 2]) }}">
 								<div
-									class="flex flex-row justify-end cursor-pointer font-bold text-breeder-deepblue text-sm items-center gap-x-1">
+									class="flex flex-row justify-end cursor-pointer font-bold text-jobboard-deepblue text-sm items-center gap-x-1">
 									<svg width="16" height="15" viewBox="0 0 16 15" fill="none"
 										xmlns="http://www.w3.org/2000/svg">
 										<path
@@ -607,7 +607,7 @@
 								@if($adoptionProject == 'looking_for_dog')
 									<div class="w-full max-w-[360px] s:max-w-[268px]">
 										<label for="lookingForDog"
-											class="block border rounded-xl bg-breeder-cream border-breeder-cream">
+											class="block border rounded-xl bg-jobboard-cream border-jobboard-cream">
 											<div>
 												<h3
 													class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium text-center h-[85px] s:h-[184px]">
@@ -641,7 +641,7 @@
 								@elseif($adoptionProject == 'thinking_about_dog')
 									<div class="w-full max-w-[360px] s:max-w-[268px]">
 										<label for="thinkingAboutDog"
-											class="block border rounded-xl bg-breeder-cream border-breeder-cream">
+											class="block border rounded-xl bg-jobboard-cream border-jobboard-cream">
 											<div>
 												<h3
 													class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium text-center h-[85px] s:h-[184px]">
@@ -671,7 +671,7 @@
 								@elseif($adoptionProject == 'looking_for_cat')
 									<div class="w-full max-w-[360px] s:max-w-[268px]">
 										<label for="lookingForCat"
-											class="block border rounded-xl bg-breeder-cream border-breeder-cream">
+											class="block border rounded-xl bg-jobboard-cream border-jobboard-cream">
 											<div>
 												<h3
 													class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium text-center h-[85px] s:h-[184px]">
@@ -705,7 +705,7 @@
 								@elseif($adoptionProject == 'thinking_about_cat')
 									<div class="w-full max-w-[360px] s:max-w-[268px]">
 										<label for="thinkingAboutCat"
-											class="block border rounded-xl bg-breeder-cream border-breeder-cream">
+											class="block border rounded-xl bg-jobboard-cream border-jobboard-cream">
 											<div>
 												<h3
 													class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium text-center h-[85px] s:h-[184px]">
@@ -735,7 +735,7 @@
 								@elseif($adoptionProject == 'none')
 									<div class="w-full max-w-[360px] s:max-w-[268px]">
 										<label for="none"
-											class="block border rounded-xl bg-breeder-cream border-breeder-cream">
+											class="block border rounded-xl bg-jobboard-cream border-jobboard-cream">
 											<div>
 												<h3
 													class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium text-center h-[85px] s:h-[184px]">
@@ -768,7 +768,7 @@
 								@if($animalExperience == 'expert')
 									<div class="w-full max-w-[360px] s:max-w-[270px]">
 										<label for="expert"
-											class="block border rounded-xl bg-breeder-cream border-breeder-cream">
+											class="block border rounded-xl bg-jobboard-cream border-jobboard-cream">
 											<div>
 												<h3
 													class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium text-center h-[85px] s:h-[184px]">
@@ -808,7 +808,7 @@
 								@elseif($animalExperience == 'experienced')
 									<div class="w-full max-w-[360px] s:max-w-[270px]">
 										<label for="experienced"
-											class="block border rounded-xl bg-breeder-cream border-breeder-cream">
+											class="block border rounded-xl bg-jobboard-cream border-jobboard-cream">
 											<div>
 												<h3
 													class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium text-center h-[85px] s:h-[184px]">
@@ -839,7 +839,7 @@
 								@elseif($animalExperience == 'beginner')
 									<div class="w-full max-w-[360px] s:max-w-[270px]">
 										<label for="beginner"
-											class="block border rounded-xl bg-breeder-cream border-breeder-cream">
+											class="block border rounded-xl bg-jobboard-cream border-jobboard-cream">
 											<div>
 												<h3
 													class="flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium text-center h-[85px] s:h-[184px]">
@@ -866,7 +866,7 @@
 					@endif
 				</div>
 			@elseif($user->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
-				<div class="p-6 border border-breeder-greige rounded-md text-breeder-deepblue mb-8 w-full">
+				<div class="p-6 border border-jobboard-greige rounded-md text-jobboard-deepblue mb-8 w-full">
 					<div class="flex flex-col gap-4">
 						<div class="w-full">
 							<div class="flex flex-row justify-between items-start">
@@ -876,7 +876,7 @@
 
 								<a href="{{ route('space.profile.complete-my-profile', ['active' => 1]) }}">
 									<div
-										class="flex flex-row justify-end cursor-pointer font-bold text-breeder-deepblue text-sm items-center gap-x-1">
+										class="flex flex-row justify-end cursor-pointer font-bold text-jobboard-deepblue text-sm items-center gap-x-1">
 										<svg width="16" height="15" viewBox="0 0 16 15" fill="none"
 											xmlns="http://www.w3.org/2000/svg">
 											<path
@@ -893,7 +893,7 @@
 							<div class="flex mt-4 gap-4 flex-wrap">
 								<div class="w-full max-w-[360px] s:w-[268px]">
 									@if($interestedIn == 'dogs')
-										<label for="interested_in_dogs" class="block border rounded-xl bg-breeder-cream border-breeder-cream">
+										<label for="interested_in_dogs" class="block border rounded-xl bg-jobboard-cream border-jobboard-cream">
 											<div>
 												<h3 class="h-[85px] s:h-[184px] flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium text-center">
 													<svg width="48" height="47" viewBox="0 0 48 47"
@@ -912,7 +912,7 @@
 											</div>
 										</label>
 									@elseif($interestedIn == 'cats')
-										<label for="interested_in_cats" class="block border rounded-xl bg-breeder-cream border-breeder-cream">
+										<label for="interested_in_cats" class="block border rounded-xl bg-jobboard-cream border-jobboard-cream">
 											<div>
 												<h3 class="h-[85px] s:h-[184px] flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium text-center">
 													<svg width="43" height="46" viewBox="0 0 43 46" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -930,7 +930,7 @@
 											</div>
 										</label>
 									@elseif($interestedIn == 'both')
-										<label for="interested_in_both" class="block border rounded-xl bg-breeder-cream border-breeder-cream">
+										<label for="interested_in_both" class="block border rounded-xl bg-jobboard-cream border-jobboard-cream">
 											<div>
 												<h3 class="h-[85px] s:h-[184px] flex flex-row gap-4 s:flex-col items-center max-s:pl-4 s:justify-center text-base font-medium text-center">
 													<svg width="103" height="47" viewBox="0 0 103 47"
@@ -965,11 +965,11 @@
 				</div>
 
 				@if($user->hasRole('professionnal_breeder'))
-					<div class="p-6 border border-breeder-greige rounded-md text-breeder-deepblue mb-8 w-full">
+					<div class="p-6 border border-jobboard-greige rounded-md text-jobboard-deepblue mb-8 w-full">
 						<div class="flex flex-col gap-4">
 							<div class="w-full flex justify-between">
 								<div class="flex flex-col gap-2">
-									<h2 class="text-breeder-deepblue text-[25px] md:text-[40px] font-bold">
+									<h2 class="text-jobboard-deepblue text-[25px] md:text-[40px] font-bold">
 										{{ $companyName }}
 									</h2>
 
@@ -980,7 +980,7 @@
 
 								<a href="{{ route('space.profile.complete-my-profile', ['active' => 2]) }}">
 									<div
-										class="flex flex-row justify-end cursor-pointer font-bold text-breeder-deepblue text-sm items-center gap-x-1">
+										class="flex flex-row justify-end cursor-pointer font-bold text-jobboard-deepblue text-sm items-center gap-x-1">
 										<svg width="16" height="15" viewBox="0 0 16 15" fill="none"
 											xmlns="http://www.w3.org/2000/svg">
 											<path
@@ -1000,7 +1000,7 @@
 								<div class="flex gap-2 items-center flex-wrap">
 									{{ __('I am') }} :
 
-									<div class="flex py-2 px-4 rounded-xl border-breeder-orange bg-breeder-orange font-bold s:text-base text-sm">
+									<div class="flex py-2 px-4 rounded-xl border-jobboard-orange bg-jobboard-orange font-bold s:text-base text-sm">
 										{{ __('professionnal_breeder') }}
 									</div>
 								</div>

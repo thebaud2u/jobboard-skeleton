@@ -4,7 +4,7 @@
 			<div class="flex-1 flex-col gap-y-2">
 				<x-front.input-label for="filter_post_type" :value="__('Type')" :class="'pl-4 mb-2'" />
 
-				<select class="flex-1 min-w-[251px] flex flex-col p-4 rounded-xl border border-breeder-deepblue w-full" id="filter_post_type" wire:model.live="postType" wire:change.debounce.500ms="search">
+				<select class="flex-1 min-w-[251px] flex flex-col p-4 rounded-xl border border-jobboard-deepblue w-full" id="filter_post_type" wire:model.live="postType" wire:change.debounce.500ms="search">
 					<option value="">
 						{{ __('All the types') }}
 					</option>
@@ -20,7 +20,7 @@
 			<div class="flex-1 flex-col gap-y-2">
 				<x-front.input-label for="filter_post_type" :value="__('Offers')" :class="'pl-4 mb-2'" />
 
-				<select class="flex-1 min-w-[251px] flex flex-col p-4 rounded-xl border border-breeder-deepblue w-full" id="filter_offer" wire:model.live="offer" wire:change.debounce.500ms="search">
+				<select class="flex-1 min-w-[251px] flex flex-col p-4 rounded-xl border border-jobboard-deepblue w-full" id="filter_offer" wire:model.live="offer" wire:change.debounce.500ms="search">
 					<option value="">
 						{{ __('All the offers') }}
 					</option>
@@ -36,7 +36,7 @@
 			<div class="flex-1 flex-col gap-y-2">
 				<x-front.input-label for="filter_post_type" :value="__('States')" :class="'pl-4 mb-2'" />
 
-				<select class="flex-1 min-w-[251px] flex flex-col p-4 rounded-xl border border-breeder-deepblue w-full" wire:model.live="state" wire:change.debounce.500ms="search">
+				<select class="flex-1 min-w-[251px] flex flex-col p-4 rounded-xl border border-jobboard-deepblue w-full" wire:model.live="state" wire:change.debounce.500ms="search">
 					<option value="">
 						{{ __('All the states') }}
 					</option>

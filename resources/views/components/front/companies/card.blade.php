@@ -18,7 +18,7 @@
 			@endif
 		</div>
 
-		<div class="flex flex-col gap-4 p-4 bg-breeder-cream rounded-b-xl text-breeder-deepblue text-sm font-medium h-[156px]">
+		<div class="flex flex-col gap-4 p-4 bg-jobboard-cream rounded-b-xl text-jobboard-deepblue text-sm font-medium h-[156px]">
 			{{ $company->displayPartOfAddress('department+department_code') }}
 		</div>
 	</article>

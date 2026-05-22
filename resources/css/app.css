@@ -42,19 +42,19 @@
        Buttons styles
      **************** */
     .btn-primary {
-        @apply inline-flex items-center justify-center py-4 px-8 whitespace-nowrap rounded-full text-sm focus:outline-none focus:ring-0 transition ease-in-out duration-150 bg-breeder-deepblue hover:bg-breeder-cream border border-breeder-cream rounded-full text-breeder-cream hover:text-breeder-deepblue font-semibold  gap-2 text-center max-s:w-full;
+        @apply inline-flex items-center justify-center py-4 px-8 whitespace-nowrap rounded-full text-sm focus:outline-none focus:ring-0 transition ease-in-out duration-150 bg-jobboard-deepblue hover:bg-jobboard-cream border border-jobboard-cream rounded-full text-jobboard-cream hover:text-jobboard-deepblue font-semibold  gap-2 text-center max-s:w-full;
     }
 
     .btn-secondary{
-        @apply w-auto bg-white hover:bg-breeder-deepblue py-4 px-8 border border-breeder-deepbluehover rounded-full text-breeder-deepbluehover hover:text-breeder-cream font-semibold text-sm  gap-2 text-center;
+        @apply w-auto bg-white hover:bg-jobboard-deepblue py-4 px-8 border border-jobboard-deepbluehover rounded-full text-jobboard-deepbluehover hover:text-jobboard-cream font-semibold text-sm  gap-2 text-center;
     }
 
     .btn-eleveurs{
-        @apply inline-flex items-center justify-center py-4 px-8 rounded-full whitespace-nowrap focus:outline-none transition ease-in-out duration-150 text-breeder-deepblue bg-breeder-violet text-sm font-semibold hover:text-breeder-deepblue hover:bg-breeder-violethover gap-2 max-s:w-full;
+        @apply inline-flex items-center justify-center py-4 px-8 rounded-full whitespace-nowrap focus:outline-none transition ease-in-out duration-150 text-jobboard-deepblue bg-jobboard-violet text-sm font-semibold hover:text-jobboard-deepblue hover:bg-jobboard-violethover gap-2 max-s:w-full;
     }
 
     .btn-card {
-        @apply w-full flex flex-col bg-breeder-deepblue hover:bg-breeder-deepbluehover text-breeder-cream px-8 py-4 gap-2 rounded-xl text-[18px] items-center text-center h-full;
+        @apply w-full flex flex-col bg-jobboard-deepblue hover:bg-jobboard-deepbluehover text-jobboard-cream px-8 py-4 gap-2 rounded-xl text-[18px] items-center text-center h-full;
     }
 
     .btn-card strong{
@@ -100,10 +100,10 @@
         @apply text-gray-400 cursor-not-allowed font-semibold;
     }
     .list-alpha .enabled {
-        @apply text-breeder-deepblue hover:underline font-semibold;
+        @apply text-jobboard-deepblue hover:underline font-semibold;
     }
     .list-alpha .on{
-        @apply text-breeder-deepblue font-semibold bg-breeder-darkorange rounded-full;
+        @apply text-jobboard-deepblue font-semibold bg-jobboard-darkorange rounded-full;
     }
 
     .pagination nav div:last-child{
@@ -128,18 +128,18 @@
       FORMS
     **************** */
     .form {
-        @apply bg-white border border-breeder-greige w-full p-3 rounded-xl flex flex-col lg:flex-row gap-4 lg:gap-8 lg:justify-between;
+        @apply bg-white border border-jobboard-greige w-full p-3 rounded-xl flex flex-col lg:flex-row gap-4 lg:gap-8 lg:justify-between;
     }
     .form>div {
         @apply flex flex-col lg:flex-row justify-start gap-4 lg:gap-8;
     }
 
     .field{
-        @apply flex flex-row items-center gap-2 lg:pr-8 lg:last:pr-0 lg:border-r lg:border-breeder-greige lg:last:border-none text-base;
+        @apply flex flex-row items-center gap-2 lg:pr-8 lg:last:pr-0 lg:border-r lg:border-jobboard-greige lg:last:border-none text-base;
     }
 
     .field select {
-        @apply text-breeder-deepblue text-sm block border-0 focus:border-0 focus:ring-0 rounded-md w-full;
+        @apply text-jobboard-deepblue text-sm block border-0 focus:border-0 focus:ring-0 rounded-md w-full;
     }
 
     /* ****************
@@ -186,7 +186,7 @@
     }
 
     .article aside.vf_encart {
-        @apply bg-breeder-cream rounded-xl p-6 flex flex-col items-start my-4;
+        @apply bg-jobboard-cream rounded-xl p-6 flex flex-col items-start my-4;
 
         h2, h3, h4 {
             @apply text-lg font-bold mb-2 mt-0 text-left leading-none;
@@ -194,7 +194,7 @@
     }
 
     .article aside {
-        @apply bg-breeder-cream rounded-xl p-6 flex flex-col items-start my-4;
+        @apply bg-jobboard-cream rounded-xl p-6 flex flex-col items-start my-4;
 
         h2, h3, h4 {
             @apply text-lg font-bold mb-2 mt-0 text-left leading-none;
@@ -234,19 +234,19 @@
       CKEDITOR
     **************** */
     .ck-content h2 {
-        @apply text-2xl font-bold text-breeder-deepblue mb-3 leading-tight;
+        @apply text-2xl font-bold text-jobboard-deepblue mb-3 leading-tight;
     }
     .ck-content h3 {
-        @apply text-xl font-semibold text-breeder-deepblue mb-2 leading-tight;
+        @apply text-xl font-semibold text-jobboard-deepblue mb-2 leading-tight;
     }
     .ck-content h4 {
-        @apply text-lg font-semibold text-breeder-deepblue mb-2 leading-tight;
+        @apply text-lg font-semibold text-jobboard-deepblue mb-2 leading-tight;
     }
     .ck-content p {
         @apply text-base text-gray-700 mb-2 leading-relaxed;
     }
     .ck-content aside {
-         @apply bg-breeder-cream rounded-xl p-6 flex flex-col items-start my-4;
+         @apply bg-jobboard-cream rounded-xl p-6 flex flex-col items-start my-4;
 
         h2, h3, h4 {
             @apply text-lg font-bold mb-2 mt-0 text-left;
@@ -258,7 +258,7 @@
         @apply border border-gray-300 rounded-lg shadow-sm;
     }
     .ck.ck-toolbar {
-        @apply bg-breeder-deepblue text-white rounded-t-lg;
+        @apply bg-jobboard-deepblue text-white rounded-t-lg;
     }
     .ck.ck-button {
         @apply text-white hover:bg-gray-700;

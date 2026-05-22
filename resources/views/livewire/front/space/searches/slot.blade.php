@@ -52,11 +52,11 @@
 											'postType' => $search->postType ?? null,
 											'search' => $search,
 										]) }}" title="{{ __('Load this search') }}" class="group mt-4 cursor-pointer">
-										<h2 class="inline-block mb-2 text-sm sm:text-base xl:text-lg font-semibold leading-normal text-breeder-deepblue hover:text-breeder-deepblue">
+										<h2 class="inline-block mb-2 text-sm sm:text-base xl:text-lg font-semibold leading-normal text-jobboard-deepblue hover:text-jobboard-deepblue">
 											{{ $search->name }}
 										</h2>
 									</a>
-									{{-- <div class="mb-2 text-breeder-deepblue transition duration-200 ease-in-out">
+									{{-- <div class="mb-2 text-jobboard-deepblue transition duration-200 ease-in-out">
 										<span class="capitalize font-semibold">
 											{{ $search->updated_at->format('d/m/Y') }}
 										</span>
@@ -64,7 +64,7 @@
 
 									<div class="text-gray-400">
 										@if(! empty($search->filters['price_min']) || ! empty($search->filters['price_max']))
-											<div class="inline-flex items-center mr-4 text-breeder-deepblue font-semibold">
+											<div class="inline-flex items-center mr-4 text-jobboard-deepblue font-semibold">
 												<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" class="size-5 mr-1">
 													<path d="M10.9969 21C16.5198 21 20.9969 16.5228 20.9969 11C20.9969 5.47715 16.5198 1 10.9969 1C5.4741 1 0.996948 5.47715 0.996948 11C0.996948 16.5228 5.4741 21 10.9969 21Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
 													<path d="M15.4738 7.32233C13.4434 5.29113 10.1514 5.29113 8.121 7.32153C6.0906 9.35193 6.0898 12.6447 8.121 14.6751C10.1514 16.7063 13.4434 16.7063 15.4738 14.6751" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -200,7 +200,7 @@
 							<x-front.modal name="delete-{{ $search->uuid }}" width="w-full max-w-2xl" wire:key="delete-{{ $search->uuid }}" focusable>
 								<section class="p-10">
 									<header class="flex flex-col flex-wrap content-center">
-										<div class="mt-1 mb-6 text-sm m-auto text-breeder-deepblue">
+										<div class="mt-1 mb-6 text-sm m-auto text-jobboard-deepblue">
 											<svg class="size-12" viewBox="0 0 18 22" stroke="currentColor" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M16.0051 7.05762V19.1031C16.0051 20.1506 15.1556 20.9999 14.1076 20.9999H4.0188C2.97077 20.9999 2.12109 20.1508 2.12109 19.1031V7.05762" stroke-width="1.5" stroke-miterlimit="10"/>
 												<path d="M2.26388 3.82782H15.9356C16.6331 3.82782 17.1997 4.39389 17.1997 5.09128V6.9421H1V5.0911C1 4.39389 1.56635 3.82764 2.26407 3.82764L2.26388 3.82782Z" stroke-width="1.5" stroke-miterlimit="10"/>
@@ -236,7 +236,7 @@
 
 				@else
 					<div x-data="{}" class="py-5 px-4 lg:px-6 flex flex-col items-center">
-						<div class="my-3 text-center text-breeder-deepblue">
+						<div class="my-3 text-center text-jobboard-deepblue">
 							<svg width="70" height="70" class="mx-auto" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M37.2371 13C46.7493 13 54.459 20.7481 54.459 30.3077C54.459 34.0115 53.2917 37.4365 51.3189 40.2519L54.459 47.6153L47.132 44.4596C44.3306 46.4422 40.9226 47.6153 37.2371 47.6153C27.7249 47.6153 20.0152 39.8673 20.0152 30.3077C20.0152 20.7481 27.7249 13 37.2371 13Z" stroke="#002C6A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 								<path d="M35.5664 51.0077C32.4225 55.2577 27.4032 58 21.7372 58C18.0518 58 14.6418 56.8231 11.8442 54.8423L4.51538 58L7.65932 50.6346C5.68646 47.8231 4.51538 44.3962 4.51538 40.6924C4.51538 32.5751 10.0685 25.7655 17.5791 23.8962H17.5887" stroke="#002C6A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

@@ -1,6 +1,6 @@
 <nav class="@if ((Route::is('home.breeder') || Route::is('home.pro')) || request()->is('eleveurs/*')
 	|| Auth::guard('web')->user()?->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder', 'professionnal']))
-	bg-breeder-deepblue @else bg-breeder-cream @endif"
+	bg-jobboard-deepblue @else bg-jobboard-cream @endif"
 	x-data="{ open: false, openSpaceNav: false, showDogItems: false, showCatItems: false, showArticleItems: false, showBreedOrProArticleItems: false, showBreedOrProDogItems: false, showBreedOrProCatItems: false, openConnexionResponsive: false }">
 
 	<div class="w-full px-4">
@@ -15,10 +15,10 @@
 				<button x-on:click="open = !open" class="inline-flex items-center justify-center p-2 rounded-md focus:outline-none transition duration-150 ease-in-out
 					@if(Route::is('home.breeder') || request()->is('eleveurs/*')
 					|| Auth::guard('web')->user()?->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
-					text-breeder-violet
+					text-jobboard-violet
 					@elseif(Route::is('home.pro') || Auth::guard('web')->user()?->hasRole('professionnal'))
-					text-breeder-orange
-					@else text-breeder-deepblue @endif">
+					text-jobboard-orange
+					@else text-jobboard-deepblue @endif">
 					<svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
 						<path :class="{ 'hidden': open, 'inline-flex': !open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
 					</svg>
@@ -33,10 +33,10 @@
 					<a href="{{ $route }}" class="
 					@if (Route::is('home.breeder') || request()->is('eleveurs/*')
 					|| Auth::guard('web')->user()?->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
-					text-breeder-violet
+					text-jobboard-violet
 					@elseif(Route::is('home.pro') || Auth::guard('web')->user()?->hasRole('professionnal'))
-					text-breeder-orange
-					@else text-breeder-deepblue @endif">
+					text-jobboard-orange
+					@else text-jobboard-deepblue @endif">
 						<svg class="w-[128px] h-[46px] s:w-[177px] s:h-[64px]" viewBox="0 0 177 64" fill="none"
 							xmlns="http://www.w3.org/2000/svg">
 							<g clip-path="url(#clip0_306_5274)">
@@ -104,7 +104,7 @@
 					$isBreederOrProRoute = (request()->is('professionnels*') || request()->is('eleveurs*'));
 				@endphp
 				<div x-on:click="openSpaceNav = !openSpaceNav"
-					class="flex flex-col items-center gap-y-1 font-bold text-sm @if($isBreederOrPro || $isBreederOrProRoute) text-breeder-cream @else text-breeder-deepblue @endif">
+					class="flex flex-col items-center gap-y-1 font-bold text-sm @if($isBreederOrPro || $isBreederOrProRoute) text-jobboard-cream @else text-jobboard-deepblue @endif">
 					@if($user && $user->hasMedia('avatar'))
 						<div class="w-[31px] h-[31px] rounded-full overflow-hidden">
 							<img src="{{ $user->getFirstMedia('avatar')->getUrl() }}" alt=""
@@ -136,10 +136,10 @@
 					class="inline-flex items-center justify-center p-2 rounded-md
 					@if (Route::is('home.breeder') || request()->is('eleveurs/*')
 					|| Auth::guard('web')->user()?->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
-					text-breeder-violet
+					text-jobboard-violet
 					@elseif(Route::is('home.pro') || Auth::guard('web')->user()?->hasRole('professionnal'))
-					text-breeder-orange
-					@else text-breeder-deepblue @endif
+					text-jobboard-orange
+					@else text-jobboard-deepblue @endif
 					focus:outline-none transition duration-150 ease-in-out">
 					<svg width="26" height="22" viewBox="0 0 26 22" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M0.75 0.75H25.1944" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -155,10 +155,10 @@
 					<a href="{{ $route }}"
 					class="@if (Route::is('home.breeder') || request()->is('eleveurs/*')
 					|| Auth::guard('web')->user()?->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
-					text-breeder-violet
+					text-jobboard-violet
 					@elseif(Route::is('home.pro') || Auth::guard('web')->user()?->hasRole('professionnal'))
-					text-breeder-orange
-					@else text-breeder-deepblue @endif">
+					text-jobboard-orange
+					@else text-jobboard-deepblue @endif">
 						<svg class="w-[128px] h-[46px] s:w-[177px] s:h-[64px]" viewBox="0 0 177 64" fill="none"
 							xmlns="http://www.w3.org/2000/svg">
 							<g clip-path="url(#clip0_306_5274)">
@@ -224,10 +224,10 @@
 					<button x-on:click="openConnexionResponsive = !openConnexionResponsive" class="inline-flex items-center justify-center p-2 pr-0 rounded-md
 						@if (Route::is('home.breeder') || request()->is('eleveurs/*')
 						|| Auth::guard('web')->user()?->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
-						text-breeder-violet
+						text-jobboard-violet
 						@elseif(Route::is('home.pro') || Auth::guard('web')->user()?->hasRole('professionnal'))
-						text-breeder-orange
-						@else text-breeder-deepblue @endif
+						text-jobboard-orange
+						@else text-jobboard-deepblue @endif
 						focus:outline-none transition duration-150 ease-in-out">
 						<svg class="shrink-0" width="28" height="31" viewBox="0 0 28 31" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M10.5646 20.0606H17.5262C17.0535 16.4115 11.1562 16.4115 10.5646 20.0606Z" fill="currentColor"/>
@@ -240,10 +240,10 @@
 					class="flex flex-col items-center gap-y-1 font-bold text-sm cursor-pointer mr-4
 					@if (Route::is('home.breeder') || request()->is('eleveurs/*')
 					|| Auth::guard('web')->user()?->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
-					text-breeder-violet
+					text-jobboard-violet
 					@elseif(Route::is('home.pro') || Auth::guard('web')->user()?->hasRole('professionnal'))
-					text-breeder-orange
-					@else text-breeder-deepblue @endif">
+					text-jobboard-orange
+					@else text-jobboard-deepblue @endif">
 						@if($user && $user->hasMedia('avatar'))
 							<div class="w-[31px] h-[31px] rounded-full overflow-hidden">
 								<img src="{{ $user->getFirstMedia('avatar')->getUrl() }}" alt=""
@@ -272,17 +272,17 @@
 	<div :class="{ 'block': open, 'hidden': !open }" class="xlsm:hidden shadow-md pt-2 pb-8 fixed top-0
 	@if ((Route::is('home.breeder') || Route::is('home.pro')) || request()->is('eleveurs/*')
 	|| Auth::guard('web')->user()?->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder', 'professionnal']))
-	bg-breeder-deepblue @else bg-white @endif w-full z-50">
+	bg-jobboard-deepblue @else bg-white @endif w-full z-50">
 		<div class="flex justify-between items-center px-4">
 			@if (request()->is('espace/*'))
 				<button x-on:click="open = !open"
 					class="inline-flex items-center justify-center p-2 rounded-md focus:outline-none transition duration-150 ease-in-out
 					@if (Route::is('home.breeder') || request()->is('eleveurs/*')
 					|| Auth::guard('web')->user()?->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
-					text-breeder-violet
+					text-jobboard-violet
 					@elseif(Route::is('home.pro') || Auth::guard('web')->user()?->hasRole('professionnal'))
-					text-breeder-orange
-					@else text-breeder-deepblue @endif">
+					text-jobboard-orange
+					@else text-jobboard-deepblue @endif">
 					<svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
 						<path :class="{ 'hidden': !open, 'inline-flex': open }" class="hidden" stroke-linecap="round"
 							stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -297,10 +297,10 @@
 					<a href="{{ $route }}" class="
 					@if (Route::is('home.breeder') || request()->is('eleveurs/*')
 					|| Auth::guard('web')->user()?->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
-					text-breeder-violet
+					text-jobboard-violet
 					@elseif(Route::is('home.pro') || Auth::guard('web')->user()?->hasRole('professionnal'))
-					text-breeder-orange
-					@else text-breeder-deepblue @endif">
+					text-jobboard-orange
+					@else text-jobboard-deepblue @endif">
 						<svg class="w-[128px] h-[46px] s:w-[177px] s:h-[64px]" viewBox="0 0 177 64" fill="none"
 							xmlns="http://www.w3.org/2000/svg">
 							<g clip-path="url(#clip0_306_5274)">
@@ -366,10 +366,10 @@
 				class="flex flex-col items-center gap-y-1 font-bold text-sm
 				@if (Route::is('home.breeder') || request()->is('eleveurs/*')
 				|| Auth::guard('web')->user()?->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
-				text-breeder-violet
+				text-jobboard-violet
 				@elseif(Route::is('home.pro') || Auth::guard('web')->user()?->hasRole('professionnal'))
-				text-breeder-orange
-				@else text-breeder-deepblue @endif">
+				text-jobboard-orange
+				@else text-jobboard-deepblue @endif">
 					@if($user && $user->hasMedia('avatar'))
 						<div class="w-[31px] h-[31px] rounded-full overflow-hidden">
 							<img src="{{ $user->getFirstMedia('avatar')->getUrl() }}" alt=""
@@ -405,10 +405,10 @@
 					<a href="{{ $route }}" class="
 					@if (Route::is('home.breeder') || request()->is('eleveurs/*')
 					|| Auth::guard('web')->user()?->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
-					text-breeder-violet
+					text-jobboard-violet
 					@elseif(Route::is('home.pro') || Auth::guard('web')->user()?->hasRole('professionnal'))
-					text-breeder-orange
-					@else text-breeder-deepblue @endif">
+					text-jobboard-orange
+					@else text-jobboard-deepblue @endif">
 						<svg class="w-[128px] h-[46px] s:w-[177px] s:h-[64px]" viewBox="0 0 177 64" fill="none"
 							xmlns="http://www.w3.org/2000/svg">
 							<g clip-path="url(#clip0_306_5274)">
@@ -473,10 +473,10 @@
 					class="inline-flex items-center justify-center p-2 rounded-md
 					@if (Route::is('home.breeder') || request()->is('eleveurs/*')
 					|| Auth::guard('web')->user()?->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
-					text-breeder-violet
+					text-jobboard-violet
 					@elseif(Route::is('home.pro') || Auth::guard('web')->user()?->hasRole('professionnal'))
-					text-breeder-orange
-					@else text-breeder-deepblue @endif
+					text-jobboard-orange
+					@else text-jobboard-deepblue @endif
 					 focus:outline-none transition duration-150 ease-in-out">
 					<svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
 						<path :class="{ 'hidden': !open, 'inline-flex': open }" class="hidden" stroke-linecap="round"
@@ -493,7 +493,7 @@
 		@auth('web')
 			<hr class="my-8 mx-4 h-px">
 
-			<div class="flex flex-col gap-y-2 justify-center items-center px-4 text-breeder-deepblue mb-4">
+			<div class="flex flex-col gap-y-2 justify-center items-center px-4 text-jobboard-deepblue mb-4">
 				<div class="text-sm lg:text-base">
 					{{ Auth::guard('web')->user()->name }}
 				</div>
@@ -513,15 +513,15 @@
 			$user = Auth::guard('web')->user();
 			$isBreederOrProRoute = (request()->is('professionnels*') || request()->is('eleveurs*'));
 		@endphp
-		<div :class="{ 'block': openConnexionResponsive, 'hidden': !openConnexionResponsive }" class="xlsm:hidden px-4 shadow-md pt-2 pb-8 fixed top-0 w-full z-50 @if($isBreederOrProRoute) bg-breeder-deepblue @else bg-breeder-cream @endif">
+		<div :class="{ 'block': openConnexionResponsive, 'hidden': !openConnexionResponsive }" class="xlsm:hidden px-4 shadow-md pt-2 pb-8 fixed top-0 w-full z-50 @if($isBreederOrProRoute) bg-jobboard-deepblue @else bg-jobboard-cream @endif">
 			<div class="flex justify-between items-center">
 				<button	class="inline-flex items-center justify-center p-2 rounded-md focus:outline-none transition duration-150 ease-in-out
 				@if (Route::is('home.breeder') || request()->is('eleveurs/*')
 				|| Auth::guard('web')->user()?->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
-				text-breeder-violet
+				text-jobboard-violet
 				@elseif(Route::is('home.pro') || Auth::guard('web')->user()?->hasRole('professionnal'))
-				text-breeder-orange
-				@else text-breeder-deepblue @endif"
+				text-jobboard-orange
+				@else text-jobboard-deepblue @endif"
 				x-on:click="open = !open, openConnexionResponsive = !openConnexionResponsive">
 					<svg class="shrink-0" width="26" height="22" viewBox="0 0 26 22" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M0.75 0.75H25.1944" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -533,10 +533,10 @@
 				{{-- Logo --}}
 				<div class="shrink-0 flex items-center z-40 mr-4 h-[70px] s:h-[75px] w-auto
 				@if (Route::is('home.breeder') || request()->is('eleveurs/*'))
-				text-breeder-violet
+				text-jobboard-violet
 				@elseif(Route::is('home.pro'))
-				text-breeder-orange
-				@else text-breeder-deepblue @endif">
+				text-jobboard-orange
+				@else text-jobboard-deepblue @endif">
 					<svg class="w-[128px] h-[46px] s:w-[177px] s:h-[64px]" viewBox="0 0 177 64" fill="none"
 						xmlns="http://www.w3.org/2000/svg">
 						<g clip-path="url(#clip0_306_5274)">
@@ -599,10 +599,10 @@
 					class="flex flex-col items-center gap-y-1 font-bold text-sm cursor-pointer p-2 pr-0
 					@if (Route::is('home.breeder') || request()->is('eleveurs/*')
 					|| Auth::guard('web')->user()?->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
-					text-breeder-violet
+					text-jobboard-violet
 					@elseif(Route::is('home.pro') || Auth::guard('web')->user()?->hasRole('professionnal'))
-					text-breeder-orange
-					@else text-breeder-deepblue @endif">
+					text-jobboard-orange
+					@else text-jobboard-deepblue @endif">
 					<svg class="shrink-0" width="28" height="31" viewBox="0 0 28 31" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M10.5646 20.0606H17.5262C17.0535 16.4115 11.1562 16.4115 10.5646 20.0606Z" fill="currentColor"/>
 						<path d="M26.3378 6.5463L15.6606 0.441794C14.6339 -0.147265 13.3661 -0.147265 12.3394 0.441794L1.66216 6.5463C0.635439 7.13536 0 8.22047 0 9.39549V21.6045C0 22.7795 0.632309 23.8677 1.66216 24.4537L12.3394 30.5582C13.3661 31.1473 14.6339 31.1473 15.6606 30.5582L26.3378 24.4537C27.3646 23.8646 28 22.7795 28 21.6045V9.39859C28 8.22357 27.3677 7.13536 26.3378 6.54941V6.5463ZM21.5423 23.0183H6.54533C6.48586 22.6369 6.45456 21.6789 6.45456 21.2697C6.45456 20.4822 6.5829 19.7288 6.83645 19.0065C7.08999 18.2841 7.44997 17.6392 7.91012 17.0719C8.38278 16.4952 8.93684 16.0023 9.57228 15.593C9.89469 15.3853 10.2328 15.2024 10.5865 15.0443C9.56288 14.1235 8.91492 12.7996 8.91492 11.3239C8.91492 8.54911 11.1937 6.29208 13.9953 6.29208C16.7969 6.29208 19.0757 8.54911 19.0757 11.3239C19.0757 12.7934 18.434 14.1111 17.4167 15.0319C17.8111 15.2117 18.1836 15.4163 18.5185 15.655C19.1352 16.0953 19.6736 16.5975 20.1274 17.1649C20.5813 17.7322 20.9288 18.3709 21.1729 19.084C21.414 19.7753 21.5361 20.5039 21.5361 21.2697V23.0183H21.5423Z" fill="currentColor"/>
@@ -619,10 +619,10 @@
 			</div>
 
 			<div class="flex justify-between items-center w-full @if (Route::is('home.breeder') || request()->is('eleveurs/*'))
-					text-breeder-violet
+					text-jobboard-violet
 					@elseif(Route::is('home.pro'))
-					text-breeder-orange
-					@else text-breeder-deepblue @endif">
+					text-jobboard-orange
+					@else text-jobboard-deepblue @endif">
 				<div class="invisible w-1"></div>
 
 				<div class="font-bold text-[30px]">
@@ -646,15 +646,15 @@
 			$isBreederOrPro = ($user && method_exists($user, 'hasRole') && $user->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder', 'professionnal']));
 			$isBreederOrProRoute = (request()->is('professionnels*') || request()->is('eleveurs*'));
 		@endphp
-		<div :class="{ 'block': openSpaceNav, 'hidden': !openSpaceNav }" class="xlsm:hidden shadow-md py-2 fixed top-0 w-full z-50 @if($isBreederOrPro || $isBreederOrProRoute) bg-breeder-deepblue @else bg-breeder-cream @endif">
+		<div :class="{ 'block': openSpaceNav, 'hidden': !openSpaceNav }" class="xlsm:hidden shadow-md py-2 fixed top-0 w-full z-50 @if($isBreederOrPro || $isBreederOrProRoute) bg-jobboard-deepblue @else bg-jobboard-cream @endif">
 			<div class="flex justify-between items-center px-4">
 				<button	class="inline-flex items-center justify-center p-2 rounded-md focus:outline-none transition duration-150 ease-in-out
 				@if (Route::is('home.breeder') || request()->is('eleveurs/*')
 				|| Auth::guard('web')->user()?->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
-				text-breeder-violet
+				text-jobboard-violet
 				@elseif(Route::is('home.pro') || Auth::guard('web')->user()?->hasRole('professionnal'))
-				text-breeder-orange
-				@else text-breeder-deepblue @endif"
+				text-jobboard-orange
+				@else text-jobboard-deepblue @endif"
 				x-on:click="open = !open, openSpaceNav = !openSpaceNav">
 					<svg width="26" height="22" viewBox="0 0 26 22" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M0.75 0.75H25.1944" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -667,10 +667,10 @@
 				<div class="shrink-0 flex items-center z-40 mr-4 h-[70px] s:h-[75px] w-auto
 				@if (Route::is('home.breeder') || request()->is('eleveurs/*')
 				|| Auth::guard('web')->user()?->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
-				text-breeder-violet
+				text-jobboard-violet
 				@elseif(Route::is('home.pro') || Auth::guard('web')->user()?->hasRole('professionnal'))
-				text-breeder-orange
-				@else text-breeder-deepblue @endif">
+				text-jobboard-orange
+				@else text-jobboard-deepblue @endif">
 					<svg class="w-[128px] h-[46px] s:w-[177px] s:h-[64px]" viewBox="0 0 177 64" fill="none"
 						xmlns="http://www.w3.org/2000/svg">
 						<g clip-path="url(#clip0_306_5274)">
@@ -733,10 +733,10 @@
 				class="flex flex-col items-center gap-y-1 font-bold text-sm cursor-pointer mr-4
 				@if (Route::is('home.breeder') || request()->is('eleveurs/*')
 				|| Auth::guard('web')->user()?->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
-				text-breeder-violet
+				text-jobboard-violet
 				@elseif(Route::is('home.pro') || Auth::guard('web')->user()?->hasRole('professionnal'))
-				text-breeder-orange
-				@else text-breeder-deepblue @endif">
+				text-jobboard-orange
+				@else text-jobboard-deepblue @endif">
 					@if($user && $user->hasMedia('avatar'))
 						<div class="w-[31px] h-[31px] rounded-full overflow-hidden">
 							<img src="{{ $user->getFirstMedia('avatar')->getUrl() }}" alt=""
@@ -770,19 +770,19 @@
 		</div>
 
 	{{-- Dropdowns desktop menu --}}
-	<div class="w-full fixed top-0 bg-breeder-deepblue bg-opacity-50 h-screen z-[100]"
+	<div class="w-full fixed top-0 bg-jobboard-deepblue bg-opacity-50 h-screen z-[100]"
 		x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-100"
 		x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-200"
 		x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-100"
 		x-show="showDogItems || showCatItems || showArticleItems" x-cloak>
-		<div class="w-full bg-breeder-cream border-b border-breeder-greige">
+		<div class="w-full bg-jobboard-cream border-b border-jobboard-greige">
 			<div class="flex flex-col md:flex-row md:justify-center">
 				{{-- Widescreen : Main navigation menu --}}
 				@include('components.front.home.header.main-menu-wide')
 			</div>
 		</div>
 
-		<div class="flex justify-center w-full bg-breeder-cream text-breeder-deepblue h-[509px] pt-8" x-show="showDogItems"
+		<div class="flex justify-center w-full bg-jobboard-cream text-jobboard-deepblue h-[509px] pt-8" x-show="showDogItems"
 			@mouseleave="showDogItems = false">
 			<div class="w-full max-w-[1200px] flex justify-between">
 				<div class="flex flex-col px-4 w-full max-w-[255px] gap-y-8">
@@ -811,7 +811,7 @@
 					</div>
 
 					<a href="{{ route('post-search.dog-posts-with-post-type', ['postType' => 'portee']) }}"
-						class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-breeder-coral">
+						class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-jobboard-coral">
 						{{ __('Puppies to adopt') }}
 
 						<svg width="32" height="33" viewBox="0 0 32 33" fill="none"
@@ -822,7 +822,7 @@
 					</a>
 
 					<a href="{{ route('post-search.dog-posts-with-post-type', ['postType' => 'adulte-retraite']) }}"
-						class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-breeder-coral">
+						class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-jobboard-coral">
 						{{ __('Dogs to adopt') }}
 
 						<svg width="32" height="33" viewBox="0 0 32 33" fill="none"
@@ -833,7 +833,7 @@
 					</a>
 
 					<a href="{{ route('company-search.dog-companies') }}"
-						class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-breeder-coral">
+						class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-jobboard-coral">
 						{{ __('Dog breeders') }}
 
 						<svg width="32" height="33" viewBox="0 0 32 33" fill="none"
@@ -844,7 +844,7 @@
 					</a>
 
 					<a href="{{ route('breed-search.dog-breeds') }}"
-						class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-breeder-coral">
+						class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-jobboard-coral">
 						{{ __('Dogs breeds') }}
 
 						<svg width="32" height="33" viewBox="0 0 32 33" fill="none"
@@ -855,7 +855,7 @@
 					</a>
 
 					<a href="{{ route('post-search.dog-posts-with-post-type', ['postType' => 'etalon']) }}"
-						class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-breeder-coral">
+						class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-jobboard-coral">
 						{{ __('Stallions for company') }}
 
 						<svg width="32" height="33" viewBox="0 0 32 33" fill="none"
@@ -876,7 +876,7 @@
 				<div class="flex flex-col justify-between h-[449px]">
 					<a href="#" @click.prevent="showDogItems = false;window.dispatchEvent(new CustomEvent('open-modal', { detail: 'choise_breed' }));">
 						<div
-							class="w-full rounded-xl p-8 flex flex-row justify-between items-center bg-breeder-deepblue lg:w-[333px]">
+							class="w-full rounded-xl p-8 flex flex-row justify-between items-center bg-jobboard-deepblue lg:w-[333px]">
 							<div class="flex flex-col">
 								<svg width="41" height="23" viewBox="0 0 41 23" fill="none"
 									xmlns="http://www.w3.org/2000/svg">
@@ -916,7 +916,7 @@
 										stroke-linejoin="round" />
 								</svg>
 
-								<div class="flex flex-col text-breeder-cream font-medium">
+								<div class="flex flex-col text-jobboard-cream font-medium">
 									<strong>
 										{{ __('What breed of dog') }}
 									</strong>
@@ -935,7 +935,7 @@
 					</a>
 					<a href="{{ route('post-search.post.compare-chien', ['species' => request()->segment(1)]) }}">
 						<div
-							class="w-full rounded-xl p-8 flex flex-row justify-between items-center bg-breeder-deepblue lg:w-[333px]">
+							class="w-full rounded-xl p-8 flex flex-row justify-between items-center bg-jobboard-deepblue lg:w-[333px]">
 							<div class="flex flex-col">
 								<svg width="76" height="23" viewBox="0 0 76 23" fill="none"
 									xmlns="http://www.w3.org/2000/svg">
@@ -985,7 +985,7 @@
 										fill="#FFA244" />
 								</svg>
 
-								<div class="flex flex-col text-breeder-cream font-medium">
+								<div class="flex flex-col text-jobboard-cream font-medium">
 									<strong>
 										{{ __('Are you unsure?') }}
 									</strong>
@@ -1004,7 +1004,7 @@
 					</a>
 
 					<a href="{{ route('animalname.index') }}"
-						class="w-full rounded-xl p-8 flex flex-row justify-between items-center bg-breeder-coral lg:w-[333px]">
+						class="w-full rounded-xl p-8 flex flex-row justify-between items-center bg-jobboard-coral lg:w-[333px]">
 						<div class="flex flex-col">
 							<svg width="34" height="23" viewBox="0 0 34 23" fill="none"
 								xmlns="http://www.w3.org/2000/svg">
@@ -1037,7 +1037,7 @@
 								</defs>
 							</svg>
 
-							<div class="flex flex-col text-breeder-deepblue font-medium">
+							<div class="flex flex-col text-jobboard-deepblue font-medium">
 								<strong>
 									{{ __('Lacking inspiration?') }}
 								</strong>
@@ -1046,7 +1046,7 @@
 						</div>
 
 						<svg width="35" height="18" viewBox="0 0 35 18" fill="none"
-							xmlns="http://www.w3.org/2000/svg" class="stroke-breeder-deepblue">
+							xmlns="http://www.w3.org/2000/svg" class="stroke-jobboard-deepblue">
 							<path d="M26.5 16.3333L34 8.83334L26.5 1.33334" stroke-width="2" stroke-linecap="round"
 								stroke-linejoin="round" />
 							<path d="M34 8.83334H1" stroke-width="2" stroke-linecap="round"
@@ -1057,7 +1057,7 @@
 			</div>
 		</div>
 
-		<div class="flex justify-center w-full bg-breeder-cream text-breeder-deepblue h-[509px] pt-8" x-show="showCatItems"
+		<div class="flex justify-center w-full bg-jobboard-cream text-jobboard-deepblue h-[509px] pt-8" x-show="showCatItems"
 			@mouseleave="showCatItems = false">
 			<div class="w-full max-w-[1200px] flex justify-between">
 				<div class="flex flex-col px-4 w-full max-w-[255px] gap-y-8">
@@ -1114,7 +1114,7 @@
 					</div>
 
 					<a href="{{ route('post-search.cat-posts-with-post-type', ['postType' => 'portee']) }}"
-						class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-breeder-green">
+						class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-jobboard-green">
 						{{ __('Kittens to adopt') }}
 
 						<svg width="32" height="33" viewBox="0 0 32 33" fill="none"
@@ -1125,7 +1125,7 @@
 					</a>
 
 					<a href="{{ route('post-search.cat-posts-with-post-type', ['postType' => 'adulte-retraite']) }}"
-						class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-breeder-green">
+						class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-jobboard-green">
 						{{ __('Cats to adopt') }}
 
 						<svg width="32" height="33" viewBox="0 0 32 33" fill="none"
@@ -1136,7 +1136,7 @@
 					</a>
 
 					<a href="{{ route('company-search.cat-companies') }}"
-						class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-breeder-green">
+						class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-jobboard-green">
 						{{ __('Cat breeders') }}
 
 						<svg width="32" height="33" viewBox="0 0 32 33" fill="none"
@@ -1147,7 +1147,7 @@
 					</a>
 
 					<a href="{{ route('breed-search.cat-breeds') }}"
-						class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-breeder-green">
+						class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-jobboard-green">
 						{{ __('Cats breeds') }}
 
 						<svg width="32" height="33" viewBox="0 0 32 33" fill="none"
@@ -1158,7 +1158,7 @@
 					</a>
 
 					<a href="{{ route('post-search.cat-posts-with-post-type', ['postType' => 'etalon']) }}"
-						class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-breeder-green">
+						class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-jobboard-green">
 						{{ __('Stallions for company') }}
 
 						<svg width="32" height="33" viewBox="0 0 32 33" fill="none"
@@ -1178,7 +1178,7 @@
 				<div class="flex flex-col justify-between h-[449px]">
 					<a href="{{ route('post-search.post.choise-breed-chat') }}">
 						<div
-							class="w-full rounded-xl p-8 flex flex-row justify-between items-center bg-breeder-deepblue lg:w-[333px]">
+							class="w-full rounded-xl p-8 flex flex-row justify-between items-center bg-jobboard-deepblue lg:w-[333px]">
 							<div class="flex flex-col">
 								<svg width="36" height="23" viewBox="0 0 36 23" fill="none"
 									xmlns="http://www.w3.org/2000/svg">
@@ -1234,7 +1234,7 @@
 									</defs>
 								</svg>
 
-								<div class="flex flex-col text-breeder-cream font-medium">
+								<div class="flex flex-col text-jobboard-cream font-medium">
 									<strong>
 										{{ __('What breed of cat') }}
 									</strong>
@@ -1253,7 +1253,7 @@
 					</a>
 					<a href="{{ route('post-search.post.compare-chat', ['species' => request()->segment(1)]) }}">
 						<div
-							class="w-full rounded-xl p-8 flex flex-row justify-between items-center bg-breeder-deepblue lg:w-[333px]">
+							class="w-full rounded-xl p-8 flex flex-row justify-between items-center bg-jobboard-deepblue lg:w-[333px]">
 							<div class="flex flex-col">
 								<svg width="70" height="23" viewBox="0 0 70 23" fill="none"
 									xmlns="http://www.w3.org/2000/svg">
@@ -1333,7 +1333,7 @@
 									</defs>
 								</svg>
 
-								<div class="flex flex-col text-breeder-cream font-medium">
+								<div class="flex flex-col text-jobboard-cream font-medium">
 									<strong>
 										{{ __('Are you unsure?') }}
 									</strong>
@@ -1352,7 +1352,7 @@
 					</a>
 
 					<a href="{{ route('animalname.index') }}"
-						class="w-full rounded-xl p-8 flex flex-row justify-between items-center bg-breeder-green lg:w-[333px]">
+						class="w-full rounded-xl p-8 flex flex-row justify-between items-center bg-jobboard-green lg:w-[333px]">
 						<div class="flex flex-col">
 							<svg width="34" height="23" viewBox="0 0 34 23" fill="none"
 								xmlns="http://www.w3.org/2000/svg">
@@ -1385,7 +1385,7 @@
 								</defs>
 							</svg>
 
-							<div class="flex flex-col text-breeder-deepblue font-medium">
+							<div class="flex flex-col text-jobboard-deepblue font-medium">
 								<strong>
 									{{ __('Lacking inspiration?') }}
 								</strong>
@@ -1394,7 +1394,7 @@
 						</div>
 
 						<svg width="35" height="18" viewBox="0 0 35 18" fill="none"
-							xmlns="http://www.w3.org/2000/svg" class="stroke-breeder-deepblue">
+							xmlns="http://www.w3.org/2000/svg" class="stroke-jobboard-deepblue">
 							<path d="M26.5 16.3333L34 8.83334L26.5 1.33334" stroke-width="2" stroke-linecap="round"
 								stroke-linejoin="round" />
 							<path d="M34 8.83334H1" stroke-width="2" stroke-linecap="round"
@@ -1405,12 +1405,12 @@
 			</div>
 		</div>
 
-		<div class="flex flex-col items-center w-full bg-breeder-cream text-breeder-deepblue h-[545px] pt-8"
+		<div class="flex flex-col items-center w-full bg-jobboard-cream text-jobboard-deepblue h-[545px] pt-8"
 			@mouseleave="showArticleItems = false" x-show="showArticleItems">
 			<div class="w-full max-w-[1200px] flex justify-between">
 				<div class="flex flex-col w-full max-w-[280px] gap-y-4">
 					<a href="{{ route('article.index', ['arg1' => 'nutrition']) }}"
-						class="flex justify-between items-center font-medium py-2 hover:border-l-4 hover:pl-2 hover:font-bold border-breeder-orange text-base w-full">
+						class="flex justify-between items-center font-medium py-2 hover:border-l-4 hover:pl-2 hover:font-bold border-jobboard-orange text-base w-full">
 						{{ __('Nutrition') }}
 
 						<svg width="32" height="33" viewBox="0 0 32 33" fill="none"
@@ -1421,7 +1421,7 @@
 					</a>
 
 					<a href="{{ route('article.index', ['arg1' => 'sante']) }}"
-						class="flex justify-between items-center font-medium py-2 hover:border-l-4 hover:pl-2 hover:font-bold border-breeder-orange text-base w-full">
+						class="flex justify-between items-center font-medium py-2 hover:border-l-4 hover:pl-2 hover:font-bold border-jobboard-orange text-base w-full">
 						{{ __('Santé') }}
 
 						<svg width="32" height="33" viewBox="0 0 32 33" fill="none"
@@ -1432,7 +1432,7 @@
 					</a>
 
 					<a href="{{ route('article.index', ['arg1' => 'conseils-entretien']) }}"
-						class="flex justify-between items-center font-medium py-2 hover:border-l-4 hover:pl-2 hover:font-bold border-breeder-orange text-base w-full">
+						class="flex justify-between items-center font-medium py-2 hover:border-l-4 hover:pl-2 hover:font-bold border-jobboard-orange text-base w-full">
 						{{ __('Conseils & entretien') }}
 
 						<svg width="32" height="33" viewBox="0 0 32 33" fill="none"
@@ -1443,7 +1443,7 @@
 					</a>
 
 					<a href="{{ route('article.index', ['arg1' => 'education-comportement']) }}"
-						class="flex justify-between items-center font-medium py-2 hover:border-l-4 hover:pl-2 hover:font-bold border-breeder-orange text-base w-full">
+						class="flex justify-between items-center font-medium py-2 hover:border-l-4 hover:pl-2 hover:font-bold border-jobboard-orange text-base w-full">
 						<span class="whitespace-nowrap">{{ __('Éducation & comportement') }}</span>
 
 						<svg class="shrink-0" width="32" height="33" viewBox="0 0 32 33" fill="none"
@@ -1456,7 +1456,7 @@
 
 				<div class="flex flex-col w-full max-w-[260px] gap-y-4">
 					<a href="{{ route('article.index', ['arg1' => 'reproduction-genetique']) }}"
-						class="flex justify-between items-center font-medium py-2 hover:border-l-4 hover:pl-2 hover:font-bold border-breeder-orange text-base w-full">
+						class="flex justify-between items-center font-medium py-2 hover:border-l-4 hover:pl-2 hover:font-bold border-jobboard-orange text-base w-full">
 						{{ __('Reproduction & génétique') }}
 
 						<svg width="32" height="33" viewBox="0 0 32 33" fill="none"
@@ -1467,7 +1467,7 @@
 					</a>
 
 					<a href="{{ route('article.index', ['arg1' => 'prevention']) }}"
-						class="flex justify-between items-center font-medium py-2 hover:border-l-4 hover:pl-2 hover:font-bold border-breeder-orange text-base w-full">
+						class="flex justify-between items-center font-medium py-2 hover:border-l-4 hover:pl-2 hover:font-bold border-jobboard-orange text-base w-full">
 						{{ __('Prevention') }}
 
 						<svg width="32" height="33" viewBox="0 0 32 33" fill="none"
@@ -1478,7 +1478,7 @@
 					</a>
 
 					<a href="{{ route('article.index', ['arg1' => 'gestion-elevage']) }}"
-						class="flex justify-between items-center font-medium py-2 hover:border-l-4 hover:pl-2 hover:font-bold border-breeder-orange text-base w-full">
+						class="flex justify-between items-center font-medium py-2 hover:border-l-4 hover:pl-2 hover:font-bold border-jobboard-orange text-base w-full">
 						{{ __('Gestion d\'entreprise') }}
 
 						<svg width="32" height="33" viewBox="0 0 32 33" fill="none"
@@ -1489,7 +1489,7 @@
 					</a>
 
 					<a href="{{ route('article.index', ['arg1' => 'legislation']) }}"
-						class="flex justify-between items-center font-medium py-2 hover:border-l-4 hover:pl-2 hover:font-bold border-breeder-orange text-base w-full">
+						class="flex justify-between items-center font-medium py-2 hover:border-l-4 hover:pl-2 hover:font-bold border-jobboard-orange text-base w-full">
 						{{ __('Legislation') }}
 
 						<svg class="shrink-0" width="32" height="33" viewBox="0 0 32 33" fill="none"
@@ -1502,7 +1502,7 @@
 
 				<div class="flex flex-col w-full max-w-[232px] gap-y-4">
 					<a href="{{ route('article.index', ['arg1' => 'produits']) }}"
-						class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-breeder-orange">
+						class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-jobboard-orange">
 						{{ __('Products') }}
 
 						<svg width="32" height="33" viewBox="0 0 32 33" fill="none"
@@ -1513,7 +1513,7 @@
 					</a>
 
 					<a href="{{ route('article.index', ['arg1' => 'marches-entreprises']) }}"
-						class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-breeder-orange">
+						class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-jobboard-orange">
 						{{ __('Markets & businesses') }}
 
 						<svg width="32" height="33" viewBox="0 0 32 33" fill="none"
@@ -1524,7 +1524,7 @@
 					</a>
 
 					<a href="{{ route('article.index', ['arg1' => 'agenda']) }}"
-						class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-breeder-orange">
+						class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-jobboard-orange">
 						{{ __('Agenda') }}
 
 						<svg width="32" height="33" viewBox="0 0 32 33" fill="none"
@@ -1535,7 +1535,7 @@
 					</a>
 					
 					<a href="{{ route('article.index', ['arg1' => 'inspiration']) }}"
-						class="flex justify-between items-center font-medium py-2 hover:border-l-4 hover:pl-2 hover:font-bold border-breeder-orange text-base w-full">
+						class="flex justify-between items-center font-medium py-2 hover:border-l-4 hover:pl-2 hover:font-bold border-jobboard-orange text-base w-full">
 						<span class="whitespace-nowrap">{{ __('Inspiration') }}</span>
 
 						<svg class="shrink-0" width="32" height="33" viewBox="0 0 32 33" fill="none"
@@ -1548,7 +1548,7 @@
 
 				<div class="flex flex-col justify-between h-[228px] w-[395px] gap-4">
 					<a href="{{ route('animalname.index') }}" class="h-full">
-						<div class="rounded-xl px-4 flex flex-col justify-center items-center bg-breeder-orange hover:bg-breeder-darkorange w-full h-full gap-4">
+						<div class="rounded-xl px-4 flex flex-col justify-center items-center bg-jobboard-orange hover:bg-jobboard-darkorange w-full h-full gap-4">
 							<div class="flex flex-col items-center rounded-l-xl gap-4">
 								<svg width="39" height="26" viewBox="0 0 39 26" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<g clip-path="url(#clip0_2712_55142)">
@@ -1588,7 +1588,7 @@
 			<div class="w-full max-w-[1200px] flex justify-between mt-6">
 				<a href="{{ route('article.index', ['arg1' => 'proprietaires']) }}">
 					<div class="w-[228px] h-[219px] rounded-xl">
-						<div class="relative rounded-t-xl w-full h-[155px] bg-breeder-deepblue">
+						<div class="relative rounded-t-xl w-full h-[155px] bg-jobboard-deepblue">
 							<img src="{{ asset('/storage/menu_owner.png') }}" alt="" class="absolute -top-[16px] right-[17px]">
 						</div>
 						<div class="w-full bg-white rounded-b-xl h-[64px] flex justify-center items-center font-bold text-lg">
@@ -1598,7 +1598,7 @@
 				</a>
 				<a href="{{ route('article.index', ['arg1' => 'eleveurs']) }}">
 					<div class="w-[228px] h-[219px] rounded-xl">
-						<div class="relative rounded-t-xl w-full h-[155px] bg-breeder-violet">
+						<div class="relative rounded-t-xl w-full h-[155px] bg-jobboard-violet">
 							<img src="{{ asset('/storage/menu_breeders.png') }}" alt="" class="absolute -top-[19px] right-[32px]">
 						</div>
 						<div class="w-full bg-white rounded-b-xl h-[64px] flex justify-center items-center font-bold text-lg">
@@ -1608,7 +1608,7 @@
 				</a>
 				<a href="{{ route('article.index', ['arg1' => 'professionnels']) }}">
 					<div class="w-[228px] h-[219px] rounded-xl">
-						<div class="relative rounded-t-xl w-full h-[155px] bg-breeder-orange">
+						<div class="relative rounded-t-xl w-full h-[155px] bg-jobboard-orange">
 							<img src="{{ asset('/storage/menu_pro.png') }}" alt="" class="absolute -top-[7px] right-[12px]">
 						</div>
 						<div class="w-full bg-white rounded-b-xl h-[64px] flex justify-center items-center font-bold text-lg">
@@ -1618,7 +1618,7 @@
 				</a>
 				<a href="{{ route('article.index', ['arg1' => 'chien']) }}">
 					<div class="w-[228px] h-[219px] rounded-xl">
-						<div class="relative rounded-t-xl w-full h-[155px] bg-breeder-coral">
+						<div class="relative rounded-t-xl w-full h-[155px] bg-jobboard-coral">
 							<img src="{{ asset('/storage/menu_article_dog.png') }}" alt="" class="absolute -top-[21px] right-[32px]">
 						</div>
 						<div class="w-full bg-white rounded-b-xl h-[64px] flex justify-center items-center font-bold text-lg">
@@ -1628,7 +1628,7 @@
 				</a>
 				<a href="{{ route('article.index', ['arg1' => 'chat']) }}">
 					<div class="w-[228px] h-[219px] rounded-xl">
-						<div class="relative rounded-t-xl w-full h-[155px] bg-breeder-green">
+						<div class="relative rounded-t-xl w-full h-[155px] bg-jobboard-green">
 							<img src="{{ asset('/storage/menu_article_cats.png') }}" alt="" class="absolute -top-[9px] right-[32px]">
 						</div>
 						<div class="w-full bg-white rounded-b-xl h-[64px] flex justify-center items-center font-bold text-lg">
@@ -1640,19 +1640,19 @@
 		</div>
 	</div>
 
-	<div class="w-full fixed top-0 bg-breeder-deepblue bg-opacity-50 h-screen z-[100]"
+	<div class="w-full fixed top-0 bg-jobboard-deepblue bg-opacity-50 h-screen z-[100]"
 		x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-100"
 		x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-200"
 		x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-100"
 		x-show="showBreedOrProArticleItems || showBreedOrProDogItems || showBreedOrProCatItems" x-cloak>
-		<div class="w-full bg-breeder-deepblue border-b border-breeder-deepblue">
+		<div class="w-full bg-jobboard-deepblue border-b border-jobboard-deepblue">
 			<div class="flex flex-col md:flex-row md:justify-center">
 				{{-- Widescreen : Main navigation menu --}}
 				@include('components.front.home.header.main-menu-wide')
 			</div>
 		</div>
 
-		<div class="flex justify-center w-full bg-breeder-deepblue text-breeder-cream h-[518px] pt-8" @mouseleave="showBreedOrProCatItems = false" x-show="showBreedOrProCatItems">
+		<div class="flex justify-center w-full bg-jobboard-deepblue text-jobboard-cream h-[518px] pt-8" @mouseleave="showBreedOrProCatItems = false" x-show="showBreedOrProCatItems">
 			<div class="w-full max-w-[1200px] flex justify-between">
 				<div class="flex flex-col px-4 w-full max-w-[255px] gap-y-8">
 					<div class="flex justify-between items-center">
@@ -1688,7 +1688,7 @@
 					</div>
 
 					<a href="{{ route('post-search.cat-posts-with-post-type', ['postType' => 'etalon']) }}"
-						class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-breeder-green">
+						class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-jobboard-green">
 						{{ __('Stallions for company') }}
 
 						<svg width="32" height="33" viewBox="0 0 32 33" fill="none"
@@ -1699,7 +1699,7 @@
 					</a>
 					
 					<a href="{{ route('company-search.cat-companies') }}"
-						class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-breeder-green">
+						class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-jobboard-green">
 						{{ __('Cat breeders') }}
 
 						<svg width="32" height="33" viewBox="0 0 32 33" fill="none"
@@ -1710,7 +1710,7 @@
 					</a>
 					
 					<a href="{{ route('post-search.cat-posts-with-post-type', ['postType' => 'portee']) }}"
-						class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-breeder-green">
+						class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-jobboard-green">
 						{{ __('Kittens to adopt') }}
 
 						<svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1718,7 +1718,7 @@
 						</svg>
 					</a>
 
-					<a href="{{ route('post-search.cat-posts-with-post-type', ['postType' => 'adulte-retraite']) }}" class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-breeder-green">
+					<a href="{{ route('post-search.cat-posts-with-post-type', ['postType' => 'adulte-retraite']) }}" class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-jobboard-green">
 						{{ __('Cats to adopt') }}
 
 						<svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1727,7 +1727,7 @@
 					</a>
 
 					<a href="{{ route('breed-search.cat-breeds') }}"
-						class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-breeder-green">
+						class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-jobboard-green">
 						{{ __('Cats breeds') }}
 
 						<svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1737,7 +1737,7 @@
 				</div>
 
 				<div class="grid grid-cols-2 gap-x-8 gap-y-6 h-[458px]">
-					<div class="px-12 py-6 rounded-xl font-bold text-breeder-deepblue bg-breeder-violet w-[442px] h-[214px]">
+					<div class="px-12 py-6 rounded-xl font-bold text-jobboard-deepblue bg-jobboard-violet w-[442px] h-[214px]">
 						<div class="text-[28px]">
 							{{ __('Envie de vous former ?') }}
 						</div>
@@ -1759,13 +1759,13 @@
 						</div>
 					</div>
 
-					<div class="px-12 py-6 rounded-xl font-bold text-breeder-deepblue bg-breeder-cream w-[442px] h-[214px]">
+					<div class="px-12 py-6 rounded-xl font-bold text-jobboard-deepblue bg-jobboard-cream w-[442px] h-[214px]">
 						<div class="text-[28px]">
 							{{ __('Une question ?') }}
 						</div>
 
 						<div class="max-w-[230px]">
-							{!! __('<span class="text-breeder-violet">BreederGPT</span> votre assistant IA, vous répond !') !!}
+							{!! __('<span class="text-jobboard-violet">BreederGPT</span> votre assistant IA, vous répond !') !!}
 						</div>
 
 						<div class="mt-6">
@@ -1781,7 +1781,7 @@
 						</div>
 					</div>
 
-					<div class="px-12 py-6 rounded-xl font-bold text-breeder-deepblue bg-breeder-orange w-[442px] h-[214px]">
+					<div class="px-12 py-6 rounded-xl font-bold text-jobboard-deepblue bg-jobboard-orange w-[442px] h-[214px]">
 						<div class="text-[28px]">
 							{{ __('Vous avez une activité secondaire ?') }}
 						</div>
@@ -1792,7 +1792,7 @@
 
 						<div class="mt-2">
 							<a href="{{ route('space.professionnal-activities.my-professionnal-activities') }}">
-								<button class="bg-breeder-orange hover:bg-breeder-deepblue border border-breeder-deepbluehover rounded-full text-breeder-deepbluehover hover:text-breeder-cream font-bold text-sm py-3 px-5">
+								<button class="bg-jobboard-orange hover:bg-jobboard-deepblue border border-jobboard-deepbluehover rounded-full text-jobboard-deepbluehover hover:text-jobboard-cream font-bold text-sm py-3 px-5">
 									{{ __('Promouvoir mon activité') }}
 								</button>
 							</a>
@@ -1803,7 +1803,7 @@
 						</div>
 					</div>
 
-					<div class="px-12 py-6 rounded-xl font-bold text-breeder-deepblue bg-breeder-green w-[442px] h-[214px]">
+					<div class="px-12 py-6 rounded-xl font-bold text-jobboard-deepblue bg-jobboard-green w-[442px] h-[214px]">
 						<div class="text-[28px]">
 							{{ __('Bénéficiez d\'avantages') }}
 						</div>
@@ -1828,7 +1828,7 @@
 			</div>
 		</div>
 
-		<div class="flex justify-center w-full bg-breeder-deepblue text-breeder-cream h-[518px] pt-8" @mouseleave="showBreedOrProDogItems = false" x-show="showBreedOrProDogItems">
+		<div class="flex justify-center w-full bg-jobboard-deepblue text-jobboard-cream h-[518px] pt-8" @mouseleave="showBreedOrProDogItems = false" x-show="showBreedOrProDogItems">
 			<div class="w-full max-w-[1200px] flex justify-between">
 				<div class="flex flex-col px-4 w-full max-w-[255px] gap-y-8">
 					<div class="flex justify-between items-center">
@@ -1852,7 +1852,7 @@
 						</svg>
 					</div>
 
-					<a href="{{ route('post-search.dog-posts-with-post-type', ['postType' => 'etalon']) }}" class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-breeder-coral">
+					<a href="{{ route('post-search.dog-posts-with-post-type', ['postType' => 'etalon']) }}" class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-jobboard-coral">
 						{{ __('Stallions for company') }}
 
 						<svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1860,7 +1860,7 @@
 						</svg>
 					</a>
 
-					<a href="{{ route('company-search.dog-companies') }}" class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-breeder-coral">
+					<a href="{{ route('company-search.dog-companies') }}" class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-jobboard-coral">
 						{{ __('Dog breeders') }}
 
 						<svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1868,7 +1868,7 @@
 						</svg>
 					</a>
 
-					<a href="{{ route('post-search.dog-posts-with-post-type', ['postType' => 'portee']) }}" class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-breeder-coral">
+					<a href="{{ route('post-search.dog-posts-with-post-type', ['postType' => 'portee']) }}" class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-jobboard-coral">
 						{{ __('Puppies to adopt') }}
 
 						<svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1876,7 +1876,7 @@
 						</svg>
 					</a>
 
-					<a href="{{ route('post-search.dog-posts-with-post-type', ['postType' => 'adulte-retraite']) }}" class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-breeder-coral">
+					<a href="{{ route('post-search.dog-posts-with-post-type', ['postType' => 'adulte-retraite']) }}" class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-jobboard-coral">
 						{{ __('Dogs to adopt') }}
 
 						<svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1884,7 +1884,7 @@
 						</svg>
 					</a>
 
-					<a href="{{ route('breed-search.dog-breeds') }}" class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-breeder-coral">
+					<a href="{{ route('breed-search.dog-breeds') }}" class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-jobboard-coral">
 						{{ __('Dogs breeds') }}
 
 						<svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1894,7 +1894,7 @@
 				</div>
 
 				<div class="grid grid-cols-2 gap-x-8 gap-y-6 h-[458px]">
-					<div class="px-12 py-6 rounded-xl font-bold text-breeder-deepblue bg-breeder-violet w-[442px] h-[214px]">
+					<div class="px-12 py-6 rounded-xl font-bold text-jobboard-deepblue bg-jobboard-violet w-[442px] h-[214px]">
 						<div class="text-[28px]">
 							{{ __('Envie de vous former ?') }}
 						</div>
@@ -1916,13 +1916,13 @@
 						</div>
 					</div>
 
-					<div class="px-12 py-6 rounded-xl font-bold text-breeder-deepblue bg-breeder-cream w-[442px] h-[214px]">
+					<div class="px-12 py-6 rounded-xl font-bold text-jobboard-deepblue bg-jobboard-cream w-[442px] h-[214px]">
 						<div class="text-[28px]">
 							{{ __('Une question ?') }}
 						</div>
 
 						<div class="max-w-[230px]">
-							{!! __('<span class="text-breeder-violet">BreederGPT</span> votre assistant IA, vous répond !') !!}
+							{!! __('<span class="text-jobboard-violet">BreederGPT</span> votre assistant IA, vous répond !') !!}
 						</div>
 
 						<div class="mt-6">
@@ -1938,7 +1938,7 @@
 						</div>
 					</div>
 
-					<div class="px-12 py-6 rounded-xl font-bold text-breeder-deepblue bg-breeder-orange w-[442px] h-[214px]">
+					<div class="px-12 py-6 rounded-xl font-bold text-jobboard-deepblue bg-jobboard-orange w-[442px] h-[214px]">
 						<div class="text-[28px]">
 							{{ __('Vous avez une activité secondaire ?') }}
 						</div>
@@ -1949,7 +1949,7 @@
 
 						<div class="mt-2">
 							<a href="{{ route('space.professionnal-activities.my-professionnal-activities') }}">
-								<button class="bg-breeder-orange hover:bg-breeder-deepblue border border-breeder-deepbluehover rounded-full text-breeder-deepbluehover hover:text-breeder-cream font-bold text-sm py-3 px-5">
+								<button class="bg-jobboard-orange hover:bg-jobboard-deepblue border border-jobboard-deepbluehover rounded-full text-jobboard-deepbluehover hover:text-jobboard-cream font-bold text-sm py-3 px-5">
 									{{ __('Promouvoir mon activité') }}
 								</button>
 							</a>
@@ -1960,7 +1960,7 @@
 						</div>
 					</div>
 
-					<div class="px-12 py-6 rounded-xl font-bold text-breeder-deepblue bg-breeder-coral w-[442px] h-[214px]">
+					<div class="px-12 py-6 rounded-xl font-bold text-jobboard-deepblue bg-jobboard-coral w-[442px] h-[214px]">
 						<div class="text-[28px]">
 							{{ __('Bénéficiez d\'avantages') }}
 						</div>
@@ -1985,11 +1985,11 @@
 			</div>
 		</div>
 		
-		<div class="flex flex-col items-center w-full bg-breeder-deepblue text-breeder-cream h-[545px] pt-8" @mouseleave="showBreedOrProArticleItems = false" x-show="showBreedOrProArticleItems">
+		<div class="flex flex-col items-center w-full bg-jobboard-deepblue text-jobboard-cream h-[545px] pt-8" @mouseleave="showBreedOrProArticleItems = false" x-show="showBreedOrProArticleItems">
 			<div class="w-full max-w-[1200px] flex justify-between">
 				<div class="flex flex-col w-full max-w-[280px] gap-y-4">
 					<a href="{{ route('article.index', ['arg1' => 'nutrition']) }}"
-						class="flex justify-between items-center font-medium py-2 hover:border-l-4 hover:pl-2 hover:font-bold border-breeder-orange text-base w-full">
+						class="flex justify-between items-center font-medium py-2 hover:border-l-4 hover:pl-2 hover:font-bold border-jobboard-orange text-base w-full">
 						{{ __('Nutrition') }}
 
 						<svg width="32" height="33" viewBox="0 0 32 33" fill="none"
@@ -2000,7 +2000,7 @@
 					</a>
 
 					<a href="{{ route('article.index', ['arg1' => 'sante']) }}"
-						class="flex justify-between items-center font-medium py-2 hover:border-l-4 hover:pl-2 hover:font-bold border-breeder-orange text-base w-full">
+						class="flex justify-between items-center font-medium py-2 hover:border-l-4 hover:pl-2 hover:font-bold border-jobboard-orange text-base w-full">
 						{{ __('Santé') }}
 
 						<svg width="32" height="33" viewBox="0 0 32 33" fill="none"
@@ -2011,7 +2011,7 @@
 					</a>
 
 					<a href="{{ route('article.index', ['arg1' => 'conseils-entretien']) }}"
-						class="flex justify-between items-center font-medium py-2 hover:border-l-4 hover:pl-2 hover:font-bold border-breeder-orange text-base w-full">
+						class="flex justify-between items-center font-medium py-2 hover:border-l-4 hover:pl-2 hover:font-bold border-jobboard-orange text-base w-full">
 						{{ __('Conseils & entretien') }}
 
 						<svg width="32" height="33" viewBox="0 0 32 33" fill="none"
@@ -2022,7 +2022,7 @@
 					</a>
 
 					<a href="{{ route('article.index', ['arg1' => 'education-comportement']) }}"
-						class="flex justify-between items-center font-medium py-2 hover:border-l-4 hover:pl-2 hover:font-bold border-breeder-orange text-base w-full">
+						class="flex justify-between items-center font-medium py-2 hover:border-l-4 hover:pl-2 hover:font-bold border-jobboard-orange text-base w-full">
 						<span class="whitespace-nowrap">{{ __('Éducation & comportement') }}</span>
 
 						<svg class="shrink-0" width="32" height="33" viewBox="0 0 32 33" fill="none"
@@ -2035,7 +2035,7 @@
 
 				<div class="flex flex-col w-full max-w-[260px] gap-y-4">
 					<a href="{{ route('article.index', ['arg1' => 'reproduction-genetique']) }}"
-						class="flex justify-between items-center font-medium py-2 hover:border-l-4 hover:pl-2 hover:font-bold border-breeder-orange text-base w-full">
+						class="flex justify-between items-center font-medium py-2 hover:border-l-4 hover:pl-2 hover:font-bold border-jobboard-orange text-base w-full">
 						{{ __('Reproduction & génétique') }}
 
 						<svg width="32" height="33" viewBox="0 0 32 33" fill="none"
@@ -2046,7 +2046,7 @@
 					</a>
 
 					<a href="{{ route('article.index', ['arg1' => 'prevention']) }}"
-						class="flex justify-between items-center font-medium py-2 hover:border-l-4 hover:pl-2 hover:font-bold border-breeder-orange text-base w-full">
+						class="flex justify-between items-center font-medium py-2 hover:border-l-4 hover:pl-2 hover:font-bold border-jobboard-orange text-base w-full">
 						{{ __('Prevention') }}
 
 						<svg width="32" height="33" viewBox="0 0 32 33" fill="none"
@@ -2057,7 +2057,7 @@
 					</a>
 
 					<a href="{{ route('article.index', ['arg1' => 'gestion-elevage']) }}"
-						class="flex justify-between items-center font-medium py-2 hover:border-l-4 hover:pl-2 hover:font-bold border-breeder-orange text-base w-full">
+						class="flex justify-between items-center font-medium py-2 hover:border-l-4 hover:pl-2 hover:font-bold border-jobboard-orange text-base w-full">
 						{{ __('Gestion d\'entreprise') }}
 
 						<svg width="32" height="33" viewBox="0 0 32 33" fill="none"
@@ -2068,7 +2068,7 @@
 					</a>
 
 					<a href="{{ route('article.index', ['arg1' => 'legislation']) }}"
-						class="flex justify-between items-center font-medium py-2 hover:border-l-4 hover:pl-2 hover:font-bold border-breeder-orange text-base w-full">
+						class="flex justify-between items-center font-medium py-2 hover:border-l-4 hover:pl-2 hover:font-bold border-jobboard-orange text-base w-full">
 						{{ __('Legislation') }}
 
 						<svg class="shrink-0" width="32" height="33" viewBox="0 0 32 33" fill="none"
@@ -2081,7 +2081,7 @@
 
 				<div class="flex flex-col w-full max-w-[232px] gap-y-4">
 					<a href="{{ route('article.index', ['arg1' => 'produits']) }}"
-						class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-breeder-orange">
+						class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-jobboard-orange">
 						{{ __('Products') }}
 
 						<svg width="32" height="33" viewBox="0 0 32 33" fill="none"
@@ -2092,7 +2092,7 @@
 					</a>
 
 					<a href="{{ route('article.index', ['arg1' => 'marches-entreprises']) }}"
-						class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-breeder-orange">
+						class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-jobboard-orange">
 						{{ __('Markets & businesses') }}
 
 						<svg width="32" height="33" viewBox="0 0 32 33" fill="none"
@@ -2103,7 +2103,7 @@
 					</a>
 
 					<a href="{{ route('article.index', ['arg1' => 'agenda']) }}"
-						class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-breeder-orange">
+						class="flex justify-between items-center font-medium pl-2 py-2 hover:border-l-4 hover:font-bold border-jobboard-orange">
 						{{ __('Agenda') }}
 
 						<svg width="32" height="33" viewBox="0 0 32 33" fill="none"
@@ -2114,7 +2114,7 @@
 					</a>
 					
 					<a href="{{ route('article.index', ['arg1' => 'inspiration']) }}"
-						class="flex justify-between items-center font-medium py-2 hover:border-l-4 hover:pl-2 hover:font-bold border-breeder-orange text-base w-full">
+						class="flex justify-between items-center font-medium py-2 hover:border-l-4 hover:pl-2 hover:font-bold border-jobboard-orange text-base w-full">
 						<span class="whitespace-nowrap">{{ __('Inspiration') }}</span>
 
 						<svg class="shrink-0" width="32" height="33" viewBox="0 0 32 33" fill="none"
@@ -2125,9 +2125,9 @@
 					</a>
 				</div>
 
-				<div class="flex flex-col justify-between h-[228px] w-[395px] gap-4 text-breeder-deepblue">
+				<div class="flex flex-col justify-between h-[228px] w-[395px] gap-4 text-jobboard-deepblue">
 					<a href="{{ route('animalname.index') }}" class="h-full">
-						<div class="rounded-xl px-4 flex flex-col justify-center items-center bg-breeder-orange hover:bg-breeder-darkorange w-full h-full gap-4">
+						<div class="rounded-xl px-4 flex flex-col justify-center items-center bg-jobboard-orange hover:bg-jobboard-darkorange w-full h-full gap-4">
 							<div class="flex flex-col items-center rounded-l-xl gap-4">
 								<svg width="39" height="26" viewBox="0 0 39 26" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<g clip-path="url(#clip0_2712_55142)">
@@ -2164,10 +2164,10 @@
 					</a>
 				</div>
 			</div>
-			<div class="w-full max-w-[1200px] flex justify-between mt-6 text-breeder-deepblue">
+			<div class="w-full max-w-[1200px] flex justify-between mt-6 text-jobboard-deepblue">
 				<a href="{{ route('article.index', ['arg1' => 'proprietaires']) }}">
 					<div class="w-[228px] h-[219px] rounded-xl">
-						<div class="relative rounded-t-xl w-full h-[155px] bg-breeder-deepblue">
+						<div class="relative rounded-t-xl w-full h-[155px] bg-jobboard-deepblue">
 							<img src="{{ asset('/storage/menu_owner.png') }}" alt="" class="absolute -top-[16px] right-[17px]">
 						</div>
 						<div class="w-full bg-white rounded-b-xl h-[64px] flex justify-center items-center font-bold text-lg">
@@ -2177,7 +2177,7 @@
 				</a>
 				<a href="{{ route('article.index', ['arg1' => 'eleveurs']) }}">
 					<div class="w-[228px] h-[219px] rounded-xl">
-						<div class="relative rounded-t-xl w-full h-[155px] bg-breeder-violet">
+						<div class="relative rounded-t-xl w-full h-[155px] bg-jobboard-violet">
 							<img src="{{ asset('/storage/menu_breeders.png') }}" alt="" class="absolute -top-[19px] right-[32px]">
 						</div>
 						<div class="w-full bg-white rounded-b-xl h-[64px] flex justify-center items-center font-bold text-lg">
@@ -2187,7 +2187,7 @@
 				</a>
 				<a href="{{ route('article.index', ['arg1' => 'professionnels']) }}">
 					<div class="w-[228px] h-[219px] rounded-xl">
-						<div class="relative rounded-t-xl w-full h-[155px] bg-breeder-orange">
+						<div class="relative rounded-t-xl w-full h-[155px] bg-jobboard-orange">
 							<img src="{{ asset('/storage/menu_pro.png') }}" alt="" class="absolute -top-[7px] right-[12px]">
 						</div>
 						<div class="w-full bg-white rounded-b-xl h-[64px] flex justify-center items-center font-bold text-lg">
@@ -2197,7 +2197,7 @@
 				</a>
 				<a href="{{ route('article.index', ['arg1' => 'chien']) }}">
 					<div class="w-[228px] h-[219px] rounded-xl">
-						<div class="relative rounded-t-xl w-full h-[155px] bg-breeder-coral">
+						<div class="relative rounded-t-xl w-full h-[155px] bg-jobboard-coral">
 							<img src="{{ asset('/storage/menu_article_dog.png') }}" alt="" class="absolute -top-[21px] right-[32px]">
 						</div>
 						<div class="w-full bg-white rounded-b-xl h-[64px] flex justify-center items-center font-bold text-lg">
@@ -2207,7 +2207,7 @@
 				</a>
 				<a href="{{ route('article.index', ['arg1' => 'chat']) }}">
 					<div class="w-[228px] h-[219px] rounded-xl">
-						<div class="relative rounded-t-xl w-full h-[155px] bg-breeder-green">
+						<div class="relative rounded-t-xl w-full h-[155px] bg-jobboard-green">
 							<img src="{{ asset('/storage/menu_article_cats.png') }}" alt="" class="absolute -top-[9px] right-[32px]">
 						</div>
 						<div class="w-full bg-white rounded-b-xl h-[64px] flex justify-center items-center font-bold text-lg">

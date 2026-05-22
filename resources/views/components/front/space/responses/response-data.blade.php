@@ -8,14 +8,14 @@
 					{{ __('Phone') }} :
 				</span>
 
-				<span class="px-3 py-1 rounded-md font-medium bg-breeder-cream text-breeder-deepblue border border-breeder-greige text-xs w-fit">
+				<span class="px-3 py-1 rounded-md font-medium bg-jobboard-cream text-jobboard-deepblue border border-jobboard-greige text-xs w-fit">
 					{{ $response->from->phone }}
 				</span>
 			</div>
 		@endif
 
 		@if($response->values->has('message') && $message->body != $response->values->get('message'))
-			<hr class="border border-breeder-greige">
+			<hr class="border border-jobboard-greige">
 
 			<div class="flex flex-col gap-y-3 text-sm">
 				{{ __('Reminder of the request :') }}

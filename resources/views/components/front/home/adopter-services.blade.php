@@ -11,7 +11,7 @@
 		</div>
 	@endif
 
-	<h3 class="font-semibold text-breeder-deepblue text-[25px] sm:text-[40px] text-center z-20 mb-12">
+	<h3 class="font-semibold text-jobboard-deepblue text-[25px] sm:text-[40px] text-center z-20 mb-12">
 		@if(Route::currentRouteName() === 'home.pro')
 			{{ __('All our services') }}
 		@else
@@ -23,7 +23,7 @@
 		<a href="{{ route('professionnal-activity-search.professionnal-activities', ['activityCategory' => 'services-prestations', 'activity' => 'promeneur-pensions']) }}">
 			<div class="relative w-[167px] md:w-[270px] h-[185px] md:h-[299px] ">
 				<svg class="absolute inset-0 w-full h-full" viewBox="0 0 270 299" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M253.972 63.1402L151.013 4.26118C141.112 -1.42039 128.888 -1.42039 118.987 4.26118L16.0279 63.1402C6.12745 68.8217 0 79.2878 0 90.621V208.379C0 219.712 6.09726 230.208 16.0279 235.86L118.987 294.739C128.888 300.42 141.112 300.42 151.013 294.739L253.972 235.86C263.873 230.178 270 219.712 270 208.379V90.6509C270 79.3177 263.903 68.8217 253.972 63.1701V63.1402Z" class="fill-breeder-lightcream hover:fill-breeder-orange" />
+					<path d="M253.972 63.1402L151.013 4.26118C141.112 -1.42039 128.888 -1.42039 118.987 4.26118L16.0279 63.1402C6.12745 68.8217 0 79.2878 0 90.621V208.379C0 219.712 6.09726 230.208 16.0279 235.86L118.987 294.739C128.888 300.42 141.112 300.42 151.013 294.739L253.972 235.86C263.873 230.178 270 219.712 270 208.379V90.6509C270 79.3177 263.903 68.8217 253.972 63.1701V63.1402Z" class="fill-jobboard-lightcream hover:fill-jobboard-orange" />
 				</svg>
 
 				<!-- Contenu superposé -->
@@ -111,7 +111,7 @@
 					</svg>
 
 					<!-- Texte en bas -->
-					<p class="text-breeder-deepblue font-bold text-sm md:text-[18px] text-center max-s:max-w-[120px]">
+					<p class="text-jobboard-deepblue font-bold text-sm md:text-[18px] text-center max-s:max-w-[120px]">
 						{{ __('Walker & pension') }}
 					</p>
 				</div>
@@ -121,7 +121,7 @@
 		<a href="{{ route('professionnal-activity-search.professionnal-activities', ['activityCategory' => 'services-prestations', 'activity' => 'formations']) }}">
 			<div class="relative w-[167px] md:w-[270px] h-[185px] md:h-[299px] ">
 				<svg class="absolute inset-0 w-full h-full" viewBox="0 0 270 299" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M253.972 63.1402L151.013 4.26118C141.112 -1.42039 128.888 -1.42039 118.987 4.26118L16.0279 63.1402C6.12745 68.8217 0 79.2878 0 90.621V208.379C0 219.712 6.09726 230.208 16.0279 235.86L118.987 294.739C128.888 300.42 141.112 300.42 151.013 294.739L253.972 235.86C263.873 230.178 270 219.712 270 208.379V90.6509C270 79.3177 263.903 68.8217 253.972 63.1701V63.1402Z" class="fill-breeder-lightcream hover:fill-breeder-orange" />
+					<path d="M253.972 63.1402L151.013 4.26118C141.112 -1.42039 128.888 -1.42039 118.987 4.26118L16.0279 63.1402C6.12745 68.8217 0 79.2878 0 90.621V208.379C0 219.712 6.09726 230.208 16.0279 235.86L118.987 294.739C128.888 300.42 141.112 300.42 151.013 294.739L253.972 235.86C263.873 230.178 270 219.712 270 208.379V90.6509C270 79.3177 263.903 68.8217 253.972 63.1701V63.1402Z" class="fill-jobboard-lightcream hover:fill-jobboard-orange" />
 				</svg>
 
 				<!-- Contenu superposé -->
@@ -141,7 +141,7 @@
 					</svg>
 
 					<!-- Texte en bas -->
-					<p class="text-breeder-deepblue font-bold text-sm md:text-[18px] text-center">
+					<p class="text-jobboard-deepblue font-bold text-sm md:text-[18px] text-center">
 						{{ __('Training') }}
 					</p>
 				</div>
@@ -151,7 +151,7 @@
 		<a href="{{ route('professionnal-activity-search.professionnal-activities', ['activityCategory' => 'services-prestations', 'activity' => 'toiletteur']) }}">
 			<div class="relative w-[167px] md:w-[270px] h-[185px] md:h-[299px] ">
 				<svg class="absolute inset-0 w-full h-full" viewBox="0 0 270 299" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M253.972 63.1402L151.013 4.26118C141.112 -1.42039 128.888 -1.42039 118.987 4.26118L16.0279 63.1402C6.12745 68.8217 0 79.2878 0 90.621V208.379C0 219.712 6.09726 230.208 16.0279 235.86L118.987 294.739C128.888 300.42 141.112 300.42 151.013 294.739L253.972 235.86C263.873 230.178 270 219.712 270 208.379V90.6509C270 79.3177 263.903 68.8217 253.972 63.1701V63.1402Z" class="fill-breeder-lightcream hover:fill-breeder-orange" />
+					<path d="M253.972 63.1402L151.013 4.26118C141.112 -1.42039 128.888 -1.42039 118.987 4.26118L16.0279 63.1402C6.12745 68.8217 0 79.2878 0 90.621V208.379C0 219.712 6.09726 230.208 16.0279 235.86L118.987 294.739C128.888 300.42 141.112 300.42 151.013 294.739L253.972 235.86C263.873 230.178 270 219.712 270 208.379V90.6509C270 79.3177 263.903 68.8217 253.972 63.1701V63.1402Z" class="fill-jobboard-lightcream hover:fill-jobboard-orange" />
 				</svg>
 
 				<!-- Contenu superposé -->
@@ -170,7 +170,7 @@
 					</svg>
 
 					<!-- Texte en bas -->
-					<p class="text-breeder-deepblue font-bold text-sm md:text-[18px] text-center">
+					<p class="text-jobboard-deepblue font-bold text-sm md:text-[18px] text-center">
 						{{ __('Groomer') }}
 					</p>
 				</div>
@@ -180,7 +180,7 @@
 		<a href="{{ route('professionnal-activity-search.professionnal-activities', ['activityCategory' => 'services-prestations', 'activity' => 'transport-autres-services']) }}">
 			<div class="relative w-[167px] md:w-[270px] h-[185px] md:h-[299px] ">
 				<svg class="absolute inset-0 w-full h-full" viewBox="0 0 270 299" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M253.972 63.1402L151.013 4.26118C141.112 -1.42039 128.888 -1.42039 118.987 4.26118L16.0279 63.1402C6.12745 68.8217 0 79.2878 0 90.621V208.379C0 219.712 6.09726 230.208 16.0279 235.86L118.987 294.739C128.888 300.42 141.112 300.42 151.013 294.739L253.972 235.86C263.873 230.178 270 219.712 270 208.379V90.6509C270 79.3177 263.903 68.8217 253.972 63.1701V63.1402Z" class="fill-breeder-lightcream hover:fill-breeder-orange" />
+					<path d="M253.972 63.1402L151.013 4.26118C141.112 -1.42039 128.888 -1.42039 118.987 4.26118L16.0279 63.1402C6.12745 68.8217 0 79.2878 0 90.621V208.379C0 219.712 6.09726 230.208 16.0279 235.86L118.987 294.739C128.888 300.42 141.112 300.42 151.013 294.739L253.972 235.86C263.873 230.178 270 219.712 270 208.379V90.6509C270 79.3177 263.903 68.8217 253.972 63.1701V63.1402Z" class="fill-jobboard-lightcream hover:fill-jobboard-orange" />
 				</svg>
 
 				<div class="absolute -bottom-[10px] inset-0 flex flex-col items-center justify-center gap-y-2 md:gap-y-4 py-4 md:py-6 pointer-events-none">
@@ -192,7 +192,7 @@
 					</svg>
 
 					<!-- Texte en bas -->
-					<p class="text-breeder-deepblue font-bold text-sm md:text-[18px] text-center">
+					<p class="text-jobboard-deepblue font-bold text-sm md:text-[18px] text-center">
 						{{ __('Transportation') }}<br>& {{ __('other services') }}
 					</p>
 				</div>
@@ -202,7 +202,7 @@
 		<a href="{{ route('professionnal-activity-search.professionnal-activities', ['activityCategory' => 'services-prestations', 'activity' => 'dressage-education']) }}">
 			<div class="relative w-[167px] md:w-[270px] h-[185px] md:h-[299px] ">
 				<svg class="absolute inset-0 w-full h-full" viewBox="0 0 270 299" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M253.972 63.1402L151.013 4.26118C141.112 -1.42039 128.888 -1.42039 118.987 4.26118L16.0279 63.1402C6.12745 68.8217 0 79.2878 0 90.621V208.379C0 219.712 6.09726 230.208 16.0279 235.86L118.987 294.739C128.888 300.42 141.112 300.42 151.013 294.739L253.972 235.86C263.873 230.178 270 219.712 270 208.379V90.6509C270 79.3177 263.903 68.8217 253.972 63.1701V63.1402Z" class="fill-breeder-lightcream hover:fill-breeder-orange" />
+					<path d="M253.972 63.1402L151.013 4.26118C141.112 -1.42039 128.888 -1.42039 118.987 4.26118L16.0279 63.1402C6.12745 68.8217 0 79.2878 0 90.621V208.379C0 219.712 6.09726 230.208 16.0279 235.86L118.987 294.739C128.888 300.42 141.112 300.42 151.013 294.739L253.972 235.86C263.873 230.178 270 219.712 270 208.379V90.6509C270 79.3177 263.903 68.8217 253.972 63.1701V63.1402Z" class="fill-jobboard-lightcream hover:fill-jobboard-orange" />
 				</svg>
 
 				<div class="absolute inset-0 flex flex-col items-center justify-center gap-y-2 md:gap-y-4 py-4 md:py-6 pointer-events-none">
@@ -222,7 +222,7 @@
 					</svg>
 
 					<!-- Texte en bas -->
-					<p class="text-breeder-deepblue font-bold text-sm md:text-[18px] text-center max-s:max-w-[120px]">
+					<p class="text-jobboard-deepblue font-bold text-sm md:text-[18px] text-center max-s:max-w-[120px]">
 						{{ __('Training & education') }}
 					</p>
 				</div>
@@ -232,7 +232,7 @@
 		<a href="{{ route('professionnal-activity-search.professionnal-activities', ['activityCategory' => 'services-prestations', 'activity' => 'activites-ludiques-sportives']) }}">
 			<div class="relative w-[167px] md:w-[270px] h-[185px] md:h-[299px] ">
 				<svg class="absolute inset-0 w-full h-full" viewBox="0 0 270 299" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M253.972 63.1402L151.013 4.26118C141.112 -1.42039 128.888 -1.42039 118.987 4.26118L16.0279 63.1402C6.12745 68.8217 0 79.2878 0 90.621V208.379C0 219.712 6.09726 230.208 16.0279 235.86L118.987 294.739C128.888 300.42 141.112 300.42 151.013 294.739L253.972 235.86C263.873 230.178 270 219.712 270 208.379V90.6509C270 79.3177 263.903 68.8217 253.972 63.1701V63.1402Z" class="fill-breeder-lightcream hover:fill-breeder-orange" />
+					<path d="M253.972 63.1402L151.013 4.26118C141.112 -1.42039 128.888 -1.42039 118.987 4.26118L16.0279 63.1402C6.12745 68.8217 0 79.2878 0 90.621V208.379C0 219.712 6.09726 230.208 16.0279 235.86L118.987 294.739C128.888 300.42 141.112 300.42 151.013 294.739L253.972 235.86C263.873 230.178 270 219.712 270 208.379V90.6509C270 79.3177 263.903 68.8217 253.972 63.1701V63.1402Z" class="fill-jobboard-lightcream hover:fill-jobboard-orange" />
 				</svg>
 
 				<div class="absolute inset-0 flex flex-col items-center justify-center gap-y-2 md:gap-y-4 py-4 md:py-6 pointer-events-none">
@@ -257,7 +257,7 @@
 					</svg>
 
 					<!-- Texte en bas -->
-					<p class="text-breeder-deepblue font-bold text-sm md:text-[18px] text-center">
+					<p class="text-jobboard-deepblue font-bold text-sm md:text-[18px] text-center">
 						{{ __('Activities') }}
 					</p>
 				</div>
@@ -267,7 +267,7 @@
 		<a href="{{ route('professionnal-activity-search.professionnal-activities', ['activityCategory' => 'services-prestations', 'activity' => 'soins-bien-etre']) }}">
 			<div class="relative w-[167px] md:w-[270px] h-[185px] md:h-[299px] ">
 				<svg class="absolute inset-0 w-full h-full" viewBox="0 0 270 299" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M253.972 63.1402L151.013 4.26118C141.112 -1.42039 128.888 -1.42039 118.987 4.26118L16.0279 63.1402C6.12745 68.8217 0 79.2878 0 90.621V208.379C0 219.712 6.09726 230.208 16.0279 235.86L118.987 294.739C128.888 300.42 141.112 300.42 151.013 294.739L253.972 235.86C263.873 230.178 270 219.712 270 208.379V90.6509C270 79.3177 263.903 68.8217 253.972 63.1701V63.1402Z" class="fill-breeder-lightcream hover:fill-breeder-orange" />
+					<path d="M253.972 63.1402L151.013 4.26118C141.112 -1.42039 128.888 -1.42039 118.987 4.26118L16.0279 63.1402C6.12745 68.8217 0 79.2878 0 90.621V208.379C0 219.712 6.09726 230.208 16.0279 235.86L118.987 294.739C128.888 300.42 141.112 300.42 151.013 294.739L253.972 235.86C263.873 230.178 270 219.712 270 208.379V90.6509C270 79.3177 263.903 68.8217 253.972 63.1701V63.1402Z" class="fill-jobboard-lightcream hover:fill-jobboard-orange" />
 				</svg>
 
 				<div class="absolute inset-0 flex flex-col items-center justify-center gap-y-2 md:gap-y-4 py-4 md:py-6 pointer-events-none">
@@ -290,7 +290,7 @@
 					</svg>
 
 					<!-- Texte en bas -->
-					<p class="text-breeder-deepblue font-bold text-sm md:text-[18px] text-center">
+					<p class="text-jobboard-deepblue font-bold text-sm md:text-[18px] text-center">
 						{{ __('Care & well-being') }}
 					</p>
 				</div>
@@ -302,7 +302,7 @@
 				<svg class="absolute inset-0 w-full h-full" viewBox="0 0 270 299" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path
 						d="M253.972 63.1402L151.013 4.26118C141.112 -1.42039 128.888 -1.42039 118.987 4.26118L16.0279 63.1402C6.12745 68.8217 0 79.2878 0 90.621V208.379C0 219.712 6.09726 230.208 16.0279 235.86L118.987 294.739C128.888 300.42 141.112 300.42 151.013 294.739L253.972 235.86C263.873 230.178 270 219.712 270 208.379V90.6509C270 79.3177 263.903 68.8217 253.972 63.1701V63.1402Z"
-						class="fill-breeder-lightcream hover:fill-breeder-orange" />
+						class="fill-jobboard-lightcream hover:fill-jobboard-orange" />
 				</svg>
 
 				<div class="absolute bottom-[8px] inset-0 flex flex-col items-center justify-center gap-y-2 md:gap-y-4 py-4 md:py-6 pointer-events-none">
@@ -319,7 +319,7 @@
 					</svg>
 
 					<!-- Texte en bas -->
-					<p class="text-breeder-deepblue font-bold text-sm md:text-[18px] text-center">
+					<p class="text-jobboard-deepblue font-bold text-sm md:text-[18px] text-center">
 						{{ __('Animal insurance') }}
 					</p>
 				</div>

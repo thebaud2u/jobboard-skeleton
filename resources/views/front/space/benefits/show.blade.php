@@ -15,7 +15,7 @@
 	@endphp
 
 	<a href="{{ route('space.benefits.my-benefits') }}"
-		class="flex gap-x-2 items-center font-bold text-sm text-breeder-deepblue my-6">
+		class="flex gap-x-2 items-center font-bold text-sm text-jobboard-deepblue my-6">
 		<svg width="8" height="11" viewBox="0 0 8 11" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<path d="M6.51269 1.5L2.14906 5.5L6.5127 9.5" stroke="#0E1954" stroke-width="2" stroke-linecap="round"
 				stroke-linejoin="round" />
@@ -24,7 +24,7 @@
 		{{ __('All my benefits') }}
 	</a>
 
-	<div class="flex flex-col s:flex-row lg:min-h-[600px] bg-breeder-cream rounded-2xl text-breeder-deepblue">
+	<div class="flex flex-col s:flex-row lg:min-h-[600px] bg-jobboard-cream rounded-2xl text-jobboard-deepblue">
 		<div class="flex-1">
 			<div class="w-full">
 				<div class="overflow-hidden max-h-80 flex justify-center items-stretch rounded-t-2xl">
@@ -53,13 +53,13 @@
 							</div>
 
 							<div class="flex flex-row gap-x-4">
-								<x-front.benefits.tag :class="'bg-breeder-cream'">
+								<x-front.benefits.tag :class="'bg-jobboard-cream'">
 									{{ $benefit->benefitType->name }}
 								</x-front.benefits.tag>
 
 								@if($benefit->species)
 									@foreach($benefit->species as $specie)
-										<x-front.benefits.tag :class="'capitalize bg-breeder-cream'">
+										<x-front.benefits.tag :class="'capitalize bg-jobboard-cream'">
 											{{ __($specie->name) }}
 										</x-front.benefits.tag>
 									@endforeach
@@ -76,7 +76,7 @@
 
 					@if($benefit->code)
 						<div x-data="{ textToCopy: '{{ $benefit->code }}', copied: false }" @click="navigator.clipboard.writeText(textToCopy).then(() => { copied = true })" class="flex-none">
-							<div class="inline-flex flex-row justify-center items-center cursor-pointer font-medium text-sm p-4 rounded-xl bg-breeder-orange gap-x-1">
+							<div class="inline-flex flex-row justify-center items-center cursor-pointer font-medium text-sm p-4 rounded-xl bg-jobboard-orange gap-x-1">
 								{{ __('use this code') }}
 
 								<span class="uppercase font-bold">{{ $benefit->code }}</span>
@@ -104,13 +104,13 @@
 		</div>
 	</div>
 
-	<p class="text-breeder-deepblue text-xs font-medium mt-6 mb-8">
+	<p class="text-jobboard-deepblue text-xs font-medium mt-6 mb-8">
 		<strong>{{ __('Duration of the benefit') }} :</strong>
 		{{ __('Available until :date', ['date' => $benefit->end_date->format('d/m/Y')]) }}
 	</p>
 
 	@if($benefit->condition->value != 'none')
-		<p class="text-breeder-deepblue text-xs font-medium mt-6 mb-8">
+		<p class="text-jobboard-deepblue text-xs font-medium mt-6 mb-8">
 			<strong>{{ __('Conditions') }} :</strong> {{ __($benefit->condition->inHuman()) }}
 		</p>
 	@endif

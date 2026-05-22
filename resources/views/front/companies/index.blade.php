@@ -24,7 +24,7 @@
 	{{-- Page main title (home) --}}
 	<x-slot name="mainTitle">
 		<div x-data="{searchVisible: false, advancedSearchDisplay: false}">
-			<div class="bg-cover bg-center bg-breeder-cream flex flex-col items-center lg:justify-end py-10 min-h-[328px] h-full md:h-[450px] lg:h-[400px]">
+			<div class="bg-cover bg-center bg-jobboard-cream flex flex-col items-center lg:justify-end py-10 min-h-[328px] h-full md:h-[450px] lg:h-[400px]">
 				<div class="relative w-full block md:hidden lg:block">
 					<div class="absolute w-full lg:h-full right-0 max-md:top-[83px] top-[23px]">
 						<div class="absolute w-[800px] max-lg:w-[250px] h-[300px] top-0 md:-top-[85px] xlsm:-top-[148px] max-lg:left-[50%] max-lg:transform max-lg:translate-x-[-50%] right-[176px]">
@@ -57,7 +57,7 @@
 
 				<div class="flex flex-row items-center justify-around md:justify-center gap-x-6 w-full z-20">
 					<div class="flex flex-col max-md:gap-y-4 md:flex-row md:justify-center items-center w-full">
-						<div class="flex flex-col items-center gap-6 text-[25px] md:text-[40px] text-breeder-deepblue w-full">
+						<div class="flex flex-col items-center gap-6 text-[25px] md:text-[40px] text-jobboard-deepblue w-full">
 							<h1 class="flex flex-col max-lg:items-center w-full max-w-[1200px] px-4 xlsm:px-0 font-normal">
 								<strong>
 									{{ __('Trouvez un entreprise')}}<br>
@@ -72,7 +72,7 @@
 							</div>
 						</div>
 
-						<button class="md:hidden flex justify-center items-center w-[318px] h-[65px] cursor-pointer rounded-full bg-white text-breeder-deepblue font-bold gap-x-2" x-on:click="searchVisible = !searchVisible">
+						<button class="md:hidden flex justify-center items-center w-[318px] h-[65px] cursor-pointer rounded-full bg-white text-jobboard-deepblue font-bold gap-x-2" x-on:click="searchVisible = !searchVisible">
 							<svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path fill-rule="evenodd" clip-rule="evenodd" d="M11.1744 2.74419C6.51853 2.74419 2.74419 6.51853 2.74419 11.1744C2.74419 15.8303 6.51853 19.6047 11.1744 19.6047C15.8303 19.6047 19.6047 15.8303 19.6047 11.1744C19.6047 6.51853 15.8303 2.74419 11.1744 2.74419ZM1 11.1744C1 5.55524 5.55524 1 11.1744 1C16.7936 1 21.3488 5.55524 21.3488 11.1744C21.3488 16.7936 16.7936 21.3488 11.1744 21.3488C5.55524 21.3488 1 16.7936 1 11.1744Z" fill="#0E1954"/>
 								<path fill-rule="evenodd" clip-rule="evenodd" d="M17.5345 17.5345C17.8751 17.1939 18.4273 17.1939 18.7678 17.5345L25.7446 24.5112C26.0851 24.8518 26.0851 25.404 25.7446 25.7446C25.404 26.0851 24.8518 26.0851 24.5112 25.7446L17.5345 18.7678C17.1939 18.4273 17.1939 17.8751 17.5345 17.5345Z" fill="#0E1954"/>

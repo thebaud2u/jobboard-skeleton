@@ -2,7 +2,7 @@
     <div>
         <img src="{{ asset('/storage/dog_search_white.svg?v1') }}" />
     </div>
-    <div class="text-breeder-deepblue text-3xl mb-4 flex">
+    <div class="text-jobboard-deepblue text-3xl mb-4 flex">
         <strong> {{ __('What breed of') }} {{ request()->segment(1) }}</strong>&nbsp;
         {{ __('suits me') }}&nbsp;?
     </div>
@@ -18,13 +18,13 @@
                 <div class="flex flex-row w-[50%] justify-end">
                     <div class="pr-2">
                         <input type="radio" name="god_race_adopt" value="yes" id="god_race_adopt_yes"
-                            class="mr-1 w-3 h-3 focus:ring-breeder-deepblue checked:bg-breeder-deepblue" />
+                            class="mr-1 w-3 h-3 focus:ring-jobboard-deepblue checked:bg-jobboard-deepblue" />
                         <label for="god_race_adopt_yes">{{ __('yes') }}</label>
                     </div>
 
                     <div class="pr-2">
                         <input type="radio" name="god_race_adopt" value="no" id="god_race_adopt_no"
-                            class="mr-1 w-3 h-3 focus:ring-breeder-deepblue checked:bg-breeder-deepblue" />
+                            class="mr-1 w-3 h-3 focus:ring-jobboard-deepblue checked:bg-jobboard-deepblue" />
                         <label for="god_race_adopt_no">{{ __('no') }}</label>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
                 {{ __('Please select an option') }}
             </div>
 
-            <div class="w-full flex flex-row bg-breeder-coral text-breeder-deepblue mt-6 px-6 py-4 gap-2 rounded-xl text-[17px]  h-full hidden "
+            <div class="w-full flex flex-row bg-jobboard-coral text-jobboard-deepblue mt-6 px-6 py-4 gap-2 rounded-xl text-[17px]  h-full hidden "
                 id="advice_message">
                 <div class="w-[10%] mt-2">
                     <img src="{{ asset('/storage/warning_blue.svg') }}" />
@@ -76,15 +76,15 @@
                 adviceMsg.classList.add('hidden');
 
                 if (this.value === 'no') {
-                    confirmBtn.classList.remove('bg-breeder-deepblue');
+                    confirmBtn.classList.remove('bg-jobboard-deepblue');
                     confirmBtn.classList.add('bg-gray-400');
                     confirmBtn.classList.add('hover:bg-gray-400');
                     confirmBtn.disabled = true;
                     adviceMsg.classList.remove('hidden');
                 } else if (this.value === 'yes') {
                     confirmBtn.classList.remove('bg-gray-400');
-                    confirmBtn.classList.add('bg-breeder-deepblue');
-                    confirmBtn.classList.add('hover:bg-breeder-deepblue');
+                    confirmBtn.classList.add('bg-jobboard-deepblue');
+                    confirmBtn.classList.add('hover:bg-jobboard-deepblue');
                     confirmBtn.disabled = false;
                 }
             });

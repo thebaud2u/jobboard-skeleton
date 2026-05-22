@@ -1,21 +1,21 @@
 <div>
 	<div class="mb-5 text-sm sm:text-base lg:text-xl">
 		<div class="flex flex-wrap gap-4">
-			<select id="user" wire:model.live="user" class="border-gray-300 focus:border-breeder-deepblue focus:ring-breeder-deepblue rounded-md shadow-sm text-breeder-deepblue placeholder:text-gray-400 mt-1 text-gray-400">
+			<select id="user" wire:model.live="user" class="border-gray-300 focus:border-jobboard-deepblue focus:ring-jobboard-deepblue rounded-md shadow-sm text-jobboard-deepblue placeholder:text-gray-400 mt-1 text-gray-400">
 				<option value="">{{ __('Select a user') }}</option>
 				@foreach($usersList as $userList)
 					<option value="{{ $userList->slug }}">{{ $userList->lastname }} {{ $userList->firstname }}</option>
 				@endforeach
 			</select>
 
-			<select id="state" wire:model.live="state" class="border-gray-300 focus:border-breeder-deepblue focus:ring-breeder-deepblue rounded-md shadow-sm text-breeder-deepblue placeholder:text-gray-400 mt-1 text-gray-400">
+			<select id="state" wire:model.live="state" class="border-gray-300 focus:border-jobboard-deepblue focus:ring-jobboard-deepblue rounded-md shadow-sm text-jobboard-deepblue placeholder:text-gray-400 mt-1 text-gray-400">
 				<option value="">{{ __('Select a state') }}</option>
 				@foreach($statesList as $index => $value)
 					<option value="{{ $index }}">{{ __($value) }}</option>
 				@endforeach
 			</select>
 
-			<select id="offer" wire:model.live="offer" class="border-gray-300 focus:border-breeder-deepblue focus:ring-breeder-deepblue rounded-md shadow-sm text-breeder-deepblue placeholder:text-gray-400 mt-1 text-gray-400">
+			<select id="offer" wire:model.live="offer" class="border-gray-300 focus:border-jobboard-deepblue focus:ring-jobboard-deepblue rounded-md shadow-sm text-jobboard-deepblue placeholder:text-gray-400 mt-1 text-gray-400">
 				<option value="">{{ __('Select an offer') }}</option>
 				@foreach($offersList as $offerEntry)
 					<option value="{{ $offerEntry->slug }}">{{ $offerEntry->name }}</option>
@@ -167,7 +167,7 @@
 
 									<div wire:click="toggleSNPCC({{ $company->id }})" class="text-white inline-block">
 										@if($company->values->has('snpcc') && $company->values->get('snpcc') === true)
-											<button type="button" title="{{ __('Disable SNPCC') }}" class="flex flex-row text-black bg-breeder-green focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-3 py-2.5 text-center me-2 mb-2 items-center gap-1">
+											<button type="button" title="{{ __('Disable SNPCC') }}" class="flex flex-row text-black bg-jobboard-green focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-3 py-2.5 text-center me-2 mb-2 items-center gap-1">
 												<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
 													<path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
 												</svg>
@@ -210,7 +210,7 @@
 	</div>
 
 	<x-front.modal name="update-expiration-date-company-modal" :class="'w-full max-w-2xl'" focusable>
-		<section class="p-10 flex flex-col flex-wrap content-center text-breeder-deepblue">
+		<section class="p-10 flex flex-col flex-wrap content-center text-jobboard-deepblue">
 			<header class="flex flex-col flex-wrap content-center">
 				<h2 class="text-lg font-semibold">
 					{{ __('Update expiration date') }}
@@ -225,7 +225,7 @@
 								{{ __('Current expiration date') }}
 							</h1>
 
-							<hr class="w-24 h-1 mb-5 border-0 bg-breeder-deepblue">
+							<hr class="w-24 h-1 mb-5 border-0 bg-jobboard-deepblue">
 
 							<div class="pl-6">
 								{{ $currentExpirationDate }}
@@ -237,7 +237,7 @@
 								{{ __('New expiration date') }}
 							</h1>
 
-							<hr class="w-24 h-1 mb-5 border-0 bg-breeder-deepblue">
+							<hr class="w-24 h-1 mb-5 border-0 bg-jobboard-deepblue">
 
 							<div class="pl-6">
 								<div class="mb-4">

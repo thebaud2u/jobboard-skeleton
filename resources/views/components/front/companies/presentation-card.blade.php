@@ -6,11 +6,11 @@
 ])
 
 @if(!$showCommentComponent)
-	<a href="{{ route('company-search.company.show', ['company' => $company->slug]) }}" class="w-full border border-breeder-greige rounded-xl flex flex-col">
+	<a href="{{ route('company-search.company.show', ['company' => $company->slug]) }}" class="w-full border border-jobboard-greige rounded-xl flex flex-col">
 @else
-	<div class="w-full border border-breeder-greige rounded-xl flex flex-col">
+	<div class="w-full border border-jobboard-greige rounded-xl flex flex-col">
 @endif
-	<div class="flex flex-row bg-breeder-cream text-breeder-deepblue p-6 justify-start items-center gap-x-8 rounded-t-xl max-h-[118px]">
+	<div class="flex flex-row bg-jobboard-cream text-jobboard-deepblue p-6 justify-start items-center gap-x-8 rounded-t-xl max-h-[118px]">
 		@if($logo = $company->getFirstMedia('logo'))
 			<div class="relative w-[118px] h-[118px] md:w-[140px] md:h-[140px] max-sm:hidden">
 				<img src="{{ $logo->getAvailableUrl(['optimized']) }}" class="md:absolute md:-bottom-[40px] inline-block object-cover w-[118px] h-[118px] md:w-[140px] md:h-[140px] rounded-full" />
@@ -27,7 +27,7 @@
 		</div>
 	</div>
 
-	<div class="flex flex-col gap-y-4 md:flex-row bg-white text-breeder-deepblue p-6 rounded-b-xl md:justify-between @if($logo = $company->getFirstMedia('logo')) md:ml-[160px] @endif gap-x-8">
+	<div class="flex flex-col gap-y-4 md:flex-row bg-white text-jobboard-deepblue p-6 rounded-b-xl md:justify-between @if($logo = $company->getFirstMedia('logo')) md:ml-[160px] @endif gap-x-8">
 		<div class="flex flex-col">
 			<div class="flex flex-row flex-wrap gap-2 justify-start items-center max-w-[408px]">
 				@if($company->hasPureBreedBreeders())
@@ -37,13 +37,13 @@
 						@endphp
 
 						@if($pureBreedTypes['LOOF'])
-							<span class="px-3 py-1 rounded-md font-medium bg-breeder-green text-breeder-deepblue text-sm w-fit">
+							<span class="px-3 py-1 rounded-md font-medium bg-jobboard-green text-jobboard-deepblue text-sm w-fit">
 								LOOF
 							</span>
 						@endif
 
 						@if($pureBreedTypes['LOF'])
-							<span class="px-3 py-1 rounded-md font-medium bg-breeder-coral text-breeder-deepblue text-sm w-fit">
+							<span class="px-3 py-1 rounded-md font-medium bg-jobboard-coral text-jobboard-deepblue text-sm w-fit">
 								LOF
 							</span>
 						@endif
@@ -53,7 +53,7 @@
 				@endif
 
 				@if($company->littersAvailable->count() > 0)
-					<span class="px-3 py-1 rounded-md font-medium bg-breeder-violet text-breeder-deepblue text-sm w-fit break-keep shrink-0">
+					<span class="px-3 py-1 rounded-md font-medium bg-jobboard-violet text-jobboard-deepblue text-sm w-fit break-keep shrink-0">
 						{{ $company->littersAvailable->count() > 1 ? __('Litters available') : __('Litter available') }}
 					</span>
 				@endif
@@ -63,12 +63,12 @@
 					$count = $breeds->count();
 				@endphp
 				@if($breeds->isNotEmpty())
-					<span class="px-3 py-1 rounded-md font-medium bg-breeder-cream text-breeder-deepblue text-sm w-fit shrink-0" title="{{ $breeds->first()->name }}">
+					<span class="px-3 py-1 rounded-md font-medium bg-jobboard-cream text-jobboard-deepblue text-sm w-fit shrink-0" title="{{ $breeds->first()->name }}">
 						{{ Str::limit($breeds->first()->name, 10) }}
 					</span>
 
 					@if($count > 1)
-						<span class="px-3 py-1 rounded-md font-medium bg-breeder-cream text-breeder-deepblue text-sm w-fit">
+						<span class="px-3 py-1 rounded-md font-medium bg-jobboard-cream text-jobboard-deepblue text-sm w-fit">
 							{{ '+'.$count-1 }}
 						</span>
 					@endif
@@ -137,7 +137,7 @@
 						</x-front.secondary-button>
 
 						<x-front.modal name="comment-modal" :class="'w-full max-w-2xl'" focusable>
-							<div class="space-y-8 text-breeder-deepblue">
+							<div class="space-y-8 text-jobboard-deepblue">
 								<livewire:front.comments.comments
 									:target="$company"
 									:source="Auth::guard('web')->user()"
@@ -164,7 +164,7 @@
 							<path d="M5.75488 10L9.02761 13.2727L13.8385 7.25909L14.264 6.72727L16.4976 3.93727L18.8458 1" stroke="#0E1954" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 						</svg>
 
-						<p class="text-breeder-deepblue font-bold text-xs text-center">
+						<p class="text-jobboard-deepblue font-bold text-xs text-center">
 							{{ __('Verified account' )}}
 						</p>
 					</div>
@@ -182,7 +182,7 @@
 								<path d="M5.75488 10L9.02761 13.2727L13.8385 7.25909L14.264 6.72727L16.4976 3.93727L18.8458 1" stroke="#0E1954" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 							</svg>
 
-							<p class="text-breeder-deepblue font-bold text-xs text-center">
+							<p class="text-jobboard-deepblue font-bold text-xs text-center">
 								{{ __('Formation vérifiée') }}
 							</p>
 						</div>

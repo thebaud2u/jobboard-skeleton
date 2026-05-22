@@ -1,4 +1,4 @@
-<div wire:init="loadStats" class="flex flex-col s:flex-row w-full items-center justify-center gap-4 my-4 text-breeder-deepblue">
+<div wire:init="loadStats" class="flex flex-col s:flex-row w-full items-center justify-center gap-4 my-4 text-jobboard-deepblue">
 	@if(!$loaded)
 		<x-front.secondary-button>
 			<svg aria-hidden="true" role="status" class="inline w-4 h-4 me-3 text-gray-200 animate-spin dark:text-gray-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -18,7 +18,7 @@
 			{{ $favorites > 1 ? __(':x favorites', ['x' => $favorites]) : __(':x favorite', ['x' => $favorites]) }}
 		</div>
 
-		<div class="border border-breeder-greige h-[25px] max-s:hidden"></div>
+		<div class="border border-jobboard-greige h-[25px] max-s:hidden"></div>
 
 		<div class="flex flex-row items-center gap-x-2 font-medium">
 			<svg width="31" height="26" viewBox="0 0 31 26" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -29,7 +29,7 @@
 			{{ $views > 1 ? __(':x views', ['x' => $views]) : __(':x view', ['x' => $views]) }}
 		</div>
 
-		<div class="border border-breeder-greige h-[25px] max-s:hidden"></div>
+		<div class="border border-jobboard-greige h-[25px] max-s:hidden"></div>
 
 		<div class="flex flex-row items-center gap-x-2 font-medium">
 			<svg width="21" height="26" viewBox="0 0 21 26" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -1,5 +1,5 @@
 <a href="{{ route('company-search.company.show', ['company' => $company->slug]) }}" target="_blank" class="w-full">
-	<article class="cursor-pointer rounded-xl w-full min-h-[221px] flex justify-between border border-breeder-greige text-breeder-deepblue">
+	<article class="cursor-pointer rounded-xl w-full min-h-[221px] flex justify-between border border-jobboard-greige text-jobboard-deepblue">
 		<div class="py-8 px-6 flex flex-col @if($logo = $company->getFirstMedia('logo')) max-w-[80%] @endif">
 			<div class="flex gap-x-2 flex-wrap items-center">
 				<div class="font-bold text-[28px]">

@@ -14,6 +14,6 @@
     ];
     $pub_class = $classes[$size] ?? '';
 @endphp
-<div class="bg-breeder-greige text-breeder-deepblue font-semibold rounded-lg mx-auto flex flex-col items-center justify-center max-w-full {{$pub_class}} ">
+<div class="bg-jobboard-greige text-jobboard-deepblue font-semibold rounded-lg mx-auto flex flex-col items-center justify-center max-w-full {{$pub_class}} ">
     PUB {{$size}}
 </div>

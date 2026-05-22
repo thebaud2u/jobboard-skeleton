@@ -15,33 +15,33 @@
 
 							if(!(empty($subscription))) $dateEnd = $subscription->end_date->format('d/m/Y');
 
-							$color = 'text-breeder-deepblue';
-							$bg_primary = 'bg-breeder-deepblue';
-							$border = 'border-breeder-deepblue';
+							$color = 'text-jobboard-deepblue';
+							$bg_primary = 'bg-jobboard-deepblue';
+							$border = 'border-jobboard-deepblue';
 							$bg_secondary = '';
 							switch($offer->slug) {
 								case 'annonce-standard':
 									$color = 'text-white';
-									$bg_primary = 'bg-breeder-deepblue';
-									$border = 'border-breeder-deepblue';
+									$bg_primary = 'bg-jobboard-deepblue';
+									$border = 'border-jobboard-deepblue';
 									break;
 								case 'annonce-premium':
-									$color = 'text-breeder-deepblue';
-									$bg_primary = 'bg-breeder-violet';
+									$color = 'text-jobboard-deepblue';
+									$bg_primary = 'bg-jobboard-violet';
 									break;
 								case 'annonce-master':
-									$color = 'text-breeder-deepblue';
-									$bg_primary = 'bg-breeder-orange';
+									$color = 'text-jobboard-deepblue';
+									$bg_primary = 'bg-jobboard-orange';
 									break;
 								default:
-									$color = 'text-breeder-deepblue';
-									$bg_primary = 'bg-breeder-deepblue';
-									$border = 'border-breeder-deepblue';
+									$color = 'text-jobboard-deepblue';
+									$bg_primary = 'bg-jobboard-deepblue';
+									$border = 'border-jobboard-deepblue';
 									break;
 							}
 						@endphp
 
-						<div class="flex flex-col w-[348px] shadow-md rounded-xl mb-4 text-breeder-deepblue">
+						<div class="flex flex-col w-[348px] shadow-md rounded-xl mb-4 text-jobboard-deepblue">
 							<div class="flex flex-col {{ $bg_primary }} items-center w-full py-4 rounded-t-xl">
 								<h2 class="text-lg font-bold {{$color}} flex justify-center items-center gap-x-2">
 									{{ __($offer->name) }}
@@ -147,7 +147,7 @@
 									</p>
 
 									@if($offer->slug == 'annonce-standard')
-										<p class="flex gap-x-2 shrink-0 items-center text-base font-medium text-breeder-greige">
+										<p class="flex gap-x-2 shrink-0 items-center text-base font-medium text-jobboard-greige">
 											<svg class="shrink-0" width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M1.5 12.2307L11.5 2.23071M1.5 2.23071L11.5 12.2307" stroke="#DDDBD2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
 											</svg>
@@ -155,7 +155,7 @@
 											{{ __('Remontée dans la liste d\'annonce') }}
 										</p>
 
-										<p class="flex gap-x-2 shrink-0 items-center text-base font-medium text-breeder-greige">
+										<p class="flex gap-x-2 shrink-0 items-center text-base font-medium text-jobboard-greige">
 											<svg class="shrink-0" width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M1.5 12.2307L11.5 2.23071M1.5 2.23071L11.5 12.2307" stroke="#DDDBD2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
 											</svg>
@@ -163,7 +163,7 @@
 											{{ __('Visibilité renforcée') }}
 										</p>
 
-										{{--<p class="flex gap-x-2 shrink-0 items-center text-base font-medium text-breeder-greige">
+										{{--<p class="flex gap-x-2 shrink-0 items-center text-base font-medium text-jobboard-greige">
 											<svg class="shrink-0" width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M1.5 12.2307L11.5 2.23071M1.5 2.23071L11.5 12.2307" stroke="#DDDBD2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
 											</svg>
@@ -187,7 +187,7 @@
 											{{ __('Visibilité renforcée') }}
 										</p>
 
-										{{-- <p class="flex gap-x-2 shrink-0 items-center text-base font-medium text-breeder-greige">
+										{{-- <p class="flex gap-x-2 shrink-0 items-center text-base font-medium text-jobboard-greige">
 											<svg class="shrink-0" width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M1.5 12.2307L11.5 2.23071M1.5 2.23071L11.5 12.2307" stroke="#DDDBD2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
 											</svg>
@@ -221,7 +221,7 @@
 									@endif
 								</div>
 
-								<hr class="w-full border border-breeder-deepblue my-4">
+								<hr class="w-full border border-jobboard-deepblue my-4">
 								<div class="w-full flex flex-col justify-between">
 									@if($remaining > 0)
 										<div class="w-full">
@@ -254,7 +254,7 @@
 
 											<div class="w-full">
 												<div x-data="{ selectedIndex: 0 }" class="w-full flex flex-col justify-center items-center gap-2">
-													<select name="price" x-model="selectedIndex" class="w-full text-breeder-deepblue mt-1 block border border-breeder-greige rounded-xl focus:ring-abreeder-deepblue focus:border-breeder-deepblue">
+													<select name="price" x-model="selectedIndex" class="w-full text-jobboard-deepblue mt-1 block border border-jobboard-greige rounded-xl focus:ring-abreeder-deepblue focus:border-jobboard-deepblue">
 														@foreach($prices as $index => $price)
 															<option value="{{ $index }}">
 																{{ $price['label'] }}

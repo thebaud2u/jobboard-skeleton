@@ -1,4 +1,4 @@
-<div class="mx-auto max-w-[1200px] w-full flex flex-col md:flex-row items-center max-md:gap-y-4 rounded-md bg-breeder-violet justify-between px-8 lg:px-20 max-lg:py-8 my-2 md:my-10 lg:my-20">
+<div class="mx-auto max-w-[1200px] w-full flex flex-col md:flex-row items-center max-md:gap-y-4 rounded-md bg-jobboard-violet justify-between px-8 lg:px-20 max-lg:py-8 my-2 md:my-10 lg:my-20">
 	<div class="flex items-center gap-x-8">
 		<div class="relative w-[120px] md:h-[122px] max-lg:hidden">
 			<div class="absolute w-[212px] h-[161px] -right-[16px] bottom-[12px]">
@@ -6,7 +6,7 @@
 			</div>
 		</div>
 
-		<div class="flex flex-col max-md:items-center text-breeder-deepblue">
+		<div class="flex flex-col max-md:items-center text-jobboard-deepblue">
 			<h6 class="font-semibold text-[20px] sm:text-[28px] max-md:text-center">
 				{{ __('Are you a breeder ?') }}
 			</h6>
@@ -18,7 +18,7 @@
 	</div>
 
 	<div class="flex justify-center min-w-[225px]">
-		<a href="{{ route('space.posts.show-offers') }}" class="flex justify-center items-center gap-x-1 rounded-full text-breeder-cream text-sm font-semibold bg-breeder-deepblue hover:bg-breeder-deepbluehover py-4 px-6">
+		<a href="{{ route('space.posts.show-offers') }}" class="flex justify-center items-center gap-x-1 rounded-full text-jobboard-cream text-sm font-semibold bg-jobboard-deepblue hover:bg-jobboard-deepbluehover py-4 px-6">
 			{{ __('I create my post') }}
 
 			<svg width="11" height="13" viewBox="0 0 11 13" fill="none" xmlns="http://www.w3.org/2000/svg">

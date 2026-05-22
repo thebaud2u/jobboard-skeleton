@@ -1,4 +1,4 @@
-<div wire:init="loadNotifications" class="flex flex-col w-full justify-center p-6 gap-4 my-4 text-breeder-deepblue @if($isMenu) max-w-[500px] @endif">
+<div wire:init="loadNotifications" class="flex flex-col w-full justify-center p-6 gap-4 my-4 text-jobboard-deepblue @if($isMenu) max-w-[500px] @endif">
 	@if(!$loaded)
 		<x-front.secondary-button>
 			<svg aria-hidden="true" role="status" class="inline w-4 h-4 me-3 text-gray-200 animate-spin dark:text-gray-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -9,26 +9,26 @@
 			{{ __('Loading ...') }}
 		</x-front.secondary-button>
 	@else
-		<div class="font-bold text-breeder-deepblue text-[28px] mb-4 @if(!$isMenu) mx-auto @endif">
+		<div class="font-bold text-jobboard-deepblue text-[28px] mb-4 @if(!$isMenu) mx-auto @endif">
 			{{ _('Notification') }}
 		</div>
 		<div class="flex flex-row w-full justify-center items-center mb-4">
 			<div class="flex flex-row justify-center items-center rounded-full w-[350px] md:w-[458px] mx-auto" x-data="{ tab: @entangle('tab') }">
-				<div wire:click="showNotifications('all')" x-on:click="tab = 'all'" :class="tab == 'all' ? '' : 'opacity-50'" class="w-full h-full bg-breeder-deepblue rounded-l-full flex justify-center items-center font-bold text-breeder-cream text-sm px-1 py-3 cursor-pointer">
+				<div wire:click="showNotifications('all')" x-on:click="tab = 'all'" :class="tab == 'all' ? '' : 'opacity-50'" class="w-full h-full bg-jobboard-deepblue rounded-l-full flex justify-center items-center font-bold text-jobboard-cream text-sm px-1 py-3 cursor-pointer">
 					{{ __('All notifications') }}
 				</div>
 
-				<div wire:click="showNotifications('notRead')" x-on:click="tab = 'notRead'" :class="tab == 'notRead' ? '' : 'opacity-50'" class="w-full h-full bg-breeder-deepblue flex justify-center items-center font-bold text-breeder-cream text-sm px-1 py-3 cursor-pointer">
+				<div wire:click="showNotifications('notRead')" x-on:click="tab = 'notRead'" :class="tab == 'notRead' ? '' : 'opacity-50'" class="w-full h-full bg-jobboard-deepblue flex justify-center items-center font-bold text-jobboard-cream text-sm px-1 py-3 cursor-pointer">
 					{{ __('Not read') }}
 				</div>
 
-				<div wire:click="showNotifications('read')" x-on:click="tab = 'read'" :class="tab == 'read' ? '' : 'opacity-50'" class="w-full h-full bg-breeder-deepblue rounded-r-full flex justify-center items-center font-bold text-breeder-cream text-sm px-1 py-3 cursor-pointer">
+				<div wire:click="showNotifications('read')" x-on:click="tab = 'read'" :class="tab == 'read' ? '' : 'opacity-50'" class="w-full h-full bg-jobboard-deepblue rounded-r-full flex justify-center items-center font-bold text-jobboard-cream text-sm px-1 py-3 cursor-pointer">
 					{{ __('Read') }}
 				</div>
 			</div>
 		</div>
 
-		<div class="flex flex-col gap-4 text-breeder-deepblue">
+		<div class="flex flex-col gap-4 text-jobboard-deepblue">
 			@if($notifications->isNotEmpty())
 				@foreach($notifications as $notification)
 					@php
@@ -49,7 +49,7 @@
 								</span>
 
 								@if($notRead)
-									<span class="w-[10px] h-[10px] rounded-full bg-breeder-coral"></span>
+									<span class="w-[10px] h-[10px] rounded-full bg-jobboard-coral"></span>
 								@endif
 							</div>
 						</div>
@@ -63,7 +63,7 @@
 		</div>
 
 		@if($showLink)
-			<div class="flex flex-row justify-center items-center w-[350px] mx-auto text-breeder-deepblue font-bold p-4">
+			<div class="flex flex-row justify-center items-center w-[350px] mx-auto text-jobboard-deepblue font-bold p-4">
 				<a href="{{ route('space.profile.my-notifications') }}">
 					{{ __('Show all the notifications') }}
 				</a>

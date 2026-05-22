@@ -1,7 +1,7 @@
-<div class="flex flex-col max-sm:gap-4 sm:justify-between border-b border-breeder-greige p-4">
+<div class="flex flex-col max-sm:gap-4 sm:justify-between border-b border-jobboard-greige p-4">
 	<div class="flex flex-row justify-between pt-4 px-3">
-		<div class="flex flex-row gap-3 text-breeder-deepblue items-center">
-			<div class="flex flex-col w-[46px] h-[46px] bg-white rounded-full border border-breeder-cream justify-center items-center">
+		<div class="flex flex-row gap-3 text-jobboard-deepblue items-center">
+			<div class="flex flex-col w-[46px] h-[46px] bg-white rounded-full border border-jobboard-cream justify-center items-center">
 				@if($response->type->value == 'self')
 					<img src="{{ asset('storage/eleveurs_online.jpg') }}" alt="Eleveurs-Online" class="object-cover w-[46px] h-[46px] rounded-full" />
 				@else
@@ -33,7 +33,7 @@
 				@if($response->type->value == 'application')
 					<div class="flex flex-col">
 						<div class="flex flex-row text-xs font-medium gap-x-2 items-center">
-							<span class="flex flex-row items-center gap-x-2 text-xs font-medium text-breeder-deepblue">
+							<span class="flex flex-row items-center gap-x-2 text-xs font-medium text-jobboard-deepblue">
 								@if(__($response->state->inHuman()) == 'Non disponible')
 									{{ __($response->state->inHuman()) }}
 								@else
@@ -47,7 +47,7 @@
 		</div>
 
 		@if($response->type->value != 'self')
-			<div class="flex flex-col text-breeder-deepblue">
+			<div class="flex flex-col text-jobboard-deepblue">
 				<div class="flex flex-row">
 					@if($goToRoute)
 						<a href="{{ $goToRoute }}" target="_blank">

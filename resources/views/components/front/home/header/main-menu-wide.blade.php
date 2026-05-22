@@ -12,7 +12,7 @@
 				elseif($isPro) $route = route('home.pro');
 			@endphp
 
-			<x-front.logo :link="true" :href="$route" :fill="Route::is('home.breeder') || request()->is('eleveurs/*') || $isBreeder  ? 'text-breeder-violet' : (Route::is('home.pro') || $isPro ? 'text-breeder-orange' : 'text-breeder-deepblue')" />
+			<x-front.logo :link="true" :href="$route" :fill="Route::is('home.breeder') || request()->is('eleveurs/*') || $isBreeder  ? 'text-jobboard-violet' : (Route::is('home.pro') || $isPro ? 'text-jobboard-orange' : 'text-jobboard-deepblue')" />
 		</div>
 		
 		@if(request()->is('eleveurs*') || request()->is('professionnels*'))
@@ -21,7 +21,7 @@
 				<x-front.header.nav-link :href="route('pages.quisommesnous')" 
 					@mouseover="showBreedOrProArticleItems = false; showBreedOrProCatItems = false; showBreedOrProDogItems = false;" 
 					:active="request()->routeIs('pages.quisommesnous')" 
-					:activeColor="'text-breeder-orange'" :textColor="'text-breeder-cream'" :class="'group'">
+					:activeColor="'text-jobboard-orange'" :textColor="'text-jobboard-cream'" :class="'group'">
 					
 					{{ __('About') }}
 
@@ -38,7 +38,7 @@
 		@endif
 
 		@if((request()->is('eleveurs*') || request()->is('professionnels*')) || (Auth::guard('web')->check() && Auth::guard('web')->user()->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder', 'professionnal'])))
-			<x-front.header.nav-link :href="route('post-search.dog-posts')" @mouseover="showBreedOrProArticleItems = false; showBreedOrProCatItems = false; showBreedOrProDogItems = true;" :active="request()->routeIs('post-search.dog-posts*')" :textColor="'text-breeder-cream'" :activeColor="'#FF7E71'">
+			<x-front.header.nav-link :href="route('post-search.dog-posts')" @mouseover="showBreedOrProArticleItems = false; showBreedOrProCatItems = false; showBreedOrProDogItems = true;" :active="request()->routeIs('post-search.dog-posts*')" :textColor="'text-jobboard-cream'" :activeColor="'#FF7E71'">
 				{{ __('Dogs') }}
 
 				<div class="relative w-full">
@@ -50,7 +50,7 @@
 				</div>
 			</x-front.header.nav-link>
 
-			<x-front.header.nav-link :href="route('post-search.cat-posts')" @mouseover="showBreedOrProArticleItems = false; showBreedOrProDogItems = false; showBreedOrProCatItems = true;" :active="request()->routeIs('post-search.cat-posts*')" :textColor="'text-breeder-cream'" :activeColor="'#3DD8AC'">
+			<x-front.header.nav-link :href="route('post-search.cat-posts')" @mouseover="showBreedOrProArticleItems = false; showBreedOrProDogItems = false; showBreedOrProCatItems = true;" :active="request()->routeIs('post-search.cat-posts*')" :textColor="'text-jobboard-cream'" :activeColor="'#3DD8AC'">
 				{{ __('Cats') }}
 
 				<div class="relative w-full">
@@ -62,7 +62,7 @@
 				</div>
 			</x-front.header.nav-link>
 
-			<x-front.header.nav-link :href="route('professionnal-activity-search.professionnal-activities')" @mouseover="showBreedOrProArticleItems = false; showBreedOrProDogItems = false; showBreedOrProCatItems = false;" :active="request()->routeIs('professionnal-activity-search.professionnal-activities*')" :activeColor="'#FFA244'" :textColor="'text-breeder-cream'" :class="'group'">
+			<x-front.header.nav-link :href="route('professionnal-activity-search.professionnal-activities')" @mouseover="showBreedOrProArticleItems = false; showBreedOrProDogItems = false; showBreedOrProCatItems = false;" :active="request()->routeIs('professionnal-activity-search.professionnal-activities*')" :activeColor="'#FFA244'" :textColor="'text-jobboard-cream'" :class="'group'">
 				{{ __('Products & Services') }}
 
 				<div class="relative w-full">
@@ -74,7 +74,7 @@
 				</div>
 			</x-front.header.nav-link>
 
-			<x-front.header.nav-link :href="route('article.index')" @mouseover="showBreedOrProArticleItems = true;" :active="request()->routeIs('article.index')" :textColor="'text-breeder-cream'" :activeColor="'#FFA244'">
+			<x-front.header.nav-link :href="route('article.index')" @mouseover="showBreedOrProArticleItems = true;" :active="request()->routeIs('article.index')" :textColor="'text-jobboard-cream'" :activeColor="'#FFA244'">
 				{{ __('Articles & advices') }}
 
 				<div class="relative w-full">
@@ -86,7 +86,7 @@
 				</div>
 			</x-front.header.nav-link>
 
-			<x-front.header.nav-link :href="Auth::guard('web')->check() && Auth::guard('web')->user()->hasRole('professionnal') ? route('home.pro') : route('home.offer')" @mouseover="showBreedOrProArticleItems = false;" :active="Auth::guard('web')->check() && Auth::guard('web')->user()->hasRole('professionnal') ? request()->routeIs('home.pro') : request()->routeIs('home.offer')" :activeColor="'#FFA244'" :textColor="'text-breeder-cream'" :class="'group'">
+			<x-front.header.nav-link :href="Auth::guard('web')->check() && Auth::guard('web')->user()->hasRole('professionnal') ? route('home.pro') : route('home.offer')" @mouseover="showBreedOrProArticleItems = false;" :active="Auth::guard('web')->check() && Auth::guard('web')->user()->hasRole('professionnal') ? request()->routeIs('home.pro') : request()->routeIs('home.offer')" :activeColor="'#FFA244'" :textColor="'text-jobboard-cream'" :class="'group'">
 				{{ __('Our offers') }}
 
 				<div class="relative w-full">
@@ -171,13 +171,13 @@
 					}
 				@endphp
 
-				<x-front.header.picto-link @mouseover="showNotifications = true" :active="request()->routeIs('space.profile.my-notifications')" :activeColor="$isPro || (request()->is('professionnels*')) ? 'text-breeder-orange' : ($isBreeder || request()->is('eleveurs*') ? 'text-breeder-violet' : 'text-breeder-deepblue')" :textColor="$isBreederOrPro || $isBreederOrProRoute ? 'text-breeder-cream' : 'text-breeder-deepblue'" :class="'relative'">
+				<x-front.header.picto-link @mouseover="showNotifications = true" :active="request()->routeIs('space.profile.my-notifications')" :activeColor="$isPro || (request()->is('professionnels*')) ? 'text-jobboard-orange' : ($isBreeder || request()->is('eleveurs*') ? 'text-jobboard-violet' : 'text-jobboard-deepblue')" :textColor="$isBreederOrPro || $isBreederOrProRoute ? 'text-jobboard-cream' : 'text-jobboard-deepblue'" :class="'relative'">
 					<svg width="23" height="27" viewBox="0 0 23 27" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M8.49936 22.988C8.49936 24.6491 9.85022 26 11.5114 26C13.1726 26 14.5235 24.6491 14.5235 22.988M21.7247 21.345L20.3647 19.3644C19.5341 18.1596 19.0869 16.7265 19.0869 15.257V12.1355C19.0869 8.64878 16.732 5.70975 13.5283 4.82439V3.02629C13.5283 1.90361 12.6247 1 11.502 1C10.3793 1 9.47573 1.90361 9.47573 3.02629V4.82439C6.272 5.70975 3.91713 8.64878 3.91713 12.1355V15.257C3.91713 16.7265 3.46988 18.1596 2.63929 19.3644L1.2793 21.345C0.850312 21.9657 1.29756 22.8145 2.05513 22.8145H20.9489C21.7065 22.8145 22.1446 21.9657 21.7247 21.345Z" stroke="{{ $svgColor }}" stroke-width="1.5" stroke-miterlimit="10"/>
 					</svg>
 
 					@if($notReadNotifications->isNotEmpty())
-						<span class="absolute bottom-[33px] right-[36px] w-[10px] h-[10px] rounded-full bg-breeder-coral"></span>
+						<span class="absolute bottom-[33px] right-[36px] w-[10px] h-[10px] rounded-full bg-jobboard-coral"></span>
 					@endif
 
 					{{ __('Notifications') }}
@@ -191,7 +191,7 @@
 					</div>
 				</x-front.header.picto-link>
 
-				<x-front.header.picto-link @mouseover="showNotifications = false" :href="route('space.responses.my-messages')" :active="request()->routeIs('space.responses.my-messages')" :activeColor="$isPro || (request()->is('professionnels*')) ? 'text-breeder-orange' : ($isBreeder || request()->is('eleveurs*') ? 'text-breeder-violet' : 'text-breeder-deepblue')" :textColor="$isBreederOrPro || $isBreederOrProRoute ? 'text-breeder-cream' : 'text-breeder-deepblue'" :class="'relative'">
+				<x-front.header.picto-link @mouseover="showNotifications = false" :href="route('space.responses.my-messages')" :active="request()->routeIs('space.responses.my-messages')" :activeColor="$isPro || (request()->is('professionnels*')) ? 'text-jobboard-orange' : ($isBreeder || request()->is('eleveurs*') ? 'text-jobboard-violet' : 'text-jobboard-deepblue')" :textColor="$isBreederOrPro || $isBreederOrProRoute ? 'text-jobboard-cream' : 'text-jobboard-deepblue'" :class="'relative'">
 					<svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M23.8587 19.837C25.0543 17.9239 25.75 15.6739 25.75 13.25C25.75 6.34783 20.1521 0.75 13.25 0.75C6.34779 0.75 0.75 6.34783 0.75 13.25C0.75 20.1522 6.34779 25.75 13.25 25.75C15.6739 25.75 17.9239 25.0543 19.8369 23.8587L25.75 25.75L23.8587 19.837Z" stroke="{{ $svgColor }}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 						<path d="M8.35938 10.5327H18.142" stroke="{{ $svgColor }}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -199,14 +199,14 @@
 					</svg>
 
 					@if(Auth::guard('web')->user()->countUnreadMessages() > 0)
-						<span class="absolute bottom-[33px] right-[29px] w-[10px] h-[10px] rounded-full bg-breeder-coral"></span>
+						<span class="absolute bottom-[33px] right-[29px] w-[10px] h-[10px] rounded-full bg-jobboard-coral"></span>
 					@endif
 
 					{{ __('Messaging') }}
 				</x-front.header.picto-link>
 
 				@if(Auth::guard('web')->user()->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder', 'professionnal', 'adopter', 'admin']))
-					<a href="{{route('space.profile.dashboard')}}" @mouseover="showNotifications = false" class="flex gap-x-2 items-center justify-center w-[190px] h-[50px] rounded-full font-bold text-sm hover:underline hover:underline-offset-4 @if($isBreeder) bg-breeder-violet hover:bg-breeder-violethover @elseif($isPro) bg-breeder-orange hover:bg-breeder-darkorange @else bg-breeder-deepblue hover:bg-breeder-deepbluehover text-breeder-cream @endif">
+					<a href="{{route('space.profile.dashboard')}}" @mouseover="showNotifications = false" class="flex gap-x-2 items-center justify-center w-[190px] h-[50px] rounded-full font-bold text-sm hover:underline hover:underline-offset-4 @if($isBreeder) bg-jobboard-violet hover:bg-jobboard-violethover @elseif($isPro) bg-jobboard-orange hover:bg-jobboard-darkorange @else bg-jobboard-deepblue hover:bg-jobboard-deepbluehover text-jobboard-cream @endif">
 						@if($user && $user->hasMedia('avatar'))
 							<div class="w-[31px] h-[31px] rounded-full overflow-hidden">
 								<img src="{{ $user->getFirstMedia('avatar')->getUrl() }}" alt="" class="object-cover w-[31px]" />
@@ -252,8 +252,8 @@
 				</div>
 			@endif
 			
-			<x-front.header.picto-link :href="route('newsletter.index')" :textColor="((request()->is('professionnels*') || request()->is('eleveurs*'))) ? 'text-breeder-cream' : 'text-breeder-deepblue'">
-				<svg class="w-[28px] h-[27px] @if(request()->is('professionnels*')) text-breeder-orange @elseif(request()->is('eleveurs*')) text-breeder-violet @else text-breeder-deepblue @endif" viewBox="0 0 28 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<x-front.header.picto-link :href="route('newsletter.index')" :textColor="((request()->is('professionnels*') || request()->is('eleveurs*'))) ? 'text-jobboard-cream' : 'text-jobboard-deepblue'">
+				<svg class="w-[28px] h-[27px] @if(request()->is('professionnels*')) text-jobboard-orange @elseif(request()->is('eleveurs*')) text-jobboard-violet @else text-jobboard-deepblue @endif" viewBox="0 0 28 27" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path
 						d="M16.1115 13.3943C7.91089 16.6041 6.51764 4.80311 13.6001 3.75452C14.3363 3.64552 15.0939 3.67769 15.7977 3.92032C18.1734 4.73928 19.3093 7.38448 18.0825 9.92734C17.9238 10.2563 17.7156 10.5608 17.4438 10.8045C16.2814 11.8476 15.1687 11.1278 15.4578 9.58309L15.9756 6.50644C14.2045 5.65829 11.9585 6.86933 12.052 10.0569C12.0617 10.3869 12.1788 10.7132 12.4105 10.948C13.2397 11.7884 14.7962 11.1387 15.508 9.2842M22.9268 6.94514L26.9663 10.1306M26.9663 10.1306V26H1.03381V10.1306M26.9663 10.1306L16.9643 18.2684M1.03381 10.1306L5.0733 6.94514M1.03381 10.1306L11.0356 18.2684M26.8678 25.7674L14 16.3293L1.17074 25.7347M22.9268 13.4321V0.999989H5.07331V13.3592"
 						stroke="currentColor" stroke-width="1.7" stroke-miterlimit="10" stroke-linecap="round" />
@@ -262,7 +262,7 @@
 				{{ __('Newsletter') }}
 			</x-front.header.picto-link>
 
-			<x-front.header.picto-link :href="route('login')" :textColor="((request()->is('professionnels*') || request()->is('eleveurs*'))) ? 'text-breeder-cream' : 'text-breeder-deepblue'">
+			<x-front.header.picto-link :href="route('login')" :textColor="((request()->is('professionnels*') || request()->is('eleveurs*'))) ? 'text-jobboard-cream' : 'text-jobboard-deepblue'">
 				{{-- SVG for login icon --}}
 				@if(request()->is('professionnels*') || request()->is('eleveurs*'))
 					<svg width="24" height="27" viewBox="0 0 24 27" fill="none" xmlns="http://www.w3.org/2000/svg">

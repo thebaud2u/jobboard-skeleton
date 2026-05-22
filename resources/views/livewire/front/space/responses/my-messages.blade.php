@@ -71,7 +71,7 @@
 					$unreadMessages = Auth::guard('web')->user()->countResponseUnreadMessages($response);
 				@endphp
 
-				<div wire:click="show({{ $response->id }})" title="{{ $title }}" class="block relative group cursor-pointer border-l-2 border-transparent @if($response->id == $activeResponse->id) bg-breeder-cream @endif hover:border-breeder-greige hover:bg-breeder-greige @if($response->isUnavailable() || ($response->isClosed() && ($response->type->value == 'application' || $response->type->value == 'messaging'))) opacity-50 @endif transition duration-200 ease-in-out rounded-xl p-3">
+				<div wire:click="show({{ $response->id }})" title="{{ $title }}" class="block relative group cursor-pointer border-l-2 border-transparent @if($response->id == $activeResponse->id) bg-jobboard-cream @endif hover:border-jobboard-greige hover:bg-jobboard-greige @if($response->isUnavailable() || ($response->isClosed() && ($response->type->value == 'application' || $response->type->value == 'messaging'))) opacity-50 @endif transition duration-200 ease-in-out rounded-xl p-3">
 					<div class="flex flex-row">
 						<div class="w-[65px] h-[65px] bg-white rounded-xl flex justify-center items-center relative shrink-0">
 							@if($response->type->value == 'figo')
@@ -95,13 +95,13 @@
 							@endif
 						</div>
 
-						<div class="flex-1 max-w-[calc(100%-3.5rem)] pl-3 text-breeder-deepblue flex flex-col justify-between">
+						<div class="flex-1 max-w-[calc(100%-3.5rem)] pl-3 text-jobboard-deepblue flex flex-col justify-between">
 							<div class="flex flex-row justify-between items-center gap-x-4">
-								<div class="max-w-fit text-sm xl:text-base text-breeder-deepblue font-semibold truncate">
+								<div class="max-w-fit text-sm xl:text-base text-jobboard-deepblue font-semibold truncate">
 									{{ $title }}
 								</div>
 
-								<span class="text-xs font-medium text-breeder-deepblue">
+								<span class="text-xs font-medium text-jobboard-deepblue">
 									{{ $response->updated_at->format('d/m') }}
 								</span>
 							</div>
@@ -133,7 +133,7 @@
 								@if($response->type->value == 'application')
 									<span class="flex flex-row items-center gap-x-2 text-xs">
 										@if($response->isReceived())
-											{{-- <div class="w-3 h-3 bg-breeder-blue rounded-full"></div> {{  __('Inquire ongoing') }} --}}
+											{{-- <div class="w-3 h-3 bg-jobboard-blue rounded-full"></div> {{  __('Inquire ongoing') }} --}}
 										@elseif(__($response->state->inHuman()) == 'Non disponible')
 											{{ __($response->state->inHuman()) }}
 										@else

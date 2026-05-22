@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-	@include('components.front.didomi')
-
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
@@ -78,7 +76,7 @@
 	<link rel="shortcut icon" href="{{ asset('/favicon.ico') }}" type="image/vnd.microsoft.icon" />
 </head>
 
-	<body class="font-inter text-breeder-deepblue antialiased min-w-[280px]" x-data="adSlotsCheck()" x-init="init()" class="ad-slots-container">
+	<body class="font-inter text-jobboard-deepblue antialiased min-w-[280px]" x-data="adSlotsCheck()" x-init="init()" class="ad-slots-container">
 		@php
 			$errors = $errors ?? session('errors') ?? new \Illuminate\Support\ViewErrorBag();
 		@endphp
@@ -105,7 +103,7 @@
 		<main class="mb-auto flex flex-col">
 			<div class="flex flex-col w-full">
 				{{-- Gestion des erreurs à tester pour chaque situation --}}
-				<div class="w-full flex justify-center bg-breeder-cream">
+				<div class="w-full flex justify-center bg-jobboard-cream">
 					<div class="max-w-[1100px] mx-auto lg:px-6">
 						{{-- Admin is logged as other account --}}
 						@if(Auth::guard('web')->check() && Auth::guard('admin')->check() && Auth::guard('web')->user()->email != Auth::guard('admin')->user()->email)

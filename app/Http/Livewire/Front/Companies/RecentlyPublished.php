@@ -31,16 +31,6 @@ class RecentlyPublished extends Component
 						$whereHasOffer->where('slug', 'page-elevage-master');
 					});
 				});
-			})
-			->when($this->forSpecies, function($when) {
-				$when->whereHas('species', function($whereHas) {
-					$whereHas->where('slug->en', $this->forSpecies);
-				});
-			})
-			->when($this->forBreeds, function($when) {
-				$when->whereHas('breeds', function($whereHas) {
-					$whereHas->whereIn('slug', $this->forBreeds);
-				});
 			});
 	}
 

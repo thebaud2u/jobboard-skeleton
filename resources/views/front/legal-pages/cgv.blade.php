@@ -9,7 +9,7 @@
 
 	<div class="w-full sm:max-w-4xl mx-auto mb-6 sm:px-6 sm:py-4 sm:rounded-md sm:border sm:border-gray-200">
 		<div class="flex flex-row flex-wrap my-6 mx-10">
-			<h1 class="mb-4 leading-10 text-2xl text-left font-bold text-breeder-deepblue">
+			<h1 class="mb-4 leading-10 text-2xl text-left font-bold text-jobboard-deepblue">
 				CONDITIONS GENERALES D’UTILISATION ET DE VENTE DU SITE {{ env('APP_NAME') }}
 			</h1>
 		</div>
@@ -19,10 +19,10 @@
 				1HEALTHMEDIA - HEALTH INITIATIVE est une société par actions simplifiée au capital de 2000 euros, immatriculée au Registre du Commerce et des Sociétés (RCS) de Nanterre sous le numéro 838 045 987, dont le siège social est situé 19-21, 19 RUE DUMONT D'URVILLE, 75016 PARIS (ci-après « HI »).
 			</p>
 			<p class="mb-4 text-justify">
-				Les présentes conditions d’utilisation du site internet <a href="{{ env('APP_URL') }}" target="_blank" class="underline underline-offset-4 text-breeder-deepblue hover:opacity-80">https://www.Eleveurs-Online.com</a> (ci-après, le « <strong>Site</strong> ») régissent la relation entre HI et les utilisateurs Professionnels et Eleveurs du Site, tels que définis ci-dessous. 
+				Les présentes conditions d’utilisation du site internet <a href="{{ env('APP_URL') }}" target="_blank" class="underline underline-offset-4 text-jobboard-deepblue hover:opacity-80">https://www.Eleveurs-Online.com</a> (ci-après, le « <strong>Site</strong> ») régissent la relation entre HI et les utilisateurs Professionnels et Eleveurs du Site, tels que définis ci-dessous. 
 			</p>
 
-			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-breeder-deepblue">Article 1 - Définition</h2>
+			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-jobboard-deepblue">Article 1 - Définition</h2>
 			<p class="mb-4">
 				Les termes qui suivent, reproduits dans les Conditions Générales d’Utilisation avec une majuscule, auront le sens qui leur est donné ci-après, qu’ils soient employés au singulier ou au pluriel :
 			</p>
@@ -45,19 +45,19 @@
 				<li>«<strong>Site</strong>» désigne le site Internet depuis lequel les présentes conditions d’utilisation et de vente sont accessibles.</li>
 			</ul>
 
-			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-breeder-deepblue">Article 2 - Objet</h2>
+			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-jobboard-deepblue">Article 2 - Objet</h2>
 			<p class="mb-4">Le Site a été développé aux fins de proposer divers services relatifs aux chiens/chiots et chats/chaton, dont le référencement d’Annonces et la mise en relation des Utilisateurs avec des Eleveurs et des Professionnels.</p>
 			<p class="mb-4">Les CGU/CGV ont pour objet d’encadrer les relations entre HI et les Eleveurs et Professionnels au titre des Fonctionnalités proposés sur le Site et de la mise à la disposition des Services aux Utilisateurs.</p>
 			<p class="mb-4">Les CGU/CGV s’appliquent dans leur intégralité et constituent les conditions essentielles et déterminantes de toute utilisation du Site par un Eleveur et/ou un Professionnel.</p>
 			<p class="mb-4">Les présentes CGU/CGV ne s’appliquent pas aux Utilisateurs, pour lesquels des conditions générales d’utilisation propres sont prévues et accessibles sur le Site.</p>
 			<p class="mb-4">Les CGU/CGV, ainsi que l'ensemble des informations mentionnées sur le Site, sont rédigées en langue française.</p>
 
-			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-breeder-deepblue">Article 3 - Acceptation des CGU/CGV</h2>
+			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-jobboard-deepblue">Article 3 - Acceptation des CGU/CGV</h2>
 			<p class="mb-4">
 				L’utilisation du Site par les Eleveurs et Professionnels emporte adhésion et acceptation pleine et entière des présentes CGU/CGV, ce qui est expressément reconnu par les Eleveurs et Professionnels, qui renoncent à se prévaloir de tout autre document à l’encontre de HI.
 			</p>
 			<p class="mb-4">
-				Les CGU/CGV sont disponibles à tout moment sur le Site et <a href="{{ asset('storage/cgv-eol.pdf') }}" download class="underline underline-offset-4 text-breeder-deepblue hover:opacity-80">
+				Les CGU/CGV sont disponibles à tout moment sur le Site et <a href="{{ asset('storage/cgv-eol.pdf') }}" download class="underline underline-offset-4 text-jobboard-deepblue hover:opacity-80">
 					sont téléchargeables sous format PDF au moyen d’un lien hypertexte.
 				</a>
 			</p>
@@ -65,13 +65,13 @@
 				Les CGU/CGV sont opposables aux Eleveurs et Professionnels dès lors qu’ils cochent la case « <em>J’accepte les conditions générales d’utilisation et de vente du site</em> » lors de la création d’un Compte (à défaut, ces derniers ne pourront proposer leurs Services aux Utilisateurs).
 			</p>
 
-			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-breeder-deepblue">Article 4 - Modification des CGU/CGV</h2>
+			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-jobboard-deepblue">Article 4 - Modification des CGU/CGV</h2>
 			<p class="mb-4">HI se réserve le droit de modifier et de mettre à jour les CGU/CGV à tout moment et sans préavis. Les modifications entreront en vigueur dès leur publication sur le Site et s’appliqueront à toute commande et achat effectué par un Eleveur et/ou Professionnel.</p>
 			<p class="mb-4">Au titre des Abonnements, les CGU/CGV modifiées s’appliqueront aux Abonnements ou évolutions d’Abonnement souscrits postérieurement à la date de modification.</p>
 			<p class="mb-4">Les Eleveurs ayant déjà souscrit un Abonnement, qui se renouvèlerait par tacite reconduction, seront alertés par Eleveurs-Online de toute évolution tarifaire avec un préavis d’au moins deux mois. La modification tarifaire s’appliquera à compter de la prochaine prorogation de l’Abonnement, sauf dénonciation par l’Eleveur avant le renouvèlement de l’Abonnement</p>
 
-			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-breeder-deepblue">Article 5 - Création d’un Compte</h2>
-			<h3 class="mb-4 leading-10 text-lg text-left font-bold text-breeder-deepblue">5.1 Création </h3>
+			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-jobboard-deepblue">Article 5 - Création d’un Compte</h2>
+			<h3 class="mb-4 leading-10 text-lg text-left font-bold text-jobboard-deepblue">5.1 Création </h3>
 			<p class="mb-4">
 				Pour être référencé sur le Site et pouvoir proposer leurs Services aux Utilisateurs, l’Eleveur et/ou le Professionnel doit se créer un Compte.
 			</p>
@@ -97,7 +97,7 @@
 			<p class="mb-4">HI ne sera en aucun cas responsable d’une utilisation frauduleuse de ces éléments ou du Site, en cas de sécurisation insuffisante des éléments de connexion.</p>
 			<p class="mb-4">L’Eleveur et/ou le Professionnel s'engage à conserver la confidentialité de ses codes d’accès et login. En cas d’usage frauduleux de ces éléments, l’Eleveur et/ou le Professionnel devra informer par écrit dès la découverte de cet usage Eleveurs-Online qui pourra alors clôturer le compte de l’Eleveur et/ou le Professionnel pour permettre la création d’un nouveau Compte.</p>
 
-			<h3 class="mb-4 leading-10 text-lg text-left font-bold text-breeder-deepblue">5.2 Fonctionnalités </h3>
+			<h3 class="mb-4 leading-10 text-lg text-left font-bold text-jobboard-deepblue">5.2 Fonctionnalités </h3>
 			<p class="mb-4">
 				L’Eleveur et/ou le Professionnel ayant créé un Compte bénéficiera des fonctionnalités suivantes :  
 			</p>
@@ -114,7 +114,7 @@
 				Les Fonctionnalités proposés sur le Site peuvent être amenées à évoluer sans que Eleveurs-Online ne puisse retirer un service ou une fonction proposée à la date de souscription de l'Abonnement ou à la date de renouvellement de l'Abonnement, sauf ce retrait est lié à une évolution de la réglementation en vigueur ou en cas d’impossibilité matérielle de continuer à proposer le service ou la fonctionnalité sur le Site.  
 			</p>
 
-			<h3 class="mb-4 leading-10 text-lg text-left font-bold text-breeder-deepblue">5.3 Accès </h3>
+			<h3 class="mb-4 leading-10 text-lg text-left font-bold text-jobboard-deepblue">5.3 Accès </h3>
 			<p class="mb-4">L’Eleveur et/ou le Professionnel pourra accéder à son Compte depuis la page d’accueil du Site, et indiquer son adresse email et le mot de passe choisi au moment de la création du Compte.</p>
 			<p class="mb-4">Le Compte est strictement personnel.</p>
 			<p class="mb-4">L’Eleveur et/ou le Professionnel accepte d'utiliser son Compte conformément aux CGU/CGV et au droit applicable.</p>
@@ -122,8 +122,8 @@
 			<p class="mb-4">En cas de suppression de son Compte, les services de référencement offerts sur le Site ne pourront plus être disponibles à l’Eleveur et/ou le Professionnel.</p>
 			<p class="mb-4">En cas de manquement aux CGU/CGV ou au droit applicable, ou si le Compte présente un risque pour la sécurité ou l'intégrité du Site ou des utilisateurs, HI se réserve le droit de limiter l’accès de l’Eleveur et/ou le Professionnel aux Fonctionnalités et Services du Site en suspendant immédiatement, de manière temporaire ou définitive, sans préavis, ni indemnité, le Compte de l’Eleveur et/ou le Professionnel et/ou en résiliant le Compte et les Abonnements souscrits.</p>
 
-			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-breeder-deepblue">Article 6 - Page Elevage</h2>
-			<h3 class="mb-4 leading-10 text-lg text-left font-bold text-breeder-deepblue">6.1 Création d’une Page Elevage</h3>
+			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-jobboard-deepblue">Article 6 - Page Elevage</h2>
+			<h3 class="mb-4 leading-10 text-lg text-left font-bold text-jobboard-deepblue">6.1 Création d’une Page Elevage</h3>
 			<p class="mb-4">
 				Pour pouvoir créer des Annonces de cession, l’Eleveur doit, en complément de la création d’un Compte, se créer une Page Elevage.
 			</p>
@@ -131,7 +131,7 @@
 				Pour créer une Page Elevage, l’Eleveur est invité à renseigner les informations sur la présentation de son entreprise, sur ses animaux et sur sa parole d’éleveur.
 			</p>
 
-			<h3 class="mb-4 leading-10 text-lg text-left font-bold text-breeder-deepblue">6.2 Création d’une Page Elevage</h3>
+			<h3 class="mb-4 leading-10 text-lg text-left font-bold text-jobboard-deepblue">6.2 Création d’une Page Elevage</h3>
 			<p class="mb-4">
 				<span class="underline">6.2.1</span> L’Eleveur ayant créé une Page Elevage peut :
 			</p>
@@ -154,7 +154,7 @@
 			</p>
 			<p class="mb-4">L’Eleveur peut créer une Annonce de cession en complétant les informations sur le type d’annonce, le descriptif de l’annonce, l’animal concerné, et sur le partage de l’Annonce sur les réseaux sociaux, et sous réserve de l’achat de Crédits ou de la souscription d’un Abonnement.</p>
 			<p class="mb-4">Toutes les Annonces de cession publiées sur le Site doivent se conformer à la réglementation française en vigueur visant l'activité d'entreprise de chiens et de chats et la cession des chiens et chats, notamment les articles L214-6 à L214-8-2 et D214-32 du code rural et de la pêche maritime, et aux présentes conditions particulières de vente.</p>
-			<p class="mb-4">Il est possible de télécharger les articles concernant <a href="{{ asset('storage/encadrement_annonces_cession_eol.pdf') }}" download class="underline underline-offset-4 text-breeder-deepblue hover:opacity-80">l’encadrement des annonces de cession ici</a>.</p>
+			<p class="mb-4">Il est possible de télécharger les articles concernant <a href="{{ asset('storage/encadrement_annonces_cession_eol.pdf') }}" download class="underline underline-offset-4 text-jobboard-deepblue hover:opacity-80">l’encadrement des annonces de cession ici</a>.</p>
 			<p class="mb-4">Toute diffusion d'une Annonce de cession par un Eleveur professionnel sur le Site est soumise aux conditions suivantes :</p>
 			<ul class="pl-4 mb-4 list-disc list-inside">
 				<li>Pour la France : l'Annonceur doit être une personne physique exerçant l'activité d'entreprise de chiens ou de chats au sens du III de l'article L. 214-6 et respectant les conditions des articles L214.6.1 et L214.6.2 du code rural.</li>
@@ -177,7 +177,7 @@
 			<p class="mb-4">Les données de ce chatbot sont fournies à titre informatif et ne sont pas exhaustives. HI recommande de consulter les professionnels compétents au titre de la discipline concernée.</p>
 			<p class="mb-4">En conséquence, l'Eleveur est pleinement responsable de l'interprétation et de l'utilisation des informations fournies par cet outil. HI ne pourrait être reconnue responsable des conséquences résultant de l'utilisation de ces données, qu'il s'agisse de dommages directs ou indirects, ni des erreurs d'interprétation qui pourraient en découler.</p>
 			
-			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-breeder-deepblue">Article 7 - Services proposés aux Professionnels</h2>
+			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-jobboard-deepblue">Article 7 - Services proposés aux Professionnels</h2>
 			<p class="mb-4">Le Site propose un Annuaire professionnel qui est un service de référencement des activités des Professionnels.</p>
 			<p class="mb-4">Le Site permet aux Professionnels de pouvoir créer une fiche reprenant les informations suivantes afin de promouvoir son/ses activité(s) auprès des Utilisateurs :</p>
 			<ul class="pl-4 mb-4 list-disc list-inside">    
@@ -189,11 +189,11 @@
 			</ul>
 			<p class="mb-4">Le Professionnel garantit que l’ensemble des informations qu’il fournit sont exactes et complètes.</p>
 
-			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-breeder-deepblue">Article 8 - Conditions financières</h2>
+			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-jobboard-deepblue">Article 8 - Conditions financières</h2>
 			<p class="mb-4">
 				Afin de pouvoir bénéficier des services proposés sur le Site, les Eleveurs et Professionnels sont tenus de régler une contrepartie financière à Eleveurs-Online.
 			</p>
-			<h3 class="mb-4 leading-10 text-lg text-left font-bold text-breeder-deepblue">8.1 Offres</h3>
+			<h3 class="mb-4 leading-10 text-lg text-left font-bold text-jobboard-deepblue">8.1 Offres</h3>
 			<p class="mb-4">Les services souscrits pas les Eleveurs et Professionnels sont facturés au tarif en vigueur au jour de leur commande.</p>
 			<p class="mb-4">Les prix s’entendent toutes taxes comprises.</p>
 			<p class="mb-4">Eleveur-Online se réserve le droit de faire évoluer ou modifier les tarifs de ces offres.</p>
@@ -203,18 +203,18 @@
 			<ul class="pl-4 mb-4 list-disc list-inside">
 				<li>Souscription d’un Abonnement annuel sous forme de « packs » au titre des services d’Annonces de cession et de Page Elevage :</li>
 			</ul>
-			<table class="border-collapse border border-breeder-deepblue mb-4">
+			<table class="border-collapse border border-jobboard-deepblue mb-4">
 				<thead class="bg-gray-100">
 					<tr>
-						<th class="border border-breeder-deepblue p-4 font-medium text-center">Type de Pack</th>
-						<th class="border border-breeder-deepblue p-4 font-medium text-center">Pack Premium</th>
-						<th class="border border-breeder-deepblue p-4 font-medium text-center">Pack Master</th>
+						<th class="border border-jobboard-deepblue p-4 font-medium text-center">Type de Pack</th>
+						<th class="border border-jobboard-deepblue p-4 font-medium text-center">Pack Premium</th>
+						<th class="border border-jobboard-deepblue p-4 font-medium text-center">Pack Master</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td class="border border-breeder-deepblue p-4">Contenu de la Page Elevage</td>
-						<td class="border border-breeder-deepblue p-4 align-top">
+						<td class="border border-jobboard-deepblue p-4">Contenu de la Page Elevage</td>
+						<td class="border border-jobboard-deepblue p-4 align-top">
 							<ul class="mb-4 list-disc list-inside">
 								<li>Jusqu’à 3 races</li>
 								<li>Description</li>
@@ -224,7 +224,7 @@
 								<li>Bouton de contact</li>
 							</ul>
 						</td>
-						<td class="border border-breeder-deepblue p-4">
+						<td class="border border-jobboard-deepblue p-4">
 							<ul class="mb-4 list-disc list-inside">
 								<li>Nombre de races illimité</li>
 								<li>Description</li>
@@ -239,8 +239,8 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="border border-breeder-deepblue p-4">Contenu des Annonces de cession</td>
-						<td class="border border-breeder-deepblue p-4">
+						<td class="border border-jobboard-deepblue p-4">Contenu des Annonces de cession</td>
+						<td class="border border-jobboard-deepblue p-4">
 							5 annonces Premium<br>
 							<ul class="mb-4 list-disc list-inside">
 								<li>Crédits valable 1 an</li>
@@ -250,7 +250,7 @@
 								<li>Visibilité renforcée : annonce en couleur</li>
 							</ul>
 						</td>
-						<td class="border border-breeder-deepblue p-4">
+						<td class="border border-jobboard-deepblue p-4">
 							10 annonces Master<br>
 							<ul class="mb-4 list-disc list-inside">
 								<li>Crédits valable 1 an</li>
@@ -262,9 +262,9 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="border border-breeder-deepblue p-4">Prix</td>
-						<td class="border border-breeder-deepblue p-4">60 euros TTC/an</td>
-						<td class="border border-breeder-deepblue p-4">150 euros TTC/ an</td>
+						<td class="border border-jobboard-deepblue p-4">Prix</td>
+						<td class="border border-jobboard-deepblue p-4">60 euros TTC/an</td>
+						<td class="border border-jobboard-deepblue p-4">150 euros TTC/ an</td>
 					</tr>
 				</tbody>
 			</table>
@@ -287,19 +287,19 @@
 			<ul class="pl-4 mb-4 list-disc list-inside">
 				<li>Souscription d’un Abonnement annuel uniquement pour le service de Page Elevage :</li>
 			</ul>
-			<table class="border-collapse border border-breeder-deepblue mb-4">
+			<table class="border-collapse border border-jobboard-deepblue mb-4">
 				<thead class="bg-gray-100">
 					<tr>
-						<th class="border border-breeder-deepblue p-4 font-medium text-center">Type d'Abonnement</th>
-						<th class="border border-breeder-deepblue p-4 font-medium text-center">Standard</th>
-						<th class="border border-breeder-deepblue p-4 font-medium text-center">Premium</th>
-						<th class="border border-breeder-deepblue p-4 font-medium text-center">Master Illimité</th>
+						<th class="border border-jobboard-deepblue p-4 font-medium text-center">Type d'Abonnement</th>
+						<th class="border border-jobboard-deepblue p-4 font-medium text-center">Standard</th>
+						<th class="border border-jobboard-deepblue p-4 font-medium text-center">Premium</th>
+						<th class="border border-jobboard-deepblue p-4 font-medium text-center">Master Illimité</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td class="border border-breeder-deepblue p-4">Contenu de la Page Elevage</td>
-						<td class="border border-breeder-deepblue p-4 align-top">
+						<td class="border border-jobboard-deepblue p-4">Contenu de la Page Elevage</td>
+						<td class="border border-jobboard-deepblue p-4 align-top">
 							<ul class="mb-4 list-disc list-inside">
 								<li>1 race</li>
 								<li>Description</li>
@@ -307,7 +307,7 @@
 								<li>1 photo</li>
 							</ul>
 						</td>
-						<td class="border border-breeder-deepblue p-4 align-top">
+						<td class="border border-jobboard-deepblue p-4 align-top">
 							<ul class="mb-4 list-disc list-inside">
 								<li>Jusqu’à 3 races</li>
 								<li>Description</li>
@@ -317,7 +317,7 @@
 								<li>Bouton de contact</li>
 							</ul>
 						</td>
-						<td class="border border-breeder-deepblue p-4">
+						<td class="border border-jobboard-deepblue p-4">
 							<ul class="mb-4 list-disc list-inside">
 								<li>Nombre de races illimité</li>
 								<li>Description</li>
@@ -333,10 +333,10 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="border border-breeder-deepblue p-4">Prix</td>
-						<td class="border border-breeder-deepblue p-4">Gratuit</td>
-						<td class="border border-breeder-deepblue p-4">20 euros TTC/an</td>
-						<td class="border border-breeder-deepblue p-4">50 euros TTC/ an</td>
+						<td class="border border-jobboard-deepblue p-4">Prix</td>
+						<td class="border border-jobboard-deepblue p-4">Gratuit</td>
+						<td class="border border-jobboard-deepblue p-4">20 euros TTC/an</td>
+						<td class="border border-jobboard-deepblue p-4">50 euros TTC/ an</td>
 					</tr>
 				</tbody>
 			</table>
@@ -358,19 +358,19 @@
 			<ul class="pl-4 mb-4 list-disc list-inside">
 				<li>Achat de Crédits au titre uniquement du service des Annonces de cession :</li>
 			</ul>
-			<table class="border-collapse border border-breeder-deepblue mb-4">
+			<table class="border-collapse border border-jobboard-deepblue mb-4">
 				<thead class="bg-gray-100">
 					<tr>
-						<th class="border border-breeder-deepblue p-4 font-medium text-center">Type de Crédits</th>
-						<th class="border border-breeder-deepblue p-4 font-medium text-center">Standard</th>
-						<th class="border border-breeder-deepblue p-4 font-medium text-center">Premium</th>
-						<th class="border border-breeder-deepblue p-4 font-medium text-center">Master</th>
+						<th class="border border-jobboard-deepblue p-4 font-medium text-center">Type de Crédits</th>
+						<th class="border border-jobboard-deepblue p-4 font-medium text-center">Standard</th>
+						<th class="border border-jobboard-deepblue p-4 font-medium text-center">Premium</th>
+						<th class="border border-jobboard-deepblue p-4 font-medium text-center">Master</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td class="border border-breeder-deepblue p-4">Contenu des Annonces de cession</td>
-						<td class="border border-breeder-deepblue p-4 align-top">
+						<td class="border border-jobboard-deepblue p-4">Contenu des Annonces de cession</td>
+						<td class="border border-jobboard-deepblue p-4 align-top">
 							<ul class="mb-4 list-disc list-inside">
 								<li>Crédit valable 1 an</li>
 								<li>Diffusion 3 mois</li>
@@ -378,7 +378,7 @@
 								<li>1 photo</li>
 							</ul>
 						</td>
-						<td class="border border-breeder-deepblue p-4 align-top">
+						<td class="border border-jobboard-deepblue p-4 align-top">
 							<ul class="mb-4 list-disc list-inside">
 								<li>Crédit valable 1 an</li>
 								<li>Diffusion 3 mois</li>
@@ -387,7 +387,7 @@
 								<li>Visibilité renforcée : annonce en couleur</li>
 							</ul>
 						</td>
-						<td class="border border-breeder-deepblue p-4">
+						<td class="border border-jobboard-deepblue p-4">
 							<ul class="mb-4 list-disc list-inside">
 								<li>Crédit valable 1 an</li>
 								<li>Diffusion 3 mois</li>
@@ -399,8 +399,8 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="border border-breeder-deepblue p-4">Prix (en fonction du nombre d’Annonces sélectionnées)</td>
-						<td class="border border-breeder-deepblue p-4">
+						<td class="border border-jobboard-deepblue p-4">Prix (en fonction du nombre d’Annonces sélectionnées)</td>
+						<td class="border border-jobboard-deepblue p-4">
 							<ul class="mb-4 list-disc list-inside">
 								<li>1 annonce : 11 euros TTC</li>
 								<li>3 annonces : 30 euros TTC</li>
@@ -409,7 +409,7 @@
 								<li>20 annonces : 100 euros TTC</li>
 							</ul>
 						</td>
-						<td class="border border-breeder-deepblue p-4">
+						<td class="border border-jobboard-deepblue p-4">
 							<ul class="mb-4 list-disc list-inside">
 								<li>1 annonce : 16 euros TTC</li>
 								<li>3 annonces : 45 euros TTC</li>
@@ -418,7 +418,7 @@
 								<li>20 annonces : 150 euros TTC</li>
 							</ul>
 						</td>
-						<td class="border border-breeder-deepblue p-4">
+						<td class="border border-jobboard-deepblue p-4">
 							<ul class="mb-4 list-disc list-inside">
 								<li>1 annonce : 25 euros TTC</li>
 								<li>3 annonces : 70 euros TTC</li>
@@ -434,16 +434,16 @@
 			<ul class="pl-4 mb-4 list-disc list-inside">
 				<li>Achat de Crédits au titre uniquement des services d’Annuaire professionnel et Activité secondaire</li>
 			</ul>
-			<table class="border-collapse border border-breeder-deepblue mb-4">
+			<table class="border-collapse border border-jobboard-deepblue mb-4">
 				<thead class="bg-gray-100">
 					<tr>
-						<th class="border border-breeder-deepblue p-4 font-medium text-center col-span-2">Abonnement annuel</th>
+						<th class="border border-jobboard-deepblue p-4 font-medium text-center col-span-2">Abonnement annuel</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td class="border border-breeder-deepblue p-4">Contenu de l’Abonnement</td>
-						<td class="border border-breeder-deepblue p-4">
+						<td class="border border-jobboard-deepblue p-4">Contenu de l’Abonnement</td>
+						<td class="border border-jobboard-deepblue p-4">
 							<ul class="mb-4 list-disc list-inside">
 								<li>Diffusion 1 an</li>
 								<li>Crédit valable 1 an </li>
@@ -459,8 +459,8 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="border border-breeder-deepblue p-4">Prix (en fonction du nombre de rubriques sélectionnées)</td>
-						<td class="border border-breeder-deepblue p-4">
+						<td class="border border-jobboard-deepblue p-4">Prix (en fonction du nombre de rubriques sélectionnées)</td>
+						<td class="border border-jobboard-deepblue p-4">
 							<ul class="mb-4 list-disc list-inside">
 								<li>1 rubrique: 30 euros TTC</li>
 								<li>2 rubriques: 50 euros TTC</li>
@@ -477,7 +477,7 @@
 				</tbody>
 			</table>
 
-			<h3 class="mb-4 leading-10 text-lg text-left font-bold text-breeder-deepblue">8.2 Commande</h3>
+			<h3 class="mb-4 leading-10 text-lg text-left font-bold text-jobboard-deepblue">8.2 Commande</h3>
 			<p class="mb-4">
 				La commande d’une offre est conclue lorsque l’Eleveur et/ou le Professionnel (i) a procédé à la confirmation définitive des informations saisies et due l’offre sélectionnée, (ii) a accepté sans réserve les CGU/CGV et (iii) a procédé au paiement de l'intégralité du prix des offres sélectionnée à régler directement lors de l'achat.
 			</p>
@@ -491,7 +491,7 @@
 				Les Crédits et les prestations offertes au titre de l’Abonnement seront accessibles sur le Compte de l’Eleveur et/ou du Professionnel.
 			</p>
 
-			<h3 class="mb-4 leading-10 text-lg text-left font-bold text-breeder-deepblue">8.3 Modalités de règlement</h3>
+			<h3 class="mb-4 leading-10 text-lg text-left font-bold text-jobboard-deepblue">8.3 Modalités de règlement</h3>
 			<p class="mb-4">
 				Le règlement des Crédits ou Abonnement peut s’effectuer par carte bancaire. Les données bancaires sont transmises en une seule fois lors du paiement par carte bancaire en ligne via notre partenaire Stripe.
 			</p>
@@ -508,7 +508,7 @@
 				L’Eleveur s’interdit toute retenue de paiement ou compensation.
 			</p>
 
-			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-breeder-deepblue">Article 9 - Manquements</h2>
+			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-jobboard-deepblue">Article 9 - Manquements</h2>
 			<p class="mb-4">
 				Eleveur-Online peut limiter l’accès au Site à tout moment, sans droit à indemnisation, dès lors qu'un manquement grave ou une fraude avérée est constaté, notamment pour toute fausse déclaration sur les coordonnées de l'Eleveur et/ou Professionnel, sur les données d'une Annonce de cession, d’une publication d’une Activité secondaire et dans l’Annuaire professionnel  ou toute violation constatée de la réglementation en vigueur ou des CGU/CGV.
 			</p>
@@ -527,7 +527,7 @@
 				L’Eleveur et/ou le Professionnel en sera averti par messagerie électronique.
 			</p>
 
-			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-breeder-deepblue">Article 10 - Garantie et limitations de responsabilité</h2>
+			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-jobboard-deepblue">Article 10 - Garantie et limitations de responsabilité</h2>
 			<p class="mb-4">
 				<strong>10.1</strong> HI n'intervient pas en qualité de vendeur des animaux de compagnie, services et produits achetés par un Utilisateur directement auprès des Eleveurs et des Professionnels. En conséquence, la responsabilité de HI ne pourra être engagée en cas de non-conformité, défaut d’une commande que l’Utilisateur effectuerait directement auprès d’un Eleveur et/ou d’un Professionnel.
 			</p>
@@ -601,7 +601,7 @@
 				En aucun cas, la responsabilité de HI ne pourra être engagée en cas d’erreur, d’omission ou d’imprécision des informations communiquées par les Eleveurs et Professionnels ou en cas d’informations illicites ou fausses.
 			</p>
 
-			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-breeder-deepblue">Article 11 - Propriété intellectuelle</h2>
+			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-jobboard-deepblue">Article 11 - Propriété intellectuelle</h2>
 			<p class="mb-4">
 				<strong>11.1</strong> Chaque Eleveur et Professionnel dispose d'un droit d'usage privé et non exclusif du Site et s'engage à ne pas utiliser le Site à des fins illicites.
 			</p>
@@ -615,12 +615,12 @@
 				<strong>11.3</strong> Sous réserve des dispositions de l'article L. 342-3 du Code de la propriété intellectuelle, HI interdit l'extraction, la réutilisation, la commercialisation, la distribution, la modification, l'adaptation, la traduction, ainsi que la reproduction de tout ou partie des éléments protégés (en ce compris les Eléments) du Site. Le non-respect de cette interdiction est susceptible de constituer des faits de contrefaçon pouvant engager la responsabilité civile et pénale de leur auteur.
 			</p>
 
-			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-breeder-deepblue">Article 12 - Données personnelles</h2>
+			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-jobboard-deepblue">Article 12 - Données personnelles</h2>
 			<p class="mb-4">
-				Eleveurs-Online est susceptible de traiter vos données à caractère personnel conformément à la réglementation applicable et à la politique de protection des données à caractère personnel <a href="{{ route('pages.confidentialite') }}" class="underline underline-offset-4 text-breeder-deepblue hover:opacity-80" target="_blank">accessible ici</a>.
+				Eleveurs-Online est susceptible de traiter vos données à caractère personnel conformément à la réglementation applicable et à la politique de protection des données à caractère personnel <a href="{{ route('pages.confidentialite') }}" class="underline underline-offset-4 text-jobboard-deepblue hover:opacity-80" target="_blank">accessible ici</a>.
 			</p>
 
-			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-breeder-deepblue">Article 13 - Service client</h2>
+			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-jobboard-deepblue">Article 13 - Service client</h2>
 			<p class="mb-4">
 				Pour toute information ou question, le service clientèle est à disposition des Eleveurs et Professionnels :
 			</p>
@@ -633,7 +633,7 @@
 				</li>
 			</ul>
 
-			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-breeder-deepblue">Article 14 - Droit applicable - Litiges</h2>
+			<h2 class="mt-8 mb-4 leading-10 text-xl text-left font-bold text-jobboard-deepblue">Article 14 - Droit applicable - Litiges</h2>
 			<p class="mb-4">
 				Les présentes CGU/CGV sont soumises au droit français.
 			</p>

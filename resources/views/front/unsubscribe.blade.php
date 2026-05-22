@@ -22,7 +22,7 @@
 		</ol>
 	</nav>
 
-	<div class="bg-white w-full py-8 flex flex-col items-center text-breeder-deepblue">
+	<div class="bg-white w-full py-8 flex flex-col items-center text-jobboard-deepblue">
 		@if($errors->any() || Session::has('error') || Session::has('success') || Session::has('warning') || Session::has('info'))
 			<div class="py-5 px-4 lg:px-6" x-data="{}" x-ref="alert">
 				@include('components.front.alerts')

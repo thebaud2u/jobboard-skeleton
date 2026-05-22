@@ -8,7 +8,7 @@
 	@endpush
 
 	<main>
-		<section class="hero bg-breeder-cream">
+		<section class="hero bg-jobboard-cream">
 			<div
 				class="conteneur"
 				style="background:no-repeat  url('{{ asset('/storage/qsn_banner.png')}}') center center;">
@@ -16,7 +16,7 @@
 					<h1><strong>Leader du référencement et de la mise en relation</strong><br>
 						entre éleveurs et particuliers</h1>
 					<div class="flex flex-col md:flex-row gap-4 lg:gap-6 justify-center">
-						<a href="{{route('home')}}" class="btn-primary border-breeder-deepblue">Je veux adopter un animal</a>
+						<a href="{{route('home')}}" class="btn-primary border-jobboard-deepblue">Je veux adopter un animal</a>
 						<a href="{{route('home.breeder')}}" class="btn-eleveurs">Je suis éleveur</a>
 					</div>
 				</div>
@@ -35,7 +35,7 @@
 
 		<section id="histoire" class="bg-white p-8 lg:p-16">
 			<div class="conteneur">
-				<div class="text-2xl text-breeder-deepblue">
+				<div class="text-2xl text-jobboard-deepblue">
 					Depuis 2005, {{env('APP_NAME') }} s’est imposé comme l’un des leaders du référencement et de la mise
 					en relation entre <strong>éleveurs canins et félins et particuliers</strong> à la recherche de
 					chiots ou chatons. En tant que premier réseau animalier de France, notre plateforme offre
@@ -49,13 +49,13 @@
                              class="object-cover xl:w-full" loading="lazy"/>
                     </div>
                     <div class="w-full lg:w-3/5">
-                        <h1 class="mb-4 text-breeder-deepbluem text-[25px] md:text-[32px] lg:text-[40px]">Notre histoire</h1>
-                        <p class="mb-4 text-breeder-deepblue">Créé par un éleveur passionné, Stephan Lubineau
+                        <h1 class="mb-4 text-jobboard-deepbluem text-[25px] md:text-[32px] lg:text-[40px]">Notre histoire</h1>
+                        <p class="mb-4 text-jobboard-deepblue">Créé par un éleveur passionné, Stephan Lubineau
                             (1972-2024), {{env('APP_NAME')}} figure parmi les premières plateformes spécialisées dédiées
                             aux entreprises canins et félins. Forte de plus de vingt ans d’expérience, notre communauté
                             regroupe aujourd’hui plusieurs milliers d’annonces vérifiées et actualisées, couvrant toutes
                             les races reconnues par les principaux organismes cynophiles et félins.</p>
-                        <p class="mb-4 text-breeder-deepblue">{{env('APP_NAME')}} fait partie du groupe de presse
+                        <p class="mb-4 text-jobboard-deepblue">{{env('APP_NAME')}} fait partie du groupe de presse
                             professionnelle Buena Media Plus / 1Health (Europa Group), éditeur spécialisé dans les
                             animaux
                             de compagnie ( le magazine 30&nbsp;Millions d’amis, Peuple&nbsp;Animal, Petmarket, Lignées, L’Essentiel,
@@ -92,21 +92,21 @@
 			</div>
 		</section>
 
-		<section id="charte" class="bg-breeder-deepblue p-8 lg:p-16">
+		<section id="charte" class="bg-jobboard-deepblue p-8 lg:p-16">
 			<div class="conteneur">
 				<div class="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-8">
 
-					<div class="bg-breeder-violet rounded-xl p-6 lg:p-12 flex flex-col justify-center h-full gap-2 xl:gap-4">
+					<div class="bg-jobboard-violet rounded-xl p-6 lg:p-12 flex flex-col justify-center h-full gap-2 xl:gap-4">
 						<div class="text-center lg:text-left">
 							<img src="{{ asset('/storage/eol-logo-e.png') }}" alt="{{env('APP_NAME')}}" loading="lazy" class="mx-auto lg:mx-0"/>
 						</div>
-						<h2 class="text-breeder-deepblue mb-0 text-center lg:text-left">Notre Charte Qualité</h2>
-						<p class="text-breeder-deepblue">
+						<h2 class="text-jobboard-deepblue mb-0 text-center lg:text-left">Notre Charte Qualité</h2>
+						<p class="text-jobboard-deepblue">
 							Afin de garantir le bien-être des animaux et la satisfaction des adoptants,
 							<strong>tous les éleveurs référencés sur {{env('APP_NAME')}} s’engagent à respecter</strong>
 							les grands principes suivants&nbsp;:
 						</p>
-						<p class="text-breeder-deepblue hidden lg:block">
+						<p class="text-jobboard-deepblue hidden lg:block">
 							<svg width="35" height="18" viewBox="0 0 35 18" fill="none"
 								 xmlns="http://www.w3.org/2000/svg">
 								<path d="M26.5 16.5615L34 9.06152L26.5 1.56152" stroke="#0E1954" stroke-width="2"
@@ -120,27 +120,27 @@
 					<div
 						class="lg:col-span-2 grid grid-cols-1 gap-4 lg:gap-8 lg:grid-cols-2 grid-flow-dense auto-rows-min">
 						<div class="bg-white rounded-xl p-4 lg:p-8 row-span-2">
-							<p class="text-xl xl:text-2xl text-breeder-deepblue"><strong>Garantir l’identification des animaux,
+							<p class="text-xl xl:text-2xl text-jobboard-deepblue"><strong>Garantir l’identification des animaux,
 									leur traçabilité,</strong> le respect des obligations réglementaires de cession.</p>
 						</div>
 
 						<div class="bg-white rounded-xl p-4 lg:p-8">
-							<p class="text-xl xl:text-2xl text-breeder-deepblue"><strong>Assurer une fin de carrière
+							<p class="text-xl xl:text-2xl text-jobboard-deepblue"><strong>Assurer une fin de carrière
 									paisible</strong> aux reproducteurs/trices.</p>
 						</div>
 						<div class="bg-white rounded-xl p-4 lg:p-8">
-							<p class="text-xl xl:text-2xl text-breeder-deepblue"><strong>Offrir aux animaux un cadre de vie sûr et
+							<p class="text-xl xl:text-2xl text-jobboard-deepblue"><strong>Offrir aux animaux un cadre de vie sûr et
 									confortable</strong> et un suivi vétérinaire régulier</p>
 						</div>
 
 						<div class="bg-white rounded-xl p-4 lg:p-8">
-							<p class="text-xl xl:text-2xl text-breeder-deepblue"><strong>S’engager à accompagner
+							<p class="text-xl xl:text-2xl text-jobboard-deepblue"><strong>S’engager à accompagner
 									les&nbsp;adoptants</strong> dans leurs démarches et suivre les chiots/chatons dans
 								leur évolution.</p>
 						</div>
 
 						<div class="bg-white rounded-xl p-4 lg:p-8">
-							<p class="text-xl xl:text-2xl text-breeder-deepblue"><strong>Avoir des pratiques de reproduction et de
+							<p class="text-xl xl:text-2xl text-jobboard-deepblue"><strong>Avoir des pratiques de reproduction et de
 									sélection</strong> conformes aux exigences du bien être animal</p>
 						</div>
 
@@ -150,15 +150,15 @@
 			</div>
 		</section>
 
-		<section id="confiance" class="bg-breeder-cream p-8 lg:p-16">
+		<section id="confiance" class="bg-jobboard-cream p-8 lg:p-16">
 			<div class="conteneur">
-				<h2 class="text-breeder-deepblue text-center">Pourquoi nous faire confiance&nbsp;?</h2>
+				<h2 class="text-jobboard-deepblue text-center">Pourquoi nous faire confiance&nbsp;?</h2>
 				@php
 					$confiance = [
-						['titre' => 'Rigueur et transparence' , 'texte' => 'Nous vérifions l’identité et les documents de chaque éleveur pour garantir la fiabilité de chaque annonce et assurer le respect des obligations légales. Vérifications de l’identité, du numéro de SIRET, du certificat ACACED, du numéro de portée et du numéro d’identification.', 'icone' =>'fill-breeder-coral','color' => '#FC6D5E' ],
-						['titre' => 'Indépendance totale' , 'texte' => 'Par l’indépendance professionnelle de nos actionnaires qui n’ont aucun lien avec les acteurs du marché, nous restons entièrement libres dans nos choix éditoriaux pour vous offrir une information objective de qualité.', 'icone' =>'fill-breeder-green' ,'color' => '#67BF85' ],
-						['titre' => 'Public qualifié et&nbsp;ciblé' , 'texte' => 'Parce que notre référencement optimisé attire des visiteurs réellement intéressés par l’adoption d’un chien ou d’un chat de race, ce qui maximise les chances de réussite pour chaque projet d’adoption.', 'icone' =>'fill-breeder-orange' , 'color' => '#FDAB12' ],
-						['titre' => 'Contenu d\'expert' , 'texte' => 'Grâce à notre appartenance au groupe de presse professionnelle 1health, nous bénéficions d’un réseau d’experts en cynotechnie, felinotechnie, comportement et santé animale, qui enrichissent nos fiches conseils, nos articles et nos guides de bonnes pratiques.', 'icone' =>'fill-breeder-violet' ,'color' => '#C68CFF' ],
+						['titre' => 'Rigueur et transparence' , 'texte' => 'Nous vérifions l’identité et les documents de chaque éleveur pour garantir la fiabilité de chaque annonce et assurer le respect des obligations légales. Vérifications de l’identité, du numéro de SIRET, du certificat ACACED, du numéro de portée et du numéro d’identification.', 'icone' =>'fill-jobboard-coral','color' => '#FC6D5E' ],
+						['titre' => 'Indépendance totale' , 'texte' => 'Par l’indépendance professionnelle de nos actionnaires qui n’ont aucun lien avec les acteurs du marché, nous restons entièrement libres dans nos choix éditoriaux pour vous offrir une information objective de qualité.', 'icone' =>'fill-jobboard-green' ,'color' => '#67BF85' ],
+						['titre' => 'Public qualifié et&nbsp;ciblé' , 'texte' => 'Parce que notre référencement optimisé attire des visiteurs réellement intéressés par l’adoption d’un chien ou d’un chat de race, ce qui maximise les chances de réussite pour chaque projet d’adoption.', 'icone' =>'fill-jobboard-orange' , 'color' => '#FDAB12' ],
+						['titre' => 'Contenu d\'expert' , 'texte' => 'Grâce à notre appartenance au groupe de presse professionnelle 1health, nous bénéficions d’un réseau d’experts en cynotechnie, felinotechnie, comportement et santé animale, qui enrichissent nos fiches conseils, nos articles et nos guides de bonnes pratiques.', 'icone' =>'fill-jobboard-violet' ,'color' => '#C68CFF' ],
 					];
 				@endphp
 
@@ -179,9 +179,9 @@
 										stroke-linejoin="round"/>
 								</svg>
 
-								<h3 class="text-2xl font-bold text-breeder-deepblue text-center s:text-left"> {!! $c['titre'] !!}</h3>
+								<h3 class="text-2xl font-bold text-jobboard-deepblue text-center s:text-left"> {!! $c['titre'] !!}</h3>
 							</div>
-							<p class="text-breeder-deepblue">{{ $c['texte'] }}</p>
+							<p class="text-jobboard-deepblue">{{ $c['texte'] }}</p>
 
 						</div>
 					@endforeach
@@ -191,7 +191,7 @@
 			</div>
 		</section>
 
-		<section id="engagements" class="bg-breeder-deepblue p-8 lg:p-16">
+		<section id="engagements" class="bg-jobboard-deepblue p-8 lg:p-16">
 			<div class="conteneur">
 				<h2 class="text-white text-center">Nos engagements</h2>
 
@@ -199,15 +199,15 @@
 					$engagements = [
 						['titre' => 'Un service client à&nbsp;taille&nbsp;humaine' ,
 						 'texte' => 'Nos équipes sont à l’écoute des éleveurs pour les accompagner dans la création d’annonces et répondre aux questions réglementaires, tout en guidant les adoptants pas à pas.',
-						 'color' => 'bg-breeder-coral',
+						 'color' => 'bg-jobboard-coral',
 						 'image'=>'/storage/qsn_engagement_client.png'],
 						['titre' => 'L’éthique avant&nbsp;tout' ,
 						 'texte' => 'Nous promouvons un entreprise responsable, respectueux du bien-être animal, de la génétique et de la santé, du plus jeune âge jusqu’à la retraite de chaque reproducteur. Et ce, pour offrir des animaux équilibrés et en bonne santé.',
-						 'color' => 'bg-breeder-orange',
+						 'color' => 'bg-jobboard-orange',
 						 'image'=>'/storage/qsn_engagement_ethique.png' ],
 						['titre' => 'La durabilité' ,
 						 'texte' => 'Nous encourageons les éleveurs à adopter des pratiques respectueuses de l’environnement et du cycle de vie des animaux, de la naissance jusqu’à la fin de leur carrière.',
-						 'color' => 'bg-breeder-violet',
+						 'color' => 'bg-jobboard-violet',
 						 'image'=>'/storage/qsn_engagement_durabilite.png'],
 					];
 				@endphp
@@ -221,8 +221,8 @@
 									 class="absolute bottom-0 left-1/2 -translate-x-1/2 max-h-[145px] lg:max-h-none"/>
 							</div>
 							<div class="p-8 w-full s:w-3/5 lg:w-full">
-								<h3 class="text-2xl font-bold text-breeder-deepblue">{!! $engag['titre'] !!}</h3>
-								<p class="text-breeder-deepblue">{!! $engag['texte'] !!}</p>
+								<h3 class="text-2xl font-bold text-jobboard-deepblue">{!! $engag['titre'] !!}</h3>
+								<p class="text-jobboard-deepblue">{!! $engag['texte'] !!}</p>
 							</div>
 						</div>
 					@endforeach
@@ -234,17 +234,17 @@
 		<section class="bg-white p-8 lg:p-16">
 			<div class="conteneur">
 
-				<p class="text-2xl text-breeder-deepblue"><strong>En choisissant {{env('APP_NAME')}}, vous rejoignez une
+				<p class="text-2xl text-jobboard-deepblue"><strong>En choisissant {{env('APP_NAME')}}, vous rejoignez une
 						communauté engagée, où l’expertise professionnelle, la transparence et le respect du bien-être
 						animal sont au cœur de notre démarche.</strong></p>
-				<p class="text-2xl text-breeder-deepblue"><strong>Cher éleveur,</strong> découvrez dès maintenant les
+				<p class="text-2xl text-jobboard-deepblue"><strong>Cher éleveur,</strong> découvrez dès maintenant les
 					services, les avantages et les garanties de proposer vos animaux sur notre plateforme.</p>
-				<p class="text-2xl text-breeder-deepblue"><strong>Cher adoptant,</strong> découvrez les annonces
+				<p class="text-2xl text-jobboard-deepblue"><strong>Cher adoptant,</strong> découvrez les annonces
 					d’entreprises canins et félins et faites confiance à un réseau éprouvé pour trouver votre
 					futur compagnon.</p>
 			</div>
 		</section>
-		@include('components.front.nl', ['bgcolor' => 'bg-breeder-coral'])
+		@include('components.front.nl', ['bgcolor' => 'bg-jobboard-coral'])
 	</main>
 	<aside>
 		@include('components.front.cta-post')

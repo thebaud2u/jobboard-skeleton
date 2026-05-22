@@ -1,7 +1,7 @@
 <div>
 	<div class="mb-5 text-sm sm:text-base lg:text-xl">
 		<div class="flex flex-wrap items-center gap-4">
-			<select id="offer" wire:model.live="offer" class="block mt-1 border border-gray-300 focus:border-breeder-deepblue focus:ring-breeder-deepblue rounded-md shadow-sm">
+			<select id="offer" wire:model.live="offer" class="block mt-1 border border-gray-300 focus:border-jobboard-deepblue focus:ring-jobboard-deepblue rounded-md shadow-sm">
 				<option value="">{{ __('Select an offer') }}</option>
 				@foreach($offersList as $offerEntry)
 					<option value="{{ $offerEntry->slug }}">{{ __(ucfirst($offerEntry->type)) }} - {{ $offerEntry->name }}</option>
@@ -192,7 +192,7 @@
 	</div>
 
 	<x-front.modal name="add-subscription-modal" :class="'w-full max-w-2xl'" focusable>
-		<section class="p-10 flex flex-col flex-wrap content-center text-breeder-deepblue">
+		<section class="p-10 flex flex-col flex-wrap content-center text-jobboard-deepblue">
 			<header class="flex flex-col flex-wrap content-center">
 				<h2 class="text-lg font-semibold">
 					{{ __('Create :element', ['element' => __('a new subscription')]) }}
@@ -242,7 +242,7 @@
 										<x-front.input-label for="offerSelected" :value="__('Offer')" :required="true" />
 									</div>
 
-									<select name="offerSelected" wire:model="offerSelected" class="block mt-1 border border-gray-300 focus:border-breeder-deepblue focus:ring-breeder-deepblue rounded-md shadow-sm">
+									<select name="offerSelected" wire:model="offerSelected" class="block mt-1 border border-gray-300 focus:border-jobboard-deepblue focus:ring-jobboard-deepblue rounded-md shadow-sm">
 										<option value="">{{ __('Select an offer') }}</option>
 										@foreach($offersList as $offerEntry)
 											<option value="{{ $offerEntry->id }}">{{ __(ucfirst($offerEntry->type)) }} - {{ $offerEntry->name }}</option>
@@ -294,7 +294,7 @@
 									</div>
 
 									<div class="flex flex-row mt-2">
-										<textarea name="comment" wire:model.lazy="comment" placeholder="{{ __('Comment') }}" class="mt-1 block w-full border-breeder-greige focus:border-breeder-deepblue focus:ring-breeder-deepblue rounded-md shadow-sm text-breeder-deepblue placeholder:text-breeder-greige mt-1 block text-gray-400"></textarea>
+										<textarea name="comment" wire:model.lazy="comment" placeholder="{{ __('Comment') }}" class="mt-1 block w-full border-jobboard-greige focus:border-jobboard-deepblue focus:ring-jobboard-deepblue rounded-md shadow-sm text-jobboard-deepblue placeholder:text-jobboard-greige mt-1 block text-gray-400"></textarea>
 									</div>
 								</div>
 							</div>
@@ -316,7 +316,7 @@
 	</x-front.modal>
 
 	<x-front.modal name="update-subscription-modal" :class="'w-full max-w-2xl'" focusable>
-		<section class="p-10 flex flex-col flex-wrap content-center text-breeder-deepblue">
+		<section class="p-10 flex flex-col flex-wrap content-center text-jobboard-deepblue">
 			<header class="flex flex-col flex-wrap content-center">
 				<h2 class="text-lg font-semibold">
 					{{ __('Update :element', ['element' => __('a subscription')]) }}
@@ -366,7 +366,7 @@
 									</div>
 
 									<div class="flex flex-row mt-2">
-										<textarea name="comment" wire:model.lazy="comment" placeholder="{{ __('Comment') }}" class="mt-1 block w-full border-breeder-greige focus:border-breeder-deepblue focus:ring-breeder-deepblue rounded-md shadow-sm text-breeder-deepblue placeholder:text-breeder-greige mt-1 block text-gray-400"></textarea>
+										<textarea name="comment" wire:model.lazy="comment" placeholder="{{ __('Comment') }}" class="mt-1 block w-full border-jobboard-greige focus:border-jobboard-deepblue focus:ring-jobboard-deepblue rounded-md shadow-sm text-jobboard-deepblue placeholder:text-jobboard-greige mt-1 block text-gray-400"></textarea>
 									</div>
 								</div>
 							</div>

@@ -2,7 +2,7 @@
 	<x-front.ad-slot slotName="banniere_haute" variant="all" :targeting="['Targetingslug' => Request::url(), 'role' => 'adoptant', 'espece' => $company->species?->first()->name == 'dog' ? 'chien' : 'chat']" />
 </div>
 
-<div class="flex flex-row xlsm:justify-between max-xlsm:flex-col max-xlsm:items-center mt-2 max-w-[1200px] w-full text-breeder-deepblue">
+<div class="flex flex-row xlsm:justify-between max-xlsm:flex-col max-xlsm:items-center mt-2 max-w-[1200px] w-full text-jobboard-deepblue">
 	{{-- Content --}}
 	<div class="text-sm lg:text-base max-w-[870px] w-full">
 		<div class="flex flex-col gap-y-2 max-md:px-4 w-full mb-8">
@@ -84,16 +84,16 @@
 							@if($company->hasSpeciesPureBreed($speciesSlug))
 								@if($company->address?->country?->code == 'FRA')
 									@if($speciesSlug == 'dog')
-										<span class="px-3 py-1 rounded-md font-medium bg-breeder-coral text-breeder-deepblue text-sm w-fit">
+										<span class="px-3 py-1 rounded-md font-medium bg-jobboard-coral text-jobboard-deepblue text-sm w-fit">
 											LOF
 										</span>
 									@elseif($speciesSlug == 'cat')
-										<span class="px-3 py-1 rounded-md font-medium bg-breeder-green text-breeder-deepblue text-sm w-fit">
+										<span class="px-3 py-1 rounded-md font-medium bg-jobboard-green text-jobboard-deepblue text-sm w-fit">
 											LOOF
 										</span>
 									@endif
 								@else
-									<span class="px-3 py-1 rounded-md font-medium bg-breeder-coral text-breeder-deepblue text-sm w-fit">
+									<span class="px-3 py-1 rounded-md font-medium bg-jobboard-coral text-jobboard-deepblue text-sm w-fit">
 										{{ __('Origin book') }}
 									</span>
 								@endif
@@ -104,14 +104,14 @@
 							@endphp
 
 							@foreach($breedsOfSpecies as $index => $breed)
-								<span class="px-3 py-1 rounded-md font-medium bg-breeder-cream text-breeder-deepblue text-sm w-fit">
+								<span class="px-3 py-1 rounded-md font-medium bg-jobboard-cream text-jobboard-deepblue text-sm w-fit">
 									{{ $breed->name }}
 								</span>
 							@endforeach
 
 							@if($litterAvailableForSpecies > 0)
 								<span class="flex flex-row items-center gap-x-2">
-									<div class="w-3 h-3 bg-breeder-green rounded-full"></div> {{ $litterAvailableForSpecies > 1 ? __('Litters available') : __('Litter available') }}
+									<div class="w-3 h-3 bg-jobboard-green rounded-full"></div> {{ $litterAvailableForSpecies > 1 ? __('Litters available') : __('Litter available') }}
 								</span>
 							@endif
 						</div>
@@ -210,12 +210,12 @@
 										<article class="w-[220px] h-[220px] relative">
 											<div class="absolute w-[220px] top-0 z-10">
 												<div class="flex flex-row gap-2 p-2 items-center">
-													<span class="px-3 py-1 rounded-md font-medium bg-breeder-cream text-breeder-deepblue text-sm w-fit grow-0">
+													<span class="px-3 py-1 rounded-md font-medium bg-jobboard-cream text-jobboard-deepblue text-sm w-fit grow-0">
 														{{ ($litterAvailable->mother ? $litterAvailable->mother->values->get('pure_breed') : $litterAvailable->values->get('pure_breed')) ? $litterAvailable->breed->name : __('Of appearance :breed', ['breed' => $litterAvailable->breed->name]) }}
 													</span>
 
 													@if($litterAvailable->mother ? $litterAvailable->mother->values->get('pure_breed') : $litterAvailable->values->get('pure_breed'))
-														<span class="px-3 py-1 rounded-md font-medium text-breeder-deepblue text-sm w-fit @if($litterAvailable->species->getTranslation('slug', 'en') == 'cat' && $litterAvailable->company->address?->country?->code == 'FRA') bg-breeder-green @elseif($litterAvailable->species->getTranslation('slug', 'en') == 'dog' && $litterAvailable->company->address?->country?->code == 'FRA') bg-breeder-coral @else bg-breeder-cream @endif">
+														<span class="px-3 py-1 rounded-md font-medium text-jobboard-deepblue text-sm w-fit @if($litterAvailable->species->getTranslation('slug', 'en') == 'cat' && $litterAvailable->company->address?->country?->code == 'FRA') bg-jobboard-green @elseif($litterAvailable->species->getTranslation('slug', 'en') == 'dog' && $litterAvailable->company->address?->country?->code == 'FRA') bg-jobboard-coral @else bg-jobboard-cream @endif">
 															@if($litterAvailable->company->address?->country?->code == 'FRA')
 																@if($litterAvailable->species->getTranslation('slug', 'en') == 'cat')
 																	LOOF
@@ -331,12 +331,12 @@
 											<article class="w-[220px] h-[220px] relative">
 												<div class="absolute w-[220px] top-0 z-10">
 													<div class="flex flex-row gap-2 p-2 items-center">
-														<span class="px-3 py-1 rounded-md font-medium bg-breeder-cream text-breeder-deepblue text-sm w-fit grow-0">
+														<span class="px-3 py-1 rounded-md font-medium bg-jobboard-cream text-jobboard-deepblue text-sm w-fit grow-0">
 															{{ $post->model->values->get('pure_breed') ? $post->model->breed->name : __('Of appearance :breed', ['breed' => $post->model->breed->name]) }}
 														</span>
 
 														@if($post->model->values->get('pure_breed'))
-															<span class="px-3 py-1 rounded-md font-medium text-breeder-deepblue text-sm w-fit @if($post->model->species->getTranslation('slug', 'en') == 'cat' && $post->model->company->address?->country?->code == 'FRA') bg-breeder-green @elseif($post->model->species->getTranslation('slug', 'en') == 'dog' && $post->model->company->address?->country?->code == 'FRA') bg-breeder-coral @else bg-breeder-cream @endif">
+															<span class="px-3 py-1 rounded-md font-medium text-jobboard-deepblue text-sm w-fit @if($post->model->species->getTranslation('slug', 'en') == 'cat' && $post->model->company->address?->country?->code == 'FRA') bg-jobboard-green @elseif($post->model->species->getTranslation('slug', 'en') == 'dog' && $post->model->company->address?->country?->code == 'FRA') bg-jobboard-coral @else bg-jobboard-cream @endif">
 																@if($post->model->company->address?->country?->code == 'FRA')
 																	@if($post->model->species->getTranslation('slug', 'en') == 'cat')
 																		LOOF
@@ -455,12 +455,12 @@
 											<article class="w-[220px] h-[220px] relative">
 												<div class="absolute w-[220px] top-0 z-10">
 													<div class="flex flex-row gap-2 p-2 items-center">
-														<span class="px-3 py-1 rounded-md font-medium bg-breeder-cream text-breeder-deepblue text-sm w-fit grow-0">
+														<span class="px-3 py-1 rounded-md font-medium bg-jobboard-cream text-jobboard-deepblue text-sm w-fit grow-0">
 															{{ $post->model->values->get('pure_breed') ? $post->model->breed->name : __('Of appearance :breed', ['breed' => $post->model->breed->name]) }}
 														</span>
 
 														@if($post->model->values->get('pure_breed'))
-															<span class="px-3 py-1 rounded-md font-medium text-breeder-deepblue text-sm w-fit @if($post->model->species->getTranslation('slug', 'en') == 'cat' && $post->model->company->address?->country?->code == 'FRA') bg-breeder-green @elseif($post->model->species->getTranslation('slug', 'en') == 'dog' && $post->model->company->address?->country?->code == 'FRA') bg-breeder-coral @else bg-breeder-cream @endif">
+															<span class="px-3 py-1 rounded-md font-medium text-jobboard-deepblue text-sm w-fit @if($post->model->species->getTranslation('slug', 'en') == 'cat' && $post->model->company->address?->country?->code == 'FRA') bg-jobboard-green @elseif($post->model->species->getTranslation('slug', 'en') == 'dog' && $post->model->company->address?->country?->code == 'FRA') bg-jobboard-coral @else bg-jobboard-cream @endif">
 																@if($post->model->company->address?->country?->code == 'FRA')
 																	@if($post->model->species->getTranslation('slug', 'en') == 'cat')
 																		LOOF
@@ -618,7 +618,7 @@
 												</div>
 											</template>
 											<template x-if="media.type === 'image'">
-												<div x-show="currentSlideIndex == index + 1" class="absolute inset-0 max-w-[870px] rounded-xl bg-breeder-cream flex justify-center" x-transition.opacity.duration.1000ms>
+												<div x-show="currentSlideIndex == index + 1" class="absolute inset-0 max-w-[870px] rounded-xl bg-jobboard-cream flex justify-center" x-transition.opacity.duration.1000ms>
 													<img class="inset-0 text-on-surface dark:text-on-surface-dark h-[300px] md:h-[600px]" x-bind:src="media.url" x-bind:alt="media.url" />
 												</div>
 											</template>
@@ -677,7 +677,7 @@
 						@if($company->user->values->get('interested_in') == 'both' || $company->user->values->get('interested_in') == 'dogs')
 							@if($company->values->has('dog_facebook') && $company->values->get('dog_facebook') != '')
 								<a href="{{ $company->values->get('dog_facebook') }}" target="_blank">
-									<div class="flex justify-center items-center bg-breeder-deepblue w-[37px] h-[37px] rounded-full">
+									<div class="flex justify-center items-center bg-jobboard-deepblue w-[37px] h-[37px] rounded-full">
 										<svg width="9" height="17" viewBox="0 0 9 17" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path d="M2.76756 16.7882V9.46084H0.301758V6.60522H2.76756V4.49929C2.76756 2.05537 4.26023 0.724609 6.44037 0.724609C7.48468 0.724609 8.38222 0.802361 8.64378 0.837113V3.39115L7.13173 3.39184C5.94605 3.39184 5.71647 3.95526 5.71647 4.78204V6.60522H8.54422L8.17603 9.46084H5.71647V16.7882H2.76756Z" fill="#F7F6EF"/>
 										</svg>
@@ -687,7 +687,7 @@
 
 							@if($company->values->has('dog_instagram') && $company->values->get('dog_instagram') != '')
 								<a href="{{ $company->values->get('dog_instagram') }}" target="_blank">
-									<div class="flex justify-center items-center bg-breeder-deepblue w-[37px] h-[37px] rounded-full">
+									<div class="flex justify-center items-center bg-jobboard-deepblue w-[37px] h-[37px] rounded-full">
 										<svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path d="M9.35878 2.14568C11.7452 2.14568 12.0278 2.15461 12.9705 2.1976C13.5373 2.20454 14.0988 2.30862 14.6304 2.50532C15.016 2.654 15.3661 2.88177 15.6583 3.17396C15.9505 3.46615 16.1782 3.81628 16.3269 4.20181C16.5236 4.73345 16.6277 5.29489 16.6346 5.86171C16.6772 6.80444 16.6866 7.08705 16.6866 9.47346C16.6866 11.8599 16.6776 12.1425 16.6346 13.0852C16.6277 13.652 16.5236 14.2135 16.3269 14.7451C16.1782 15.1306 15.9505 15.4808 15.6583 15.773C15.3661 16.0651 15.016 16.2929 14.6304 16.4416C14.0988 16.6383 13.5373 16.7424 12.9705 16.7493C12.0282 16.7919 11.7456 16.8012 9.35878 16.8012C6.97194 16.8012 6.68933 16.7923 5.74702 16.7493C5.1802 16.7424 4.61877 16.6383 4.08713 16.4416C3.70159 16.2929 3.35146 16.0651 3.05928 15.773C2.76709 15.4808 2.53932 15.1306 2.39064 14.7451C2.19394 14.2135 2.08985 13.652 2.08292 13.0852C2.04036 12.1425 2.03099 11.8599 2.03099 9.47346C2.03099 7.08705 2.03993 6.80444 2.08292 5.86171C2.08985 5.29489 2.19394 4.73345 2.39064 4.20181C2.53932 3.81628 2.76709 3.46615 3.05928 3.17396C3.35146 2.88177 3.70159 2.654 4.08713 2.50532C4.61877 2.30862 5.1802 2.20454 5.74702 2.1976C6.68976 2.15504 6.97236 2.14568 9.35878 2.14568ZM9.35878 0.535156C6.93278 0.535156 6.62719 0.545371 5.67382 0.588783C4.93199 0.603539 4.19804 0.743996 3.50319 1.00418C2.90712 1.22876 2.36722 1.5807 1.92119 2.03544C1.46603 2.48164 1.11379 3.02184 0.889073 3.6183C0.628887 4.31315 0.48843 5.0471 0.473675 5.78893C0.431113 6.74145 0.420898 7.04704 0.420898 9.47303C0.420898 11.899 0.431113 12.2046 0.474526 13.158C0.489281 13.8998 0.629739 14.6338 0.889924 15.3286C1.1144 15.925 1.46634 16.4652 1.92119 16.9115C2.36747 17.3663 2.90766 17.7183 3.50404 17.9427C4.1989 18.2029 4.93284 18.3434 5.67467 18.3581C6.62804 18.4007 6.93236 18.4118 9.35963 18.4118C11.7869 18.4118 12.0912 18.4015 13.0446 18.3581C13.7864 18.3434 14.5204 18.2029 15.2152 17.9427C15.8088 17.7127 16.3478 17.3613 16.7977 16.911C17.2477 16.4607 17.5988 15.9215 17.8285 15.3278C18.0887 14.6329 18.2291 13.899 18.2439 13.1571C18.2864 12.2046 18.2967 11.899 18.2967 9.47303C18.2967 7.04704 18.2864 6.74145 18.243 5.78807C18.2283 5.04625 18.0878 4.3123 17.8276 3.61745C17.6032 3.02107 17.2512 2.48088 16.7964 2.03459C16.3501 1.57975 15.8099 1.2278 15.2135 1.00333C14.5187 0.743145 13.7847 0.602687 13.0429 0.587932C12.0904 0.545371 11.7848 0.535156 9.35878 0.535156Z" fill="#F7F6EF"/>
 											<path d="M9.35935 4.88477C8.45157 4.88477 7.56417 5.15395 6.80938 5.65829C6.05459 6.16262 5.4663 6.87945 5.11891 7.71813C4.77152 8.55681 4.68063 9.47967 4.85773 10.37C5.03482 11.2603 5.47196 12.0782 6.11386 12.7201C6.75576 13.362 7.57358 13.7991 8.46392 13.9762C9.35426 14.1533 10.2771 14.0624 11.1158 13.715C11.9545 13.3676 12.6713 12.7793 13.1756 12.0245C13.68 11.2698 13.9492 10.3824 13.9492 9.47458C13.9492 8.25728 13.4656 7.08985 12.6048 6.22909C11.7441 5.36833 10.5766 4.88477 9.35935 4.88477ZM9.35935 12.4539C8.7701 12.4539 8.19408 12.2791 7.70414 11.9518C7.2142 11.6244 6.83233 11.1591 6.60684 10.6147C6.38134 10.0703 6.32234 9.47127 6.4373 8.89335C6.55226 8.31542 6.83601 7.78456 7.25267 7.3679C7.66933 6.95124 8.20019 6.66749 8.77812 6.55253C9.35604 6.43758 9.95508 6.49658 10.4995 6.72207C11.0439 6.94757 11.5092 7.32943 11.8365 7.81937C12.1639 8.30931 12.3386 8.88533 12.3386 9.47458C12.3386 10.2647 12.0248 11.0225 11.466 11.5813C10.9073 12.14 10.1495 12.4539 9.35935 12.4539Z" fill="#F7F6EF"/>
@@ -701,7 +701,7 @@
 						@if($company->user->values->get('interested_in') == 'both' || $company->user->values->get('interested_in') == 'cats')
 							@if($company->values->has('cat_facebook') && $company->values->get('cat_facebook') != '')
 								<a href="{{ $company->values->get('cat_facebook') }}" target="_blank">
-									<div class="flex justify-center items-center bg-breeder-deepblue w-[37px] h-[37px] rounded-full">
+									<div class="flex justify-center items-center bg-jobboard-deepblue w-[37px] h-[37px] rounded-full">
 										<svg width="9" height="17" viewBox="0 0 9 17" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path d="M2.76756 16.7882V9.46084H0.301758V6.60522H2.76756V4.49929C2.76756 2.05537 4.26023 0.724609 6.44037 0.724609C7.48468 0.724609 8.38222 0.802361 8.64378 0.837113V3.39115L7.13173 3.39184C5.94605 3.39184 5.71647 3.95526 5.71647 4.78204V6.60522H8.54422L8.17603 9.46084H5.71647V16.7882H2.76756Z" fill="#F7F6EF"/>
 										</svg>
@@ -711,7 +711,7 @@
 
 							@if($company->values->has('cat_instagram') && $company->values->get('cat_instagram') != '')
 								<a href="{{ $company->values->get('cat_instagram') }}" target="_blank">
-									<div class="flex justify-center items-center bg-breeder-deepblue w-[37px] h-[37px] rounded-full">
+									<div class="flex justify-center items-center bg-jobboard-deepblue w-[37px] h-[37px] rounded-full">
 										<svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path d="M9.35878 2.14568C11.7452 2.14568 12.0278 2.15461 12.9705 2.1976C13.5373 2.20454 14.0988 2.30862 14.6304 2.50532C15.016 2.654 15.3661 2.88177 15.6583 3.17396C15.9505 3.46615 16.1782 3.81628 16.3269 4.20181C16.5236 4.73345 16.6277 5.29489 16.6346 5.86171C16.6772 6.80444 16.6866 7.08705 16.6866 9.47346C16.6866 11.8599 16.6776 12.1425 16.6346 13.0852C16.6277 13.652 16.5236 14.2135 16.3269 14.7451C16.1782 15.1306 15.9505 15.4808 15.6583 15.773C15.3661 16.0651 15.016 16.2929 14.6304 16.4416C14.0988 16.6383 13.5373 16.7424 12.9705 16.7493C12.0282 16.7919 11.7456 16.8012 9.35878 16.8012C6.97194 16.8012 6.68933 16.7923 5.74702 16.7493C5.1802 16.7424 4.61877 16.6383 4.08713 16.4416C3.70159 16.2929 3.35146 16.0651 3.05928 15.773C2.76709 15.4808 2.53932 15.1306 2.39064 14.7451C2.19394 14.2135 2.08985 13.652 2.08292 13.0852C2.04036 12.1425 2.03099 11.8599 2.03099 9.47346C2.03099 7.08705 2.03993 6.80444 2.08292 5.86171C2.08985 5.29489 2.19394 4.73345 2.39064 4.20181C2.53932 3.81628 2.76709 3.46615 3.05928 3.17396C3.35146 2.88177 3.70159 2.654 4.08713 2.50532C4.61877 2.30862 5.1802 2.20454 5.74702 2.1976C6.68976 2.15504 6.97236 2.14568 9.35878 2.14568ZM9.35878 0.535156C6.93278 0.535156 6.62719 0.545371 5.67382 0.588783C4.93199 0.603539 4.19804 0.743996 3.50319 1.00418C2.90712 1.22876 2.36722 1.5807 1.92119 2.03544C1.46603 2.48164 1.11379 3.02184 0.889073 3.6183C0.628887 4.31315 0.48843 5.0471 0.473675 5.78893C0.431113 6.74145 0.420898 7.04704 0.420898 9.47303C0.420898 11.899 0.431113 12.2046 0.474526 13.158C0.489281 13.8998 0.629739 14.6338 0.889924 15.3286C1.1144 15.925 1.46634 16.4652 1.92119 16.9115C2.36747 17.3663 2.90766 17.7183 3.50404 17.9427C4.1989 18.2029 4.93284 18.3434 5.67467 18.3581C6.62804 18.4007 6.93236 18.4118 9.35963 18.4118C11.7869 18.4118 12.0912 18.4015 13.0446 18.3581C13.7864 18.3434 14.5204 18.2029 15.2152 17.9427C15.8088 17.7127 16.3478 17.3613 16.7977 16.911C17.2477 16.4607 17.5988 15.9215 17.8285 15.3278C18.0887 14.6329 18.2291 13.899 18.2439 13.1571C18.2864 12.2046 18.2967 11.899 18.2967 9.47303C18.2967 7.04704 18.2864 6.74145 18.243 5.78807C18.2283 5.04625 18.0878 4.3123 17.8276 3.61745C17.6032 3.02107 17.2512 2.48088 16.7964 2.03459C16.3501 1.57975 15.8099 1.2278 15.2135 1.00333C14.5187 0.743145 13.7847 0.602687 13.0429 0.587932C12.0904 0.545371 11.7848 0.535156 9.35878 0.535156Z" fill="#F7F6EF"/>
 											<path d="M9.35935 4.88477C8.45157 4.88477 7.56417 5.15395 6.80938 5.65829C6.05459 6.16262 5.4663 6.87945 5.11891 7.71813C4.77152 8.55681 4.68063 9.47967 4.85773 10.37C5.03482 11.2603 5.47196 12.0782 6.11386 12.7201C6.75576 13.362 7.57358 13.7991 8.46392 13.9762C9.35426 14.1533 10.2771 14.0624 11.1158 13.715C11.9545 13.3676 12.6713 12.7793 13.1756 12.0245C13.68 11.2698 13.9492 10.3824 13.9492 9.47458C13.9492 8.25728 13.4656 7.08985 12.6048 6.22909C11.7441 5.36833 10.5766 4.88477 9.35935 4.88477ZM9.35935 12.4539C8.7701 12.4539 8.19408 12.2791 7.70414 11.9518C7.2142 11.6244 6.83233 11.1591 6.60684 10.6147C6.38134 10.0703 6.32234 9.47127 6.4373 8.89335C6.55226 8.31542 6.83601 7.78456 7.25267 7.3679C7.66933 6.95124 8.20019 6.66749 8.77812 6.55253C9.35604 6.43758 9.95508 6.49658 10.4995 6.72207C11.0439 6.94757 11.5092 7.32943 11.8365 7.81937C12.1639 8.30931 12.3386 8.88533 12.3386 9.47458C12.3386 10.2647 12.0248 11.0225 11.466 11.5813C10.9073 12.14 10.1495 12.4539 9.35935 12.4539Z" fill="#F7F6EF"/>
@@ -724,7 +724,7 @@
 
 						@if($company->values->has('website') && $company->values->get('website') != '')
 							<a href="{{ $company->values->get('website') }}" target="_blank">
-								<div class="flex justify-center items-center bg-breeder-deepblue w-[37px] h-[37px] rounded-full">
+								<div class="flex justify-center items-center bg-jobboard-deepblue w-[37px] h-[37px] rounded-full">
 									<svg width="37" height="38" viewBox="0 0 37 38" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<circle cx="18.4716" cy="19.415" r="18.4716" fill="#0E1954"/>
 										<path d="M25.5549 14.8682C24.5125 15.4941 23.3586 15.9923 22.1242 16.34C20.8277 16.7031 19.4408 16.9008 18.0006 16.9008C16.5604 16.9008 15.1735 16.7031 13.8771 16.3387C12.642 15.9923 11.4881 15.4941 10.4464 14.8682M25.5549 23.7411C24.5125 23.1152 23.3586 22.617 22.1242 22.2693C20.8277 21.9062 19.4408 21.7085 18.0006 21.7085C16.5604 21.7085 15.1735 21.9062 13.8771 22.2706C12.642 22.617 11.4881 23.1152 10.4464 23.7411M18.0161 9.95265V27.6905M11.636 12.5794C8.12132 16.0941 8.12132 21.7926 11.636 25.3073C15.1508 28.822 20.8492 28.822 24.364 25.3073C27.8787 21.7926 27.8787 16.0941 24.364 12.5794C20.8492 9.06468 15.1508 9.06468 11.636 12.5794ZM13.4012 18.9434C13.4012 23.9139 15.4601 27.9434 18 27.9434C20.5399 27.9434 22.5989 23.9139 22.5989 18.9434C22.5989 13.9728 20.5399 9.94336 18 9.94336C15.4601 9.94336 13.4012 13.9728 13.4012 18.9434Z" stroke="#F7F6EF" stroke-linecap="round" stroke-linejoin="round"/>
@@ -779,9 +779,9 @@
 
 	{{-- Column right --}}
 	<div class="max-xlsm:mb-10 w-full max-xlsm:px-4 max-sm:mx-2 xlsm:w-[300px]">
-		<div class="border border-x border-breeder-greige rounded-xl w-full">
+		<div class="border border-x border-jobboard-greige rounded-xl w-full">
 			@if($company->user->lastModeration?->isValidated())
-				<div class="flex flex-row justify-center items-center gap-x-2 mb-4 bg-breeder-cream rounded-t-xl p-2">
+				<div class="flex flex-row justify-center items-center gap-x-2 mb-4 bg-jobboard-cream rounded-t-xl p-2">
 					<svg class="shrink-0" width="90" height="100" viewBox="0 0 90 100" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M84.6574 21.1795L50.3376 1.5532C47.0375 -0.340652 42.9626 -0.340652 39.6624 1.5532L5.34265 21.1795C2.04248 23.0734 0 26.5621 0 30.3398V69.5925C0 73.3702 2.03242 76.8689 5.34265 78.7528L39.6624 98.3791C42.9626 100.273 47.0375 100.273 50.3376 98.3791L84.6574 78.7528C87.9575 76.8589 90 73.3702 90 69.5925V30.3498C90 26.572 87.9676 23.0734 84.6574 21.1895V21.1795Z" fill="white"/>
 						<path d="M48.8404 23.0655C47.6377 22.4683 46.2795 22.1328 44.8477 22.1328C39.8731 22.1328 35.8477 26.1583 35.8477 31.1328C35.8477 36.1074 39.8731 40.1328 44.8477 40.1328C49.8222 40.1328 53.8477 36.1074 53.8477 31.1328C53.8477 29.9792 53.6267 28.8746 53.234 27.8601" stroke="#0E1954" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -900,9 +900,9 @@
 		$littersAvailable = $company->littersWithAvailableAnimals;
 	@endphp
 	@if($littersAvailable->count() > 0)
-		<div class="flex flex-col items-center  w-full p-4 bg-breeder-deepblue py-8 overflow-hidden">
+		<div class="flex flex-col items-center  w-full p-4 bg-jobboard-deepblue py-8 overflow-hidden">
 			<div class="max-w-[1200px] flex flex-col gap-2 w-full">
-				<h2 class="text-[28px] text-breeder-cream"><span class="font-bold">{{ __('Their animals') }}</span>
+				<h2 class="text-[28px] text-jobboard-cream"><span class="font-bold">{{ __('Their animals') }}</span>
 					{{ __('for adoption') }}
 				</h2>
 
@@ -935,7 +935,7 @@
 				@endphp
 					@if($countLittersAvailable > 3)
 						{{-- Previous button --}}
-						<div x-on:click="showPreviousElement();" class="max-s:hidden mr-10 cursor-pointer absolute z-20 left-0 h-[220px] flex items-center bg-gradient-to-l from-transparent to-breeder-deepblue">
+						<div x-on:click="showPreviousElement();" class="max-s:hidden mr-10 cursor-pointer absolute z-20 left-0 h-[220px] flex items-center bg-gradient-to-l from-transparent to-jobboard-deepblue">
 							<svg width="101" height="101" viewBox="0 0 101 101" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<g filter="url(#filter0_d_5245_39654)">
 									<path d="M50.5 81C33.6553 81 20 67.3447 20 50.5C20 33.6553 33.6553 20 50.5 20C67.3447 20 81 33.6553 81 50.5C81 67.3447 67.3447 81 50.5 81Z" fill="#F7F6EF"/>
@@ -964,12 +964,12 @@
 									<article class="w-[220px] h-[220px] relative">
 										<div class="absolute w-[220px] top-0 z-10">
 											<div class="flex flex-row gap-2 p-2 items-center">
-												<span class="px-3 py-1 rounded-md font-medium bg-breeder-cream text-breeder-deepblue text-sm w-fit grow-0">
+												<span class="px-3 py-1 rounded-md font-medium bg-jobboard-cream text-jobboard-deepblue text-sm w-fit grow-0">
 													{{ ($litterAnimal->mother ? $litterAnimal->mother->values->get('pure_breed') : $litterAnimal->values->get('pure_breed')) ? $litterAnimal->breed->name : __('Of appearance :breed', ['breed' => $litterAnimal->breed->name]) }}
 												</span>
 
 												@if($litterAnimal->mother ? $litterAnimal->mother->values->get('pure_breed') : $litterAnimal->values->get('pure_breed'))
-												<span class="px-3 py-1 rounded-md font-medium text-breeder-deepblue text-sm w-fit @if($litterAnimal->species->getTranslation('slug', 'en') == 'cat' && $litterAnimal->company->address?->country?->code == 'FRA') bg-breeder-green @elseif($litterAnimal->species->getTranslation('slug', 'en') == 'dog' && $litterAnimal->company->address?->country?->code == 'FRA') bg-breeder-coral @else bg-breeder-cream @endif">
+												<span class="px-3 py-1 rounded-md font-medium text-jobboard-deepblue text-sm w-fit @if($litterAnimal->species->getTranslation('slug', 'en') == 'cat' && $litterAnimal->company->address?->country?->code == 'FRA') bg-jobboard-green @elseif($litterAnimal->species->getTranslation('slug', 'en') == 'dog' && $litterAnimal->company->address?->country?->code == 'FRA') bg-jobboard-coral @else bg-jobboard-cream @endif">
 													@if($litterAnimal->company->address?->country?->code == 'FRA')
 														@if($litterAnimal->species->getTranslation('slug', 'en') == 'cat')
 															LOOF
@@ -1001,7 +1001,7 @@
 					</div>
 
 					@if($countLittersAvailable > 3)
-						<div x-on:click="showNextElement();" class="max-s:hidden ml-10 cursor-pointer absolute z-20 right-0 h-[220px] flex items-center bg-gradient-to-r from-transparent to-breeder-deepblue">
+						<div x-on:click="showNextElement();" class="max-s:hidden ml-10 cursor-pointer absolute z-20 right-0 h-[220px] flex items-center bg-gradient-to-r from-transparent to-jobboard-deepblue">
 							<svg width="101" height="101" viewBox="0 0 101 101" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<g filter="url(#filter0_d_2188_51292)">
 									<path d="M50.5 81C67.3447 81 81 67.3447 81 50.5C81 33.6553 67.3447 20 50.5 20C33.6553 20 20 33.6553 20 50.5C20 67.3447 33.6553 81 50.5 81Z" fill="#F7F6EF"/>
@@ -1029,14 +1029,14 @@
 @endif
 
 {{-- Listes chiots à vendre etc --}}
-<div class="w-full bg-breeder-cream text-breeder-deepblue flex justify-center py-8 px-4 max-md:hidden mb-20">
+<div class="w-full bg-jobboard-cream text-jobboard-deepblue flex justify-center py-8 px-4 max-md:hidden mb-20">
 	<livewire:front.multi-column-widget
 		:forSpecies="$company->species->first()"
 		:key="'breeder-component'" />
 </div>
 
 {{-- NL inscription --}}
-@include('components.front.nl', ['bgcolor' => 'bg-breeder-coral'])
+@include('components.front.nl', ['bgcolor' => 'bg-jobboard-coral'])
 {{-- CTA Create post --}}
 @include('components.front.cta-post')
 

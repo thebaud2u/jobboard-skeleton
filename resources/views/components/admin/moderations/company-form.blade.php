@@ -23,20 +23,20 @@
 
 			@if($moderation->model->user->lastModeration)
 				@if($moderation->model->user->lastModeration->isValidated())
-					<div class="text-breeder-green">
+					<div class="text-jobboard-green">
 						{{ __('Validated') }}
 					</div>
 				@elseif($moderation->model->user->lastModeration->isDenied())
-					<div class="text-breeder-coralhover">
+					<div class="text-jobboard-coralhover">
 						{{ __('Denied') }}
 					</div>
 				@elseif($moderation->model->user->lastModeration->isWaiting())
-					<div class="text-breeder-yellow">
+					<div class="text-jobboard-yellow">
 						{{ __('Waiting') }}
 					</div>
 				@endif
 			@else
-				<div class="text-breeder-coralhover">
+				<div class="text-jobboard-coralhover">
 					{{ __('User\'s profil is not marked for moderation') }}
 				</div>
 			@endif
@@ -326,7 +326,7 @@
 
 					<div class="flex flex-wrap gap-4 pl-4 my-4">
 						@foreach($moderation->model->breeds as $breed)
-							<span class="w-fit px-3 py-1 rounded-md font-medium bg-breeder-cream text-breeder-deepblue text-sm">
+							<span class="w-fit px-3 py-1 rounded-md font-medium bg-jobboard-cream text-jobboard-deepblue text-sm">
 								{{ $breed->name }}
 							</span>
 						@endforeach
@@ -338,7 +338,7 @@
 
 					<div class="flex flex-wrap gap-4 pl-4 my-4">
 						@foreach($moderation->model->constructBreedsFromModeration() as $breed)
-							<span class="w-fit px-3 py-1 rounded-md font-medium bg-breeder-cream text-breeder-deepblue text-sm">
+							<span class="w-fit px-3 py-1 rounded-md font-medium bg-jobboard-cream text-jobboard-deepblue text-sm">
 								{{ $breed->name }}
 							</span>
 						@endforeach
@@ -347,7 +347,7 @@
 			@else
 				<div class="flex flex-wrap pl-4 my-4 gap-4">
 					@foreach($moderation->model->breeds as $breed)
-						<span class="w-fit px-3 py-1 rounded-md font-medium bg-breeder-cream text-breeder-deepblue text-sm">
+						<span class="w-fit px-3 py-1 rounded-md font-medium bg-jobboard-cream text-jobboard-deepblue text-sm">
 							{{ $breed->name }}
 						</span>
 					@endforeach

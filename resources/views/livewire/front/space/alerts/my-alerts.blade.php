@@ -12,7 +12,7 @@
 			@endif
 		</div>
 
-		<hr class="h-px border border-breeder-deepblue w-full my-[30px]">
+		<hr class="h-px border border-jobboard-deepblue w-full my-[30px]">
 	</div>
 
 	@if(!$showForm)
@@ -22,7 +22,7 @@
 					@if($alerts->isNotEmpty())
 						<div class="flex flex-row justify-start flex-wrap gap-4">
 							@foreach($alerts as $alert)
-								<div class="flex flex-col w-full gap-y-4 p-4 rounded-xl border border-breeder-greige">
+								<div class="flex flex-col w-full gap-y-4 p-4 rounded-xl border border-jobboard-greige">
 									<div class="flex flex-col max-sm: gap-4 sm:flex-row w-full sm:justify-between sm:items-center">
 										<div class="flex flex-col gap-y-4">
 											<div class="flex flex-row items-center gap-x-2 sm">
@@ -57,21 +57,21 @@
 													@endif
 												@endif
 
-												<div class="font-bold text-breeder-deepblue text-lg">
+												<div class="font-bold text-jobboard-deepblue text-lg">
 													{{ $alert->name }}
 												</div>
 											</div>
 
 											<div class="flex flex-row gap-x-3 gap-y-2 shrink-0 flex-wrap">
 												@if($localisation = $alert->buildLocalisation())
-													<span class="px-3 py-1 rounded-md font-medium bg-breeder-cream text-breeder-deepblue text-sm w-fit">
+													<span class="px-3 py-1 rounded-md font-medium bg-jobboard-cream text-jobboard-deepblue text-sm w-fit">
 														{{ $localisation }}
 													</span>
 												@endif
 
 												@if($alert->type->value == 'post')
 													@if($alert->values->get('min_price') || $alert->values->get('max_price'))
-														<span class="px-3 py-1 rounded-md font-medium bg-breeder-cream text-breeder-deepblue text-sm w-fit shrink-0">
+														<span class="px-3 py-1 rounded-md font-medium bg-jobboard-cream text-jobboard-deepblue text-sm w-fit shrink-0">
 															@if($alert->values->get('min_price') && $alert->values->get('max_price'))
 																{{ __('From :x', ['x' => $alert->values->get('min_price')]).' '.__('to :x €', ['x' => $alert->values->get('max_price')]) }}
 															@elseif($alert->values->get('min_price'))
@@ -83,7 +83,7 @@
 													@endif
 
 													@if($alert->values->get('sex'))
-														<span class="px-3 py-1 rounded-md font-medium bg-breeder-cream text-breeder-deepblue text-sm w-fit shrink-0">
+														<span class="px-3 py-1 rounded-md font-medium bg-jobboard-cream text-jobboard-deepblue text-sm w-fit shrink-0">
 															@if($alert->values->get('sex') == 'both')
 																{{ __('No gender preference') }}
 															@else
@@ -93,7 +93,7 @@
 													@endif
 
 													@if($alert->values->get('pure_breed'))
-														<span class="px-3 py-1 rounded-md font-medium bg-breeder-cream text-breeder-deepblue text-sm w-fit shrink-0">
+														<span class="px-3 py-1 rounded-md font-medium bg-jobboard-cream text-jobboard-deepblue text-sm w-fit shrink-0">
 															@if($alert->values->get('pure_breed') == 'both')
 																@if($alert->values->get('species') == 'dog')
 																	{{ __('No LOF/Book of Origins preference') }}
@@ -123,7 +123,7 @@
 
 										<div class="flex sm:flex-col gap-4 sm:gap-3 text-sm max-xseol:flex-wrap max-sm:mt-2">
 											@if($alert->type->value == 'post')
-												<div wire:click="getAlert({{ $alert->id }})" class="flex flex-row gap-x-2 items-center text-breeder-deepblue font-bold cursor-pointer">
+												<div wire:click="getAlert({{ $alert->id }})" class="flex flex-row gap-x-2 items-center text-jobboard-deepblue font-bold cursor-pointer">
 													<svg class="shrink-0" width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
 														<path d="M7.01201 2.12054L2.14156 2.12054C1.77249 2.12054 1.41855 2.25668 1.15758 2.49901C0.89661 2.74134 0.75 3.07 0.75 3.41271L0.750001 12.4578C0.750001 12.8005 0.896611 13.1292 1.15758 13.3715C1.41855 13.6139 1.7725 13.75 2.14156 13.75L11.8825 13.75C12.2515 13.75 12.6055 13.6139 12.8664 13.3715C13.1274 13.1292 13.274 12.8005 13.274 12.4578L13.274 7.93527M12.2304 1.15142C12.5072 0.894395 12.8826 0.749999 13.274 0.749999C13.6655 0.749999 14.0409 0.894395 14.3177 1.15142C14.5945 1.40845 14.75 1.75705 14.75 2.12054C14.75 2.48403 14.5945 2.83264 14.3177 3.08966L7.70779 9.22743L4.92468 9.87351L5.62046 7.28919L12.2304 1.15142Z" stroke="#0E1954" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 													</svg>
@@ -132,7 +132,7 @@
 												</div>
 											@endif
 
-											<div wire:click="deleteAlert({{ $alert->id }})" class="flex flex-row gap-x-2 items-center text-breeder-deepblue font-bold cursor-pointer">
+											<div wire:click="deleteAlert({{ $alert->id }})" class="flex flex-row gap-x-2 items-center text-jobboard-deepblue font-bold cursor-pointer">
 												<svg class="shrink-0" width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 													<path d="M0.75 3.86111L2.30556 3.86111M2.30556 3.86111L14.75 3.86111M2.30556 3.86111L2.30556 14.75C2.30556 15.1626 2.46944 15.5582 2.76117 15.8499C3.05289 16.1417 3.44855 16.3056 3.86111 16.3056L11.6389 16.3056C12.0514 16.3056 12.4471 16.1417 12.7388 15.8499C13.0306 15.5582 13.1944 15.1626 13.1944 14.75L13.1944 3.86111M4.63889 3.86111L4.63889 2.30556C4.63889 1.893 4.80278 1.49733 5.0945 1.20561C5.38622 0.913888 5.78188 0.75 6.19444 0.75L9.30555 0.749999C9.71811 0.749999 10.1138 0.913888 10.4055 1.20561C10.6972 1.49733 10.8611 1.893 10.8611 2.30555L10.8611 3.86111M6.19444 7.75L6.19444 12.4167M9.30555 7.75L9.30555 12.4167" stroke="#0E1954" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 												</svg>
@@ -141,7 +141,7 @@
 											</div>
 
 											@if($alert->type->value == 'post')
-												<div wire:click="toggleAlert({{ $alert->id }})" class="flex flex-row gap-1 items-center text-breeder-deepblue font-bold cursor-pointer">
+												<div wire:click="toggleAlert({{ $alert->id }})" class="flex flex-row gap-1 items-center text-jobboard-deepblue font-bold cursor-pointer">
 													<svg class="shrink-0 max-w-[21px]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
 														<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.678 48.678 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 0 0 3.7 3.7 48.656 48.656 0 0 0 7.324 0 4.006 4.006 0 0 0 3.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3-3 3" />
 													</svg>
@@ -176,7 +176,7 @@
 							@endforeach
 						</div>
 					@else
-						<div class="flex flex-col p-8 gap-y-4 justify-center items-center bg-breeder-orange rounded-3xl w-full max-w-[794px] mx-auto">
+						<div class="flex flex-col p-8 gap-y-4 justify-center items-center bg-jobboard-orange rounded-3xl w-full max-w-[794px] mx-auto">
 							<svg width="58" height="53" viewBox="0 0 58 53" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M31.4877 44.5223C32.8855 47.3151 36.2898 48.4512 39.0784 47.0555C41.8671 45.6598 42.9981 42.2538 41.6004 39.461M52.3067 30.6486L48.3572 28.4614C45.9491 27.1337 43.9925 25.1003 42.7561 22.6298L40.1295 17.3818C37.1957 11.52 30.7697 8.55743 24.6466 9.76065L23.1336 6.73769C22.189 4.85026 19.9118 4.0903 18.0271 5.03354C16.1425 5.97678 15.3859 8.25513 16.3306 10.1426L17.8435 13.1655C13.2104 17.3457 11.7302 24.2652 14.664 30.127L17.2906 35.375C18.527 37.8455 18.982 40.6304 18.6014 43.3538L17.985 47.8263C17.7871 49.2302 19.2521 50.2815 20.5239 49.645L52.2408 33.771C53.5126 33.1345 53.5338 31.3393 52.3067 30.6486Z" stroke="#0E1954" stroke-width="3.5" stroke-miterlimit="10"/>
 							</svg>
@@ -211,7 +211,7 @@
 			</div>
 
 			<div x-data="{isActive : @entangle('filters.species').live}" class="flex flex-row justify-center items-stretch rounded-full sm:w-[350px] mx-auto font-bold max-sm:flex-col">
-				<div x-on:click="isActive = 'dog'" wire:model="filters.species" wire:click="loadBreeds" :class="isActive == 'dog' ? '' : 'opacity-50'" class="flex flex-row gap-x-2 w-full h-full bg-breeder-deepblue max-sm:rounded-t-xl sm:rounded-l-full justify-center items-center text-semibold text-breeder-cream text-sm pl-5 px-4 py-3 cursor-pointer">
+				<div x-on:click="isActive = 'dog'" wire:model="filters.species" wire:click="loadBreeds" :class="isActive == 'dog' ? '' : 'opacity-50'" class="flex flex-row gap-x-2 w-full h-full bg-jobboard-deepblue max-sm:rounded-t-xl sm:rounded-l-full justify-center items-center text-semibold text-jobboard-cream text-sm pl-5 px-4 py-3 cursor-pointer">
 					<svg width="31" height="25" viewBox="0 0 31 25" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M11.1744 0.310716C10.2611 -0.593908 8.37499 0.739778 7.45741 1.05471C4.97231 1.90649 2.3003 2.1411 0.775258 4.55061C-1.77993 8.59183 2.4596 17.5345 6.53771 14.512C8.7212 12.893 6.67365 8.54533 8.34738 6.16752C9.01857 5.2164 10.2611 4.85497 10.9153 3.65022C11.3168 2.91257 11.8138 0.942685 11.1723 0.308603L11.1744 0.310716ZM29.4155 3.50438C27.8926 1.98892 25.9406 1.9551 24.0672 1.32313C22.3192 0.735551 19.0163 -1.74582 19.5282 2.24889C19.8723 4.93318 22.7864 5.29037 23.2389 7.43357C23.6998 9.62116 22.3064 14.1823 25.2376 14.9538C27.4338 15.5308 28.8229 13.9667 29.7447 12.2399C31.1699 9.57043 31.771 5.84414 29.4176 3.50438H29.4155ZM10.7433 7.27083C9.12052 7.60266 9.60267 10.2024 11.0789 10.139C13.0266 10.0544 12.9884 6.81217 10.7433 7.27083ZM18.7126 9.71627C20.0316 11.0986 22.2236 8.8053 20.775 7.55828C19.3264 6.31125 17.5699 8.51785 18.7126 9.71627ZM6.76286 15.2666V24.4608C6.76286 24.5961 7.27475 24.9659 7.51264 24.9913C9.38814 25.1942 8.32189 21.8251 8.4642 20.762C10.6647 22.5797 13.1965 23.2307 15.3949 20.9902C17.6676 23.1081 19.9063 22.6325 22.2682 20.9733V24.2494C22.2682 25.2661 24.1798 25.0906 24.1798 24.4608V15.2666C21.905 15.1821 22.419 16.5031 21.888 17.953C21.2274 19.7517 18.8336 21.5926 17.0792 19.9039C16.3889 19.2402 16.0852 17.3295 16.3188 16.4735C16.4208 16.0972 18.2941 15.5731 17.9819 13.9477C17.5104 11.498 12.8375 11.8278 12.9374 14.2986C13.0032 15.9176 14.5984 16.3255 14.6323 16.465C15.3418 19.4114 12.7101 22.0238 10.1549 19.6079C8.43021 17.9762 9.46036 15.0531 6.76286 15.2687V15.2666Z" fill="#FF7E71"/>
 						<path d="M11.1744 0.310627C11.8159 0.944709 11.3167 2.91459 10.9174 3.65224C10.2632 4.857 9.01854 5.21842 8.34948 6.16955C6.67363 8.54524 8.72118 12.895 6.53982 14.5141C2.45958 17.5344 -1.77995 8.59174 0.775238 4.55052C2.30028 2.14101 4.97229 1.9064 7.45739 1.05462C8.37497 0.739689 10.2611 -0.596111 11.1744 0.310627Z" fill="#FF7E71"/>
@@ -224,7 +224,7 @@
 					{{ __('A dog') }}
 				</div>
 
-				<div x-on:click="isActive = 'cat'" wire:model="filters.species" wire:click="loadBreeds" :class="isActive == 'cat' ? '' : 'opacity-50'" class="flex flex-row gap-x-2 w-full h-full bg-breeder-deepblue max-sm:rounded-b-xl sm:rounded-r-full justify-center items-center text-semibold text-breeder-cream text-sm px-4 py-3 pr-5 cursor-pointer">
+				<div x-on:click="isActive = 'cat'" wire:model="filters.species" wire:click="loadBreeds" :class="isActive == 'cat' ? '' : 'opacity-50'" class="flex flex-row gap-x-2 w-full h-full bg-jobboard-deepblue max-sm:rounded-b-xl sm:rounded-r-full justify-center items-center text-semibold text-jobboard-cream text-sm px-4 py-3 pr-5 cursor-pointer">
 					{{ __('A cat') }}
 
 					<svg width="31" height="25" viewBox="0 0 31 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -247,14 +247,14 @@
 				</div>
 			</div>
 
-			<div class="w-full max-w-[922px] rounded-xl bg-breeder-cream p-6 flex justify-center items-center">
-				<div class="flex flex-col gap-8 md:gap-4 max-w-[882px] sm:mx-auto lg:mx-0 lg:flex-row w-full lg:w-full lg:items-center max-md:justify-between bg-white p-4 rounded-xl border border-breeder-greige">
-					<div class="relative inline-flex items-center bg-white rounded-full flex-1 px-2 py-2 md:py-1 lg:p-0 lg:rounded-none text-breeder-deepblue lg:border-r lg:pl-4 border-breeder-greige lg:max-w-[410px] w-full max-md:border max-md:rounded-md max-md:focus-within:border-breeder-deepblue">
+			<div class="w-full max-w-[922px] rounded-xl bg-jobboard-cream p-6 flex justify-center items-center">
+				<div class="flex flex-col gap-8 md:gap-4 max-w-[882px] sm:mx-auto lg:mx-0 lg:flex-row w-full lg:w-full lg:items-center max-md:justify-between bg-white p-4 rounded-xl border border-jobboard-greige">
+					<div class="relative inline-flex items-center bg-white rounded-full flex-1 px-2 py-2 md:py-1 lg:p-0 lg:rounded-none text-jobboard-deepblue lg:border-r lg:pl-4 border-jobboard-greige lg:max-w-[410px] w-full max-md:border max-md:rounded-md max-md:focus-within:border-jobboard-deepblue">
 						<svg class="shrink-0" width="30" height="27" viewBox="0 0 30 27" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M14.9629 9.90039C14.9613 9.90036 14.939 9.90081 14.9043 9.90137C14.8672 9.90196 14.8144 9.90277 14.748 9.90625C14.6152 9.91321 14.4271 9.92883 14.1992 9.96094C13.7441 10.0251 13.1257 10.1577 12.4688 10.4336C11.149 10.9879 9.67365 12.1206 9.05664 14.4062C8.47873 16.547 7.37119 17.7135 6.36328 18.7725C5.81276 19.3509 5.26718 19.9216 4.91992 20.5889C4.56505 21.2709 4.41947 22.0473 4.63867 23.0312C4.87599 24.0948 5.42417 24.9097 6.28125 25.4531C7.1311 25.9919 8.26295 26.25 9.64941 26.25C10.2595 26.25 10.9215 26.2 11.6348 26.1006C13.8494 25.7932 16.0949 25.7933 18.3096 26.1006C20.2851 26.3751 21.8811 26.2739 23.0635 25.7676C24.2615 25.2544 25.0162 24.333 25.3066 23.0312C25.5272 22.0412 25.3823 21.2597 25.0283 20.5723C24.6816 19.8991 24.1357 19.3223 23.585 18.7373C22.5894 17.6804 21.4943 16.5145 20.8857 14.3975C20.2309 12.1175 18.7569 10.9879 17.4443 10.4346C16.7911 10.1592 16.1784 10.0262 15.7266 9.96191C15.313 9.90308 15.0024 9.90004 14.9834 9.90137L14.9736 9.90039H14.9629ZM14.9639 11.0986L14.9707 11.0977C15.0407 11.0954 15.9689 11.0832 17.0068 11.5332C18.0348 11.9789 19.1752 12.879 19.7041 14.7207C20.3935 17.1204 21.6776 18.4811 22.6826 19.5479C23.2188 20.1173 23.6486 20.576 23.9111 21.0732C24.1649 21.5538 24.2634 22.076 24.1074 22.7764C23.8959 23.7248 23.3547 24.3626 22.4531 24.7188C21.5324 25.0823 20.2213 25.1566 18.4814 24.915L18.0439 24.8584C17.2261 24.7592 16.4047 24.7003 15.583 24.6807L15.5928 24.6719H14.9727C13.7999 24.6719 12.6276 24.7532 11.4629 24.915C9.72242 25.1569 8.41171 25.0815 7.49121 24.7178C6.58959 24.3615 6.04847 23.7238 5.83691 22.7754L5.79102 22.5244C5.71017 21.9558 5.81365 21.5098 6.03516 21.0947C6.29732 20.6036 6.72561 20.1502 7.26074 19.5879C8.27978 18.5168 9.58286 17.1497 10.2412 14.7119C10.7368 12.8757 11.8767 11.9782 12.9111 11.5332C13.9549 11.0843 14.8945 11.096 14.9561 11.0977L14.9639 11.0986ZM25.8877 9.01465C24.9356 9.01478 24.0899 9.52218 23.4902 10.3057C22.8906 11.0891 22.5264 12.1601 22.5264 13.3311C22.5264 14.5019 22.8907 15.5728 23.4902 16.3564C24.0899 17.1401 24.9356 17.6473 25.8877 17.6475C26.8402 17.6475 27.6865 17.141 28.2861 16.3574C28.8857 15.5739 29.25 14.5023 29.25 13.3311C29.25 12.1599 28.8856 11.089 28.2861 10.3057C27.6864 9.52214 26.8399 9.01465 25.8877 9.01465ZM4.1123 9.01465C3.16006 9.01465 2.3136 9.52208 1.71387 10.3057C1.11431 11.0891 0.75 12.1601 0.75 13.3311C0.750017 14.5019 1.11438 15.5729 1.71387 16.3564C2.31358 17.1402 3.16002 17.6475 4.1123 17.6475C5.06458 17.6473 5.9102 17.1408 6.50977 16.3574C7.1093 15.5739 7.47362 14.5023 7.47363 13.3311C7.47363 12.1598 7.10931 11.089 6.50977 10.3057C5.91009 9.52225 5.06437 9.01478 4.1123 9.01465ZM25.8877 10.2119C26.4426 10.2119 26.9716 10.5309 27.3711 11.0947C27.77 11.6578 28.0244 12.4482 28.0244 13.3311C28.0244 14.214 27.77 15.0043 27.3711 15.5674C26.9717 16.1312 26.443 16.4492 25.8877 16.4492C25.3326 16.4491 24.8046 16.131 24.4053 15.5674C24.0064 15.0043 23.751 14.214 23.751 13.3311C23.751 12.4481 24.0064 11.6578 24.4053 11.0947C24.8046 10.5311 25.3325 10.2121 25.8877 10.2119ZM4.1123 10.2119C4.66707 10.2121 5.19528 10.531 5.59473 11.0947C5.99369 11.6578 6.24902 12.4482 6.24902 13.3311C6.24901 14.214 5.99363 15.0043 5.59473 15.5674C5.1954 16.131 4.66743 16.4491 4.1123 16.4492C3.55701 16.4492 3.02833 16.1312 2.62891 15.5674C2.23 15.0043 1.9756 14.214 1.97559 13.3311C1.97559 12.4482 2.23004 11.6578 2.62891 11.0947C3.02833 10.5309 3.55701 10.2119 4.1123 10.2119ZM19.9111 0.75C18.9591 0.750172 18.1133 1.25746 17.5137 2.04102C16.9142 2.8245 16.5498 3.8953 16.5498 5.06641C16.5498 6.23775 16.914 7.30922 17.5137 8.09277C18.1133 8.87629 18.9591 9.38264 19.9111 9.38281H20.1611V9.36914C21.0115 9.2892 21.7636 8.80632 22.3105 8.0918C22.9102 7.30826 23.2744 6.23663 23.2744 5.06543C23.2743 3.89422 22.9093 2.82332 22.3096 2.04004C21.7096 1.25663 20.8633 0.75 19.9111 0.75ZM10.0889 0.75C9.13627 0.75 8.2901 1.2573 7.69043 2.04102C7.091 2.82453 6.7266 3.89526 6.72656 5.06641C6.72656 6.23775 7.09079 7.30922 7.69043 8.09277C8.29016 8.87642 9.13664 9.38281 10.0889 9.38281H10.3389V9.36914C11.1888 9.28892 11.9398 8.80604 12.4863 8.0918C13.0859 7.30823 13.4502 6.23674 13.4502 5.06543C13.4501 3.89428 13.0858 2.82335 12.4863 2.04004C11.8868 1.25671 11.0412 0.750172 10.0889 0.75ZM19.9111 1.94824C20.4664 1.94824 20.9951 2.26634 21.3945 2.83008C21.7934 3.39313 22.0478 4.18351 22.0479 5.06641C22.0479 5.94931 21.7934 6.73966 21.3945 7.30273C20.9951 7.86653 20.4664 8.18555 19.9111 8.18555C19.356 8.18536 18.828 7.86637 18.4287 7.30273C18.0298 6.73966 17.7754 5.94931 17.7754 5.06641C17.7754 4.18351 18.0298 3.39313 18.4287 2.83008C18.828 2.26651 19.356 1.94843 19.9111 1.94824ZM10.0889 1.94824C10.6436 1.94843 11.1719 2.2664 11.5713 2.83008C11.9703 3.39314 12.2246 4.18355 12.2246 5.06641C12.2246 5.94931 11.9702 6.73966 11.5713 7.30273C11.172 7.86637 10.644 8.18536 10.0889 8.18555C9.53357 8.18555 9.00489 7.86653 8.60547 7.30273C8.2066 6.73966 7.95215 5.94931 7.95215 5.06641C7.95218 4.18351 8.20658 3.39313 8.60547 2.83008C9.00489 2.26634 9.5336 1.94824 10.0889 1.94824Z" fill="#0E1954" stroke="#0E1954" stroke-width="0.5"/>
 						</svg>
 
-						<select name="breeds" wire:model="filters.breed" wire:change="breedSelected" class="text-breeder-deepblue text-sm block border-0 focus:border-0 focus:ring-0 rounded-md w-full">
+						<select name="breeds" wire:model="filters.breed" wire:change="breedSelected" class="text-jobboard-deepblue text-sm block border-0 focus:border-0 focus:ring-0 rounded-md w-full">
 							<option value="">{{ __('Breeds') }}</option>
 
 							@foreach($breeds as $breedEntry)
@@ -265,7 +265,7 @@
 						</select>
 					</div>
 
-					<div class="relative inline-flex items-center bg-white rounded-full flex-1 px-2 py-2 md:py-1 lg:p-0 lg:rounded-none text-breeder-deepblue lg:border-r lg:pl-4 border-breeder-greige lg:max-w-[224px] w-full max-md:border max-md:rounded-md max-md:focus-within:border-breeder-deepblue">
+					<div class="relative inline-flex items-center bg-white rounded-full flex-1 px-2 py-2 md:py-1 lg:p-0 lg:rounded-none text-jobboard-deepblue lg:border-r lg:pl-4 border-jobboard-greige lg:max-w-[224px] w-full max-md:border max-md:rounded-md max-md:focus-within:border-jobboard-deepblue">
 						<svg width="25" height="27" viewBox="0 0 25 27" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<g clip-path="url(#clip0_1979_30109)">
 								<mask id="path-1-outside-1_1979_30109" maskUnits="userSpaceOnUse" x="-0.25" y="4.66406" width="11" height="23" fill="black">
@@ -289,7 +289,7 @@
 							</defs>
 						</svg>
 
-						<select name="post_type" wire:model="filters.post_type" wire:change="postTypeSelected" class="text-breeder-deepblue text-sm block border-0 focus:border-0 focus:ring-0 rounded-md w-full">
+						<select name="post_type" wire:model="filters.post_type" wire:change="postTypeSelected" class="text-jobboard-deepblue text-sm block border-0 focus:border-0 focus:ring-0 rounded-md w-full">
 							<option value="">{{ __('Category') }}</option>
 
 							@foreach($postTypes as $postTypeEntry)
@@ -310,18 +310,18 @@
 						</select>
 					</div>
 
-					<div class="bg-white rounded-full flex-1 px-2 py-2 md:py-1 lg:p-0 lg:shadow-none lg:rounded-none text-breeder-deepblue w-full max-md:border max-md:rounded-md max-md:focus-within:border-breeder-deepblue">
+					<div class="bg-white rounded-full flex-1 px-2 py-2 md:py-1 lg:p-0 lg:shadow-none lg:rounded-none text-jobboard-deepblue w-full max-md:border max-md:rounded-md max-md:focus-within:border-jobboard-deepblue">
 						<div class="relative" x-data="{
 								open: false,
 								loc: ''
 							}" x-on:click.outside="open=false" x-on:close.stop="open=false">
-							<div class="absolute inset-y-0 flex items-center pointer-events-none text-breeder-deepblue">
+							<div class="absolute inset-y-0 flex items-center pointer-events-none text-jobboard-deepblue">
 								<svg width="28" height="27" viewBox="0 0 28 27" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M16.3864 19.25C22.1477 19.5455 26.5 20.9318 26.5 22.5909C26.5 24.4773 20.9091 26 14 26C7.09091 26 1.5 24.4773 1.5 22.5909C1.5 20.9318 5.85227 19.5455 11.6136 19.25M21.9545 9.36364C21.9545 15.0114 14 21.4545 14 21.4545C14 21.4545 6.04545 15.0114 6.04545 9.36364C6.04545 3.71591 9.60227 1 14 1C18.3977 1 21.9545 3.71591 21.9545 9.36364ZM17.9773 8.38636C17.9773 10.583 16.1966 12.3636 14 12.3636C11.8034 12.3636 10.0227 10.583 10.0227 8.38636C10.0227 6.18978 11.8034 4.40909 14 4.40909C16.1966 4.40909 17.9773 6.18978 17.9773 8.38636Z" stroke="#0E1954" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 								</svg>
 							</div>
 
-							<input type="text" id="loc" x-bind:value="loc" x-on:click="open=!open" readonly placeholder="{{ __('Location') }}" class="block w-full p-1.5 pl-8 text-breeder-deepblue placeholder:text-breeder-deepblue text-sm bg-transparent border border-transparent focus:border-transparent focus:ring-0 rounded-md"/>
+							<input type="text" id="loc" x-bind:value="loc" x-on:click="open=!open" readonly placeholder="{{ __('Location') }}" class="block w-full p-1.5 pl-8 text-jobboard-deepblue placeholder:text-jobboard-deepblue text-sm bg-transparent border border-transparent focus:border-transparent focus:ring-0 rounded-md"/>
 
 							<div x-show="loc !== ''" wire:click="removeLocalisation" x-on:click="loc = '';" class="absolute inset-y-0 right-0 flex items-center cursor-pointer text-red-400">
 								<svg width="28" height="27" viewBox="0 0 28 27" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -383,17 +383,17 @@
 	
 					<div class="flex flex-row gap-4 font-medium text-base max-sm:flex-col">
 						<div class="flex flex-row items-center gap-x-3">
-							<input type="radio" name="sex" id="sex_male" value="male" wire:model="sex" wire:change="sexSelected" class="text-breeder-deepblue focus:ring-0" />
+							<input type="radio" name="sex" id="sex_male" value="male" wire:model="sex" wire:change="sexSelected" class="text-jobboard-deepblue focus:ring-0" />
 							{{ __('Male') }}
 						</div>
 	
 						<div class="flex flex-row items-center gap-x-3">
-							<input type="radio" name="sex" id="sex_female" value="female" wire:model="sex" wire:change="sexSelected" class="text-breeder-deepblue focus:ring-0" />
+							<input type="radio" name="sex" id="sex_female" value="female" wire:model="sex" wire:change="sexSelected" class="text-jobboard-deepblue focus:ring-0" />
 							{{ __('Female') }}
 						</div>
 	
 						<div class="flex flex-row items-center gap-x-3">
-							<input type="radio" name="sex" id="sex_both" value="both" wire:model="sex" wire:change="sexSelected" class="text-breeder-deepblue focus:ring-0" />
+							<input type="radio" name="sex" id="sex_both" value="both" wire:model="sex" wire:change="sexSelected" class="text-jobboard-deepblue focus:ring-0" />
 							{{ __('No preference') }}
 						</div>
 					</div>
@@ -410,17 +410,17 @@
 	
 					<div class="flex flex-row gap-4 font-medium text-base max-sm:flex-col">
 						<div class="flex flex-row items-center gap-x-3">
-							<input type="radio" name="pure_breed" id="pure_breed_yes" value="yes" wire:model="pureBreed" wire:change="pureBreedSelected" class="text-breeder-deepblue focus:ring-0" />
+							<input type="radio" name="pure_breed" id="pure_breed_yes" value="yes" wire:model="pureBreed" wire:change="pureBreedSelected" class="text-jobboard-deepblue focus:ring-0" />
 							{{ __('Yes') }}
 						</div>
 	
 						<div class="flex flex-row items-center gap-x-3">
-							<input type="radio" name="pure_breed" id="pure_breed_no" value="no" wire:model="pureBreed" wire:change="pureBreedSelected" class="text-breeder-deepblue focus:ring-0" />
+							<input type="radio" name="pure_breed" id="pure_breed_no" value="no" wire:model="pureBreed" wire:change="pureBreedSelected" class="text-jobboard-deepblue focus:ring-0" />
 							{{ __('No') }}
 						</div>
 	
 						<div class="flex flex-row items-center gap-x-3">
-							<input type="radio" name="pure_breed" id="pure_breed_both" value="both" wire:model="pureBreed" wire:change="pureBreedSelected" class="text-breeder-deepblue focus:ring-0" />
+							<input type="radio" name="pure_breed" id="pure_breed_both" value="both" wire:model="pureBreed" wire:change="pureBreedSelected" class="text-jobboard-deepblue focus:ring-0" />
 							{{ __('No preference') }}
 						</div>
 					</div>
@@ -442,7 +442,7 @@
 					@enderror
 				</div>
 
-				<hr class="my-8 border-t border-breeder-deepblue h-px">
+				<hr class="my-8 border-t border-jobboard-deepblue h-px">
 	
 				<div>
 					<x-front.primary-button wire:click="form">
