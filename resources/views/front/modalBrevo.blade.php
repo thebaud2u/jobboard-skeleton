@@ -29,7 +29,7 @@
 			<div class="flex flex-col gap-2 mt-4">
 				<x-front.input-label for="OPTIN_NL_ADOPTANT" class="cursor-pointer">
 					<input type="checkbox" name="OPTIN_NL_ADOPTANT" id="OPTIN_NL_ADOPTANT" checked>
-					{{ __('I subscribe to the monthly newsletter of Eleveurs Online') }}.
+					{{ __('I subscribe to the monthly newsletter of :siteName', ['siteName' => env('APP_NAME')]) }}.
 				</x-front.input-label>
 
 				<x-front.input-label for="OPTIN_MARKETING_ADOPTANT" class="cursor-pointer">

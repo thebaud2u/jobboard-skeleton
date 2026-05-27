@@ -31,13 +31,6 @@
 
 						{{ __('Update') }}
 					</a>
-					{{-- <div class="flex flex-col justify-center">
-						<a href="{{ route('space.profile.settings.change-password') }}">
-							<x-front.primary-button>
-								{{ __('Change password') }}
-							</x-front.primary-button>
-						</a>
-					</div> --}}
 				</div>
 
 				<hr>
@@ -63,24 +56,19 @@
 
 						{{ __('Delete my account') }}
 					</div>
-					{{-- <div class="flex flex-col justify-center">
-						<x-front.primary-button x-data="" x-on:click="$dispatch('open-modal', 'delete_account')">
-							{{ __('Delete my account') }}
-						</x-front.primary-button>
-					</div> --}}
 				</div>
 			</div>
 		</div>
 
 	</div>
 
-	{{-- @if($user->hasRole('adopter')) --}}
+	{{-- @if($user->hasRole('applicant')) --}}
 		@include('components.front.space.sticky-nav-bottom-adopter')
 	{{-- @endif --}}
 
 	<x-front.modal name="delete_account" :class="'w-full max-w-2xl'" focusable>
 		<h2 class="mt-8 mb-1 text-base md:text-[24px] font-bold text-jobboard-deepblue">
-			{{ __('We\'re sorry to see you go') }}...
+			{{ __('We\'re sorry to see you go ...') }}
 		</h2>
 
 		<form method="POST" action="{{ route('space.profile.settings.delete-account') }}">

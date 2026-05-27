@@ -1,6 +1,6 @@
 <div class="p-4">
 	<div class="w-full bg-white px-6 pt-6 pb-10 mb-6">
-		@if($user->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
+		@if($user->hasRole('recruiter'))
 			<div class="flex flex-row w-full justify-end items-center gap-x-2 text-jobboard-deepblue mb-4">
 				@if($user->awaitingModeration())
 					{{ __('Status : :status', ['status' => __('waiting validation')]) }}
@@ -107,9 +107,9 @@
 
 				@if($user->hasRole(['adopter', 'breeder', 'professionnal_breeder', 'individual_breeder']))
 					<div>
-						@if($user->hasRole('adopter'))
+						@if($user->hasRole('applicant'))
 							<a href="{{ route('space.profile.complete-my-profile', ['active' => 3]) }}">
-						@elseif($user->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
+						@elseif($user->hasRole('recruiter'))
 							<a href="{{ route('space.profile.complete-my-profile') }}">
 						@endif
 							<div class="flex flex-row justify-end cursor-pointer font-bold text-jobboard-deepblue text-sm items-center gap-x-1">
@@ -127,7 +127,7 @@
 				@endif
 			</div>
 
-			@if($user->hasRole('adopter'))
+			@if($user->hasRole('applicant'))
 				<div class="p-6 border border-jobboard-greige rounded-md text-jobboard-deepblue mb-8 w-full">
 					<div class="flex justify-between items-center">
 						<h2 class="text-[28px] font-bold">{{ __('My house') }}</h2>
@@ -865,7 +865,7 @@
 						</div>
 					@endif
 				</div>
-			@elseif($user->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
+			@elseif($user->hasRole('recruiter'))
 				<div class="p-6 border border-jobboard-greige rounded-md text-jobboard-deepblue mb-8 w-full">
 					<div class="flex flex-col gap-4">
 						<div class="w-full">

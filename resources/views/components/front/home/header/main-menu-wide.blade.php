@@ -5,7 +5,7 @@
 			@php
 				$route = route('home');
 				$user = Auth::guard('web')->user();
-				$isBreeder = (Auth::guard('web')->check() && Auth::guard('web')->user()->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']));
+				$isBreeder = (Auth::guard('web')->check() && Auth::guard('web')->user()->hasRole('recruiter'));
 				$isPro = (Auth::guard('web')->check() && Auth::guard('web')->user()->hasRole('professionnal'));
 
 				if($isBreeder) $route = route('home.breeder');
@@ -157,7 +157,7 @@
 					$isBreeder = false;
 					$isPro = false;
 					if($isBreederOrPro) {
-						if($user->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder'])) {
+						if($user->hasRole('recruiter')) {
 							$svgColor = '#C68CFF';
 							$isBreeder = true;
 						}

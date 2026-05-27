@@ -10,7 +10,7 @@
 					<div class="mt-4 flex flex-col gap-4">
 						<div class="flex flex-row justify-between flex-wrap gap-2">
 							<div class="flex flex-row text-jobboard-deepblue">
-								<x-front.input-label for="" :value="__('I subscribe to the monthly newsletter of Eleveurs Online')" />
+								<x-front.input-label for="" :value="__('I subscribe to the monthly newsletter of :siteName', ['siteName' => env('APP_NAME')])" />
 							</div>
 
 							<div class="flex flex-row text-jobboard-deepblue">
@@ -32,7 +32,7 @@
 
 						<div class="flex flex-row justify-between flex-wrap gap-2">
 							<div class="flex flex-row text-jobboard-deepblue">
-								<x-front.input-label for="" :value="__('I would like to receive information from Eleveurs Online and their publishers')" />
+								<x-front.input-label for="" :value="__('I would like to receive information from :siteName and their publishers', ['siteName' => env('APP_NAME')])" />
 							</div>
 
 							<div class="flex flex-row text-jobboard-deepblue">
@@ -54,7 +54,7 @@
 
 						<div class="flex flex-row justify-between flex-wrap gap-2">
 							<div class="flex flex-row text-jobboard-deepblue">
-								<x-front.input-label for="" :value="__('I would like to receive good deals from Eleveurs Online partners')" />
+								<x-front.input-label for="" :value="__('I would like to receive good deals from :siteName partners' ['siteName' => env('APP_NAME')])" />
 							</div>
 
 							<div class="flex flex-row text-jobboard-deepblue">

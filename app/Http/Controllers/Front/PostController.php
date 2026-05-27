@@ -91,7 +91,7 @@ class PostController extends Controller
 				$response = new Response;
 
 				if(Auth::guard('web')->check()) {
-					if(Auth::guard('web')->user()->hasRole('adopter')) {
+					if(Auth::guard('web')->user()->hasRole('candidat')) {
 						$hasApplyied = Auth::guard('web')->user()->hasApplied($post);
 
 						if($hasApplyied) {

@@ -28,7 +28,7 @@
 				@auth
 					@php
 						$user = auth()->user();
-						$userType = $user->hasRole('adopter') ? 'adoptant' : ($user->hasRole('professionnal') ? 'pro' : 'eleveur');
+						$userType = $user->hasRole('applicant') ? 'adoptant' : ($user->hasRole('professionnal') ? 'pro' : 'eleveur');
 
 						$isBreeder = $user->hasRole(["professionnal_breeder", "individual_breeder"]);
 						$hasSub = $user->subscriptions()->where("synchronized_with_stripe", true)->exists();

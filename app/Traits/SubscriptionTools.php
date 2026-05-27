@@ -131,7 +131,7 @@ trait SubscriptionTools
 		$count = 0;
 
 		if($this->hasRole('professionnal')) $slug = 'annuaire-produits-et-services';
-		elseif($this->hasRole(['professionnal_breeder', 'individual_breeder'])) $slug = 'activite-secondaire';
+		elseif($this->hasRole('recruiter')) $slug = 'activite-secondaire';
 
 		$offer = Offer::findBySlug($slug);
 
@@ -145,7 +145,7 @@ trait SubscriptionTools
 		$creditArray = array();
 
 		if($this->hasRole('professionnal')) $slug = 'annuaire-produits-et-services';
-		elseif($this->hasRole(['professionnal_breeder', 'individual_breeder'])) $slug = 'activite-secondaire';
+		elseif($this->hasRole('recruiter')) $slug = 'activite-secondaire';
 
 		$offer = Offer::findBySlug($slug);
 

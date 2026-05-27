@@ -26,7 +26,7 @@ class CompanyController extends Controller
 	 */
 	public function index(): View|RedirectResponse
 	{
-		if(Auth::guard('web')->user()->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder'])) {
+		if(Auth::guard('web')->user()->hasRole('candidat')) {
 			$user = Auth::guard('web')->user();
 
 			if($user->profileCompletionPercentage() < 100 && (!$user->values->has('identifiant') && !$user->hasBeenValidated())) return redirect(route('space.profile.complete-my-profile'))->with('error', __('You must complete your profile in order to create a company'));
@@ -89,7 +89,7 @@ class CompanyController extends Controller
 	 */
 	public function showOffers(?Company $company): View|RedirectResponse
 	{
-		if(Auth::guard('web')->user()->hasRole(['professionnal_breeder', 'individual_breeder'])) {
+		if(Auth::guard('web')->user()->hasRole('recruiter')) {
 			$user = Auth::guard('web')->user();
 
 			if(!$user->company) {
@@ -114,7 +114,7 @@ class CompanyController extends Controller
 
 	public function checkout(string $type, Offer $offer, $priceKey)
 	{
-		if(Auth::guard('web')->user()->hasRole(['professionnal_breeder', 'individual_breeder'])) {
+		if(Auth::guard('web')->user()->hasRole('recruiter')) {
 			if($offer->type == 'pack') {
 				if($offer->slug == 'pack-premium') $offerForRedirect = Offer::findBySlug('page-elevage-premium');
 				elseif($offer->slug == 'pack-master') $offerForRedirect = Offer::findBySlug('page-elevage-master');
@@ -186,7 +186,7 @@ class CompanyController extends Controller
 
 	public function offerChosen(Request $request)
 	{
-		if(Auth::guard('web')->user()->hasRole(['professionnal_breeder', 'individual_breeder'])) {
+		if(Auth::guard('web')->user()->hasRole('recruiter')) {
 			$user = Auth::guard('web')->user();
 			$offer = Offer::findBySlug($request->offer);
 			$priceKey = $offer->getPrices()[0]['id'];
@@ -215,7 +215,7 @@ class CompanyController extends Controller
 
 	public function upgrade(Offer $offer, Company $company): RedirectResponse
 	{
-		if(Auth::guard('web')->user()->hasRole(['professionnal_breeder', 'individual_breeder'])) {
+		if(Auth::guard('web')->user()->hasRole('recruiter')) {
 			$user = Auth::guard('web')->user();
 
 			if($user->id == $company->user->id) {
@@ -247,7 +247,7 @@ class CompanyController extends Controller
 
 	public function extendOffer(Company $company)
 	{
-		if(Auth::guard('web')->user()->hasRole(['professionnal_breeder', 'individual_breeder'])) {
+		if(Auth::guard('web')->user()->hasRole('recruiter')) {
 			$user = Auth::guard('web')->user();
 
 			if($user->id == $company->user->id) {
@@ -296,7 +296,7 @@ class CompanyController extends Controller
 	 */
 	public function create(?Offer $offer): View|RedirectResponse
 	{
-		if(Auth::guard('web')->user()->hasRole(['professionnal_breeder', 'individual_breeder'])) {
+		if(Auth::guard('web')->user()->hasRole('recruiter')) {
 			$user = Auth::guard('web')->user();
 
 			if($user->profileCompletionPercentage() < 100 && (!$user->values->has('identifiant') && !$user->hasBeenValidated())) return redirect(route('space.profile.complete-my-profile'))->with('error', __('You must complete your profile in order to create a company'));
@@ -321,7 +321,7 @@ class CompanyController extends Controller
 	 */
 	public function update(Company $company): View|RedirectResponse
 	{
-		if(Auth::guard('web')->user()->hasRole(['professionnal_breeder', 'individual_breeder']) && Auth::guard('web')->user()->id == $company->user->id) {
+		if(Auth::guard('web')->user()->hasRole('recruiter') && Auth::guard('web')->user()->id == $company->user->id) {
 			return view('front.space.companies.update', [
 				'company' => $company
 			]);

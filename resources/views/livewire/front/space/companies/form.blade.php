@@ -93,7 +93,7 @@
 						<x-front.input-label for="description" :value="__('Your company\'s presentation')" :required="true" :class="'pl-4'" />
 					</div>
 
-					<textarea id="description" rows="5" wire:model="description" placeholder="{{ __('Tell us more about your company: company practice, breeds, values...') }}" class="border-jobboard-greige focus:border-jobboard-deepblue focus:ring-jobboard-deepblue rounded-md text-jobboard-deepblue placeholder:text-jobboard-greige mt-1 block w-full"></textarea>
+					<textarea id="description" rows="5" wire:model="description" placeholder="{{ __('Tell us more about your company: company practice, values ...') }}" class="border-jobboard-greige focus:border-jobboard-deepblue focus:ring-jobboard-deepblue rounded-md text-jobboard-deepblue placeholder:text-jobboard-greige mt-1 block w-full"></textarea>
 
 					@error('description')
 						<span class="error text-danger-700">

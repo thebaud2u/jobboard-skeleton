@@ -118,9 +118,9 @@
 										{{ __('Comment from ":source" to ":target"', ['source' => $moderation->model->source->name, 'target' => $moderation->model->target->name]) }}</span>
 									@elseif($moderation->model instanceof \App\Models\User)
 										<button type="button"
-											@if($moderation->model->hasRole('adopter'))
+											@if($moderation->model->hasRole('applicant'))
 												class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-3 py-2.5 text-center me-2 mb-2 mr-2 mb-2"
-											@elseif($moderation->model->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
+											@elseif($moderation->model->hasRole('recruiter'))
 												@if($moderation->model->hasRole('breeder'))
 													class="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-3 py-2.5 text-center mr-2 mb-2"
 												@elseif($moderation->model->hasRole('professionnal_breeder'))

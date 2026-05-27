@@ -14,7 +14,7 @@
 			@if(request()->is('espace/*'))
 				<button x-on:click="open = !open" class="inline-flex items-center justify-center p-2 rounded-md focus:outline-none transition duration-150 ease-in-out
 					@if(Route::is('home.breeder') || request()->is('eleveurs/*')
-					|| Auth::guard('web')->user()?->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
+					|| Auth::guard('web')->user()?->hasRole('recruiter'))
 					text-jobboard-violet
 					@elseif(Route::is('home.pro') || Auth::guard('web')->user()?->hasRole('professionnal'))
 					text-jobboard-orange
@@ -32,7 +32,7 @@
 
 					<a href="{{ $route }}" class="
 					@if (Route::is('home.breeder') || request()->is('eleveurs/*')
-					|| Auth::guard('web')->user()?->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
+					|| Auth::guard('web')->user()?->hasRole('recruiter'))
 					text-jobboard-violet
 					@elseif(Route::is('home.pro') || Auth::guard('web')->user()?->hasRole('professionnal'))
 					text-jobboard-orange
@@ -135,7 +135,7 @@
 				<button x-on:click="open = !open"
 					class="inline-flex items-center justify-center p-2 rounded-md
 					@if (Route::is('home.breeder') || request()->is('eleveurs/*')
-					|| Auth::guard('web')->user()?->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
+					|| Auth::guard('web')->user()?->hasRole('recruiter'))
 					text-jobboard-violet
 					@elseif(Route::is('home.pro') || Auth::guard('web')->user()?->hasRole('professionnal'))
 					text-jobboard-orange
@@ -154,7 +154,7 @@
 					@endphp
 					<a href="{{ $route }}"
 					class="@if (Route::is('home.breeder') || request()->is('eleveurs/*')
-					|| Auth::guard('web')->user()?->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
+					|| Auth::guard('web')->user()?->hasRole('recruiter'))
 					text-jobboard-violet
 					@elseif(Route::is('home.pro') || Auth::guard('web')->user()?->hasRole('professionnal'))
 					text-jobboard-orange
@@ -223,7 +223,7 @@
 				@if (!request()->is('espace/*') && !(Auth::check()))
 					<button x-on:click="openConnexionResponsive = !openConnexionResponsive" class="inline-flex items-center justify-center p-2 pr-0 rounded-md
 						@if (Route::is('home.breeder') || request()->is('eleveurs/*')
-						|| Auth::guard('web')->user()?->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
+						|| Auth::guard('web')->user()?->hasRole('recruiter'))
 						text-jobboard-violet
 						@elseif(Route::is('home.pro') || Auth::guard('web')->user()?->hasRole('professionnal'))
 						text-jobboard-orange
@@ -239,7 +239,7 @@
 					<div x-on:click="openSpaceNav = !openSpaceNav"
 					class="flex flex-col items-center gap-y-1 font-bold text-sm cursor-pointer mr-4
 					@if (Route::is('home.breeder') || request()->is('eleveurs/*')
-					|| Auth::guard('web')->user()?->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
+					|| Auth::guard('web')->user()?->hasRole('recruiter'))
 					text-jobboard-violet
 					@elseif(Route::is('home.pro') || Auth::guard('web')->user()?->hasRole('professionnal'))
 					text-jobboard-orange
@@ -278,7 +278,7 @@
 				<button x-on:click="open = !open"
 					class="inline-flex items-center justify-center p-2 rounded-md focus:outline-none transition duration-150 ease-in-out
 					@if (Route::is('home.breeder') || request()->is('eleveurs/*')
-					|| Auth::guard('web')->user()?->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
+					|| Auth::guard('web')->user()?->hasRole('recruiter'))
 					text-jobboard-violet
 					@elseif(Route::is('home.pro') || Auth::guard('web')->user()?->hasRole('professionnal'))
 					text-jobboard-orange
@@ -296,7 +296,7 @@
 					@endphp
 					<a href="{{ $route }}" class="
 					@if (Route::is('home.breeder') || request()->is('eleveurs/*')
-					|| Auth::guard('web')->user()?->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
+					|| Auth::guard('web')->user()?->hasRole('recruiter'))
 					text-jobboard-violet
 					@elseif(Route::is('home.pro') || Auth::guard('web')->user()?->hasRole('professionnal'))
 					text-jobboard-orange
@@ -365,7 +365,7 @@
 				<div x-on:click="openSpaceNav = !openSpaceNav, open = !open"
 				class="flex flex-col items-center gap-y-1 font-bold text-sm
 				@if (Route::is('home.breeder') || request()->is('eleveurs/*')
-				|| Auth::guard('web')->user()?->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
+				|| Auth::guard('web')->user()?->hasRole('recruiter'))
 				text-jobboard-violet
 				@elseif(Route::is('home.pro') || Auth::guard('web')->user()?->hasRole('professionnal'))
 				text-jobboard-orange
@@ -404,7 +404,7 @@
 					@endphp
 					<a href="{{ $route }}" class="
 					@if (Route::is('home.breeder') || request()->is('eleveurs/*')
-					|| Auth::guard('web')->user()?->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
+					|| Auth::guard('web')->user()?->hasRole('recruiter'))
 					text-jobboard-violet
 					@elseif(Route::is('home.pro') || Auth::guard('web')->user()?->hasRole('professionnal'))
 					text-jobboard-orange
@@ -472,7 +472,7 @@
 				<button x-on:click="open = !open"
 					class="inline-flex items-center justify-center p-2 rounded-md
 					@if (Route::is('home.breeder') || request()->is('eleveurs/*')
-					|| Auth::guard('web')->user()?->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
+					|| Auth::guard('web')->user()?->hasRole('recruiter'))
 					text-jobboard-violet
 					@elseif(Route::is('home.pro') || Auth::guard('web')->user()?->hasRole('professionnal'))
 					text-jobboard-orange
@@ -517,7 +517,7 @@
 			<div class="flex justify-between items-center">
 				<button	class="inline-flex items-center justify-center p-2 rounded-md focus:outline-none transition duration-150 ease-in-out
 				@if (Route::is('home.breeder') || request()->is('eleveurs/*')
-				|| Auth::guard('web')->user()?->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
+				|| Auth::guard('web')->user()?->hasRole('recruiter'))
 				text-jobboard-violet
 				@elseif(Route::is('home.pro') || Auth::guard('web')->user()?->hasRole('professionnal'))
 				text-jobboard-orange
@@ -598,7 +598,7 @@
 				<div x-on:click="openConnexionResponsive = !openConnexionResponsive"
 					class="flex flex-col items-center gap-y-1 font-bold text-sm cursor-pointer p-2 pr-0
 					@if (Route::is('home.breeder') || request()->is('eleveurs/*')
-					|| Auth::guard('web')->user()?->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
+					|| Auth::guard('web')->user()?->hasRole('recruiter'))
 					text-jobboard-violet
 					@elseif(Route::is('home.pro') || Auth::guard('web')->user()?->hasRole('professionnal'))
 					text-jobboard-orange
@@ -650,7 +650,7 @@
 			<div class="flex justify-between items-center px-4">
 				<button	class="inline-flex items-center justify-center p-2 rounded-md focus:outline-none transition duration-150 ease-in-out
 				@if (Route::is('home.breeder') || request()->is('eleveurs/*')
-				|| Auth::guard('web')->user()?->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
+				|| Auth::guard('web')->user()?->hasRole('recruiter'))
 				text-jobboard-violet
 				@elseif(Route::is('home.pro') || Auth::guard('web')->user()?->hasRole('professionnal'))
 				text-jobboard-orange
@@ -666,7 +666,7 @@
 				{{-- Logo --}}
 				<div class="shrink-0 flex items-center z-40 mr-4 h-[70px] s:h-[75px] w-auto
 				@if (Route::is('home.breeder') || request()->is('eleveurs/*')
-				|| Auth::guard('web')->user()?->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
+				|| Auth::guard('web')->user()?->hasRole('recruiter'))
 				text-jobboard-violet
 				@elseif(Route::is('home.pro') || Auth::guard('web')->user()?->hasRole('professionnal'))
 				text-jobboard-orange
@@ -732,7 +732,7 @@
 				<div x-on:click="openSpaceNav = !openSpaceNav"
 				class="flex flex-col items-center gap-y-1 font-bold text-sm cursor-pointer mr-4
 				@if (Route::is('home.breeder') || request()->is('eleveurs/*')
-				|| Auth::guard('web')->user()?->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
+				|| Auth::guard('web')->user()?->hasRole('recruiter'))
 				text-jobboard-violet
 				@elseif(Route::is('home.pro') || Auth::guard('web')->user()?->hasRole('professionnal'))
 				text-jobboard-orange

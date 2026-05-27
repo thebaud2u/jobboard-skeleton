@@ -40,7 +40,7 @@ class MessageSent extends Notification
 
 	public function toBrevoChannel($notifiable)
 	{
-		if($notifiable->hasRole('adopter')) {
+		if($notifiable->hasRole('applicant')) {
 			$body = '<p>Bonjour '.$notifiable->firstname.',</p><br/>
 
 				<p>Bonne nouvelle !</p>

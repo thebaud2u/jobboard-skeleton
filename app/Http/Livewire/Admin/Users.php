@@ -36,7 +36,7 @@ class Users extends Component
 	public function toggleBreederRole()
 	{
 		if($this->user->exists) {
-			if($this->user->hasRole(['professionnal_breeder', 'individual_breeder'])) {
+			if($this->user->hasRole('recruiter')) {
 				if($this->user->hasRole('professionnal_breeder')) {
 					$this->user->removeValues(['siret', 'company_name', 'siren_document']);
 					$this->user->syncRoles(['individual_breeder']);

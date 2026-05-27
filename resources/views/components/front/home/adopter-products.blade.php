@@ -1,4 +1,4 @@
-<div class="flex flex-col items-center px-4 md:px-8 w-full bg-white overflow-hidden @if(auth()->check() && auth()->user()->hasRole('adopter') && Route::is('home')) pb-20 @else pb-4 @endif">
+<div class="flex flex-col items-center px-4 md:px-8 w-full bg-white overflow-hidden @if(auth()->check() && auth()->user()->hasRole('applicant') && Route::is('home')) pb-20 @else pb-4 @endif">
 	<h3 class="font-semibold text-jobboard-deepblue text-[25px] sm:text-[40px] text-center mt-8 md:mt-14 mb-12">
 		@if(Route::currentRouteName() === 'home.pro')
 			{{ __('All our products') }}
@@ -165,7 +165,7 @@
 			</div>
 		@else
 			<div class="relative w-[576px]">
-				<div class="absolute w-[576px] h-[220px] @if(auth()->check() && auth()->user()->hasRole('adopter') && Route::is('home')) -bottom-[80px] @else -bottom-[16px] @endif -right-[620px] z-10">
+				<div class="absolute w-[576px] h-[220px] @if(auth()->check() && auth()->user()->hasRole('applicant') && Route::is('home')) -bottom-[80px] @else -bottom-[16px] @endif -right-[620px] z-10">
 					<img src="{{ asset('/storage/home_service_orange_e.png') }}" alt="" class="w-full">
 				</div>
 			</div>

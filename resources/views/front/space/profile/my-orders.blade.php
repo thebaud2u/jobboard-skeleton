@@ -32,19 +32,30 @@
 									<tbody class="divide-y divide-gray-200 text-sm text-gray-600">
 										@foreach($orders as $order)
 											<tr class="hover:bg-gray-50 transition">
-												<td class="px-6 py-4 font-medium text-gray-900">{{ $order['created_at']->format('d/m/Y H:i:s') }}</td>
-												<td class="px-6 py-4">{{ $order['product'] }}</td>
-												<td class="px-6 py-4">{{ $order['price'] }}€</td>
+												<td class="px-6 py-4 font-medium text-gray-900">
+													{{ $order['created_at']->format('d/m/Y H:i:s') }}
+												</td>
+
+												<td class="px-6 py-4">
+													{{ $order['product'] }}
+												</td>
+
+												<td class="px-6 py-4">
+													{{ $order['price'] }}€
+												</td>
+
 												<td class="px-6 py-4">
 													<span class="px-2 py-1 inline-flex text-xs font-medium rounded-full bg-green-100 text-green-700">
 														{{ __($order['payment_method']) }}
 													</span>
 												</td>
+
 												<td class="px-6 py-4">
 													<span class="px-2 py-1 inline-flex text-xs font-medium rounded-full bg-green-100 text-green-700">
 														{{ __($order['payment_status']) }}
 													</span>
 												</td>
+
 												<td class="px-6 py-4">
 													@if($order['invoice'])
 														<a href="{{ $order['invoice']->hosted_invoice_url }}" target="_blank">
@@ -65,10 +76,6 @@
 					<span class="text-jobboard-deepblue">{{ __('You have not invoices yet') }}</span>
 				@endif
 			</div>
-{{--
-			<div class="text-gray-400 text-sm">
-				{{ __('For any invoice not present in this list, please contact customer service with the references of your order') }}
-			</div> --}}
 		</div>
 	</div>
 </x-space-layout>

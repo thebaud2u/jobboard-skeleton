@@ -381,19 +381,19 @@
 								<x-front.input-label for="optin_newsletter" :class="'cursor-pointer'">
 									<input type="checkbox" name="optin_newsletter" id="optin_newsletter" @checked(is_null(old('optin_newsletter')) ? true : old('optin_newsletter')) class="rounded border-jobboard-deepblue text-jobboard-deepblue focus:ring-jobboard-deepblue">
 
-									{{ __('I subscribe to the monthly newsletter of Eleveurs Online') }}
+									{{ __('I subscribe to the monthly newsletter of :siteName', ['siteName' => env('APP_NAME')]) }}
 								</x-front.input-label>
 
 								<x-front.input-label for="optin_receive_info" :class="'cursor-pointer'">
 									<input type="checkbox" name="optin_receive_info" id="optin_receive_info" @checked(is_null(old('optin_receive_info')) ? true : old('optin_receive_info')) class="rounded border-jobboard-deepblue text-jobboard-deepblue focus:ring-jobboard-deepblue">
 
-									{{ __('I would like to receive information from Eleveurs Online and their publishers') }}
+									{{ __('I would like to receive information from :siteName and their publishers', ['siteName' => env('APP_NAME')]) }}
 								</x-front.input-label>
 
 								<x-front.input-label for="optin_receive_deals" :class="'cursor-pointer'">
 									<input type="checkbox" name="optin_receive_deals" id="optin_receive_deals" @checked(is_null(old('optin_receive_deals')) ? true : old('optin_receive_deals')) class="rounded border-jobboard-deepblue text-jobboard-deepblue focus:ring-jobboard-deepblue">
 
-									{{ __('I would like to receive good deals from Eleveurs Online partners') }}
+									{{ __('I would like to receive good deals from :siteName partners' ['siteName' => env('APP_NAME')]) }}
 								</x-front.input-label>
 							</div>
 

@@ -2,8 +2,8 @@
 
 @if(Auth::guard('web')->check())
 	@if( 
-		($user->hasRole('adopter') && ($post->type->getTranslation('slug', 'en') == 'litter' || $post->type->getTranslation('slug', 'en') == 'litter-yet-to-come' || $post->type->getTranslation('slug', 'en') == 'retired-breeder')) ||
-		($user->hasRole(['professionnal_breeder', 'individual_breeder']) && $post->type->getTranslation('slug', 'en') == 'stud')
+		($user->hasRole('applicant') && ($post->type->getTranslation('slug', 'en') == 'litter' || $post->type->getTranslation('slug', 'en') == 'litter-yet-to-come' || $post->type->getTranslation('slug', 'en') == 'retired-breeder')) ||
+		($user->hasRole('recruiter') && $post->type->getTranslation('slug', 'en') == 'stud')
 	)
 		@if($user->id != $post->user->id)
 			<span class="w-full">

@@ -50,7 +50,7 @@
 			</section>
 		</x-front.modal>
 
-		@if($user->hasRole('adopter'))
+		@if($user->hasRole('applicant'))
 			@include('components.front.space.sticky-nav-bottom-adopter')
 		@endif
 	</div>

@@ -153,7 +153,7 @@ class MyMessage extends Component
 				$this->name = $this->model->name;
 			}
 			elseif($this->situation == 'answerer') {
-				if($this->toUser->hasRole(['professionnal_breeder', 'individual_breeder']) && $this->toUser->company) {
+				if($this->toUser->hasRole('recruiter') && $this->toUser->company) {
 					$this->photoLeft = $this->toUser->getFirstMedia('avatar');
 					$this->photoRight = $this->model->getFirstMedia('logo');
 					if(!$this->photoRight) $this->photoRight = $this->model->getFirstMedia('photos');
@@ -182,7 +182,7 @@ class MyMessage extends Component
 			elseif($this->situation == 'answerer') {
 				$this->photoLeft = $this->toUser->getFirstMedia('avatar');
 
-				if($this->toUser->hasRole(['professionnal_breeder', 'individual_breeder']) && $this->toUser->company) $this->name = $this->toUser->company->name;
+				if($this->toUser->hasRole('recruiter') && $this->toUser->company) $this->name = $this->toUser->company->name;
 				else $this->name = $this->toUser->name;
 			}
 		}

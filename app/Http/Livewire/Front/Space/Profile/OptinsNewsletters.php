@@ -34,9 +34,9 @@ class OptinsNewsletters extends Component
 		$suffix = '';
 		$attributes = [];
 
-		if($this->user->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder'])) $suffix = 'ELEVEUR';
+		if($this->user->hasRole('recruiter')) $suffix = 'ELEVEUR';
 		elseif($this->user->hasRole('professionnal')) $suffix = 'PROFESSIONNEL';
-		elseif($this->user->hasRole('adopter')) $suffix = 'ADOPTANT';
+		elseif($this->user->hasRole('applicant')) $suffix = 'ADOPTANT';
 
 		$this->brevoService = new BrevoService;
 

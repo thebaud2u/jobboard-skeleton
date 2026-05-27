@@ -84,13 +84,13 @@
 						<path d="M19.781 6.09409C21.9049 4.14663 23.0179 1.92717 22.2623 1.13295C21.5067 0.338735 19.1784 1.27439 17.0443 3.22185C14.9204 5.16932 13.8073 7.38878 14.563 8.18299" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 					</svg>
 
-					@if(Auth::guard('web')->user()->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
+					@if(Auth::guard('web')->user()->hasRole('recruiter'))
 						{{ __('My side hustle') }}
 					@endif
 				</x-front.space.sidebar-link>
 			@endif
 
-			@if($user && $user->hasRole('adopter'))
+			@if($user && $user->hasRole('applicant'))
 				<hr class="w-full border-t max-md:hidden md:block @if($isBreederOrPro || $isBreederOrProRoute) border-jobboard-cream @else border-jobboard-greige @endif">
 
 				<x-front.space.sidebar-link :href="route('space.animals.my-animals')" :active="request()->routeIs('space.animals.*')" :textColor="$isBreederOrPro || $isBreederOrProRoute ? 'text-jobboard-cream' : 'text-jobboard-deepblue'">
@@ -196,7 +196,7 @@
 			stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
 		</svg>
 		
-		@if($user && $user->hasRole('adopter'))
+		@if($user && $user->hasRole('applicant'))
 			{{ __('My profile') }}
 		@else
 			{{ __('My account') }}

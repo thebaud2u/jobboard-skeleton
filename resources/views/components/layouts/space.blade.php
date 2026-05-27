@@ -34,7 +34,7 @@
 				@auth
 					@php
 						$user = auth()->user();
-						$userType = $user->hasRole('adopter') ? 'adoptant' : ($user->hasRole('professionnal') ? 'pro' : 'eleveur');
+						$userType = $user->hasRole('applicant') ? 'adoptant' : ($user->hasRole('professionnal') ? 'pro' : 'eleveur');
 
 						$isBreeder = $user->hasRole(["professionnal_breeder", "individual_breeder"]);
 						$hasSub = $user->subscriptions()->where("synchronized_with_stripe", true)->exists();
@@ -162,7 +162,7 @@
 			</div>
 
 		</main>
-		@if(Auth::guard('web')->user()->hasRole(['professionnal_breeder', 'individual_breeder']) && !request()->is('espace/breeder-gpt'))
+		@if(Auth::guard('web')->user()->hasRole('recruiter') && !request()->is('espace/breeder-gpt'))
 			{{-- <div class="sticky bottom-0 flex justify-end">
 				<a href="{{ route('space.profile.breeder-gpt') }}" class="flex flex-col items-center mr-8 mb-8">
 					<div class="relative w-[78px]">

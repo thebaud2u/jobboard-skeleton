@@ -184,7 +184,7 @@
 				<x-front.input-label :class="'cursor-pointer'">
 					<input checked type="checkbox" name="optins[]" value="OPTIN_NL_ADOPTANT" class="rounded border-jobboard-deepblue text-jobboard-deepblue focus:ring-jobboard-deepblue">
 
-					{{ __('I subscribe to the monthly newsletter of Eleveurs Online') }}
+					{{ __('I subscribe to the monthly newsletter of :siteName', ['siteName' => env('APP_NAME')]) }}
 				</x-front.input-label>
 			</div>
 
@@ -192,7 +192,7 @@
 				<x-front.input-label :class="'cursor-pointer'">
 					<input checked type="checkbox" name="optins[]" value="OPTIN_MARKETING_ADOPTANT" class="rounded border-jobboard-deepblue text-jobboard-deepblue focus:ring-jobboard-deepblue">
 
-					{{ __('I would like to receive information from Eleveurs Online and their publishers') }}
+					{{ __('I would like to receive information from :siteName and their publishers', ['siteName' => env('APP_NAME')]) }}
 				</x-front.input-label>
 			</div>
 
@@ -200,7 +200,7 @@
 				<x-front.input-label :class="'cursor-pointer'">
 					<input checked type="checkbox" name="optins[]" value="OPTIN_PARTENAIRE_ADOPTANT" class="rounded border-jobboard-deepblue text-jobboard-deepblue focus:ring-jobboard-deepblue">
 
-					{{ __('I would like to receive good deals from Eleveurs Online partners') }}
+					{{ __('I would like to receive good deals from :siteName partners' ['siteName' => env('APP_NAME')]) }}
 				</x-front.input-label>
 			</div>
 
@@ -235,7 +235,7 @@
 				<x-front.input-label :class="'cursor-pointer'">
 					<input checked type="checkbox" name="optins[]" value="OPTIN_NL_ELEVEUR" class="rounded border-jobboard-deepblue text-jobboard-deepblue focus:ring-jobboard-deepblue">
 
-					{{ __('I subscribe to the monthly newsletter of Eleveurs Online') }}
+					{{ __('I subscribe to the monthly newsletter of :siteName', ['siteName' => env('APP_NAME')]) }}
 				</x-front.input-label>
 			</div>
 
@@ -243,7 +243,7 @@
 				<x-front.input-label :class="'cursor-pointer'">
 					<input checked type="checkbox" name="optins[]" value="OPTIN_MARKETING_ELEVEUR" class="rounded border-jobboard-deepblue text-jobboard-deepblue focus:ring-jobboard-deepblue">
 
-					{{ __('I would like to receive information from Eleveurs Online and their publishers') }}
+					{{ __('I would like to receive information from :siteName and their publishers', ['siteName' => env('APP_NAME')]) }}
 				</x-front.input-label>
 			</div>
 
@@ -251,7 +251,7 @@
 				<x-front.input-label :class="'cursor-pointer'">
 					<input checked type="checkbox" name="optins[]" value="OPTIN_PARTENAIRE_ELEVEUR" class="rounded border-jobboard-deepblue text-jobboard-deepblue focus:ring-jobboard-deepblue">
 
-					{{ __('I would like to receive good deals from Eleveurs Online partners') }}
+					{{ __('I would like to receive good deals from :siteName partners' ['siteName' => env('APP_NAME')]) }}
 				</x-front.input-label>
 			</div>
 
@@ -285,7 +285,7 @@
 				<x-front.input-label :class="'cursor-pointer'">
 					<input checked type="checkbox" name="optins[]" value="OPTIN_NL_PROFESSIONNEL" class="rounded border-jobboard-deepblue text-jobboard-deepblue focus:ring-jobboard-deepblue">
 
-					{{ __('I subscribe to the monthly newsletter of Eleveurs Online') }}
+					{{ __('I subscribe to the monthly newsletter of :siteName', ['siteName' => env('APP_NAME')]) }}
 				</x-front.input-label>
 			</div>
 
@@ -293,7 +293,7 @@
 				<x-front.input-label :class="'cursor-pointer'">
 					<input checked type="checkbox" name="optins[]" value="OPTIN_MARKETING_PROFESSIONNEL" class="rounded border-jobboard-deepblue text-jobboard-deepblue focus:ring-jobboard-deepblue">
 
-					{{ __('I would like to receive information from Eleveurs Online and their publishers') }}
+					{{ __('I would like to receive information from :siteName and their publishers', ['siteName' => env('APP_NAME')]) }}
 				</x-front.input-label>
 			</div>
 
@@ -301,7 +301,7 @@
 				<x-front.input-label :class="'cursor-pointer'">
 					<input checked type="checkbox" name="optins[]" value="OPTIN_PARTENAIRE_PROFESSIONNEL" class="rounded border-jobboard-deepblue text-jobboard-deepblue focus:ring-jobboard-deepblue">
 
-					{{ __('I would like to receive good deals from Eleveurs Online partners') }}
+					{{ __('I would like to receive good deals from :siteName partners' ['siteName' => env('APP_NAME')]) }}
 				</x-front.input-label>
 			</div>
 

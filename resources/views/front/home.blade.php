@@ -132,14 +132,14 @@
 		</ol>
 	</nav>
 
-	@if(auth()->check() && auth()->user()->hasRole('adopter'))
+	@if(auth()->check() && auth()->user()->hasRole('applicant'))
 		<livewire:front.space.profile.stats 
 			:where="'adopter'"
 			:key="'dashboard-stats-component'"
 			:isHome="true" />
 	@endif
 
-	@if(! auth()->check() || ! auth()->user()->hasRole('adopter'))
+	@if(! auth()->check() || ! auth()->user()->hasRole('applicant'))
 		<div class="w-full flex justify-center px-4 my-4 md:my-8">
 			<nav class="flex flex-row gap-x-4 md:gap-x-12 bg-white overflow-x-scroll scrollbar-none">
 				<x-front.home.nav-link :href="route('post-search.dog-posts')" :active="request()->routeIs('post-search.dog-posts*')" :class="' hover:bg-jobboard-coral w-[159px] shrink-0'">
@@ -202,7 +202,7 @@
 		</div>
 	@endif
 
-	<hr class="bg-jobboard-greige border-0 @if(auth()->check() && auth()->user()->hasRole('adopter')) mb-6 mt-12 @else my-2 md:my-6 @endif h-px w-full max-w-[1200px]">
+	<hr class="bg-jobboard-greige border-0 @if(auth()->check() && auth()->user()->hasRole('applicant')) mb-6 mt-12 @else my-2 md:my-6 @endif h-px w-full max-w-[1200px]">
 
 	<div class="max-w-[1200px] w-full mb-8 px-4">
 		<livewire:front.animals.litter-animals.recently-published
@@ -256,7 +256,7 @@
 	{{-- Certified breeders --}}
 	<div class="flex flex-col items-center px-4 md:px-8 py-8 lg:py-16 w-full bg-jobboard-cream gap-y-12">
 		<h3 class="font-semibold text-jobboard-deepblue text-[25px] md:text-[40px] text-center">
-			{{ __('Our certified companies') }}
+			{{ __('These companies have joined us') }}
 		</h3>
 
 		<div class="flex flex-col max-lg:gap-y-12 lg:flex-row lg:justify-between max-w-[1200px] w-full">
@@ -271,7 +271,7 @@
 				:key="'cat-companies'" />
 		</div>
 
-		@if(! auth()->check() || ! auth()->user()->hasRole('adopter'))
+		@if(! auth()->check() || ! auth()->user()->hasRole('applicant'))
 			{{-- CTA Create post --}}
 			@include('components.front.cta-post-thin')
 			{{-- End CTA Create post --}}
@@ -300,7 +300,7 @@
 	{{-- End Produits --}}
 	{{-- <div class="mx-auto max-w-[1200px] w-full my-8 md:my-10 lg:my-20 px-4"> --}}
 
-	@if(! auth()->check() || ! auth()->user()->hasRole('adopter'))
+	@if(! auth()->check() || ! auth()->user()->hasRole('applicant'))
 		<div class="mx-auto max-w-[1200px] w-full flex flex-col md:flex-row items-center max-md:gap-y-4 rounded-md bg-jobboard-orange justify-between px-8 lg:px-20 max-lg:py-8 my-20">
 			<div class="flex items-center gap-x-4">
 				<div class="relative w-[120px] md:h-[122px] max-lg:hidden">
@@ -340,7 +340,7 @@
 	@include('components.front.nl', ['bgcolor' => 'bg-jobboard-coral'])
 	{{-- CTA Create post --}}
 
-	@if(! auth()->check() || ! auth()->user()->hasRole('adopter'))
+	@if(! auth()->check() || ! auth()->user()->hasRole('applicant'))
 		@include('components.front.cta-post')
 	@endif
 

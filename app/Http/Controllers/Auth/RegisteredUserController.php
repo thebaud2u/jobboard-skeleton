@@ -76,10 +76,10 @@ class RegisteredUserController extends Controller
 
 		$request->validate($rules, $messages);
 
-		$roleName = 'adopter';
+		$roleName = 'applicant';
 
-		if($request->role == 'adoptant') $roleName = 'adopter';
-		elseif($request->role == 'eleveur') $roleName = 'breeder';
+		if($request->role == 'candidat') $roleName = 'applicant';
+		elseif($request->role == 'recruteur') $roleName = 'recruiter';
 
 		$role = Role::where('name', $roleName)
 			->first();
@@ -96,7 +96,7 @@ class RegisteredUserController extends Controller
 
 			$user->assignRole($role);
 
-			if($user->hasRole(['breeder', 'professionnal'])) {
+			if($user->hasRole('recruiter')) {
 				$stripe = new StripeService;
 
 				$customer_id = $stripe->createCustomer($user);
@@ -107,8 +107,7 @@ class RegisteredUserController extends Controller
 			$optins = [
 				'optin_newsletter',
 				'optin_receive_info',
-				'optin_receive_deals',
-				'optin_figo',
+				'optin_receive_deals'
 			];
 
 			$optinValues = collect($optins)->mapWithKeys(function ($key) use ($request) {
@@ -132,9 +131,8 @@ class RegisteredUserController extends Controller
 				$attributes= [];
 				$suffix = '';
 
-				if($user->hasRole('breeder')) $suffix = 'ELEVEUR';
-				elseif($user->hasRole('professionnal')) $suffix = 'PROFESSIONNEL';
-				else $suffix = 'ADOPTANT';
+				if($user->hasRole('recruiter')) $suffix = 'RECRUTEUR';
+				else $suffix = 'CANDIDAT';
 
 				if(!is_null($request->optin_newsletter)) {
 					$attributes['OPTIN_NL_'.$suffix] = 1;
@@ -157,9 +155,9 @@ class RegisteredUserController extends Controller
 
 			event(new Registered($user));
 
-			if($user->hasRole('breeder')) $userRole = 'eleveur';
-			elseif($user->hasRole('professionnal')) $userRole = 'professionnel';
-			else $userRole = 'adoptant';
+			if($user->hasRole('recruiter')) $userRole = 'recruteur';
+			else $userRole = 'candidat';
+
 			return redirect()
 				->route('login')
 				->withSuccess(__('Please confirm your email address by clicking on the link sent to you'))

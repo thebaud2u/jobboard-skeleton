@@ -58,9 +58,9 @@
 								<td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
 									@if($userEntry->roles->isNotEmpty())
 										<button type="button"
-											@if($userEntry->hasRole('adopter'))
+											@if($userEntry->hasRole('applicant'))
 												class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-3 py-2.5 text-center me-2 mb-2 mr-2 mb-2"
-											@elseif($userEntry->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
+											@elseif($userEntry->hasRole('recruiter'))
 												@if($userEntry->hasRole('breeder'))
 													class="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-3 py-2.5 text-center mr-2 mb-2"
 												@elseif($userEntry->hasRole('professionnal_breeder'))
@@ -120,7 +120,7 @@
 										</button>
 									</a>
 
-									@if($userEntry->hasRole(['professionnal_breeder', 'individual_breeder']))
+									@if($userEntry->hasRole('recruiter'))
 										<button type="button" wire:click="getUser({{ $userEntry->id }}, 'toggle-jobboard-role')" title="{{ $userEntry->hasRole('professionnal_breeder') ? __('Switch the professionnal breeder to an individual breeder') : __('Switch the individual breeder to a professionnal breeder') }}" class="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-3 py-2.5 text-center me-2 mb-2">
 											<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
 												<path stroke-linecap="round" stroke-linejoin="round" d="M3 7.5 7.5 3m0 0L12 7.5M7.5 3v13.5m13.5 0L16.5 21m0 0L12 16.5m4.5 4.5V7.5" />

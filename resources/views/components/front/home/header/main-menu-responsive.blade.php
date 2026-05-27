@@ -329,7 +329,7 @@ px-4 h-screen overflow-y-auto overscroll-contain">
 					$isBreeder = false;
 					$isPro = false;
 					if($isBreederOrPro) {
-						if($user->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder'])) {
+						if($user->hasRole('recruiter')) {
 							$svgColor = '#C68CFF';
 							$isBreeder = true;
 						}

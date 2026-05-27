@@ -16,7 +16,7 @@
 			<div class="flex flex-col gap-2">
 				<div class="flex flex-col">
 					<div class="font-bold flex flex-row leading-snug text-[28px]">
-						@if($toUser->hasRole('adopter'))
+						@if($toUser->hasRole('applicant'))
 							{{ $toUser->name }}
 						@else
 							{{ $name }}

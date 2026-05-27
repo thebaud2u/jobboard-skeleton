@@ -97,7 +97,7 @@ class OptionSeeder extends Seeder
 				'type' => 'company'
 			],
 			[
-				'name' => 'Displays your breeders on your company page',
+				'name' => 'Displays your posts on your company page',
 				'code' => 'display-breeders',
 				'type' => 'company'
 			],

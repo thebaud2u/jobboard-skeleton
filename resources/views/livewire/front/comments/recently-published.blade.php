@@ -148,8 +148,8 @@
 												$currentUser = Auth::guard('web')->user();
 
 												if(
-													($comment->source->hasRole('adopter') && ($currentUser->hasRole(['individual_breeder', 'professionnal_breeder']) && $currentUser->company?->breeds()->where('slug', $target->slug)->first())) ||
-													($comment->source->hasRole(['individual_breeder', 'professionnal_breeder']) && $currentUser->hasRole('adopter'))
+													($comment->source->hasRole('applicant') && ($currentUser->hasRole(['individual_breeder', 'professionnal_breeder']) && $currentUser->company?->breeds()->where('slug', $target->slug)->first())) ||
+													($comment->source->hasRole(['individual_breeder', 'professionnal_breeder']) && $currentUser->hasRole('applicant'))
 												) {
 
 													if($currentUser->hasCommentWaitingModeration($comment)) $canReply = false;

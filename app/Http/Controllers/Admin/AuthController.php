@@ -52,9 +52,8 @@ class AuthController extends Controller
 	{
 		Auth::guard('web')->login($user);
 
-		if($user->hasRole('adopter')) $route = 'home';
-		elseif($user->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder'])) $route = 'home.breeder';
-		elseif($user->hasRole('professionnal')) $route = 'home.pro';
+		if($user->hasRole('applicant')) $route = 'home';
+		elseif($user->hasRole('recruiter')) $route = 'home.recruiter';
 
 		return redirect()->route($route);
 	}

@@ -53,7 +53,7 @@ class Comment extends Model
 			if(!$model->awaitingModeration()) {
 				if($model->target instanceof Company) $model->target->user->notify(new CommentCreated($model));
 				elseif($model->target instanceof Breed) {
-					if(Auth::guard('web')->user()->hasRole('adopter')) {
+					if(Auth::guard('web')->user()->hasRole('applicant')) {
 						$model->target->companies->each(function($company) use($model) {
 							$company->user->notify(new CommentCreated($model));
 						});

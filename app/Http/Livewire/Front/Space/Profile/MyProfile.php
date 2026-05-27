@@ -97,7 +97,7 @@ class MyProfile extends Component
 			'lastname.max' => __('Your :element must be :x caracters maximum', ['element' => __('lastname'), 'x' => 125])
 		];
 
-		if($this->user->hasRole(['professionnal_breeder', 'individual_breeder'])) {
+		if($this->user->hasRole('recruiter')) {
 			$rules['phone'] = 'required';
 			$rules['addressArray.street'] = 'required';
 			$rules['addressArray.custom_city'] = ['required_without:addressArray.city_id'];

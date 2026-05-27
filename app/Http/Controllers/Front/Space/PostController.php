@@ -26,7 +26,7 @@ class PostController extends Controller
 	 */
 	public function index()
 	{
-		if(Auth::guard('web')->user()->hasRole(['professionnal_breeder', 'individual_breeder'])) {
+		if(Auth::guard('web')->user()->hasRole('recruiter')) {
 			$user = Auth::guard('web')->user();
 
 			if($user->profileCompletionPercentage() < 100 && (!$user->values->has('identifiant') && !$user->hasBeenValidated())) return redirect(route('space.profile.complete-my-profile'))->with('error', __('You must complete your profile in order to create a post'));
@@ -48,7 +48,7 @@ class PostController extends Controller
 	 */
 	public function show(Post $post)
 	{
-		if(Auth::guard('web')->user()->hasRole(['professionnal_breeder', 'individual_breeder'])) {
+		if(Auth::guard('web')->user()->hasRole('recruiter')) {
 			if($post->user->id == Auth::guard('web')->user()->id) {
 				$type = $post->type;
 				$postValues = $post->values;
@@ -72,7 +72,7 @@ class PostController extends Controller
 
 	public function checkout(string $type, $data, $priceKey)
 	{
-		if(Auth::guard('web')->user()->hasRole(['professionnal_breeder', 'individual_breeder'])) {
+		if(Auth::guard('web')->user()->hasRole('recruiter')) {
 			$user = Auth::guard('web')->user();
 			$argumentsReady = false;
 
@@ -146,7 +146,7 @@ class PostController extends Controller
 	 */
 	public function showOffers(?Post $post, $postState = null): View|RedirectResponse
 	{
-		if(Auth::guard('web')->user()->hasRole(['professionnal_breeder', 'individual_breeder'])) {
+		if(Auth::guard('web')->user()->hasRole('recruiter')) {
 			$user = Auth::guard('web')->user();
 
 			if($user->company) {
@@ -185,7 +185,7 @@ class PostController extends Controller
 
 	public function offerChosen(Request $request)
 	{
-		if(Auth::guard('web')->user()->hasRole(['professionnal_breeder', 'individual_breeder'])) {
+		if(Auth::guard('web')->user()->hasRole('recruiter')) {
 			$user = Auth::guard('web')->user();
 			$offer = Offer::findBySlug($request->offer);
 			$prices = $offer->getPrices();
@@ -225,7 +225,7 @@ class PostController extends Controller
 
 	public function extendOffer(Post $post)
 	{
-		if(Auth::guard('web')->user()->hasRole(['professionnal_breeder', 'individual_breeder'])) {
+		if(Auth::guard('web')->user()->hasRole('recruiter')) {
 			$user = Auth::guard('web')->user();
 
 			if($user->id == $post->user->id) {
@@ -257,7 +257,7 @@ class PostController extends Controller
 
 	public function buyToPublish(Post $post)
 	{
-		if(Auth::guard('web')->user()->hasRole(['professionnal_breeder', 'individual_breeder'])) {
+		if(Auth::guard('web')->user()->hasRole('recruiter')) {
 			$user = Auth::guard('web')->user();
 
 			if($user->id == $post->user->id) {
@@ -298,7 +298,7 @@ class PostController extends Controller
 	 */
 	public function create(?Offer $offer): View|RedirectResponse
 	{
-		if(Auth::guard('web')->user()->hasRole(['professionnal_breeder', 'individual_breeder'])) {
+		if(Auth::guard('web')->user()->hasRole('recruiter')) {
 			$user = Auth::guard('web')->user();
 
 			if($user->profileCompletionPercentage() < 100 && (!$user->values->has('identifiant') && !$user->hasBeenValidated())) return redirect(route('space.profile.complete-my-profile'))->with('error', __('You must complete your profile in order to create a company'));
@@ -326,7 +326,7 @@ class PostController extends Controller
 	 */
 	public function update(Post $post): View|RedirectResponse
 	{
-		if(Auth::guard('web')->user()->hasRole(['professionnal_breeder', 'individual_breeder']) && Auth::guard('web')->user()->id == $post->user->id) {
+		if(Auth::guard('web')->user()->hasRole('recruiter') && Auth::guard('web')->user()->id == $post->user->id) {
 			return view('front.space.posts.update', [
 				'post' => $post
 			]);
@@ -348,7 +348,7 @@ class PostController extends Controller
 
 	public function unpublish(Post $post)
 	{
-		if(Auth::guard('web')->user()->hasRole(['professionnal_breeder', 'individual_breeder']) && Auth::guard('web')->user()->id == $post->user->id) {
+		if(Auth::guard('web')->user()->hasRole('recruiter') && Auth::guard('web')->user()->id == $post->user->id) {
 			$post->publications()->create([
 				'user_id' => Auth::guard('web')->user()->id,
 				'subscription_id' => $post->lastPublication->subscription->id,

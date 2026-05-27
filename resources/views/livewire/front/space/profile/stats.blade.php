@@ -1,7 +1,7 @@
 <div @if((($where == 'all' || $where == 'breeder' || $where == 'adopter') && $user->hasRole(['adopter', 'breeder', 'professionnal_breeder', 'individual_breeder'])) || (($where == 'all' || $where == 'pro') && $user->hasRole('professionnal')))
 		class="flex flex-col gap-y-4 text-jobboard-deepblue w-full max-w-[1200px] mt-10"
 	@endif>
-	@if($isHome && (($user->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']) && Route::is('home.breeder')) || ($user->hasRole('professionnal') && Route::is('home.pro')) || ($user->hasRole('adopter') && Route::is('home'))))
+	@if($isHome && (($user->hasRole('recruiter') && Route::is('home.breeder')) || ($user->hasRole('professionnal') && Route::is('home.pro')) || ($user->hasRole('applicant') && Route::is('home'))))
 		<div class="flex flex-col s:flex-row s:justify-between max-s:gap-y-2 font-bold text-[28px] px-4">
 			{{ __('My dashboard') }}
 
@@ -19,7 +19,7 @@
 			class="flex flex-col max-md:items-center md:flex-row gap-y-4 justify-between flex-wrap text-jobboard-deepblue w-full max-w-[1200px]"
 		@endif>
 		@if(($where == 'all' || $where == 'breeder' || $where == 'adopter') && $user->hasRole(['adopter', 'breeder', 'professionnal_breeder', 'individual_breeder']))
-			@if($user->hasRole('adopter'))
+			@if($user->hasRole('applicant'))
 				<div class="flex flex-col justify-between gap-y-4 border border-jobboard-greige rounded-xl p-4 @if($isHome) w-[300px] s:w-[380px] @else w-full s:w-[340px] @endif">
 					<div class="flex flex-row justify-between items-center gap-x-2">
 						<div class="flex items-center gap-x-2 font-bold">
@@ -72,7 +72,7 @@
 					</div>
 
 					<div class="flex justify-end">
-						<a href="{{ $user->hasRole('adopter') ? route('space.animals.my-animals') : route('space.companies.my-company') }}">
+						<a href="{{ $user->hasRole('applicant') ? route('space.animals.my-animals') : route('space.companies.my-company') }}">
 							<div class="flex items-center gap-x-2 text-sm font-bold hover:underline hover:underline-offset-4">
 								{{ __('Manage my pets') }}
 
@@ -83,7 +83,7 @@
 						</a>
 					</div>
 				</div>
-			@elseif(($where == 'all' || $where == 'breeder') && $user->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
+			@elseif(($where == 'all' || $where == 'breeder') && $user->hasRole('recruiter'))
 				<div class="flex flex-col justify-between gap-y-4 border border-jobboard-greige rounded-xl p-4 @if($isHome) w-[300px] s:w-[380px] @else w-full s:w-[340px] @endif">
 					@php
 						$postStats = $user->getPostStats()

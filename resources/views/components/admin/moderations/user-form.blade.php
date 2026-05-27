@@ -92,21 +92,21 @@
 			<div>
 				<div class="flex flex-row">
 					@php
-						if($moderation->model->hasRole('adopter')) $interest = __('Interested in');
-						elseif($moderation->model->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder'])) $interest = __('Company');
+						if($moderation->model->hasRole('applicant')) $interest = __('Interested in');
+						elseif($moderation->model->hasRole('recruiter')) $interest = __('Company');
 					@endphp
 
 					<x-front.input-label for="name" :value="$interest" />
 				</div>
 
 				<p>
-					@if($moderation->model->hasRole('adopter'))
+					@if($moderation->model->hasRole('applicant'))
 						@if($moderation->model->values->get('interested_in') === 'both')
 							{{ __('the dogs and the cats') }}
 						@else
 							{{ __('the '.$moderation->model->values->get('interested_in')) }}
 						@endif
-					@elseif($moderation->model->hasRole(['breeder', 'professionnal_breeder', 'individual_breeder']))
+					@elseif($moderation->model->hasRole('recruiter'))
 						@if($moderation->model->values->get('interested_in') === 'both')
 							{{ __('breeder the dogs and the cats') }}
 						@else
@@ -303,7 +303,7 @@
 					@endif
 				@endif
 
-				@if($moderation->model->hasRole(['professionnal_breeder', 'individual_breeder']))
+				@if($moderation->model->hasRole('recruiter'))
 					@foreach($moderation->model->values->get('agreement_EOL') as $key => $agreement)
 						@if($moderation->model->values->get('interested_in') == 'both' || $moderation->model->values->get('interested_in') == $key)
 							<div>
